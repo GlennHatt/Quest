@@ -43,7 +43,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -98,11 +98,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="packages.config" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
+    <Content Include="MasterPages\Parent.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,13 +124,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\Parent.Master.cs">
+      <DependentUpon>Parent.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Parent.Master.designer.cs">
+      <DependentUpon>Parent.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Models\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
