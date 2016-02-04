@@ -101,9 +101,18 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\mdl-v1.0.5\material.css" />
+    <Content Include="Content\mdl-v1.0.5\material.js" />
+    <Content Include="Content\mdl-v1.0.5\material.min.css" />
+    <Content Include="Content\mdl-v1.0.5\material.min.js" />
     <Content Include="packages.config" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
     <Content Include="MasterPages\Parent.Master" />
+    <Content Include="Content\mdl-v1.0.5\package.json" />
+    <Content Include="Content\mdl-v1.0.5\material.min.js.map" />
+    <Content Include="Content\mdl-v1.0.5\material.min.css.map" />
+    <Content Include="Content\mdl-v1.0.5\LICENSE" />
+    <Content Include="Content\mdl-v1.0.5\bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
