@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestWebApp", "QuestWebApp\QuestWebApp.csproj", "{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestWebApp", "QuestWebApp\QuestWebApp.csproj", "{9553F100-F196-4635-9B96-FA02B35B8ABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestWebApp.Tests", "QuestWebApp.Tests\QuestWebApp.Tests.csproj", "{F6B67A9E-442E-4996-9DEF-C98AD2424605}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9553F100-F196-4635-9B96-FA02B35B8ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9553F100-F196-4635-9B96-FA02B35B8ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9553F100-F196-4635-9B96-FA02B35B8ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9553F100-F196-4635-9B96-FA02B35B8ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B67A9E-442E-4996-9DEF-C98AD2424605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B67A9E-442E-4996-9DEF-C98AD2424605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B67A9E-442E-4996-9DEF-C98AD2424605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B67A9E-442E-4996-9DEF-C98AD2424605}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

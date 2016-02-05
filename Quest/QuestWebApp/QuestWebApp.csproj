@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{72B90FAA-A8B0-41A2-BF36-9F59165C1E88}</ProjectGuid>
+    <ProjectGuid>{9553F100-F196-4635-9B96-FA02B35B8ABE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -43,10 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -98,21 +94,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\mdl-v1.0.5\material.css" />
-    <Content Include="Content\mdl-v1.0.5\material.js" />
-    <Content Include="Content\mdl-v1.0.5\material.min.css" />
-    <Content Include="Content\mdl-v1.0.5\material.min.js" />
-    <Content Include="packages.config" />
-    <Content Include="scripts\jquery-2.2.0.min.map" />
-    <Content Include="MasterPages\Parent.Master" />
-    <Content Include="Content\mdl-v1.0.5\package.json" />
-    <Content Include="Content\mdl-v1.0.5\material.min.js.map" />
-    <Content Include="Content\mdl-v1.0.5\material.min.css.map" />
-    <Content Include="Content\mdl-v1.0.5\LICENSE" />
-    <Content Include="Content\mdl-v1.0.5\bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,28 +109,17 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <None Include="scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="scripts\jquery-2.2.0.js" />
-    <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MasterPages\Parent.Master.cs">
-      <DependentUpon>Parent.Master</DependentUpon>
-    </Compile>
-    <Compile Include="MasterPages\Parent.Master.designer.cs">
-      <DependentUpon>Parent.Master</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="App_Themes\Theme1\" />
-    <Folder Include="Pages\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -160,7 +134,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52416</DevelopmentServerPort>
+          <DevelopmentServerPort>62379</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:52416/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
