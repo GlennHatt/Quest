@@ -112,6 +112,7 @@
     <Content Include="Content\mdl-v1.0.5\LICENSE" />
     <Content Include="Content\mdl-v1.0.5\bower.json" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Pages\TestCreation.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -132,12 +133,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestCreation.aspx.cs">
+      <DependentUpon>TestCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TestCreation.aspx.designer.cs">
+      <DependentUpon>TestCreation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
