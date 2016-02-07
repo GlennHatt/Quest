@@ -53,6 +53,12 @@
         <!-- End Material Design Packages -->
 </head>
 <body>
+
+    <div id="center">
+        <div id="main" style="text-align:center">
+            <p><img src="../Assets/Images/crown.png" style="height: 15%; width: 15%;" /></p>
+        </div>
+     </div>
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -60,11 +66,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <div id="center">
-        <div id="main" style="text-align:center">
-            <p><img src="../Assets/Images/crown.png" style="height: 15%; width: 15%;" /></p>
-        </div>
-     </div>
+    
     
 </body>
 </html>
