@@ -20,7 +20,7 @@
         <a href="../Content/mdl-v1.0.5/bower.json"></a>
         <link href="../Content/mdl-v1.0.5/material.css" rel="stylesheet" />
         <script src="../Content/mdl-v1.0.5/material.js"></script>
-        <link href="../Content/mdl-v1.0.5/material.min.css" rel="stylesheet" /> <!--REMOVE THIS WHEN TEACHER MASTER PAGE IS MADE -->
+        <link href="../Content/mdl-v1.0.5/material.min.css" rel="stylesheet" /> 
         <a href="../Content/mdl-v1.0.5/material.min.css.map"></a>
         <script src="../Content/mdl-v1.0.5/material.min.js"></script>
         <a href="../Content/mdl-v1.0.5/material.min.js.map"></a>
