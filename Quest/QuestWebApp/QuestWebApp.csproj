@@ -119,8 +119,10 @@
     <Content Include="Content\mdl-v1.0.5\bower.json" />
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
+    <Content Include="Master-Pages\teacher.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\WebForm1.aspx" />
+    <Content Include="Pages\WebForm2.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -155,12 +157,26 @@
     <Compile Include="Master-Pages\student.master.designer.cs">
       <DependentUpon>student.master</DependentUpon>
     </Compile>
+    <Compile Include="Master-Pages\teacher.master.cs">
+      <DependentUpon>teacher.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master-Pages\teacher.master.designer.cs">
+      <DependentUpon>teacher.master</DependentUpon>
+    </Compile>
     <Compile Include="Pages\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

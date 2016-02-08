@@ -10,24 +10,15 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class student {
+    public partial class teacher {
         
         /// <summary>
-        /// studentBody control.
+        /// teacherBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentBody;
-        
-        /// <summary>
-        /// Panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherBody;
     }
 }

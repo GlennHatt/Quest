@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>test</title>
+    
+    <asp:ContentPlaceHolder ID="breadCrumb" runat="server">
+
+    </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="head" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -49,6 +53,11 @@
 
         <link rel="shortcut icon" href="images/favicon.png"/>
 
+    
+    <asp:ContentPlaceHolder ID="extraReferances" runat="server">
+
+    </asp:ContentPlaceHolder>
+
 
         <!-- End Material Design Packages -->
 </head>
@@ -56,12 +65,12 @@
 
     <div id="center">
         <div id="main" style="text-align:center">
-            <p><img src="../Assets/Images/crown.png" style="height: 15%; width: 15%;" /></p>
+            <p><img src="../Assets/Images/crown.png" style="height: 15%; width: 15%; z-index: 9999; position: absolute" /></p>
         </div>
      </div>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="headBody" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>

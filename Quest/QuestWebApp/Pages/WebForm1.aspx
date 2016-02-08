@@ -1,14 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="QuestWebApp.Pages.WebForm1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="QuestWebApp.Pages.WebForm1" %>
 
+<asp:Content runat="server" ContentPlaceHolderID="studentBody">
 
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Test</h1>
 
-
-    
-
-
-
-    
 </asp:Content>
