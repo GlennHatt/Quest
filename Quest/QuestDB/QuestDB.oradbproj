@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>12.1.0.2</ProductVersion>
+    <ProjectGuid>9f993c1d-dd85-448a-bf79-d057863cc2f2</ProjectGuid>
+    <DBVERSION>
+    </DBVERSION>
+    <DEFAULTSCHEMANAME>
+    </DEFAULTSCHEMANAME>
+    <AssemblyName>QuestDB</AssemblyName>
+    <Name>QuestDB</Name>
+    <RootNamespace>QuestDB</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Functions\" />
+    <Folder Include="Packages\" />
+    <Folder Include="Procedures\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Security\" />
+    <Folder Include="Security\Permissions\" />
+    <Folder Include="Security\Roles\" />
+    <Folder Include="Security\Users\" />
+    <Folder Include="Sequences\" />
+    <Folder Include="Synonyms\" />
+    <Folder Include="Tables\" />
+    <Folder Include="Tables\Relational Tables" />
+    <Folder Include="Tables\Object Tables" />
+    <Folder Include="Tables\XML Tables" />
+    <Folder Include="User Defined Types\" />
+    <Folder Include="User Defined Types\Nested Tables\" />
+    <Folder Include="User Defined Types\Objects\" />
+    <Folder Include="User Defined Types\VARRAYs\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Relational Views" />
+    <Folder Include="Views\Object Views" />
+    <Folder Include="Views\XML Views" />
+    <Folder Include="Views\Materialized Views" />
+    <Folder Include="XML Schemas\" />
+    <Folder Include="AQ\" />
+    <Folder Include="AQ\Queues\" />
+    <Folder Include="AQ\Queue Tables\" />
+    <Folder Include="Pluggable Databases\" />
+    <Folder Include="Triggers\" />
+    <Folder Include="Triggers\Table Triggers" />
+    <Folder Include="Triggers\View Triggers" />
+    <Folder Include="Triggers\Schema Triggers" />
+    <Folder Include="Triggers\Database Triggers" />
+    <Folder Include="Indexes\" />
+    <DBRefs Include="Database References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Packages\END_USERS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CLASS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\END_USER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\ENROLLMENT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\SECTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <DBRef Include="Database References\CS414S16.xe\">
+      <ConnectionString>DATA SOURCE=localhost:1521/xe;PERSIST SECURITY INFO=True;USER ID=CS414S16</ConnectionString>
+    </DBRef>
+  </ItemGroup>
+</Project>
