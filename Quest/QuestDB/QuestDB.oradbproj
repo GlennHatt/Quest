@@ -62,6 +62,15 @@
     <Content Include="Tables\Relational Tables\ENROLLMENT.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\ESSAY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\MATCHING.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\MATCHING_BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\SECTION.sql">
       <SubType>Content</SubType>
     </Content>
