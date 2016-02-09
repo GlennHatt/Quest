@@ -1,17 +1,20 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="teacher.master.cs" Inherits="QuestWebApp.Master_Pages.teacher" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+    <asp:ContentPlaceHolder ID="teacherBreadCrumb" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="teacherHead" runat="server" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+    <asp:ContentPlaceHolder ID="extraReferances" runat="server" />
 </asp:Content>
+
+
 <asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
 
-    <asp:ContentPlaceHolder ID="teacherBody" runat="server" >
-
-
-
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="teacherBody" runat="server" />
     
 
     <!-- Always shows a header, even in smaller screens. -->
@@ -20,11 +23,12 @@
             
           </header>
           <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
+            <span class="mdl-layout-title">Welcome, </span>
             <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Test Builder</a>
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_circle</i> Teachers & Classes</a>
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i> Scores</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i> Test Builder</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Students & Classes</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">content_copy</i> Tests</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help</a>
             </nav>
@@ -34,4 +38,8 @@
           </main>
         </div>
 
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
+    <asp:ContentPlaceHolder ID="teacherPageSpecificJS" runat="server" />
 </asp:Content>
