@@ -130,7 +130,9 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
+    <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
@@ -166,6 +168,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Master-Pages\admin.master.cs">
+      <DependentUpon>admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master-Pages\admin.master.designer.cs">
+      <DependentUpon>admin.master</DependentUpon>
+    </Compile>
     <Compile Include="Master-Pages\Head.Master.cs">
       <DependentUpon>Head.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +195,13 @@
     </Compile>
     <Compile Include="Master-Pages\teacher.master.designer.cs">
       <DependentUpon>teacher.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminTest.aspx.cs">
+      <DependentUpon>adminTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminTest.aspx.designer.cs">
+      <DependentUpon>adminTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentTest.aspx.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
