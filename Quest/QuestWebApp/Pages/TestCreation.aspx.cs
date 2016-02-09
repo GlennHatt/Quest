@@ -45,8 +45,8 @@ namespace QuestWebApp.Pages
         {
             // Multiple choice question checked and saved
             if(rblChooseQuestion.SelectedValue == "Multiple Choice")
-                if(txtMCQuestion.Text != "")
-                    if (txtMC1.Text != "" || txtMC2.Text != "" || txtMC3.Text != "" || txtMC4.Text != "")
+                if(txtMCQuestion.Text != String.Empty)
+                    if (txtMC1.Text != String.Empty || txtMC2.Text != String.Empty || txtMC3.Text != String.Empty || txtMC4.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtMCQuestion.Text;
                         if(rdbMC1.Checked == true)
@@ -69,7 +69,7 @@ namespace QuestWebApp.Pages
 
             // True False Question checked and saved
             if(rblChooseQuestion.SelectedValue == "True False")
-                if(txtTFQuestion.Text != "")
+                if(txtTFQuestion.Text != String.Empty)
                 {
                     txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtTFQuestion.Text;
                     if(rblTrueFalse.SelectedValue == "True")
@@ -84,13 +84,13 @@ namespace QuestWebApp.Pages
 
             // Fill in the Blank question checked and saved
             if (rblChooseQuestion.SelectedValue == "Fill in the Blank")
-                if (txtFBAnswer.Text != "")
+                if (txtFBAnswer.Text != String.Empty)
                 {
-                    if (txtFBStatementBegin.Text != "" && txtFBStatementEnd.Text != "")
+                    if (txtFBStatementBegin.Text != String.Empty && txtFBStatementEnd.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text + txtFBStatementEnd.Text;
                     }
-                    else if(txtFBStatementBegin.Text != "")
+                    else if(txtFBStatementBegin.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text;
                     }
@@ -98,6 +98,15 @@ namespace QuestWebApp.Pages
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBAnswer.Text + txtFBStatementEnd.Text;
                     }
+                }
+
+            // TODO Matching question checked and saved
+
+            // Essay question checked and saved
+            if (rblChooseQuestion.SelectedValue == "Essay")
+                if (txtEQuestion.Text != String.Empty)
+                {
+                    txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtEQuestion.Text;
                 }
         }
     }

@@ -409,13 +409,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblEQuestion;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtEQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEQuestion;
         
         /// <summary>
         /// AnswerBank control.

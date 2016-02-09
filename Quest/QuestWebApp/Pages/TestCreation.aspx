@@ -117,7 +117,7 @@
         <asp:Label ID="lblEssay" runat="server" Text="Essay"></asp:Label>
         <br />
         <asp:Label ID="lblEQuestion" runat="server" Text="Question: "></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtEQuestion" runat="server"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="AnswerBank" runat="server" Text="Question/Answers Entered"></asp:Label>
