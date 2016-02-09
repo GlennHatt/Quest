@@ -1,16 +1,20 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="QuestWebApp.Master_Pages.student" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="teacher.master.cs" Inherits="QuestWebApp.Master_Pages.teacher" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="headBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
 
-    <asp:ContentPlaceHolder ID="studentBody" runat="server">
+    <asp:ContentPlaceHolder ID="teacherBody" runat="server" >
+
+
 
     </asp:ContentPlaceHolder>
     
-    
-    <asp:Panel ID="Panel1" runat="server">
 
-        <!-- Always shows a header, even in smaller screens. -->
+    <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <header class="mdl-layout__header">
             
@@ -18,7 +22,7 @@
           <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">Title</span>
             <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Test Builder</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_circle</i> Teachers & Classes</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i> Scores</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings</a>
@@ -29,6 +33,5 @@
             <div class="page-content"><!-- Your content goes here --></div>
           </main>
         </div>
-        
-    </asp:Panel>
+
 </asp:Content>

@@ -131,8 +131,8 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Pages\WebForm1.aspx" />
-    <Content Include="Pages\WebForm2.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
+    <Content Include="Pages\teacherTest.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -187,19 +187,19 @@
     <Compile Include="Master-Pages\teacher.master.designer.cs">
       <DependentUpon>teacher.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Pages\studentTest.aspx.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Pages\studentTest.aspx.designer.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Pages\teacherTest.aspx.cs">
+      <DependentUpon>teacherTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Pages\teacherTest.aspx.designer.cs">
+      <DependentUpon>teacherTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test pond\WebForm1.aspx.cs">
