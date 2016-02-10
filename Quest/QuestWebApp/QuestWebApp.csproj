@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Pages\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TestCreation.aspx.cs">
       <DependentUpon>TestCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
