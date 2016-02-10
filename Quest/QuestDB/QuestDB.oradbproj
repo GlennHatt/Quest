@@ -71,7 +71,31 @@
     <Content Include="Tables\Relational Tables\MATCHING_BODY.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\MULTIPLE_CHOICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\MULTIPLE_CHOICE_CHOICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\QUESTIONS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\QUESTION_TAKEN.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\SECTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\SHORT_ANSWER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\TEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\TEST_TAKEN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\TRUE_FALSE.sql">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
