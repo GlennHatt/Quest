@@ -22,15 +22,6 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
         
         /// <summary>
-        /// studentBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentBody;
-        
-        /// <summary>
         /// txtStudentGreeting control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace QuestWebApp.Master_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtStudentGreeting;
+        
+        /// <summary>
+        /// studentBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentBody;
         
         /// <summary>
         /// teacherPageSpecificJS control.
