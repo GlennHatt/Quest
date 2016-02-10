@@ -132,12 +132,10 @@
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Pages\WebForm1.aspx" />
-    <Content Include="Pages\WebForm2.aspx" />
-    <Content Include="Pages\TestCreation.aspx" />
     <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
+    <Content Include="Pages\TestCreation.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />

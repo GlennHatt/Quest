@@ -13,8 +13,6 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
 
-    <asp:ContentPlaceHolder ID="adminBody" runat="server" />
-
     <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <header class="mdl-layout__header">
@@ -35,6 +33,8 @@
             <div class="page-content"><!-- Your content goes here --></div>
           </main>
         </div>
+
+    <asp:ContentPlaceHolder ID="adminBody" runat="server" />
 
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
