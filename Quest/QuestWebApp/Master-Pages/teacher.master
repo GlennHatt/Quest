@@ -1,21 +1,22 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="QuestWebApp.Master_Pages.student" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="teacher.master.cs" Inherits="QuestWebApp.Master_Pages.teacher" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+    <asp:ContentPlaceHolder ID="teacherBreadCrumb" runat="server" />
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="teacherHead" runat="server" />
 
-    <title>Student | Home</title>
-        
+    <title>Teacher | Home</title>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
     <asp:ContentPlaceHolder ID="extraReferances" runat="server" />
 </asp:Content>
 
+
 <asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
 
-    <asp:ContentPlaceHolder ID="studentBody" runat="server" />
+    <asp:ContentPlaceHolder ID="teacherBody" runat="server" />
     
 
     <!-- Always shows a header, even in smaller screens. -->
@@ -24,10 +25,10 @@
             
           </header>
           <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Welcome, <asp:Label ID="txtStudentGreeting" runat="server" Text="User!"></asp:Label></span>
+            <span class="mdl-layout-title">Welcome, <asp:Label ID="txtTeacherGreeting" runat="server" Text="User!"></asp:Label></span>
             <nav class="mdl-navigation">
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
-                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i> Test Builder</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i> Test Builder</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Students & Classes</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">content_copy</i> Tests</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings</a>
