@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="QuestWebApp.Master_Pages.student" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="headBody" runat="server">
+
+    <asp:ContentPlaceHolder ID="studentBody" runat="server">
+
+    </asp:ContentPlaceHolder>
+    
+    
+    <asp:Panel ID="Panel1" runat="server">
+
+        <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here --></div>
+  </main>
+</div>
+        
+    </asp:Panel>
+</asp:Content>
