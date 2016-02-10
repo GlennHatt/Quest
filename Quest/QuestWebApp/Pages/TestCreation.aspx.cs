@@ -10,6 +10,47 @@ namespace QuestWebApp.Pages
     public partial class TestCreation : System.Web.UI.Page
     {
 
+        public struct MultipleChoice
+        {
+            private int questionId;
+            private string question;
+            private string answer;
+        }
+
+        //TODO: Finish multiple choices for Multiple Choice
+
+        // structure for true/false questions with unique constructor
+        public struct TrueFalse
+        {
+            public int questionId;
+            public int pointValue;
+            public string question;
+            public string answer;
+
+            public TrueFalse(int newQuestionId, int newPointValue, string newQuestion, string newAnswer)
+            {
+                questionId = newQuestionId;
+                pointValue = newPointValue;
+                question = newQuestion;
+                answer = newAnswer;
+            }
+        }
+
+        public struct ShortAnswer
+        {
+            private int questionId;
+            private string beforeText;
+            private string answer;
+            private string afterText;
+        }
+
+        // TODO: Make matching structure
+
+        public struct Essay
+        {
+            private int questionId;
+            private string question;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -43,6 +84,7 @@ namespace QuestWebApp.Pages
 
         protected void btnSaveQuestion_Click(object sender, EventArgs e)
         {
+
             // Multiple choice question checked and saved
             if(rblChooseQuestion.SelectedValue == "Multiple Choice")
                 if(txtMCQuestion.Text != String.Empty)
@@ -71,14 +113,17 @@ namespace QuestWebApp.Pages
             if(rblChooseQuestion.SelectedValue == "True False")
                 if(txtTFQuestion.Text != String.Empty)
                 {
-                    txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtTFQuestion.Text;
+                    // tentative method for making unique questionIds
+                    //questionIdCounter++;
+                    TrueFalse newQuestion = new TrueFalse(1, Int32.Parse(ddlPointValue.SelectedValue), txtTFQuestion.Text, rblTrueFalse.SelectedValue);
+                    txtTest.Text += "\r\n " + newQuestion.pointValue + " " + newQuestion.pointValue + " " + newQuestion.question;
                     if(rblTrueFalse.SelectedValue == "True")
                     {
-                        txtTest.Text += " " + rblTrueFalse.SelectedValue;
+                        txtTest.Text += " " + newQuestion.answer;
                     }
                     else
                     {
-                        txtTest.Text += " " + rblTrueFalse.SelectedValue;
+                        txtTest.Text += " " + newQuestion.answer;
                     }
                 }
 
@@ -101,6 +146,8 @@ namespace QuestWebApp.Pages
                 }
 
             // TODO Matching question checked and saved
+            //if (rblChooseQuestion.SelectedValue == "Matching")
+            //   if
 
             // Essay question checked and saved
             if (rblChooseQuestion.SelectedValue == "Essay")
