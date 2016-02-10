@@ -13,6 +13,33 @@ namespace QuestWebApp.Master_Pages {
     public partial class teacher {
         
         /// <summary>
+        /// teacherBreadCrumb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherBreadCrumb;
+        
+        /// <summary>
+        /// teacherHead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherHead;
+        
+        /// <summary>
+        /// extraReferances control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
+        
+        /// <summary>
         /// teacherBody control.
         /// </summary>
         /// <remarks>
@@ -20,5 +47,23 @@ namespace QuestWebApp.Master_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherBody;
+        
+        /// <summary>
+        /// txtTeacherGreeting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtTeacherGreeting;
+        
+        /// <summary>
+        /// teacherPageSpecificJS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherPageSpecificJS;
     }
 }
