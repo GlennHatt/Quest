@@ -24,7 +24,7 @@
             
           </header>
           <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Welcome, </span>
+            <span class="mdl-layout-title">Welcome, <asp:Label ID="txtStudentGreeting" runat="server" Text="User!"></asp:Label></span>
             <nav class="mdl-navigation">
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
                 <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">create</i> Test Builder</a>
@@ -32,6 +32,7 @@
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">content_copy</i> Tests</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings</a>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i> Logout</a>
             </nav>
           </div>
           <main class="mdl-layout__content">
