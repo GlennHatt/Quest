@@ -1,13 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TestCreation.aspx.cs" Inherits="QuestWebApp.Pages.TestCreation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master-Pages/teacher.master" CodeBehind="TestCreation.aspx.cs" Inherits="QuestWebApp.Pages.TestCreation" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="teacherBody" runat="server">
     <div>
     
         <asp:Label ID="lblQuestionChoice" runat="server" Text="Choose a question type:"></asp:Label>
@@ -99,7 +98,7 @@
         <asp:Label ID="lblMatching" runat="server" Text="Matching"></asp:Label>
         <br />
         <asp:Label ID="lblQuestion" runat="server" Text="Question"></asp:Label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="lblAnswer" runat="server" Text="Answer"></asp:Label>
+        <asp:Label ID="lblAnswer" runat="server" Text="Answer"></asp:Label>
         <br />
         <asp:TextBox ID="txtMQuestion1" runat="server"></asp:TextBox>
         <asp:TextBox ID="txtMAnswer1" runat="server"></asp:TextBox>
@@ -123,6 +122,6 @@
         <asp:Label ID="AnswerBank" runat="server" Text="Question/Answers Entered"></asp:Label>
         <br />
         <asp:TextBox ID="txtTest" runat="server" Height="191px" Width="609px" TextMode="MultiLine"></asp:TextBox>
-    </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
+</asp:Content>
