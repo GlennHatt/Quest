@@ -10,60 +10,60 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class Head {
+    public partial class admin {
         
         /// <summary>
-        /// breadCrumb control.
+        /// adminBreadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder breadCrumb;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBreadCrumb;
         
         /// <summary>
-        /// head control.
+        /// adminHead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminHead;
         
         /// <summary>
-        /// extraReferances control.
+        /// adminExtraReferances control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminExtraReferances;
         
         /// <summary>
-        /// form1 control.
+        /// adminBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBody;
         
         /// <summary>
-        /// headBody control.
+        /// txtAdminGreeting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder headBody;
+        protected global::System.Web.UI.WebControls.Label txtAdminGreeting;
         
         /// <summary>
-        /// pageSpecificJS control.
+        /// adminPageSpecificJS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageSpecificJS;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminPageSpecificJS;
     }
 }
