@@ -123,6 +123,7 @@
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Pages\WebForm2.aspx" />
+    <Content Include="Pages\TestCreation.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -177,6 +178,12 @@
     </Compile>
     <Compile Include="Pages\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Pages\TestCreation.aspx.cs">
+      <DependentUpon>TestCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TestCreation.aspx.designer.cs">
+      <DependentUpon>TestCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
