@@ -9,19 +9,37 @@ namespace QuestWebApp.Pages
 {
     public partial class TestCreation : System.Web.UI.Page
     {
+        // List for all questions in test
+        public List<Question> questionList = new List<Question>();
 
-        // partial structure for multiple choice questions (partial)
-        public struct MultipleChoice
+        // Question counter
+        public int questionCounter = 1;
+
+        // Universal Question structure
+        public struct Question
         {
             public int    questionId;
             public int    pointValue;
-            public string question;
-            public string answer;
+            public string questionType;
 
-            public MultipleChoice(int newQuestionId, int newPointValue, string newQuestion, string newAnswer)
+            public Question(int newQuestionId, int newPointValue, string newQuestionType)
             {
                 questionId = newQuestionId;
                 pointValue = newPointValue;
+                questionType = newQuestionType;
+            }
+        }
+
+        // Multiple Choice structure (partial)
+        public struct MultipleChoice
+        {
+            public int    questionId;
+            public string question;
+            public string answer;
+
+            public MultipleChoice(int newQuestionId, string newQuestion, string newAnswer)
+            {
+                questionId = newQuestionId;
                 question   = newQuestion;
                 answer     = newAnswer;
             }
@@ -29,55 +47,49 @@ namespace QuestWebApp.Pages
 
         //TODO: Finish multiple choices for Multiple Choice
 
-        // structure for true/false questions with unique constructor
+        // True False structure
         public struct TrueFalse
         {
             public int    questionId;
-            public int    pointValue;
             public string question;
             public string answer;
 
-            public TrueFalse(int newQuestionId, int newPointValue, string newQuestion, string newAnswer)
+            public TrueFalse(int newQuestionId, string newQuestion, string newAnswer)
             {
                 questionId = newQuestionId;
-                pointValue = newPointValue;
                 question   = newQuestion;
                 answer     = newAnswer;
             }
         }
 
-        // structure for short answer question with unique constructor
+        // Short Answer structure
         public struct ShortAnswer
         {
             public int    questionId;
-            public int    pointValue;
             public string beforeText;
             public string answer;
             public string afterText;
 
-            public ShortAnswer(int newQuestionId, int newPointValue, string newBeforeText, string newAnswer, string newAfterText)
+            public ShortAnswer(int newQuestionId, string newBeforeText, string newAnswer, string newAfterText)
             {
                 questionId = newQuestionId;
-                pointValue = newPointValue;
                 beforeText = newBeforeText;
-                answer = newAnswer;
-                afterText = newAfterText;
+                answer     = newAnswer;
+                afterText  = newAfterText;
             }
         }
 
         // TODO: Make matching structure
 
-        // structure for essay questions with unique constructor
+        // Essay structure
         public struct Essay
         {
             public int    questionId;
-            public int    pointValue;
             public string question;
 
-            public Essay(int newQuestionId, int newPointValue, string newQuestion)
+            public Essay(int newQuestionId, string newQuestion)
             {
                 questionId = newQuestionId;
-                pointValue = newPointValue;
                 question = newQuestion;
             }
         }
@@ -97,8 +109,8 @@ namespace QuestWebApp.Pages
                 case "True False":
                     lblWarning.Text = "True False";
                     break;
-                case "Fill in the Blank":
-                    lblWarning.Text = "Fill in the Blank";
+                case "Short Answer":
+                    lblWarning.Text = "Short Answer";
                     break;
                 case "Matching":
                     lblWarning.Text = "Matching";
@@ -138,8 +150,9 @@ namespace QuestWebApp.Pages
                         {
                             multipleChoiceAnswer = "0" + txtMC1.Text + " 0" + txtMC2.Text + " 0" + txtMC3.Text + " 1" + txtMC4.Text;
                         }
-                        MultipleChoice newQuestion = new MultipleChoice(1, Int32.Parse(ddlPointValue.SelectedValue), txtMCQuestion.Text, multipleChoiceAnswer);
-                        txtTest.Text += "\r\n " + newQuestion.questionId + " " + newQuestion.pointValue + " " + newQuestion.question + " " + newQuestion.answer; 
+                        Question newQuestion = new Question(1, Int32.Parse(ddlPointValue.SelectedValue), "Multiple Choice");
+                        questionList.Add(newQuestion);
+                        //txtTest.Text += "\r\n " + newQuestion.questionId + " " + newQuestion.pointValue + " " + newQuestion.question + " " + newQuestion.answer; 
 
                     }
 
@@ -147,52 +160,61 @@ namespace QuestWebApp.Pages
             if(rblChooseQuestion.SelectedValue == "True False")
                 if(txtTFQuestion.Text != String.Empty)
                 {
-                    // Right now, this is the question that prints off from the structure created
-                    TrueFalse newQuestion = new TrueFalse(1, Int32.Parse(ddlPointValue.SelectedValue), txtTFQuestion.Text, rblTrueFalse.SelectedValue);
-                    txtTest.Text += "\r\n " + newQuestion.pointValue + " " + newQuestion.pointValue + " " + newQuestion.question;
+                    Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "True/False");
+                    questionList.Add(newQuestion);
+                    questionCounter++;
+                    txtTest.Text = questionCounter.ToString();
+                    //txtTest.Text += "\r\n " + newQuestion.pointValue + " " + newQuestion.pointValue + " " + newQuestion.question;
                     if(rblTrueFalse.SelectedValue == "True")
                     {
-                        txtTest.Text += " " + newQuestion.answer;
+                        //txtTest.Text += " " + newQuestion.answer;
                     }
                     else
                     {
-                        txtTest.Text += " " + newQuestion.answer;
+                        //txtTest.Text += " " + newQuestion.answer;
                     }
                 }
 
             // Fill in the Blank question checked and saved
-            if (rblChooseQuestion.SelectedValue == "Fill in the Blank")
+            if (rblChooseQuestion.SelectedValue == "Short Answer")
                 if (txtFBAnswer.Text != String.Empty)
                 {
-                    
+                    Question newQuestion = new Question(1, Int32.Parse(ddlPointValue.SelectedValue), "Short Answer");
                     if (txtFBStatementBegin.Text != String.Empty && txtFBStatementEnd.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text + txtFBStatementEnd.Text;
-                        ShortAnswer newQuestion = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, txtFBStatementEnd.Text);
+                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                     else if(txtFBStatementBegin.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text;
-                        ShortAnswer newQuestion = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, String.Empty);
+                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, String.Empty);
                     }
                     else
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBAnswer.Text + txtFBStatementEnd.Text;
-                        ShortAnswer newQuestion = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), String.Empty, txtFBAnswer.Text, txtFBStatementEnd.Text);
+                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), String.Empty, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                 }
 
             // TODO Matching question checked and saved
-            //if (rblChooseQuestion.SelectedValue == "Matching")
-            //   if
 
             // Essay question checked and saved
             if (rblChooseQuestion.SelectedValue == "Essay")
                 if (txtEQuestion.Text != String.Empty)
                 {
-                    Essay newQuestion = new Essay(1, Int32.Parse(ddlPointValue.SelectedValue), txtEQuestion.Text);
+                    Question newQuestion = new Question(1, Int32.Parse(ddlPointValue.SelectedValue), "Essay");
                     txtTest.Text += "\r\n" + ddlPointValue.Text + txtEQuestion.Text;
                 }
+        }
+
+        protected void displayQuestions_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i <= questionList.Count; i++)
+            {
+                txtTest.Text = questionList.Count.ToString();
+                //txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
+            }
         }
     }
 }

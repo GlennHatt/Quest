@@ -1,12 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master-Pages/teacher.master" CodeBehind="TestCreation.aspx.cs" Inherits="QuestWebApp.Pages.TestCreation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TestCreation.aspx.cs" Inherits="QuestWebApp.Pages.TestCreation" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="teacherBody" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
     <div>
     
         <asp:Label ID="lblQuestionChoice" runat="server" Text="Choose a question type:"></asp:Label>
@@ -14,7 +15,7 @@
         <asp:RadioButtonList ID="rblChooseQuestion" runat="server">
             <asp:ListItem>Multiple Choice</asp:ListItem>
             <asp:ListItem>True False</asp:ListItem>
-            <asp:ListItem>Fill in the Blank</asp:ListItem>
+            <asp:ListItem>Short Answer</asp:ListItem>
             <asp:ListItem>Matching</asp:ListItem>
             <asp:ListItem>Essay</asp:ListItem>
         </asp:RadioButtonList>
@@ -98,7 +99,7 @@
         <asp:Label ID="lblMatching" runat="server" Text="Matching"></asp:Label>
         <br />
         <asp:Label ID="lblQuestion" runat="server" Text="Question"></asp:Label>
-        <asp:Label ID="lblAnswer" runat="server" Text="Answer"></asp:Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="lblAnswer" runat="server" Text="Answer"></asp:Label>
         <br />
         <asp:TextBox ID="txtMQuestion1" runat="server"></asp:TextBox>
         <asp:TextBox ID="txtMAnswer1" runat="server"></asp:TextBox>
@@ -119,9 +120,10 @@
         <asp:TextBox ID="txtEQuestion" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="AnswerBank" runat="server" Text="Question/Answers Entered"></asp:Label>
+        <asp:Label ID="AnswerBank" runat="server" Text="All questions added     "></asp:Label>
+        <asp:Button ID="displayQuestions" runat="server" Text="Show" OnClick="displayQuestions_Click" />
         <br />
         <asp:TextBox ID="txtTest" runat="server" Height="191px" Width="609px" TextMode="MultiLine"></asp:TextBox>
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
-</asp:Content>
+    </form>
+</body>
+</html>
