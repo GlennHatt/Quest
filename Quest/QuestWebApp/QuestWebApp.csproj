@@ -134,6 +134,7 @@
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
+    <Content Include="Pages\TeacherDashboard.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
@@ -162,6 +163,7 @@
     <Content Include="test pond\template\index.html" />
     <Content Include="test pond\template\styles.css" />
     <Content Include="test pond\WebForm1.aspx" />
+    <Content Include="test pond\zoPractice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +212,13 @@
     <Compile Include="Pages\studentTest.aspx.designer.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TeacherDashboard.aspx.cs">
+      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TeacherDashboard.aspx.designer.cs">
+      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\teacherTest.aspx.cs">
       <DependentUpon>teacherTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +233,13 @@
     </Compile>
     <Compile Include="test pond\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\zoPractice.aspx.cs">
+      <DependentUpon>zoPractice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\zoPractice.aspx.designer.cs">
+      <DependentUpon>zoPractice.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
