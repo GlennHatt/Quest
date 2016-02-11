@@ -131,10 +131,10 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Master-Pages\admin.master" />
-    <Content Include="Master-Pages\withoutSidebar.master" />
-    <Content Include="Master-Pages\withSidebar.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
+    <Content Include="Master-Pages\withoutSidebar.master" />
+    <Content Include="Master-Pages\withSidebar.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
