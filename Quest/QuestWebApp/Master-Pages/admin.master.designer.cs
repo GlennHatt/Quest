@@ -10,16 +10,16 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class admin {
+    public partial class admin1 {
         
         /// <summary>
-        /// adminBreadCrumb control.
+        /// adminBreadcrumbs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBreadCrumb;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBreadcrumbs;
         
         /// <summary>
         /// adminHead control.
@@ -40,22 +40,22 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder adminExtraReferances;
         
         /// <summary>
-        /// adminBody control.
+        /// adminWithSidebarSidebar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBody;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminWithSidebarSidebar;
         
         /// <summary>
-        /// txtAdminGreeting control.
+        /// adminWithSidebarBodyContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtAdminGreeting;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminWithSidebarBodyContent;
         
         /// <summary>
         /// adminPageSpecificJS control.
