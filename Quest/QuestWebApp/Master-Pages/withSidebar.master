@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="withSidebar.master.cs" Inherits="QuestWebApp.Master_Pages.withSidebar" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+    <asp:ContentPlaceHolder ID="breadCrumb" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+    <asp:ContentPlaceHolder ID="extraReferances" runat="server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
+
+     <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            
+          </header>
+          <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Welcome, <asp:Label ID="txtGreeting" runat="server" Text="User!"></asp:Label></span>
+            <nav class="mdl-navigation">
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
+                
+                <!-- for custom menu options -->
+                <asp:ContentPlaceHolder ID="withSidebarSidebar" runat="server" />
+
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help</a>
+              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i> Logout</a>
+            </nav>
+          </div>
+          <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- Your content goes here --> 
+                <asp:ContentPlaceHolder ID="withSidebarBodyContent" runat="server" />
+            </div>
+          </main>
+        </div>
+
+        <asp:ContentPlaceHolder ID="headBody" runat="server" />
+
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
+    <asp:ContentPlaceHolder ID="pageSpecificJS" runat="server" />
+</asp:Content>

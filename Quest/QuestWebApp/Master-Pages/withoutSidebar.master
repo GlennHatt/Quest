@@ -1,0 +1,11 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="withoutSidebar.master.cs" Inherits="QuestWebApp.Master_Pages.withoutSidebar" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
+</asp:Content>
