@@ -5,15 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
+
 namespace QuestWebApp.Pages
 {
     public partial class TestCreation : System.Web.UI.Page
     {
         // List for all questions in test
-        public List<Question> questionList = new List<Question>();
 
         // Question counter
-        public int questionCounter = 1;
+        public int questionCounter;
 
         // Universal Question structure
         public struct Question
@@ -95,7 +96,7 @@ namespace QuestWebApp.Pages
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            questionCounter = 0;
         }
 
         // Acknowledges which question type was chosen
@@ -127,7 +128,6 @@ namespace QuestWebApp.Pages
         protected void btnSaveQuestion_Click(object sender, EventArgs e)
         {
             string multipleChoiceAnswer;
-
             // Multiple choice question checked and saved
             if(rblChooseQuestion.SelectedValue == "Multiple Choice")
                 if(txtMCQuestion.Text != String.Empty)
@@ -150,10 +150,6 @@ namespace QuestWebApp.Pages
                         {
                             multipleChoiceAnswer = "0" + txtMC1.Text + " 0" + txtMC2.Text + " 0" + txtMC3.Text + " 1" + txtMC4.Text;
                         }
-                        Question newQuestion = new Question(1, Int32.Parse(ddlPointValue.SelectedValue), "Multiple Choice");
-                        questionList.Add(newQuestion);
-                        //txtTest.Text += "\r\n " + newQuestion.questionId + " " + newQuestion.pointValue + " " + newQuestion.question + " " + newQuestion.answer; 
-
                     }
 
             // True False Question checked and saved
@@ -161,18 +157,9 @@ namespace QuestWebApp.Pages
                 if(txtTFQuestion.Text != String.Empty)
                 {
                     Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "True/False");
-                    questionList.Add(newQuestion);
+                    //questionList.Add(newQuestion);
                     questionCounter++;
                     txtTest.Text = questionCounter.ToString();
-                    //txtTest.Text += "\r\n " + newQuestion.pointValue + " " + newQuestion.pointValue + " " + newQuestion.question;
-                    if(rblTrueFalse.SelectedValue == "True")
-                    {
-                        //txtTest.Text += " " + newQuestion.answer;
-                    }
-                    else
-                    {
-                        //txtTest.Text += " " + newQuestion.answer;
-                    }
                 }
 
             // Fill in the Blank question checked and saved
@@ -183,17 +170,14 @@ namespace QuestWebApp.Pages
                     if (txtFBStatementBegin.Text != String.Empty && txtFBStatementEnd.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text + txtFBStatementEnd.Text;
-                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                     else if(txtFBStatementBegin.Text != String.Empty)
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text;
-                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), txtFBStatementBegin.Text, txtFBAnswer.Text, String.Empty);
                     }
                     else
                     {
                         txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBAnswer.Text + txtFBStatementEnd.Text;
-                        //ShortAnswer newquest = new ShortAnswer(1, Int32.Parse(ddlPointValue.SelectedValue), String.Empty, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                 }
 
@@ -210,11 +194,13 @@ namespace QuestWebApp.Pages
 
         protected void displayQuestions_Click(object sender, EventArgs e)
         {
+          /*
             for(int i = 0; i <= questionList.Count; i++)
             {
                 txtTest.Text = questionList.Count.ToString();
                 //txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
-            }
+            } 
+          */
         }
     }
 }
