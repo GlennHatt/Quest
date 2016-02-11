@@ -16,9 +16,6 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
     <asp:ContentPlaceHolder ID="studentWithSidebarBodyContent" runat="server" />
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="headBody" runat="server">
-    <asp:ContentPlaceHolder ID="studentHeadBody" runat="server" />
-</asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="pageSpecificJS" runat="server">
     <asp:ContentPlaceHolder ID="studentPageSpecificJS" runat="server" />
 </asp:Content>

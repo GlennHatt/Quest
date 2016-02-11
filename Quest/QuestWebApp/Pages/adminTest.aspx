@@ -9,7 +9,5 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="adminHeadBody" runat="server">
-</asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
 </asp:Content>

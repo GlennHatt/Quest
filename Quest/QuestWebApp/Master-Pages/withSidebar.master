@@ -36,8 +36,6 @@
           </main>
         </div>
 
-        <asp:ContentPlaceHolder ID="headBody" runat="server" />
-
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
     <asp:ContentPlaceHolder ID="pageSpecificJS" runat="server" />
