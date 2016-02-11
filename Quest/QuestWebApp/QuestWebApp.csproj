@@ -112,6 +112,7 @@
     <Content Include="Content\mdl-v1.0.5\LICENSE" />
     <Content Include="Content\mdl-v1.0.5\bower.json" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Pages\WebForm1.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -131,6 +132,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
