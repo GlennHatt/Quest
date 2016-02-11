@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Head.master.cs" Inherits="QuestWebApp.Master_Pages.Head" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+    <asp:ContentPlaceHolder ID="breadCrumb" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+
+    <!-- Meta -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="Quest online testing center"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+
+    <!-- Material Design Packages -->
+    <link href="../Assets/mdl/material.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+    <!-- Fonts and icons -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"/>
+       
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="assets/images/android-desktop.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Quest Testing Center"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/images/ios-desktop.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png"/>
+    <meta name="msapplication-TileColor" content="#3372DF"/>
+    <link rel="shortcut icon" href="images/favicon.png"/>
+
+    <!-- Extra referances -->
+    <asp:ContentPlaceHolder ID="extraReferances" runat="server">
+
+    </asp:ContentPlaceHolder>
+
+
+        <!-- End Material Design Packages -->
+</head>
+<body>
+
+    <!--<div id="center">
+        <div id="main" style="text-align:center">
+            <p><img src="../Assets/Images/crown.png" style="height: 15%; width: 15%; z-index: 9999; position: absolute" /></p>
+        </div>
+    </div>-->
+
+    <div style="position:relative"><img src="../Assets/Images/crown.png" style="display:block; position: absolute; top:50%; left:50%; margin-top:0%; margin-left:-10%; margin-right:-10%; width:19%; z-index:9999;"  />
+        </div>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="headBody" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    
+    <!-- Page specific JavaScript -->
+    <asp:ContentPlaceHolder ID="pageSpecificJS" runat="server">
+
+    </asp:ContentPlaceHolder>
+
+    <!-- MDL script -->
+    <script src="../Assets/mdl/material.min.js"></script>
+</body>
+</html>
