@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace QuestWebApp.Pages
+namespace QuestWebApp.Master_Pages
 {
-    public partial class teacherTest : System.Web.UI.Page
+    public partial class withSidebar : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

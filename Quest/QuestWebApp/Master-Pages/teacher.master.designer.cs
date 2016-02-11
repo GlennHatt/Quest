@@ -31,31 +31,31 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherHead;
         
         /// <summary>
-        /// extraReferances control.
+        /// teacherExtraReferances control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherExtraReferances;
         
         /// <summary>
-        /// txtTeacherGreeting control.
+        /// teacherWithSidebarSidebar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtTeacherGreeting;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherWithSidebarSidebar;
         
         /// <summary>
-        /// teacherBody control.
+        /// teacherWithSidebarBodyContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherBody;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherWithSidebarBodyContent;
         
         /// <summary>
         /// teacherPageSpecificJS control.
