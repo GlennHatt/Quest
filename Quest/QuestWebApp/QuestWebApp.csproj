@@ -139,6 +139,7 @@
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
+    <Content Include="test pond\DBTestPage.aspx" />
     <Content Include="test pond\material.css" />
     <Content Include="test pond\material.js" />
     <Content Include="test pond\material.min.css" />
@@ -226,6 +227,13 @@
       <DependentUpon>TestCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test pond\DBTestPage.aspx.cs">
+      <DependentUpon>DBTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\DBTestPage.aspx.designer.cs">
+      <DependentUpon>DBTestPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="test pond\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
