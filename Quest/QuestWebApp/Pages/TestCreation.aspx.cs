@@ -6,132 +6,134 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
+// Universal Question
+public struct Question
+{
+    public int questionId;
+    public int pointValue;
+    public string questionType;
+
+    public Question(int newQuestionId, int newPointValue, string newQuestionType)
+    {
+        questionId = newQuestionId;
+        pointValue = newPointValue;
+        questionType = newQuestionType;
+    }
+}
+
+// Multiple Choice question
+public struct MultipleChoice
+{
+    public int questionId;
+    public string question;
+    public string answer;
+
+    public MultipleChoice(int newQuestionId, string newQuestion, string newAnswer)
+    {
+        questionId = newQuestionId;
+        question = newQuestion;
+        answer = newAnswer;
+    }
+}
+
+// Multiple Choice options
+public struct MultipleChoiceChoice
+{
+    public int questionId;
+    public char letter;
+    public string choiceText;
+
+    public MultipleChoiceChoice(int newQuestionId, char newLetter, string newChoiceText)
+    {
+        questionId = newQuestionId;
+        letter = newLetter;
+        choiceText = newChoiceText;
+    }
+}
+
+// True False question
+public struct TrueFalse
+{
+    public int questionId;
+    public string question;
+    public string answer;
+
+    public TrueFalse(int newQuestionId, string newQuestion, string newAnswer)
+    {
+        questionId = newQuestionId;
+        question = newQuestion;
+        answer = newAnswer;
+    }
+}
+
+// Short Answer question
+public struct ShortAnswer
+{
+    public int questionId;
+    public string beforeText;
+    public string answer;
+    public string afterText;
+
+    public ShortAnswer(int newQuestionId, string newBeforeText, string newAnswer, string newAfterText)
+    {
+        questionId = newQuestionId;
+        beforeText = newBeforeText;
+        answer     = newAnswer;
+        afterText  = newAfterText;
+    }
+}
+
+// Matching section
+public struct Matching
+{
+    public int questionId;
+    public string sectionTitle;
+
+    public Matching(int newQuestionId, string newSectionTitle)
+    {
+        questionId = newQuestionId;
+        sectionTitle = newSectionTitle;
+    }
+}
+
+// Matching options
+public struct MatchingQuestions
+{
+    public int questionId;
+    public string question;
+    public string answer;
+
+    public MatchingQuestions(int newQuestionId, string newQuestion, string newAnswer)
+    {
+        questionId = newQuestionId;
+        question = newQuestion;
+        answer = newAnswer;
+    }
+}
+
+// Essay question
+public struct Essay
+{
+    public int questionId;
+    public string question;
+
+    public Essay(int newQuestionId, string newQuestion)
+    {
+        questionId = newQuestionId;
+        question = newQuestion;
+    }
+}
 
 namespace QuestWebApp.Pages
 {
     public partial class TestCreation : System.Web.UI.Page
     {
+        // Tentative question counter
+        public static int questionCounter = 0;
 
-        // Question counter
-        public int questionCounter;
+        //Dynamic list of questions
+        public static List<Question> questionList = new List<Question>();
 
-        // Universal Question
-        public struct Question
-        {
-            public int    questionId;
-            public int    pointValue;
-            public string questionType;
-
-            public Question(int newQuestionId, int newPointValue, string newQuestionType)
-            {
-                questionId = newQuestionId;
-                pointValue = newPointValue;
-                questionType = newQuestionType;
-            }
-        }
-
-        // Multiple Choice question
-        public struct MultipleChoice
-        {
-            public int    questionId;
-            public string question;
-            public string answer;
-
-            public MultipleChoice(int newQuestionId, string newQuestion, string newAnswer)
-            {
-                questionId = newQuestionId;
-                question   = newQuestion;
-                answer     = newAnswer;
-            }
-        }
-
-        // Multiple Choice options
-        public struct MultipleChoiceChoice
-        {
-            public int    questionId;
-            public char   letter;
-            public string choiceText;
-
-            public MultipleChoiceChoice(int newQuestionId, char newLetter, string newChoiceText)
-            {
-                questionId = newQuestionId;
-                letter     = newLetter;
-                choiceText = newChoiceText;
-            }
-        }
-
-        // True False question
-        public struct TrueFalse
-        {
-            public int    questionId;
-            public string question;
-            public string answer;
-
-            public TrueFalse(int newQuestionId, string newQuestion, string newAnswer)
-            {
-                questionId = newQuestionId;
-                question   = newQuestion;
-                answer     = newAnswer;
-            }
-        }
-
-        // Short Answer question
-        public struct ShortAnswer
-        {
-            public int    questionId;
-            public string beforeText;
-            public string answer;
-            public string afterText;
-
-            public ShortAnswer(int newQuestionId, string newBeforeText, string newAnswer, string newAfterText)
-            {
-                questionId = newQuestionId;
-                beforeText = newBeforeText;
-                answer     = newAnswer;
-                afterText  = newAfterText;
-            }
-        }
-
-        // Matching section
-        public struct Matching
-        {
-            public int questionId;
-            public string sectionTitle;
-
-            public Matching(int newQuestionId, string newSectionTitle)
-            {
-                questionId   = newQuestionId;
-                sectionTitle = newSectionTitle;
-            }
-        }
-
-        // Matching options
-        public struct MatchingQuestions
-        {
-            public int questionId;
-            public string question;
-            public string answer;
-
-            public MatchingQuestions(int newQuestionId, string newQuestion, string newAnswer)
-            {
-                questionId = newQuestionId;
-                question   = newQuestion;
-                answer     = newAnswer;
-            }
-        }
-
-        // Essay question
-        public struct Essay
-        {
-            public int    questionId;
-            public string question;
-
-            public Essay(int newQuestionId, string newQuestion)
-            {
-                questionId = newQuestionId;
-                question = newQuestion;
-            }
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -172,7 +174,6 @@ namespace QuestWebApp.Pages
                 if(txtMCQuestion.Text != String.Empty)
                     if (txtMC1.Text != String.Empty || txtMC2.Text != String.Empty || txtMC3.Text != String.Empty || txtMC4.Text != String.Empty)
                     {
-                        txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtMCQuestion.Text;
                         if(rdbMC1.Checked == true)
                         {
                             //multipleChoiceAnswer = "1" + txtMC1.Text + " 0" + txtMC2.Text + " 0" + txtMC3.Text + " 0" + txtMC4.Text;
@@ -195,8 +196,9 @@ namespace QuestWebApp.Pages
             if(rblChooseQuestion.SelectedValue == "True False")
                 if(txtTFQuestion.Text != String.Empty)
                 {
-                    Question newQuestion = new Question(2,Int32.Parse(ddlPointValue.SelectedValue), "True/False");
-                    TrueFalse newTFQuestion = new TrueFalse(2, txtTFQuestion.Text, rblTrueFalse.SelectedValue.ToString());
+                    Question newQuestion = new Question(questionCounter,Int32.Parse(ddlPointValue.SelectedValue), "True/False");
+                    TrueFalse newTFQuestion = new TrueFalse(questionCounter, txtTFQuestion.Text, rblTrueFalse.SelectedValue.ToString());
+                    questionList.Add(newQuestion);
                 }
 
             // Fill in the Blank question checked and saved
@@ -251,17 +253,16 @@ namespace QuestWebApp.Pages
                     Question newQuestion = new Question(5, Int32.Parse(ddlPointValue.SelectedValue), "Essay");
                     Essay newEssayQuestion = new Essay(5, txtEQuestion.Text);
                 }
+            questionCounter++;
         }
 
         protected void displayQuestions_Click(object sender, EventArgs e)
         {
-          /*
-            for(int i = 0; i <= questionList.Count; i++)
+            for(int i = 0; i < questionList.Count; i++)
             {
-                txtTest.Text = questionList.Count.ToString();
-                //txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
+                txtTest.Text += questionList.Count.ToString();
+                txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
             } 
-          */
         }
 
         // Tentative way to make prerequisites for test
