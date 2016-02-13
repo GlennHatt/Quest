@@ -46,7 +46,7 @@ public struct MultipleChoiceChoice
     public MultipleChoiceChoice(int newQuestionId, char newLetter, string newChoiceText)
     {
         questionId = newQuestionId;
-        letter = newLetter;
+        letter     = newLetter;
         choiceText = newChoiceText;
     }
 }
@@ -174,22 +174,31 @@ namespace QuestWebApp.Pages
                 if(txtMCQuestion.Text != String.Empty)
                     if (txtMC1.Text != String.Empty || txtMC2.Text != String.Empty || txtMC3.Text != String.Empty || txtMC4.Text != String.Empty)
                     {
+                        Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "Multiple Choice");
+
                         if(rdbMC1.Checked == true)
                         {
-                            //multipleChoiceAnswer = "1" + txtMC1.Text + " 0" + txtMC2.Text + " 0" + txtMC3.Text + " 0" + txtMC4.Text;
+                            MultipleChoice newMCQuestion = new MultipleChoice(questionCounter, txtMCQuestion.Text, "A");
                         }
                         else if (rdbMC2.Checked == true)
                         {
-                            //multipleChoiceAnswer = "0" + txtMC1.Text + " 1" + txtMC2.Text + " 0" + txtMC3.Text + " 0" + txtMC4.Text;
+                            MultipleChoice newMCQuestion = new MultipleChoice(questionCounter, txtMCQuestion.Text, "B");
                         }
                         else if (rdbMC3.Checked == true)
                         {
-                            //multipleChoiceAnswer = "0" + txtMC1.Text + " 0" + txtMC2.Text + " 1" + txtMC3.Text + " 0" + txtMC4.Text;
+                            MultipleChoice newMCQuestion = new MultipleChoice(questionCounter, txtMCQuestion.Text, "C");
                         }
                         else
                         {
-                            //multipleChoiceAnswer = "0" + txtMC1.Text + " 0" + txtMC2.Text + " 0" + txtMC3.Text + " 1" + txtMC4.Text;
+                            MultipleChoice newMCQuestion = new MultipleChoice(questionCounter, txtMCQuestion.Text, "D");
                         }
+
+                        MultipleChoiceChoice MCOption1 = new MultipleChoiceChoice(questionCounter, 'A', txtMC1.Text);
+                        MultipleChoiceChoice MCOption2 = new MultipleChoiceChoice(questionCounter, 'A', txtMC2.Text);
+                        MultipleChoiceChoice MCOption3 = new MultipleChoiceChoice(questionCounter, 'A', txtMC3.Text);
+                        MultipleChoiceChoice MCOption4 = new MultipleChoiceChoice(questionCounter, 'A', txtMC4.Text);
+
+                        questionList.Add(newQuestion);
                     }
 
             // True False Question checked and saved
@@ -205,19 +214,20 @@ namespace QuestWebApp.Pages
             if (rblChooseQuestion.SelectedValue == "Short Answer")
                 if (txtFBAnswer.Text != String.Empty)
                 {
-                    Question newQuestion = new Question(1, Int32.Parse(ddlPointValue.SelectedValue), "Short Answer");
+                    Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "Short Answer");
                     if (txtFBStatementBegin.Text != String.Empty && txtFBStatementEnd.Text != String.Empty)
                     {
-                        txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text + txtFBStatementEnd.Text;
+                        ShortAnswer newSAQuestion = new ShortAnswer(questionCounter, txtFBStatementBegin.Text, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                     else if(txtFBStatementBegin.Text != String.Empty)
                     {
-                        txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBStatementBegin.Text + txtFBAnswer.Text;
+                        ShortAnswer newSAQuestion = new ShortAnswer(questionCounter, String.Empty, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
                     else
                     {
-                        txtTest.Text += "\r\n" + ddlPointValue.SelectedValue.ToString() + txtFBAnswer.Text + txtFBStatementEnd.Text;
+                        ShortAnswer newSAQuestion = new ShortAnswer(questionCounter, txtFBStatementBegin.Text, txtFBAnswer.Text, String.Empty);
                     }
+                    questionList.Add(newQuestion);
                 }
 
             // Matching question checked and saved
@@ -225,8 +235,8 @@ namespace QuestWebApp.Pages
             {
                 if (txtSectionName.Text != String.Empty)
                 {
-                    Question newQuestion = new Question(4, Int32.Parse(ddlPointValue.SelectedValue), "Matching");
-                    Matching newMatching = new Matching(4, txtSectionName.Text);
+                    Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "Matching");
+                    Matching newMatching = new Matching(questionCounter, txtSectionName.Text);
                     if (txtMQuestion1.Text != String.Empty && txtMAnswer1.Text != String.Empty)
                     {
                         MatchingQuestions newChoice1 = new MatchingQuestions(4, txtMQuestion1.Text, txtMAnswer1.Text);
@@ -243,6 +253,7 @@ namespace QuestWebApp.Pages
                     {
                         MatchingQuestions newChoice4 = new MatchingQuestions(4, txtMQuestion4.Text, txtMAnswer4.Text);
                     }
+                    questionList.Add(newQuestion);
                 }
             }
 
@@ -250,9 +261,12 @@ namespace QuestWebApp.Pages
             if (rblChooseQuestion.SelectedValue == "Essay")
                 if (txtEQuestion.Text != String.Empty)
                 {
-                    Question newQuestion = new Question(5, Int32.Parse(ddlPointValue.SelectedValue), "Essay");
-                    Essay newEssayQuestion = new Essay(5, txtEQuestion.Text);
+                    Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "Essay");
+                    Essay newEssayQuestion = new Essay(questionCounter, txtEQuestion.Text);
+                    questionList.Add(newQuestion);
                 }
+
+            // tentative way to have unique questionIds
             questionCounter++;
         }
 
@@ -260,7 +274,6 @@ namespace QuestWebApp.Pages
         {
             for(int i = 0; i < questionList.Count; i++)
             {
-                txtTest.Text += questionList.Count.ToString();
                 txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
             } 
         }
