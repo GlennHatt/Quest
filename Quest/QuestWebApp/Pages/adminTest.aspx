@@ -50,9 +50,12 @@
 
   <div style="text-align:right">
      <!-- Colored FAB button with ripple -->
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+
+      <asp:LinkButton ID="LinkButton1" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="right: 13px; bottom: 13px" runat="server"><i class="material-icons">add</i></asp:LinkButton>
+
+    <!--<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="right: 13px; bottom: 13px">
     <i class="material-icons">add</i>
-    </button>
+    </button> -->
   </div>
 </div>
 
@@ -70,6 +73,7 @@
 <div class="demo-card-wide mdl-card mdl-shadow--3dp">
   <div class="mdl-card__supporting-text" style="text-align:center">
     <h1>Add a Student </h1>
+
       <!-- Textfield with Floating Label for student First name -->
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text" id="studentFirstName">
@@ -105,16 +109,16 @@
 
     <!-- Card for adding a class -->
 <style>
-.demo-card-wide.mdl-card {
+.demo-card-wide.mdl-card-addClass {
 
   margin:10%;
   width: 400px;
-  height: 500px;
+  height: 400px;
 }
 
 </style>
 
-<div class="demo-card-wide mdl-card mdl-shadow--3dp">
+<div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp">
   <div class="mdl-card__supporting-text" style="text-align:center">
     <h1>Add a Class </h1>
       <!-- Textfield with Floating Label for Title -->
