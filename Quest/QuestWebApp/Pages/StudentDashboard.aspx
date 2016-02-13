@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="studentBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="studentHead" runat="server">
+    <title>Student | Home</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="studentExtraReferances" runat="server">
 </asp:Content>
@@ -25,9 +26,9 @@
     <h1>Test Due: __________ </h1>
   </div>
   <div style="text-align:right">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#EE7600">
+    <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="background-color:#EE7600; color:white; left: -13px; bottom: 10px;">
       Take Test
-    </a>
+    </asp:LinkButton>
   </div>
 </div>
 </asp:Content>
