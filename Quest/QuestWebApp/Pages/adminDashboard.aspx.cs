@@ -11,7 +11,22 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void btnAddTeacher_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAddStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAddClass_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -108,6 +108,7 @@
     <None Include="Assets\mdl\material.min.css.bak" />
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
+    <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
@@ -137,7 +138,7 @@
     <Content Include="Master-Pages\withoutSidebar.master" />
     <Content Include="Master-Pages\withSidebar.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Pages\adminTest.aspx" />
+    <Content Include="Pages\adminDashboard.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
@@ -234,12 +235,12 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\adminTest.aspx.cs">
-      <DependentUpon>adminTest.aspx</DependentUpon>
+    <Compile Include="Pages\adminDashboard.aspx.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\adminTest.aspx.designer.cs">
-      <DependentUpon>adminTest.aspx</DependentUpon>
+    <Compile Include="Pages\adminDashboard.aspx.designer.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
