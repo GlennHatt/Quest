@@ -19,15 +19,14 @@
 }
 
 </style>
-
 <div class="demo-card-wide mdl-card mdl-shadow--3dp">
   <div class="mdl-card__supporting-text" style="text-align:center">
     <h1>Test Due: _________ </h1>
   </div>
   <div style="text-align:right">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#EE7600">
+    <asp:LinkButton ID="btnTakeTest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#EE7600">
       Take Test
-    </a>
+    </asp:LinkButton>
   </div>
 </div>
 </asp:Content>
