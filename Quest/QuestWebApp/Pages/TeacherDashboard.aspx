@@ -35,7 +35,7 @@
     
     <div class="demo-card-wide mdl-cardGradeTest mdl-shadow--3dp">
       <div class="mdl-card__supporting-text" style="text-align:center">
-        <h1>You Have __ Tests to Grade </h1>
+        <h1>You Have <asp:Label ID="lblTestsToGrade" runat="server" Text="0" ></asp:Label> Tests to Grade </h1>
       </div>
     </div>
     </div>
