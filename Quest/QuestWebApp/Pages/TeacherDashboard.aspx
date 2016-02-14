@@ -11,18 +11,13 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
 
 
-    
+    <main class="mdl-layout__content">
+        <div class="content-grid mdl-grid">
+            <div class="mdl-cell ">
         <!-- Card for Creating a test -->
-    <style>
-    .demo-card-wide.mdl-cardTakeTest {
-      margin:3%;
-      width: 400px;
-      height: 200px;
-    }
     
-    </style>
     
-    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp">
+    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp ">
       <div class="mdl-card__supporting-text" style="text-align:center">
         <h1>Create a Test </h1>
       </div>
@@ -32,23 +27,20 @@
         </asp:LinkButton>
       </div>
     </div>
-    
+    </div>
+
+    <div class="mdl-cell ">
             <!-- Card for Informing the Teacher how many test they have to grade -->
-    <style>
-    .demo-card-wide.mdl-cardGradeTest {
-      
-      margin:3%;
-      width: 400px;
-      height: 200px;
-    }
-    </style>
+   
     
     <div class="demo-card-wide mdl-cardGradeTest mdl-shadow--3dp">
       <div class="mdl-card__supporting-text" style="text-align:center">
         <h1>You Have __ Tests to Grade </h1>
       </div>
     </div>
-        
+    </div>
+  </div>
+ </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>
