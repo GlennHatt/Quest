@@ -11,10 +11,18 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
 
+    <style>
 
+
+.demo-card-wide.mdl-card {
+  /* extra styles go here */
+} 
+
+
+</style> 
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell ">
+            <div class="mdl-cell mdl-cell--4-col ">
                 <!-- Card for Creating a test -->
 
 
@@ -30,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="mdl-cell ">
+            <div class="mdl-cell mdl-cell--4-col">
                 <!-- Card for Informing the Teacher how many test they have to grade -->
 
 

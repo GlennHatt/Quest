@@ -27,16 +27,18 @@
 } */
 
 .testAlert {
-    font-size: 130%;
+    font-size: 590%;
     line-height: 130%;
+    color: #EE7600;
+    margin-bottom: -7%;
 }
 
 </style> 
 
                 <div class="demo-card-wide mdl-card mdl-shadow--3dp">
-                    <div class="mdl-card__supporting-text testAlert" style="text-align: center">
-                        <i class="material-icons" style="font-size: 300%;">assignment_late</i>
-                        <h1>Test Due:</h1><asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
+                    <div class="mdl-card__supporting-text " style="text-align: center">
+                        <i class="material-icons testAlert">assignment_late</i>
+                        <div style="font-size: 300%; margin-bottom:7%; margin-top: 5%;">Test Due:</div><asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
                         <asp:Label ID="lblTestDate" runat="server" Text="(Date Placeholder)"></asp:Label><br />
                         <asp:Label ID="lblTestTime" runat="server" Text="(Time Placeholder)"></asp:Label><br />
                     </div>
