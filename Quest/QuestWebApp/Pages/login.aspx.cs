@@ -16,10 +16,34 @@ namespace QuestWebApp.Pages
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            if (username.Text == "yousef" && password.Text == "khury")
-                answer.Text = "Login";
-            else
-                answer.Text = "Incorrect username and/or password";
+            //string admin   = "admin";
+            //string teacher = "teacher";
+            //string student = "student";
+
+            
+            switch (username.Text)
+            {
+                case "admin":
+                    if (password.Text == "khury")
+                        answer.Text = "Login Admin";
+                    break;
+                case "teacher":
+                    if (password.Text == "khury")
+                        answer.Text = "Login Teacher";
+                    break;
+                case "student":
+                    if (password.Text == "khury")
+                        answer.Text = "Login Student";
+                    break;
+                default:
+                    answer.Text = "Incorrect username and/or password";
+                    break;
+            }
+
+            //if (username.Text == "yousef" && password.Text == "khury")
+                //answer.Text = "Login";
+           // else
+                //answer.Text = "Incorrect username and/or password";
         }
     }
 }
