@@ -35,6 +35,7 @@
 
                 <div class="demo-card-wide mdl-card mdl-shadow--3dp">
                     <div class="mdl-card__supporting-text testAlert" style="text-align: center">
+                        <i class="material-icons" style="font-size: 300%;">assignment_late</i>
                         <h1>Test Due:</h1><asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
                         <asp:Label ID="lblTestDate" runat="server" Text="(Date Placeholder)"></asp:Label><br />
                         <asp:Label ID="lblTestTime" runat="server" Text="(Time Placeholder)"></asp:Label><br />

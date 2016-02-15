@@ -23,8 +23,8 @@
                         <h1>Create a Test </h1>
                     </div>
                     <div style="text-align: right">
-                        <asp:LinkButton ID="btnCreateTest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
-                            Begin
+                        <asp:LinkButton ID="btnCreateTest" runat="server" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                            <i class="material-icons">create</i>
                         </asp:LinkButton>
                     </div>
                 </div>
