@@ -11,7 +11,7 @@ namespace QuestWebApp.Pages
 {
 
 
-    public partial class teacherTest
+    public partial class nosidebarTest
     {
     }
 }
