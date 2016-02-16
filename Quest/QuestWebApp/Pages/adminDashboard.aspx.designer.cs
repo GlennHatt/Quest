@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class adminTest {
+    public partial class adminDashboard {
         
         /// <summary>
         /// txtbxTeacherfirstName control.
