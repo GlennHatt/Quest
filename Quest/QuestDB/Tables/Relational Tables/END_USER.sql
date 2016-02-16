@@ -1,15 +1,15 @@
 -- Drop the existing table (if any)
 
-DROP TABLE "CS414S16"."END_USER" 
-
--- Create a new Relational table with 3 columns
+--DROP TABLE "CS414S16"."END_USER" 
 
 --------------------------------------------------------
 --  DDL for Table END_USER
 --------------------------------------------------------
 
-  CREATE TABLE "CS414S16"."END_USER" 
-   (	"USER_ID" NUMBER, 
+  CREATE OR REPLACE TABLE "CS414S16"."END_USER" 
+   (	"END_USER_ID" NUMBER,
+  "EMAIL" VARCHAR(50 BYTE),
+  "PASSWORD" VARCHAR2(50 BYTE),
 	"F_NAME" VARCHAR2(25 BYTE), 
 	"L_NAME" VARCHAR2(30 BYTE), 
 	"PERMISSION_LEVEL" VARCHAR2(1 BYTE)

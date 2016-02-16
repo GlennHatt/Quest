@@ -53,51 +53,6 @@
     <Content Include="Packages\END_USERS.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\CLASS.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\END_USER.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\ENROLLMENT.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\ESSAY.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\MATCHING.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\MATCHING_BODY.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\MULTIPLE_CHOICE.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\MULTIPLE_CHOICE_CHOICE.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\QUESTIONS.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\QUESTION_TAKEN.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\SECTION.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\SHORT_ANSWER.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\TEST.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\TEST_TAKEN.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\TRUE_FALSE.sql">
-      <SubType>Content</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <DBRef Include="Database References\CS414S16.xe\">
