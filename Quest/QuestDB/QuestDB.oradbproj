@@ -50,13 +50,151 @@
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Packages\END_USERS.sql">
-      <SubType>Content</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <DBRef Include="Database References\CS414S16.xe\">
       <ConnectionString>DATA SOURCE=localhost:1521/xe;PERSIST SECURITY INFO=True;USER ID=CS414S16</ConnectionString>
     </DBRef>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Indexes\CS414S16.MULTPILE_CHOICE_CHOICE.Index.MULTPILE_CHOICE_CHOICE_UK1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.CLASSES.BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.CLASSES.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.END_USERS.BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.END_USERS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.ENROLLMENTS.BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.ENROLLMENTS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.SECTIONS.BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Packages\CS414S16.SECTIONS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\CS414S16.ASSERT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\CS414S16.SEQ_CLASS_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\CS414S16.SEQ_END_USER_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\CS414S16.SEQ_ENROLLMENT_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\CS414S16.SEQ_SECTION_ID.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.CLASS.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.END_USER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.ENROLLMENT.FK.ENROLLMENT_SECTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.ENROLLMENT.FK.ENROLLMENT_STUDENT_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.ENROLLMENT.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.ESSAY.FK.ESSAY_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.ESSAY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MATCHING.FK.MATCHING_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MATCHING.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MATCHING_BODY.FK.MATCHING_BODY_FK1.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MATCHING_BODY.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MULTIPLE_CHOICE.FK.MULTIPLE_CHOICE_CHOICE_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MULTIPLE_CHOICE.FK.MULTIPLE_CHOICE_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MULTIPLE_CHOICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MULTPILE_CHOICE_CHOICE.FK.MULTPILE_CHOICE_CHOICE_QU_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.MULTPILE_CHOICE_CHOICE.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.QUESTION.FK.QUESTION_TEST_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.QUESTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.QUESTION_TAKEN.FK.QUESTION_TAKEN_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.QUESTION_TAKEN.FK.QUESTION_TAKEN_TEST_TAKEN_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.QUESTION_TAKEN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.SECTION.FK.SECTION_CLASS_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.SECTION.FK.SECTION_TEACHER_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.SECTION.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.SHORT_ANSWER.FK.SHORT_ANSWER_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.SHORT_ANSWER.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TEST.FK.TEST_SECTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TEST.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TEST_TAKEN.FK.TEST_TAKEN_ENROLLMENT_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TEST_TAKEN.FK.TEST_TAKEN_TEST_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TEST_TAKEN.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TRUE_FALSE.FK.TRUE_FALSE_QUESTION_FK.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\CS414S16.TRUE_FALSE.sql">
+      <SubType>Content</SubType>
+    </Content>
   </ItemGroup>
 </Project>
