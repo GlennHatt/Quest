@@ -16,34 +16,37 @@ namespace QuestWebApp.Pages
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            //string admin   = "admin";
-            //string teacher = "teacher";
-            //string student = "student";
+            // All passwords are placholders that should be replaces with the passwords stored in the database
 
+            int classification;
             
             switch (username.Text)
             {
-                case "admin":
-                    if (password.Text == "khury")
+                case "admin": // Placeholder for admin username
+                    if (password.Text == "khury") 
+                    {
                         answer.Text = "Login Admin";
+                        classification = 1; // Replace with primary key for admin
+                    }
                     break;
-                case "teacher":
+                case "teacher": // Placeholder for teacher username
                     if (password.Text == "khury")
+                    {
                         answer.Text = "Login Teacher";
+                        classification = 2; // Replace with primary key for teacher
+                    }
                     break;
-                case "student":
+                case "student": // Placeholder for student username
                     if (password.Text == "khury")
+                    {
                         answer.Text = "Login Student";
+                        classification = 3;  // Replace with primary key for the student
+                    }
                     break;
                 default:
                     answer.Text = "Incorrect username and/or password";
                     break;
             }
-
-            //if (username.Text == "yousef" && password.Text == "khury")
-                //answer.Text = "Login";
-           // else
-                //answer.Text = "Incorrect username and/or password";
         }
     }
 }
