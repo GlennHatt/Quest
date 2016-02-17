@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="QuestWebApp.Master_Pages.student1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+    <asp:ContentPlaceHolder ID="studentBreadCrumb" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="studentHead" runat="server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+    <asp:ContentPlaceHolder ID="studentExtraReferances" runat="server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
+    <asp:ContentPlaceHolder ID="studentSidebar" runat="server" />
+    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Teachers & Classes</a>
+    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i> Scores</a>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
+    <asp:ContentPlaceHolder ID="studentWithSidebarBodyContent" runat="server" />
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="pageSpecificJS" runat="server">
+    <asp:ContentPlaceHolder ID="studentPageSpecificJS" runat="server" />
+</asp:Content>
