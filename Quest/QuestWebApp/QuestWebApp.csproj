@@ -98,6 +98,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\android-desktop.png" />
+    <Content Include="Assets\Images\crown.png" />
+    <Content Include="Assets\Images\favicon.png" />
+    <Content Include="Assets\Images\ios-desktop.png" />
+    <Content Include="Assets\Images\quest.ico" />
+    <Content Include="Assets\Images\quest.png" />
+    <Content Include="Assets\mdl\material.css" />
+    <Content Include="Assets\mdl\material.js" />
+    <None Include="Assets\mdl\material.min.css.bak" />
+    <Content Include="Assets\mdl\material.min.css" />
+    <Content Include="Assets\mdl\material.min.js" />
+    <Content Include="Assets\Styles\inputTransition.css" />
+    <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />
@@ -120,6 +133,10 @@
     <Content Include="Master-Pages\withoutSidebar.master" />
     <Content Include="Master-Pages\withSidebar.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Pages\adminDashboard.aspx" />
+    <Content Include="Pages\StudentDashboard.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
+    <Content Include="Pages\TeacherDashboard.aspx" />
     <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
@@ -154,6 +171,10 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="test pond\template\index.html" />
+    <Content Include="test pond\template\styles.css" />
+    <Content Include="test pond\WebForm1.aspx" />
+    <Content Include="test pond\zoPractice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -219,12 +240,19 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\adminTest.aspx.cs">
-      <DependentUpon>adminTest.aspx</DependentUpon>
+    <Compile Include="Pages\adminDashboard.aspx.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\adminTest.aspx.designer.cs">
-      <DependentUpon>adminTest.aspx</DependentUpon>
+    <Compile Include="Pages\adminDashboard.aspx.designer.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentDashboard.aspx.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\StudentDashboard.aspx.designer.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\loginTest.aspx.cs">
       <DependentUpon>loginTest.aspx</DependentUpon>
@@ -246,6 +274,13 @@
     </Compile>
     <Compile Include="Pages\studentTest.aspx.designer.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeacherDashboard.aspx.cs">
+      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TeacherDashboard.aspx.designer.cs">
+      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
@@ -289,6 +324,13 @@
     </Compile>
     <Compile Include="test pond\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\zoPractice.aspx.cs">
+      <DependentUpon>zoPractice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\zoPractice.aspx.designer.cs">
+      <DependentUpon>zoPractice.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
