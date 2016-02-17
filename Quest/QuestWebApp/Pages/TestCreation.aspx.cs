@@ -136,7 +136,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //divErrorMessage.InnerHtml = "<asp:Label ID=\"lblMultiChoice\" runat=\"server\" Text=\"Multiple Choice\"></asp:Label><br /><asp:Label ID=\"lblMCQuestion\" runat=\"server\" Text=\"Question: \"></asp:Label><asp:TextBox ID=\"txtMCQuestion\" runat=\"server\" Width=\"200px\"></asp:TextBox><br /><asp:Label ID=\"lblMCAnswers\" runat=\"server\" Text=\"Choices:\"></asp:Label><br /><asp:RadioButton ID=\"rdbMC1\" runat=\"server\" GroupName =\"MutlipleChoice\" Checked=\"True\"/><asp:TextBox ID=\"txtMC1\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC2\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC2\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC3\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC3\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC4\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC4\" runat=\"server\"></asp:TextBox>";
         }
 
         // Checks which question is selected
@@ -163,6 +163,16 @@ namespace QuestWebApp.Pages
                     lblWarning.Text = "Please select a question type";
                     break;
             }
+            questionCounter++;
+            //divErrorMessage.InnerHtml = "<asp:Label ID=\"lblMultiChoice\" runat=\"server\" Text=\"Multiple Choice\"></asp:Label><br /><asp:Label ID=\"lblMCQuestion\" runat=\"server\" Text=\"Question: \"></asp:Label><asp:TextBox ID=\"txtMCQuestion\" runat=\"server\" Width=\"200px\"></asp:TextBox><br /><asp:Label ID=\"lblMCAnswers\" runat=\"server\" Text=\"Choices:\"></asp:Label><br /><asp:RadioButton ID=\"rdbMC1\" runat=\"server\" GroupName =\"MutlipleChoice\" Checked=\"True\"/><asp:TextBox ID=\"txtMC1\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC2\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC2\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC3\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC3\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC4\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC4\" runat=\"server\"></asp:TextBox>";
+            divErrorMessage.InnerHtml = "<div id=\""+questionCounter+"\" runat=\"server\">";
+            divErrorMessage.Controls.Add(
+                new TextBox()
+                {
+                    ID = "plzwork" + questionCounter.ToString()
+                });
+
+
         }
 
         // Saves question to test
