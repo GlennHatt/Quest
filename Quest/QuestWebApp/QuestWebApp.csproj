@@ -98,24 +98,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Images\android-desktop.png" />
-    <Content Include="Assets\Images\crown.png" />
-    <Content Include="Assets\Images\favicon.png" />
-    <Content Include="Assets\Images\ios-desktop.png" />
-    <Content Include="Assets\mdl\material.css" />
-    <Content Include="Assets\mdl\material.js" />
-    <None Include="Assets\mdl\material.min.css.bak" />
-    <Content Include="Assets\mdl\material.min.css" />
-    <Content Include="Assets\mdl\material.min.js" />
-    <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
-    <Content Include="Assets\mdl\bower.json" />
-    <Content Include="Assets\mdl\LICENSE" />
-    <Content Include="Assets\mdl\material.min.css.map" />
-    <Content Include="Assets\mdl\material.min.js.map" />
-    <Content Include="Assets\mdl\package.json" />
-    <None Include="Content\mdl-v1.0.5\material.min.css.bak" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />
     <Content Include="Content\mdl-v1.0.5\material.min.js" />
     <Content Include="packages.config" />
@@ -143,6 +127,7 @@
     <Content Include="Pages\takingTestTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="Pages\TestCreation.aspx" />
+    <Content Include="Pages\login.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -168,18 +153,18 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="test pond\template\index.html" />
-    <Content Include="test pond\template\styles.css" />
-    <Content Include="test pond\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Master-Pages\admin.master.cs">
-      <DependentUpon>admin.master</DependentUpon>
+    <Compile Include="Pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master-Pages\admin.master.designer.cs">
       <DependentUpon>admin.master</DependentUpon>
@@ -301,7 +286,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="test pond\template\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
