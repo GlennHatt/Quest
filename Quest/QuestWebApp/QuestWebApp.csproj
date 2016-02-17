@@ -128,6 +128,7 @@
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="Pages\TestCreation.aspx" />
     <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\WebForm1.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="Pages\TestCreation.aspx.designer.cs">
       <DependentUpon>TestCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test pond\DBTestPage.aspx.cs">
