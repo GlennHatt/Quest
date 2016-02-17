@@ -113,12 +113,6 @@
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
-    <Content Include="Assets\mdl\bower.json" />
-    <Content Include="Assets\mdl\LICENSE" />
-    <Content Include="Assets\mdl\material.min.css.map" />
-    <Content Include="Assets\mdl\material.min.js.map" />
-    <Content Include="Assets\mdl\package.json" />
-    <None Include="Content\mdl-v1.0.5\material.min.css.bak" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />
     <Content Include="Content\mdl-v1.0.5\material.min.js" />
     <Content Include="packages.config" />
@@ -143,8 +137,15 @@
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
+    <Content Include="Pages\adminTest.aspx" />
+    <Content Include="Pages\loginTest.aspx" />
+    <Content Include="Pages\nosidebarTest.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
+    <Content Include="Pages\takingTestTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="Pages\TestCreation.aspx" />
+    <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\WebForm1.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -180,9 +181,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Master-Pages\admin.master.cs">
-      <DependentUpon>admin.master</DependentUpon>
+    <Compile Include="Pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master-Pages\admin.master.designer.cs">
       <DependentUpon>admin.master</DependentUpon>
@@ -250,6 +254,20 @@
     <Compile Include="Pages\StudentDashboard.aspx.designer.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\loginTest.aspx.cs">
+      <DependentUpon>loginTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\loginTest.aspx.designer.cs">
+      <DependentUpon>loginTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\nosidebarTest.aspx.cs">
+      <DependentUpon>nosidebarTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\nosidebarTest.aspx.designer.cs">
+      <DependentUpon>nosidebarTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\studentTest.aspx.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,6 +282,13 @@
     <Compile Include="Pages\TeacherDashboard.aspx.designer.cs">
       <DependentUpon>TeacherDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\takingTestTest.aspx.cs">
+      <DependentUpon>takingTestTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\takingTestTest.aspx.designer.cs">
+      <DependentUpon>takingTestTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\teacherTest.aspx.cs">
       <DependentUpon>teacherTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -277,6 +302,13 @@
     </Compile>
     <Compile Include="Pages\TestCreation.aspx.designer.cs">
       <DependentUpon>TestCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test pond\DBTestPage.aspx.cs">
@@ -304,7 +336,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="test pond\template\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
