@@ -7,63 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Master_Pages {
+namespace QuestWebApp.Pages {
     
     
-    public partial class student1 {
+    public partial class login {
         
         /// <summary>
-        /// studentBreadCrumb control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentBreadCrumb;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// studentHead control.
+        /// unsernameText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentHead;
+        protected global::System.Web.UI.WebControls.Label unsernameText;
         
         /// <summary>
-        /// studentExtraReferances control.
+        /// username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentExtraReferances;
+        protected global::System.Web.UI.WebControls.TextBox username;
         
         /// <summary>
-        /// studentSidebar control.
+        /// passwordText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentSidebar;
+        protected global::System.Web.UI.WebControls.Label passwordText;
         
         /// <summary>
-        /// studentWithSidebarBodyContent control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentWithSidebarBodyContent;
+        protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// studentPageSpecificJS control.
+        /// loginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentPageSpecificJS;
+        protected global::System.Web.UI.WebControls.Button loginButton;
+        
+        /// <summary>
+        /// answer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label answer;
     }
 }

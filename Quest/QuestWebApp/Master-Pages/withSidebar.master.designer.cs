@@ -10,60 +10,69 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class student1 {
+    public partial class withSidebar {
         
         /// <summary>
-        /// studentBreadCrumb control.
+        /// breadCrumb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentBreadCrumb;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder breadCrumb;
         
         /// <summary>
-        /// studentHead control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentHead;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// studentExtraReferances control.
+        /// extraReferances control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentExtraReferances;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
         
         /// <summary>
-        /// studentSidebar control.
+        /// txtGreeting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentSidebar;
+        protected global::System.Web.UI.WebControls.Label txtGreeting;
         
         /// <summary>
-        /// studentWithSidebarBodyContent control.
+        /// withSidebarSidebar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentWithSidebarBodyContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder withSidebarSidebar;
         
         /// <summary>
-        /// studentPageSpecificJS control.
+        /// withSidebarBodyContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder studentPageSpecificJS;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder withSidebarBodyContent;
+        
+        /// <summary>
+        /// pageSpecificJS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageSpecificJS;
     }
 }
