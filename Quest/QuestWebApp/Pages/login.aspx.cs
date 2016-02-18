@@ -51,11 +51,11 @@ namespace QuestWebApp.Pages
             }
         }
 
-        public string CalculateHash(string input) // Hashes the string that is passed into it
+        public string CalculateHash(string passwordInput) // Hashes the string that is passed into it
 
         {
             MD5 hashed_algorithm = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(passwordInput);
             byte[] hash = hashed_algorithm.ComputeHash(inputBytes);
 
             StringBuilder hashedValue = new StringBuilder();
