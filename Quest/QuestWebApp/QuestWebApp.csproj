@@ -127,11 +127,11 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Master-Pages\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
     <Content Include="Master-Pages\withoutSidebar.master" />
     <Content Include="Master-Pages\withSidebar.master" />
+    <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
@@ -181,15 +181,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Master-Pages\admin.master.cs">
+      <DependentUpon>admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master-Pages\admin.master.designer.cs">
+      <DependentUpon>admin.master</DependentUpon>
+    </Compile>
     <Compile Include="Pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Master-Pages\admin.master.designer.cs">
-      <DependentUpon>admin.master</DependentUpon>
     </Compile>
     <Compile Include="Master-Pages\Head.Master.cs">
       <DependentUpon>Head.Master</DependentUpon>

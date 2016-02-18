@@ -46,7 +46,7 @@ public struct MultipleChoiceChoice
     public MultipleChoiceChoice(int newQuestionId, char newLetter, string newChoiceText)
     {
         questionId = newQuestionId;
-        letter     = newLetter;
+        letter = newLetter;
         choiceText = newChoiceText;
     }
 }
@@ -78,8 +78,8 @@ public struct ShortAnswer
     {
         questionId = newQuestionId;
         beforeText = newBeforeText;
-        answer     = newAnswer;
-        afterText  = newAfterText;
+        answer = newAnswer;
+        afterText = newAfterText;
     }
 }
 
@@ -134,10 +134,79 @@ namespace QuestWebApp.Pages
         //Dynamic list of questions
         public static List<Question> questionList = new List<Question>();
 
-        protected void Page_Load(object sender, EventArgs e)
+        private void Page_Load(object sender, System.EventArgs e)
         {
-            //divErrorMessage.InnerHtml = "<asp:Label ID=\"lblMultiChoice\" runat=\"server\" Text=\"Multiple Choice\"></asp:Label><br /><asp:Label ID=\"lblMCQuestion\" runat=\"server\" Text=\"Question: \"></asp:Label><asp:TextBox ID=\"txtMCQuestion\" runat=\"server\" Width=\"200px\"></asp:TextBox><br /><asp:Label ID=\"lblMCAnswers\" runat=\"server\" Text=\"Choices:\"></asp:Label><br /><asp:RadioButton ID=\"rdbMC1\" runat=\"server\" GroupName =\"MutlipleChoice\" Checked=\"True\"/><asp:TextBox ID=\"txtMC1\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC2\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC2\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC3\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC3\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC4\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC4\" runat=\"server\"></asp:TextBox>";
+            //     if (!IsPostBack)
+            //       AddControls();
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            int cnt = rptTBs.Items.Count + 1;
+            object[] arrDummyDatasource = new object[cnt];
+            rptTBs.DataSource = arrDummyDatasource;
+            rptTBs.DataBind();
+        }
+
+        private void CheckPostData(ControlCollection _controls)
+        {
+
+            if (IsPostBack)
+            {
+                foreach (Control ctr in _controls)
+                {
+
+                    IPostBackDataHandler hnd = ctr as IPostBackDataHandler;
+                    if (hnd != null)
+                    {
+
+                        hnd.LoadPostData(ctr.UniqueID, Request.Form);
+                    }
+
+                    if (ctr.HasControls())
+                        CheckPostData(ctr.Controls);
+                }
+            }
+        }
+
+        protected void rptTBs_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                CheckPostData(e.Item.Controls);
+            }
+        }
+
+        /*
+        protected override void LoadViewState(object savedState)
+        {
+            base.LoadViewState(savedState);
+            if (ViewState["controsladded"] == null)
+                AddControls();
+        }
+
+        private void AddControls()
+        {
+            TextBox dynamictextbox = new TextBox();
+            dynamictextbox.Text = "(Enter some text)";
+            dynamictextbox.ID = "dynamictextbox";
+            Button dynamicbutton = new Button();
+            dynamicbutton.Click += new System.EventHandler(dynamicbutton_Click);
+            dynamicbutton.Text = "Dynamic Button";
+            Panel1.Controls.Add(dynamictextbox);
+            Panel1.Controls.Add(new LiteralControl("<BR>"));
+            Panel1.Controls.Add(new LiteralControl("<BR>"));
+            Panel1.Controls.Add(dynamicbutton);
+            ViewState["controlsadded"] = true;
+        }
+
+        private void dynamicbutton_Click(Object sender, System.EventArgs e)
+        {
+            TextBox tb = new TextBox();
+            tb = (TextBox)(Panel1.FindControl("dynamictextbox"));
+            Label1.Text = tb.Text;
+        }
+        */
 
         // Checks which question is selected
         protected void btnChooseQuestion_Click(object sender, EventArgs e)
@@ -165,7 +234,7 @@ namespace QuestWebApp.Pages
             }
             questionCounter++;
             //divErrorMessage.InnerHtml = "<asp:Label ID=\"lblMultiChoice\" runat=\"server\" Text=\"Multiple Choice\"></asp:Label><br /><asp:Label ID=\"lblMCQuestion\" runat=\"server\" Text=\"Question: \"></asp:Label><asp:TextBox ID=\"txtMCQuestion\" runat=\"server\" Width=\"200px\"></asp:TextBox><br /><asp:Label ID=\"lblMCAnswers\" runat=\"server\" Text=\"Choices:\"></asp:Label><br /><asp:RadioButton ID=\"rdbMC1\" runat=\"server\" GroupName =\"MutlipleChoice\" Checked=\"True\"/><asp:TextBox ID=\"txtMC1\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC2\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC2\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC3\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC3\" runat=\"server\"></asp:TextBox><br /><asp:RadioButton ID=\"rdbMC4\" runat=\"server\" GroupName =\"MutlipleChoice\"/><asp:TextBox ID=\"txtMC4\" runat=\"server\"></asp:TextBox>";
-            divErrorMessage.InnerHtml = "<div id=\""+questionCounter+"\" runat=\"server\">";
+            divErrorMessage.InnerHtml = "<div id=\"" + questionCounter + "\" runat=\"server\">";
             divErrorMessage.Controls.Add(
                 new TextBox()
                 {
@@ -180,13 +249,13 @@ namespace QuestWebApp.Pages
         {
 
             // Multiple choice question checked and saved
-            if(rblChooseQuestion.SelectedValue == "Multiple Choice")
-                if(txtMCQuestion.Text != String.Empty)
+            if (rblChooseQuestion.SelectedValue == "Multiple Choice")
+                if (txtMCQuestion.Text != String.Empty)
                     if (txtMC1.Text != String.Empty || txtMC2.Text != String.Empty || txtMC3.Text != String.Empty || txtMC4.Text != String.Empty)
                     {
                         Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "Multiple Choice");
 
-                        if(rdbMC1.Checked == true)
+                        if (rdbMC1.Checked == true)
                         {
                             MultipleChoice newMCQuestion = new MultipleChoice(questionCounter, txtMCQuestion.Text, "A");
                         }
@@ -212,10 +281,10 @@ namespace QuestWebApp.Pages
                     }
 
             // True False Question checked and saved
-            if(rblChooseQuestion.SelectedValue == "True False")
-                if(txtTFQuestion.Text != String.Empty)
+            if (rblChooseQuestion.SelectedValue == "True False")
+                if (txtTFQuestion.Text != String.Empty)
                 {
-                    Question newQuestion = new Question(questionCounter,Int32.Parse(ddlPointValue.SelectedValue), "True/False");
+                    Question newQuestion = new Question(questionCounter, Int32.Parse(ddlPointValue.SelectedValue), "True/False");
                     TrueFalse newTFQuestion = new TrueFalse(questionCounter, txtTFQuestion.Text, rblTrueFalse.SelectedValue.ToString());
                     questionList.Add(newQuestion);
                 }
@@ -229,7 +298,7 @@ namespace QuestWebApp.Pages
                     {
                         ShortAnswer newSAQuestion = new ShortAnswer(questionCounter, txtFBStatementBegin.Text, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
-                    else if(txtFBStatementBegin.Text != String.Empty)
+                    else if (txtFBStatementBegin.Text != String.Empty)
                     {
                         ShortAnswer newSAQuestion = new ShortAnswer(questionCounter, String.Empty, txtFBAnswer.Text, txtFBStatementEnd.Text);
                     }
@@ -241,7 +310,7 @@ namespace QuestWebApp.Pages
                 }
 
             // Matching question checked and saved
-            if(rblChooseQuestion.SelectedValue == "Matching")
+            if (rblChooseQuestion.SelectedValue == "Matching")
             {
                 if (txtSectionName.Text != String.Empty)
                 {
@@ -282,10 +351,10 @@ namespace QuestWebApp.Pages
 
         protected void displayQuestions_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < questionList.Count; i++)
+            for (int i = 0; i < questionList.Count; i++)
             {
                 txtTest.Text += "\n" + questionList[i].questionId + " " + questionList[i].pointValue + " " + questionList[i].questionType;
-            } 
+            }
         }
 
         // Tentative way to make prerequisites for test

@@ -10,6 +10,24 @@
     <form id="form1" runat="server">
 
         <div id="divErrorMessage" runat = "server" class="diverrormessage"> </div>
+
+        <asp:Repeater  ID="rptTBs"  runat="server" >
+        <ItemTemplate>
+            <asp:TextBox ID="tb" runat="server"   />
+            <asp:CheckBox ID="chk" runat="server" /> 
+            <asp:DropDownList ID="drp" runat="server" >
+                <asp:ListItem>One</asp:ListItem> 
+                <asp:ListItem>Two</asp:ListItem> 
+                <asp:ListItem>Three</asp:ListItem> 
+            </asp:DropDownList>
+            <br /> 
+        </ItemTemplate> 
+    </asp:Repeater>
+      
+    <asp:Button ID="btnAdd" runat="server" Text="Add a TextBox" OnClick="btnAdd_Click" />
+
+
+
     <div>
         
 

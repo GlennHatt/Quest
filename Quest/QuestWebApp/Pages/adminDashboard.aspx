@@ -32,7 +32,7 @@
                         <h1>Add a Teacher </h1>
                         <!-- Textfield with Floating Label for teacher First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxTeacherfirstName" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" for="sample3">First Name:</label>
                         </div>
 
@@ -50,13 +50,13 @@
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" for="sample3">Password:</label>
+                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server" OnTextChanged="txtbxTeacherPassword_TextChanged" />
+                            <asp:label ID="lblPassword" class="mdl-textfield__label" runat="server" for="sample3">Password:</asp:label>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                             <label class="mdl-textfield__label" for="sample3">Confirm Password:</label>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
 
-                        <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server">
+                        <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
@@ -111,13 +111,13 @@
 
                         <!-- Textfield with Floating Label for student password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxStudentPassword" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxStudentPassword" class="mdl-textfield__input" type="password" runat="server" />
                             <label class="mdl-textfield__label" for="sample3">Password:</label>
                         </div>
 
                         <!-- Textfield with Floating Label for student confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxStudentConfirmPassword" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxStudentConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                             <label class="mdl-textfield__label" for="sample3">Confirm Password:</label>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
 
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddStudent" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server">
+                        <asp:LinkButton ID="btnAddStudent" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddStudent_Click">
           <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
@@ -161,7 +161,7 @@
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -12px" runat="server">
+                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -12px" runat="server" OnClick="btnAddClass_Click">
           <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>

@@ -13,13 +13,13 @@ namespace QuestWebApp.Pages {
     public partial class adminDashboard {
         
         /// <summary>
-        /// txtbxTeacherfirstName control.
+        /// txtbxTeacherFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherfirstName;
+        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherFirstName;
         
         /// <summary>
         /// txtbxTeacherLastName control.
@@ -47,6 +47,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxTeacherPassword;
+        
+        /// <summary>
+        /// lblPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassword;
         
         /// <summary>
         /// txtbxTeacherConfirmPassword control.
