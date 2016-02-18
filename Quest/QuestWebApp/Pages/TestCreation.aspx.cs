@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 
 // Universal Question
-public struct Question
+public class Question
 {
     public int questionId;
     public int pointValue;
@@ -52,7 +52,7 @@ public struct MultipleChoiceChoice
 }
 
 // True False question
-public struct TrueFalse
+public class TrueFalse
 {
     public int questionId;
     public string question;
