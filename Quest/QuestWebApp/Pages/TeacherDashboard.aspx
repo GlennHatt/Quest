@@ -20,13 +20,13 @@
 
 
 </style> 
-    <main class="mdl-layout__content">
-        <div class="content-grid mdl-grid">
+    <main class="mdl-layout__content"  style="width: 99%; padding-right: 1%;">
+        <div class="content-grid mdl-grid" style="width: 100%;">
             <div class="mdl-cell mdl-cell--4-col ">
                 <!-- Card for Creating a test -->
 
 
-                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp ">
+                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card demo-card-square">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>Create a Test </h1>
                     </div>
@@ -42,7 +42,7 @@
                 <!-- Card for Informing the Teacher how many test they have to grade -->
 
 
-                <div class="demo-card-wide mdl-cardGradeTest mdl-shadow--3dp">
+                <div class="demo-card-wide mdl-cardGradeTest mdl-shadow--3dp mdl-card demo-card-square">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>You Have
                             <asp:Label ID="lblTestsToGrade" runat="server" Text="0"></asp:Label>

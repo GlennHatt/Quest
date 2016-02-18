@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="QuestWebApp.Master_Pages.admin1" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="QuestWebApp.Master_Pages.admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
     <asp:ContentPlaceHolder ID="adminBreadcrumbs" runat="server" />
 </asp:Content>
