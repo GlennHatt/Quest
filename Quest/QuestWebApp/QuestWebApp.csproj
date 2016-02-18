@@ -103,6 +103,7 @@
     <Content Include="Assets\Images\favicon.png" />
     <Content Include="Assets\Images\greek.png" />
     <Content Include="Assets\Images\ios-desktop.png" />
+    <Content Include="Assets\Images\mountains.png" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
     <Content Include="Assets\mdl\material.css" />

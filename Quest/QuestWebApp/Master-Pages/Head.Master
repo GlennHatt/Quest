@@ -59,8 +59,22 @@
 
 
         <!-- End Material Design Packages -->
+   
 </head>
-<body>
+<body style=" background-image: url('../Assets/Images/mountains.png'); background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat; ">
+    <div 
+        style="position:fixed;
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
+        width: 100%;
+        height: 100%;
+        background:rgba(255,255,255,0.2);">
 
     <!--<div id="center">
         <div id="main" style="text-align:center">
@@ -85,5 +99,6 @@
 
     <!-- MDL script -->
     <script src="../Assets/mdl/material.min.js"></script>
+    </div>
 </body>
 </html>

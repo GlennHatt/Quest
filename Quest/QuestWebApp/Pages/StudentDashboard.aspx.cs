@@ -11,7 +11,25 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            displayGreeting();
+        }
 
+        private void displayGreeting()
+        {
+            if(DateTime.Now.Hour < 12)
+{
+                lblStudentGreeting.Text = "Good Morning";
+            }
+                else if (DateTime.Now.Hour < 17)
+            {
+                lblStudentGreeting.Text = "Good Afternoon";
+            }
+            else
+            {
+                lblStudentGreeting.Text = "Good Evening";
+            }
         }
     }
+
+
 }

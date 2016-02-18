@@ -26,16 +26,12 @@
                         <img src="../Assets/Images/greek.png" style="height: 25%; width: 25%; padding-left: 38%;" />
                     </div>
                     <div class="mdl-card__title" style="text-align:center">
-                        <h2 class="mdl-card__title-text" style="text-align:center">
-                            <asp:Label ID="lblStudentGreeting" runat="server" Text=""></asp:Label> </h2>
+                        <div class="mdl-card__supporting-text" style="font-size: 250%; " >
+                            <asp:Label ID="lblStudentGreeting" runat="server" Text=""></asp:Label> </div>
                     </div>
                     <div class="mdl-card__supporting-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Aenan convallis.
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">View Updates
-                        </a>
                     </div>
                 </div>
 
