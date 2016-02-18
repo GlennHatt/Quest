@@ -8,8 +8,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <div id="divErrorMessage" runat = "server" class="diverrormessage"> </div>
     <div>
-    
+        
+
         <asp:Label ID="lblSectionID" runat="server" Text="Please choose Section ID: "></asp:Label>
         <asp:DropDownList ID="ddlSectionId" runat="server">
             <asp:ListItem Value="1">BA 403-2</asp:ListItem>
@@ -53,7 +56,7 @@
         <br />
         <br />
     
-        <asp:Label ID="lblQuestionChoice" runat="server" Text="Choose a question type: "></asp:Label>
+        <asp:Label ID="lblQuestionChoice" runat="server" AutoPostBack="true" Text="Choose a question type: "></asp:Label>
     
         <asp:RadioButtonList ID="rblChooseQuestion" runat="server">
             <asp:ListItem>Multiple Choice</asp:ListItem>
@@ -86,7 +89,7 @@
         <asp:Button ID="btnSaveQuestion" runat="server" Text="Save Question" Width="120px" OnClick="btnSaveQuestion_Click" />
         <br />
         <br />
-        <asp:Label ID="lblMultiChoice" runat="server" Text="Multiple Choice"></asp:Label>
+   <!-- <asp:Label ID="lblMultiChoice" runat="server" Text="Multiple Choice"></asp:Label>
     
         <br />
         <asp:Label ID="lblMCQuestion" runat="server" Text="Question: "></asp:Label>
@@ -108,7 +111,7 @@
         <br />
         <asp:RadioButton ID="rdbMC4" runat="server" GroupName ="MutlipleChoice"/>
         <asp:TextBox ID="txtMC4" runat="server"></asp:TextBox>
-    
+    -->
         <br />
         <br />
         <asp:Label ID="lblTrueFalse" runat="server" Text="True/False"></asp:Label>

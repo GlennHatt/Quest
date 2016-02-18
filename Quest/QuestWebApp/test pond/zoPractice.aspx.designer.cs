@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Pages
+namespace QuestWebApp.test_pond
 {
 
 
-    public partial class adminTest
+    public partial class zoPractice
     {
     }
 }
