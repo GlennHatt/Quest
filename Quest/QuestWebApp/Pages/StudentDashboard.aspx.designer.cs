@@ -13,6 +13,15 @@ namespace QuestWebApp.Pages {
     public partial class StudentDashboard {
         
         /// <summary>
+        /// lblStudentGreeting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStudentGreeting;
+        
+        /// <summary>
         /// lblTestSubject control.
         /// </summary>
         /// <remarks>

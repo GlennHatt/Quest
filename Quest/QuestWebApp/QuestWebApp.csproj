@@ -101,6 +101,7 @@
     <Content Include="Assets\Images\android-desktop.png" />
     <Content Include="Assets\Images\crown.png" />
     <Content Include="Assets\Images\favicon.png" />
+    <Content Include="Assets\Images\greek.png" />
     <Content Include="Assets\Images\ios-desktop.png" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
@@ -110,6 +111,7 @@
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
     <Content Include="Assets\Styles\inputTransition.css" />
+    <Content Include="Assets\Styles\mdl-card-fix.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />

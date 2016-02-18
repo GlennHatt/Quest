@@ -47,6 +47,11 @@
     <meta name="msapplication-TileColor" content="#3372DF"/>
     <link rel="shortcut icon" href="images/favicon.png"/>
 
+    <!-- Styles to fix MDL card sizing -->
+    <link href="../Assets/Styles/mdl-card-fix.css" rel="stylesheet" />
+
+
+
     <!-- Extra referances -->
     <asp:ContentPlaceHolder ID="extraReferances" runat="server">
 

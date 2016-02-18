@@ -22,7 +22,7 @@
 </style> 
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col ">
+            <div class="mdl-cell mdl-cell--12-col ">
                 <!-- Card for Creating a test -->
 
 
