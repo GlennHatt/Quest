@@ -13,6 +13,33 @@ namespace QuestWebApp.Pages {
     public partial class adminDashboard {
         
         /// <summary>
+        /// sqlTeacher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacher;
+        
+        /// <summary>
+        /// sqlStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlStudent;
+        
+        /// <summary>
+        /// sqlClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlClass;
+        
+        /// <summary>
         /// txtbxTeacherFirstName control.
         /// </summary>
         /// <remarks>

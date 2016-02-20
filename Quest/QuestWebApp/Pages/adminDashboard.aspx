@@ -10,8 +10,41 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-
-
+    <!--<InsertParameters>
+            <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Email" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherPassword" Name="p_Password" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherLastName" Name="p_LName" PropertyName="Text" />
+        </InsertParameters>-->
+    <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+DECLARE
+  v_dummy pls_integer;
+BEGIN
+ v_dummy := END_USERS.add(
+    p_Email           =&gt; 'a',
+    p_Password        =&gt; 'b',
+    p_FName           =&gt; 'c',
+    p_LName           =&gt; 'd',
+    p_PermissionLevel =&gt; 'T');
+END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+END_USERS.add(
+    p_Email           =&gt; :p_Email,
+    p_Password        =&gt; :p_Password,
+    P_FName           =&gt; :p_FName,
+    p_LName           =&gt; :p_LName,
+    p_PermissionLevel =&gt; :p_PermissionLevel);
+  RETURN :v_Dummy;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
+        <InsertParameters>
+            <asp:ControlParameter ControlID="txtbxStudentEmail" Name="p_Email" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxStudentPassword" Name="p_Password" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxStudentFirstName" Name="p_FName" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxStudentLastName" Name="p_LName" PropertyName="Text" />
+            <asp:Parameter DefaultValue="S" Name="p_PermissionLevel" />
+        </InsertParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlClass" runat="server"></asp:SqlDataSource>
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">

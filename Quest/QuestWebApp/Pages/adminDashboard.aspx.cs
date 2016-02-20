@@ -13,7 +13,7 @@ namespace QuestWebApp.Pages
     {
 
         // Work in progress ------------------------------------
-        public enum PasswordScore
+      /* public enum PasswordScore
         {
             Blank = 0,
             VeryWeak = 1,
@@ -22,7 +22,7 @@ namespace QuestWebApp.Pages
             Strong = 4,
             VeryStrong = 5
         }
-
+        
         public class PasswordAdvisor
         {
             public static PasswordScore CheckStrength(string password)
@@ -49,6 +49,7 @@ namespace QuestWebApp.Pages
                 return (PasswordScore)score;
             }
         }
+        */
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,12 +68,14 @@ namespace QuestWebApp.Pages
                 //txtbxTeacherPassword.BorderColor = Color.Red;
             if (txtbxTeacherConfirmPassword.Text == String.Empty)
                 txtbxTeacherConfirmPassword.BorderColor = Color.Red;
-            
-            
-            
+
+
+
             // TODO: Regular Expressions -----------------------------------------
 
-            
+            // END REGX
+
+            sqlTeacher.Insert();
         }
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
@@ -84,6 +87,7 @@ namespace QuestWebApp.Pages
                         txtbxStudentPassword.Text
                         txtbxStudentConfirmPassword.Text
             */
+            sqlStudent.Insert();
         }
 
         protected void btnAddClass_Click(object sender, EventArgs e)
@@ -96,7 +100,7 @@ namespace QuestWebApp.Pages
 
         protected void txtbxTeacherPassword_TextChanged(object sender, EventArgs e)
         {
-            PasswordScore passwordStrengthScore = PasswordAdvisor.CheckStrength(txtbxTeacherPassword.Text);
+            /*PasswordScore passwordStrengthScore = PasswordAdvisor.CheckStrength(txtbxTeacherPassword.Text);
 
             switch (passwordStrengthScore)
             {
@@ -112,7 +116,7 @@ namespace QuestWebApp.Pages
                     lblPassword.Text = "Good password (obviously not Lorenzo)";
                     // Password deemed strong enough, allow user to be added to database etc
                     break;
-            }
+            }*/
         }
     }
 }
