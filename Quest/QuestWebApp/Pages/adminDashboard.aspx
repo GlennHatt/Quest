@@ -6,6 +6,7 @@
     <title>Admin | Home</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="adminExtraReferances" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -182,32 +183,24 @@
 
 </style> -->
 
-                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h1>Add a Section </h1>
-                        <!-- Textfield with Floating Label for Title -->
-                        <div class="drop">Drop
-    <ul>
-      <li><a href="http://www.g.com">Art</a></li>
-      <li><a href="http://www.g.com">Coding</a></li>
-      <li><a href="http://www.g.com">Design</a></li>
-      <li><a href="http://www.g.com">Web Development</a></li>
-    </ul>
-  </div>
+                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height:400px;">
+                    
 
-                        <!-- Textfield with Floating Label for Course Number -->
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="TextBox2" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" for="sample3">Course Number:</label>
-                        </div>
+                    <div >
+			
+			<div class="button-group">
+			<i id="icon"></i>
+			<a id="input" href="">Choose an option</a>
+			  <ul id="dropdown-menu">
+			    <li><a href="#">Action</a></li>
+			    <li><a href="#">Another action</a></li>
+			    <li><a href="#">Something else </a></li>
+			    <li><a href="#">Account Settings</a></li>
+			    <li><a href="#">Help and Feedback</a></li>
+			  </ul>
+			</div>
+		
 
-                        <div style="text-align: right">
-                            <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="LinkButton1" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server">
-          <i class="material-icons">add</i>
-                            </asp:LinkButton>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -215,4 +208,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
+
 </asp:Content>

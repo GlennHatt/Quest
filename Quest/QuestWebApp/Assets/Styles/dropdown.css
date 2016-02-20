@@ -28,7 +28,7 @@ h1 {
   padding: 0.15em;
   position: relative;
   top: 0.5em;
-}
+} 
 .container {
   text-align: center;
   position: relative;
@@ -39,7 +39,7 @@ h1 {
   display: block;
   height: 1.25em;
   background: #0286c2;
-} */
+}
 /* INPUT
    ================================== */
 #input {
