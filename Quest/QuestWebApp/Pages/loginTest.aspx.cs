@@ -25,21 +25,21 @@ namespace QuestWebApp.Pages
                 case "admin": // Placeholder for admin username
                     if (password.Text == "khury")
                     {
-                        answer.Text = "Login Admin";
+                        Response.Redirect("http://localhost:52416/Pages/adminDashboard.aspx");
                         classification = 1; // Replace with primary key for admin
                     }
                     break;
                 case "teacher": // Placeholder for teacher username
                     if (password.Text == "khury")
                     {
-                        answer.Text = "Login Teacher";
+                        Response.Redirect("http://localhost:52416/Pages/TeacherDashboard.aspx");
                         classification = 2; // Replace with primary key for teacher
                     }
                     break;
                 case "student": // Placeholder for student username
                     if (password.Text == "khury")
                     {
-                        answer.Text = "Login Student";
+                        Response.Redirect("http://localhost:52416/Pages/StudentDashboard.aspx");
                         classification = 3;  // Replace with primary key for the student
                     }
                     break;

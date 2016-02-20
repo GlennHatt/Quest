@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div style="margin:500px; margin-left: 1300px; font-size:12ex; color: white">
+    <div style="text-align:right; color: white;margin-top: 32%;font-size: 34px;"><img src="../Assets/Images/transparent.png" height="100" width="100"/>
     Product of RPG
     </div>
 </asp:Content>

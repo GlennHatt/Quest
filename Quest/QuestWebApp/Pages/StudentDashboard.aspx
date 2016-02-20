@@ -18,7 +18,6 @@
             <div class="mdl-cell mdl-cell--6-col">
 
 
-
                 <!-- Square card -->
 
                 <div class="demo-card-square mdl-card mdl-shadow--2dp" style="text-align:center">
