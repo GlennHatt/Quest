@@ -30,6 +30,8 @@ namespace QuestWebApp.Pages
                         answer.Text = "Login Admin";
                         classification = 'A'; // Replace with primary key for admin
                     }
+                    else
+                        answer.Text = "Incorrect username and/or password";
                     break;
                 case "teacher": // Placeholder for teacher username
                     if (password.Text == "khury")
@@ -37,6 +39,8 @@ namespace QuestWebApp.Pages
                         answer.Text = "Login Teacher";
                         classification = 'T'; // Replace with primary key for teacher
                     }
+                    else
+                        answer.Text = "Incorrect username and/or password";
                     break;
                 case "student": // Placeholder for student username
                     if (password.Text == "khury")
@@ -44,6 +48,8 @@ namespace QuestWebApp.Pages
                         answer.Text = "Login Student";
                         classification = 'S';  // Replace with primary key for the student
                     }
+                    else
+                        answer.Text = "Incorrect username and/or password";
                     break;
                 default:
                     answer.Text = "Incorrect username and/or password";
