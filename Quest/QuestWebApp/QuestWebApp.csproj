@@ -113,6 +113,7 @@
     <None Include="Assets\mdl\material.min.css.bak" />
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
+    <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
     <Content Include="Assets\Styles\styles.css" />
@@ -132,17 +133,17 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Master-Pages\admin.master" />
+    <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
     <Content Include="Master-Pages\withoutSidebar.master" />
     <Content Include="Master-Pages\withSidebar.master" />
+    <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
-    <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
@@ -184,6 +185,10 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Master-Pages\admin.master.cs">
+      <DependentUpon>admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Master-Pages\admin.master.designer.cs">
       <DependentUpon>admin.master</DependentUpon>
