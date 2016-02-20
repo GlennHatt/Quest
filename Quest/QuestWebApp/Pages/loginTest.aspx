@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
     <div style="text-align: center; color: white">
-        <h1>Ready, Set, Quest
+        <h1>Quest Testing Center
             <br />
         </h1>
     </div>
@@ -27,7 +27,6 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" for="sample3">Password</label>
                 <asp:TextBox ID="password" runat="server" class="mdl-textfield__input" TextMode="Password"></asp:TextBox>
-
             </div>
 
             <div class="button login" style="text-align: center">
@@ -36,8 +35,10 @@
             </div>
         </div>
     </div>
-    <div style="text-align:right; color: white;margin-top: 32%;font-size: 34px;"><img src="../Assets/Images/transparent.png" height="100" width="100"/>
-    Product of RPG
+    <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px;">
+        Product of RPG
+        <img src="../Assets/Images/transparent.png" height="50" width="50" />
+
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="loginPageSpecificJS" runat="server">

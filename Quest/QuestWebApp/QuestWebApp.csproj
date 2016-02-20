@@ -133,6 +133,7 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
+    <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="Pages\nosidebarTest.aspx.designer.cs">
       <DependentUpon>nosidebarTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\studentPreTest.aspx.cs">
+      <DependentUpon>studentPreTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentPreTest.aspx.designer.cs">
+      <DependentUpon>studentPreTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentTest.aspx.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
