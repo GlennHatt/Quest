@@ -13,6 +13,7 @@
         e.preventDefault();
         $('#dropdown-menu').add(triggerOpen).toggleClass('open');
 
+
         if ($('#icon').hasClass("marka-icon-times")) {
             m.set('triangle').size(10);
         } else {

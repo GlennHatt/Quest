@@ -156,6 +156,8 @@
     <Content Include="scripts\jquery-2.2.0.min.map" />
     <Content Include="test pond\Database.aspx" />
     <Content Include="test pond\DBTestPage.aspx" />
+    <Content Include="test pond\dropdownList.aspx" />
+    <Content Include="test pond\dropdownTest.aspx" />
     <Content Include="test pond\material.css" />
     <Content Include="test pond\material.js" />
     <Content Include="test pond\material.min.css" />
@@ -326,6 +328,20 @@
     </Compile>
     <Compile Include="test pond\DBTestPage.aspx.designer.cs">
       <DependentUpon>DBTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\dropdownList.aspx.cs">
+      <DependentUpon>dropdownList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\dropdownList.aspx.designer.cs">
+      <DependentUpon>dropdownList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\dropdownTest.aspx.cs">
+      <DependentUpon>dropdownTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\dropdownTest.aspx.designer.cs">
+      <DependentUpon>dropdownTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="test pond\zoPractice.aspx.cs">
       <DependentUpon>zoPractice.aspx</DependentUpon>

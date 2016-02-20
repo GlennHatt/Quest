@@ -6,7 +6,6 @@
     <title>Admin | Home</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="adminExtraReferances" runat="server">
-    <link href="../Assets/Styles/dropdown.css" rel="stylesheet" />
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
@@ -184,11 +183,12 @@
 
 </style> -->
 
-                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h1>Add a Section </h1>
-                        <!-- Textfield with Floating Label for Title -->
-                        			<div class="button-group">
+                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height:400px;">
+                    
+
+                    <div >
+			
+			<div class="button-group">
 			<i id="icon"></i>
 			<a id="input" href="">Choose an option</a>
 			  <ul id="dropdown-menu">
@@ -199,9 +199,8 @@
 			    <li><a href="#">Help and Feedback</a></li>
 			  </ul>
 			</div>
+		
 
-                        
-                    </div>
                 </div>
             </div>
 
@@ -209,6 +208,5 @@
     </main>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
-    <script src="../Assets/JS/dropdown.js"></script>
 
 </asp:Content>
