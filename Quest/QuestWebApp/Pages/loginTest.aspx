@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
     <div style="text-align: center; color: white">
-        <h1>Quest Testing Center
+        <h1>Quest Testing Center!
             <br />
         </h1>
     </div>
