@@ -106,7 +106,6 @@
     <Content Include="Assets\Images\mountains.png" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
-    <Content Include="Assets\JS\dropdown.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
