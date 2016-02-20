@@ -37,7 +37,7 @@
         </div>
     </div>
     <div style="text-align:right; color: white;margin-top: 32%;font-size: 34px;"><img src="../Assets/Images/transparent.png" height="100" width="100"/>
-    Product of RPG
+    Product of RPG!
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="loginPageSpecificJS" runat="server">
