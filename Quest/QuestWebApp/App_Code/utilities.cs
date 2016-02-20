@@ -13,8 +13,8 @@ namespace QuestWebApp.App_Code
             int student = 3; // Placeholders for the id's
 
             if (id != admin || id != teacher || id != student)
-                Console.Write("Redirect to Login page");
-            // Redirect to login page
+                Console.WriteLine("Redirect to login page");
+                // Redirect to login page
             else
             {
                 if (actualClassification != neededClassification)
@@ -32,7 +32,7 @@ namespace QuestWebApp.App_Code
                             // Access to only student dashboard
                             break;
                         default:
-                            // Login page
+                            // Redirect to Login page
                             break;
                     }
                 }
