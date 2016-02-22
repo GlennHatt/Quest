@@ -23,10 +23,13 @@ BEGIN
  v_dummy := END_USERS.add(
     p_Email           =&gt; 'a',
     p_Password        =&gt; 'b',
-    p_FName           =&gt; 'c',
+    p_FName           =&gt; @p_FName,
     p_LName           =&gt; 'd',
     p_PermissionLevel =&gt; 'T');
 END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
+        <InsertParameters>
+            <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
+        </InsertParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
 END_USERS.add(
