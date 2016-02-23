@@ -23,12 +23,12 @@ BEGIN
  v_dummy := END_USERS.add(
     p_Email           =&gt; 'a',
     p_Password        =&gt; 'b',
-    p_FName           =&gt; @p_FName,
+    p_FName           =&gt; :p_FName,
     p_LName           =&gt; 'd',
     p_PermissionLevel =&gt; 'T');
 END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherFirstName" ConvertEmptyStringToNull="true" Name="p_FName" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
@@ -86,7 +86,7 @@ END_USERS.add(
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server" OnTextChanged="txtbxTeacherPassword_TextChanged" />
+                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" runat="server"/>
                             <asp:label ID="lblPassword" class="mdl-textfield__label" runat="server" for="sample3">Password:</asp:label>
                         </div>
 

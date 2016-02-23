@@ -13,7 +13,7 @@ namespace QuestWebApp.Pages
     {
 
         // Work in progress ------------------------------------
-      /* public enum PasswordScore
+        public enum PasswordScore
         {
             Blank = 0,
             VeryWeak = 1,
@@ -31,25 +31,20 @@ namespace QuestWebApp.Pages
 
                 if (password.Length < 1)
                     return PasswordScore.Blank;
-                if (password.Length < 4)
-                    return PasswordScore.VeryWeak;
-
-                if (password.Length >= 8)
+                if (password.Length >= 6)
                     score++;
-                if (password.Length >= 12)
+                if (password.Length >= 10)
                     score++;
-                if (Regex.Match(password, @"/\d+/", RegexOptions.ECMAScript).Success)
+                if (Regex.Match(password, @"[A-Z]", RegexOptions.ECMAScript).Success)
                     score++;
-                if (Regex.Match(password, @"/[a-z]/", RegexOptions.ECMAScript).Success &&
-                  Regex.Match(password, @"/[A-Z]/", RegexOptions.ECMAScript).Success)
+                if (Regex.Match(password, @"[a-z]", RegexOptions.ECMAScript).Success)
                     score++;
-                if (Regex.Match(password, @"/.[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]/", RegexOptions.ECMAScript).Success)
+                if (Regex.Match(password, @"[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript).Success)
                     score++;
 
                 return (PasswordScore)score;
             }
         }
-        */
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,10 +59,12 @@ namespace QuestWebApp.Pages
                 txtbxTeacherLastName.BorderColor = Color.Red;
             if (txtbxTeacherEmail.Text == String.Empty)
                 txtbxTeacherEmail.BorderColor = Color.Red;
-            //if (txtbxTeacherPassword.Text == String.Empty)
-                //txtbxTeacherPassword.BorderColor = Color.Red;
-            if (txtbxTeacherConfirmPassword.Text == String.Empty)
-                txtbxTeacherConfirmPassword.BorderColor = Color.Red;
+            if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
+            {
+                txtbxTeacherPassword.Text = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
+            }
+            else
+                txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
 
 
 
@@ -75,19 +72,14 @@ namespace QuestWebApp.Pages
 
             // END REGX
 
-            sqlTeacher.Insert();
+            // Still need to work on insert (Not all variables bound)
+            //sqlTeacher.Insert();
         }
 
         protected void btnAddStudent_Click(object sender, EventArgs e)
         {
-            /*
-                        txtbxStudentFirstName.Text
-                        txtbxStudentLastName.Text
-                        txtbxStudentEmail.Text
-                        txtbxStudentPassword.Text
-                        txtbxStudentConfirmPassword.Text
-            */
-            sqlStudent.Insert();
+            // Still need to work on insert (Not all variables bound)
+            //sqlTeacher.Insert();
         }
 
         protected void btnAddClass_Click(object sender, EventArgs e)
@@ -96,9 +88,9 @@ namespace QuestWebApp.Pages
                         txtbxClassTitle.Text =
                         txtbxCourseNumber.Text =
             */
-            sqlClass.Insert();
+            
+            // Still need to work on insert (Not all variables bound)
+            //sqlTeacher.Insert();
         }
-
-        
     }
 }
