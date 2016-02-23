@@ -8,24 +8,24 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
 
-    <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
-        <div class="content-grid mdl-grid" style="width: 100%;">
-
-            <div class="mdl-cell mdl-cell--12-col">
 
 
-                <div class="mdl-cell mdl-cell--6-col" id="testAlertTemplate" runat="server">
-                
-                <!-- Card for When a Test is Due -->
+    <style>
 
+          .demo-card-wide.mdl-card {
+    width: 58%;
+    margin: 0 auto;
+    margin-top:10%;
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+    </style>
                 <style>
-                    /*
-.demo-card-wide.mdl-card {
-
-  margin:10%;
-  width: 400px;
-  height: 200px;
-} */
 
                     .testAlert {
                         font-size: 590%;
@@ -35,7 +35,7 @@
                     }
                 </style>
 
-                <div class="mdl-card mdl-shadow--3dp  demo-card-square">
+                <div class="mdl-card mdl-shadow--2dp demo-card-wide ">
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons testAlert">sentiment_dissatisfied</i>
                         <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Oh no!</div>
@@ -44,19 +44,34 @@
                     <div style="text-align: right">
                         <br />
                         <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
-                            Back to Camp
+                            Back to Home
                         </asp:LinkButton>
                     </div>
                 </div>
-            </div>
+            
 
 
-
-
-            </div>
-
-            </div>
-        </main>
+     <!-- Wide card with share menu button 
+    <div class="mdl-card mdl-shadow--2dp demo-card-wide">
+      <div class="mdl-card__title">
+          <i class="material-icons testAlert">sentiment_dissatisfied</i>
+        <h2 class="mdl-card__title-text">Oh no!</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        You've wandered off the path, hurry and get back to safety.
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Get Started
+        </a>
+      </div>
+      <div class="mdl-card__menu">
+        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">share</i>
+        </button>
+      </div>
+    </div> -->
+            
 
 
 </asp:Content>
