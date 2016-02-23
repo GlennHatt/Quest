@@ -101,7 +101,7 @@
 
                 <div class="mdl-card mdl-shadow--3dp  demo-card-square">
                     <div class="mdl-card__supporting-text " style="text-align: center">
-                        <i class="material-icons noTest">done</i>
+                        <i class="material-icons noTest">check_circle</i>
                         <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Congratulations!</div>
                         You're all caught up on tests (for now).
                     </div>
