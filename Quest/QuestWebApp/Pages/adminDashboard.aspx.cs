@@ -96,27 +96,9 @@ namespace QuestWebApp.Pages
                         txtbxClassTitle.Text =
                         txtbxCourseNumber.Text =
             */
+            sqlClass.Insert();
         }
 
-        protected void txtbxTeacherPassword_TextChanged(object sender, EventArgs e)
-        {
-            /*PasswordScore passwordStrengthScore = PasswordAdvisor.CheckStrength(txtbxTeacherPassword.Text);
-
-            switch (passwordStrengthScore)
-            {
-                case PasswordScore.Blank:
-                case PasswordScore.VeryWeak:
-                case PasswordScore.Weak:
-                    lblPassword.Text = "Too Weak Lorenzo";
-                    // Show an error message to the user
-                    break;
-                case PasswordScore.Medium:
-                case PasswordScore.Strong:
-                case PasswordScore.VeryStrong:
-                    lblPassword.Text = "Good password (obviously not Lorenzo)";
-                    // Password deemed strong enough, allow user to be added to database etc
-                    break;
-            }*/
-        }
+        
     }
 }

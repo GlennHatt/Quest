@@ -21,30 +21,42 @@ DECLARE
   v_dummy pls_integer;
 BEGIN
  v_dummy := END_USERS.add(
-    p_Email           =&gt; 'a',
-    p_Password        =&gt; 'b',
-    p_FName           =&gt; 'c',
-    p_LName           =&gt; 'd',
+    p_Email           =&gt; 'email@teacher.com',
+    p_Password        =&gt; 'P@ssword1',
+    p_FName           =&gt; 'John',
+    p_LName           =&gt; 'Smith',
     p_PermissionLevel =&gt; 'T');
 END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
-END_USERS.add(
-    p_Email           =&gt; :p_Email,
-    p_Password        =&gt; :p_Password,
-    P_FName           =&gt; :p_FName,
-    p_LName           =&gt; :p_LName,
-    p_PermissionLevel =&gt; :p_PermissionLevel);
-  RETURN :v_Dummy;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
-        <InsertParameters>
+
+    <!--<InsertParameters>
             <asp:ControlParameter ControlID="txtbxStudentEmail" Name="p_Email" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxStudentPassword" Name="p_Password" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxStudentFirstName" Name="p_FName" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxStudentLastName" Name="p_LName" PropertyName="Text" />
             <asp:Parameter DefaultValue="S" Name="p_PermissionLevel" />
-        </InsertParameters>
+        </InsertParameters>-->
+
+    <asp:SqlDataSource ID="sqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+DECLARE
+  v_dummy pls_integer;
+BEGIN
+ v_dummy := END_USERS.add(
+    p_Email           =&gt; 'email@student.com',
+    p_Password        =&gt; 'P@ssword1',
+    P_FName           =&gt; 'Josh',
+    p_LName           =&gt; 'Sims',
+    p_PermissionLevel =&gt; 'S');
+END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlClass" runat="server"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlClass" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+DECLARE
+  v_dummy pls_integer;
+BEGIN
+ v_dummy := CLASSES.add(
+    p_Code   =&gt; '123',
+    p_Title  =&gt; 'Computer Security');
+END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM CLASS"></asp:SqlDataSource>
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">
@@ -83,7 +95,7 @@ END_USERS.add(
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server" OnTextChanged="txtbxTeacherPassword_TextChanged" />
+                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server" />
                             <asp:label ID="lblPassword" class="mdl-textfield__label" runat="server" for="sample3">Password:</asp:label>
                         </div>
 
@@ -120,9 +132,6 @@ END_USERS.add(
                 <div class="demo-card-wide mdl-cardAddStudent mdl-shadow--3dp">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>Add a Student </h1>
-
-
-
 
                         <!-- Textfield with Floating Label for student First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
