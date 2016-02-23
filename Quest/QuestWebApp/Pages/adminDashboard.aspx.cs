@@ -14,6 +14,8 @@ namespace QuestWebApp.Pages
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 
+            
+
             if(currentMonth >= 8)
             {
                 ddlSemester.Items.Add(new ListItem("Semester:"));
@@ -33,7 +35,7 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
             }
 
-            ddlSemester.Items.Add(new ListItem());
+           
         }
 
     }
