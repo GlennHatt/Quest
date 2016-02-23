@@ -49,7 +49,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </asp:Calendar>
     <br />
     
-    <asp:Button ID="btnAddInfo" runat="server" Text="Press Me"  />
+    <asp:Button ID="btnAddInfo" runat="server" Text="Press Me" OnClick="btnAddInfo_Click"  />
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">

@@ -10,7 +10,7 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
     <asp:SqlDataSource ID="sqlTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" SelectCommand="
   SELECT *
-    FROM end_user" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" />
+    FROM end_user" ProviderName="System.Data.OleDb" />
     <asp:GridView ID="grdTest" runat="server" DataSourceID="sqlTest" AutoGenerateColumns="False" DataKeyNames="USER_ID" >
         <Columns>
             <asp:BoundField DataField="USER_ID" HeaderText="USER_ID" ReadOnly="True" SortExpression="USER_ID" />
