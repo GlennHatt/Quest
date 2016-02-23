@@ -106,6 +106,7 @@
     <Content Include="Assets\Images\quest.png" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
+    <Content Include="App_Themes\RequiredFeildValidator\Validation.skin" />
     <None Include="Assets\mdl\material.min.css.bak" />
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
@@ -137,13 +138,13 @@
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
-    <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\takingTestTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
-    <Content Include="Pages\TestCreation.aspx" />
+    <Content Include="Pages\testCreation.aspx" />
+    <Content Include="test pond\TestCreation.aspx" />
     <Content Include="Pages\login.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
@@ -300,11 +301,17 @@
     <Compile Include="Pages\teacherTest.aspx.designer.cs">
       <DependentUpon>teacherTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TestCreation.aspx.cs">
-      <DependentUpon>TestCreation.aspx</DependentUpon>
+    <Compile Include="Pages\testCreation.aspx.cs">
+      <DependentUpon>testCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\TestCreation.aspx.designer.cs">
+    <Compile Include="Pages\testCreation.aspx.designer.cs">
+      <DependentUpon>testCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\TestCreation.aspx.cs">
+      <DependentUpon>TestCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\TestCreation.aspx.designer.cs">
       <DependentUpon>TestCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\WebForm1.aspx.cs">
@@ -339,6 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
