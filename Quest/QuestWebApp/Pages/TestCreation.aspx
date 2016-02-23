@@ -8,7 +8,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-    <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="DATA SOURCE=localhost:1521/xe;PERSIST SECURITY INFO=True;USER ID=CS414S16" ProviderName="Oracle.ManagedDataAccess.Client" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
        JOIN class c USING (class_id)"></asp:SqlDataSource>
