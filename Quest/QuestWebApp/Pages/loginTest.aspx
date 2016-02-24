@@ -7,10 +7,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="loginExtraReferances" runat="server">
 
     <link href="../Assets/Styles/loginStyles.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
     <div style="text-align: center; color: white">
-        <h1>Quest Testing Center!
+        <h1 style="font-family: 'Quicksand', sans-serif; font-weight:bold">Quest Testing Center!
             <br />
         </h1>
     </div>
@@ -35,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px;">
+    <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight:bold">
         Product of RPG
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
 
