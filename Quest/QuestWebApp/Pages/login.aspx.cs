@@ -21,7 +21,8 @@ namespace QuestWebApp.Pages
             // All passwords are placholders that should be replaces with the passwords stored in the database
 
             char classification;
-            
+            //Session["FirstName"] = FirstNameTextBox.Text;
+
             switch (username.Text)
             {
                 case "admin": // Placeholder for admin username
@@ -29,6 +30,7 @@ namespace QuestWebApp.Pages
                     {
                         answer.Text = "Login Admin";
                         classification = 'A'; // Replace with primary key for admin
+                        //Response.Redirect("");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -38,6 +40,7 @@ namespace QuestWebApp.Pages
                     {
                         answer.Text = "Login Teacher";
                         classification = 'T'; // Replace with primary key for teacher
+                        //Response.Redirect("");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -47,6 +50,7 @@ namespace QuestWebApp.Pages
                     {
                         answer.Text = "Login Student";
                         classification = 'S';  // Replace with primary key for the student
+                        //Response.Redirect("");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";

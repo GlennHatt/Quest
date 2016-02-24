@@ -6,13 +6,9 @@ namespace QuestWebApp.App_Code
 {
     public class utilities
     {
-        public void checkAuthentication(int id, char actualClassification, char neededClassification)
+        public void checkAuthentication(int? id, char actualClassification, char neededClassification)
         {
-            int admin   = 1; 
-            int teacher = 2;
-            int student = 3; // Placeholders for the id's
-
-            if (id != admin || id != teacher || id != student)
+            if (id == null)
                 Console.WriteLine("Redirect to login page");
                 // Redirect to login page
             else
