@@ -132,6 +132,7 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
+    <Content Include="Pages\AboutUsPage.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="test pond\admin.master" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AboutUsPage.aspx.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>

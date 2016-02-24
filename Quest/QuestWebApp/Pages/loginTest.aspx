@@ -40,8 +40,10 @@
     <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight:bold">
         Product of RPG
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
-
     </div>
+    <div class="discover" style="text-align: center; text-align: right;">
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDiscover" runat="server" Text="Discover More" OnClick="loginButton_Click" />
+            </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="loginPageSpecificJS" runat="server">
     <script src="../Assets/JS/loginJS.js"></script>
