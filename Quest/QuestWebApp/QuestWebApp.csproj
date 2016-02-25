@@ -136,6 +136,7 @@
     <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
+    <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
@@ -253,6 +254,13 @@
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\questionCreation.aspx.cs">
+      <DependentUpon>questionCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\questionCreation.aspx.designer.cs">
+      <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
