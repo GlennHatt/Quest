@@ -134,6 +134,8 @@
     <Content Include="Master-Pages\withSidebar.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
+    <Content Include="Pages\classesList.aspx" />
+    <Content Include="Pages\endUserList.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
@@ -180,6 +182,20 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\classesList.aspx.cs">
+      <DependentUpon>classesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\classesList.aspx.designer.cs">
+      <DependentUpon>classesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\endUserList.aspx.cs">
+      <DependentUpon>endUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\endUserList.aspx.designer.cs">
+      <DependentUpon>endUserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
