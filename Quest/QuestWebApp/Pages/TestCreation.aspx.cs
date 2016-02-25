@@ -31,19 +31,21 @@ BEGIN
     P_DueDate        => :p_DueDate,
     p_TimeLimit      => :p_TimeLimit);
 END;",
-            new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString));
+            new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdAddTest.Parameters.AddWithValue("p_SectionID",      ddlSection.SelectedValue);
             cmdAddTest.Parameters.AddWithValue("p_Title",          txtName.Text);
             cmdAddTest.Parameters.AddWithValue("p_DueDate",        cldrTestDay.SelectedDate);
             cmdAddTest.Parameters.AddWithValue("p_TimeLimit",      ddlTimeLimit.SelectedValue);
-            cmdAddTest.Parameters.AddWithValue("v_TestID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
+            cmdAddTest.Parameters.AddWithValue("v_TestID",         OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
             cmdAddTest.Connection.Open();
             cmdAddTest.ExecuteNonQuery();
 
-            //testID = Convert.ToInt32(cmdAddTest.Parameters["v_TestID"].Value));
+            Session["Test_ID"] = Convert.ToString(cmdAddTest.Parameters["v_TestID"].Value);
 
             cmdAddTest.Connection.Close();
+
+            Response.Redirect("questionCreation.aspx");
         }
     }
 }
