@@ -31,12 +31,13 @@
                 <asp:TextBox ID="password" runat="server" class="mdl-textfield__input" TextMode="Password"></asp:TextBox>
             </div>
 
-            <div class="button login" style="text-align: center">
+            <div class="button login" style="text-align: center;">
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" />
                 <asp:Label ID="answer" runat="server" Text=""></asp:Label>
                 <br />
+                <a href="http://localhost:52416/Pages/AboutUsPage.aspx"> <i class="material-icons testAlert" style="margin-right:4px; font-size: 35px";>info</i> </a>
             </div>
-                            <a> <i class="material-icons testAlert">info</i> </a>
+                 <div style="text-align: right; margin-top: 104px;"> Forget Your Password?</div>
         </div>
     </div>
     <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight:bold">
