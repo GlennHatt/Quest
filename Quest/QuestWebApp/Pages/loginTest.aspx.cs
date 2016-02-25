@@ -48,5 +48,9 @@ namespace QuestWebApp.Pages
                     break;
             }
         }
+             protected void discoverButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:52416/Pages/AboutUsPage.aspx");
+        }
     }
 }
