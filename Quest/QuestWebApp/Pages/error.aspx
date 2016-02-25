@@ -27,7 +27,7 @@
     </style>
                 <style>
 
-                    .testAlert {
+                    .sadIcon {
                         font-size: 590%;
                         line-height: 130%;
                         color: #EE7600;
@@ -37,7 +37,7 @@
 
                 <div class="mdl-card mdl-shadow--2dp demo-card-wide ">
                     <div class="mdl-card__supporting-text " style="text-align: center">
-                        <i class="material-icons testAlert">sentiment_dissatisfied</i>
+                        <i class="material-icons sadIcon">sentiment_dissatisfied</i>
                         <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Oh no!</div>
                         <p style="font-size: 175%;">You've wandered off the path or our servers have been attacked by wandering bandits, hurry and get back to safety.</p>
                     </div>
