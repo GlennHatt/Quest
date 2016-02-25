@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 </head>
 
-    
-
   <body>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <div class="mdl-tabs__tab-bar">
@@ -46,6 +44,11 @@
     background: url('../Assets/Images/quest.png') center / cover;
   }
 
+    .demo-card-wide > .mdl-card__RPG {
+    height: 400px;
+
+
+  }
   .demo-card-wide > .mdl-card__menu {
     color: #fff;
   }
@@ -86,17 +89,41 @@
                     </div>
                 </div>
           
-
-
-
       </div>
+
+
+
       <div class="mdl-tabs__panel" id="lannisters-panel">
-        <ul>
-          <li>Tywin</li>
-          <li>Cersei</li>
-          <li>Jamie</li>
-          <li>Tyrion</li>
-        </ul>
+           <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__RPG">        
+                            
+                    <div class="mdl-card__supporting-text " style="text-align: center">
+                        <img src="../Assets/Images/transparent%20-%20Copy.png" style="height:300px; width:300px" />
+                        <p style="font-size: 175%;">
+                            RPG (Royal Programming Gentleman)
+                        </p>
+
+                    </div>
+                    </div>
+                </div>
+          <br />
+
+
+          <div>Founded in 2016</div>
+          <br />
+          <img src="../Assets/Images/glenn.jpg" style="height:300px; width:300px"/>
+          <div> Glenn Hatt - PM</div>
+          <img src="../Assets/Images/Ryan.jpg" style="height:300px; width:300px"/>
+          <div> Ryan Carroll - AM</div>
+          <br />
+          <img src="../Assets/Images/Jesse.jpg" style="height:300px; width:300px"/>
+          <div> Jesse Upchurch - Secretary </div>
+          <br />
+          <img src="../Assets/Images/zo.jpg" style="height:300px; width:300px"/>
+          <div> Lorenzo Lewis - Scheduler </div>
+          <br />
+          <img src="../Assets/Images/you.jpg" style="height:300px; width:300px"/>
+          <div> Yousef Khoury - Memeber 5</div>
       </div>
       <div class="mdl-tabs__panel" id="targaryens-panel">
         <ul>

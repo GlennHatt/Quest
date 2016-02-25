@@ -101,11 +101,17 @@
     <Content Include="Assets\Images\android-desktop.png" />
     <Content Include="Assets\Images\crown.png" />
     <Content Include="Assets\Images\favicon.png" />
+    <Content Include="Assets\Images\glenn.jpg" />
     <Content Include="Assets\Images\greek.png" />
     <Content Include="Assets\Images\ios-desktop.png" />
+    <Content Include="Assets\Images\Jesse.jpg" />
     <Content Include="Assets\Images\mountains.png" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
+    <Content Include="Assets\Images\Ryan.jpg" />
+    <Content Include="Assets\Images\transparent - Copy.png" />
+    <Content Include="Assets\Images\you.jpg" />
+    <Content Include="Assets\Images\zo.jpg" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
