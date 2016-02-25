@@ -46,11 +46,25 @@ namespace QuestWebApp.Pages
             }
         }
 
+        // Clear fields after user addition
+        void clearUserFields()
+        {
+            txtbxTeacherFirstName.Text = txtbxTeacherLastName.Text = txtbxTeacherEmail.Text = 
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = String.Empty;
+        }
+
+        // Clear fields after class addition
+        void clearClassFields()
+        {
+            txtbxClassTitle.Text = txtbxCourseNumber.Text = String.Empty;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        // Insert user into database
         protected void btnAddTeacher_Click(object sender, EventArgs e)
         {
             if (txtbxTeacherFirstName.Text == String.Empty)
@@ -64,33 +78,26 @@ namespace QuestWebApp.Pages
                 txtbxTeacherPassword.Text = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
             }
             else
+            {
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+            }
 
-
-
-            // TODO: Regular Expressions -----------------------------------------
-
-            // END REGX
-
-            // Still need to work on insert (Not all variables bound)
-            //sqlTeacher.Insert();
+            if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
+            {
+                lblUserError.Text = "Select User Type";
+            }
+            else
+            {
+                sqlTeacher.Insert();
+                clearUserFields();
+            }
         }
 
-        protected void btnAddStudent_Click(object sender, EventArgs e)
-        {
-            // Still need to work on insert (Not all variables bound)
-            //sqlTeacher.Insert();
-        }
-
+        // Insert class into database
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
-            /*
-                        txtbxClassTitle.Text =
-                        txtbxCourseNumber.Text =
-            */
-            
-            // Still need to work on insert (Not all variables bound)
-            //sqlTeacher.Insert();
+            sqlClass.Insert();
+            clearClassFields();
         }
     }
 }
