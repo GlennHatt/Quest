@@ -42,7 +42,7 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
-    
+
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">
@@ -58,39 +58,40 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
 
 </style> -->
 
-                <div class="demo-card-wide mdl-cardAddTeacher mdl-shadow--3dp">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
+               <div class="demo-card-wide mdl-cardAddTeacher mdl-shadow--3dp">
+                    <div class="mdl-card__supporting-text" style="text-align:center">
                         <h1>Add New User</h1>
                         <!-- Textfield with Floating Label for teacher First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" for="sample3">First Name:</label>
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">First Name:</label>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher Last name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" for="sample3">Last Name:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">Last Name:</label>
                             <asp:TextBox ID="txtbxTeacherLastName" class="mdl-textfield__input" type="text" runat="server" />
                         </div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" for="sample3">Email Address:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">Email Address:</label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
                         </div>
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label ID="lblPassword" class="mdl-textfield__label" runat="server" for="sample3">Password:</label>
+                            <label ID="lblPassword" class="mdl-textfield__label" style="bottom:0px" runat="server" for="sample3">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" for="sample3">Confirm Password:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">Confirm Password:</label>
                             <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                         </div>
 
+                        <!-- Used for testing errors -->
                         <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" for="sample3">Warnings:</label>
                             <asp:Label ID="lblUserError" class="mdl-textfield__label" runat="server"></asp:Label>
@@ -104,16 +105,12 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                                 <asp:ListItem Value="T">Teacher</asp:ListItem>
                                 <asp:ListItem Value="A">Administrator</asp:ListItem>
                             </asp:DropDownList>
-                            <label class="mdl-textfield__label" for="sample3">User Type:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">User Type:</label>
                         </div>
 
-                        
-
                     </div>
-
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-
                         <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
@@ -200,19 +197,19 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" for="sample3">Title:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">Title:</label>
                         </div>
 
                         <!-- Textfield with Floating Label for Course Number -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" for="sample3">Course Number:</label>
+                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">Course Number:</label>
                         </div>
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
                             <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -12px" runat="server" OnClick="btnAddClass_Click">
-          <i class="material-icons">add</i>
+                                <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
                     </div>
