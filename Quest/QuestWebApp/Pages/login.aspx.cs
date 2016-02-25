@@ -20,8 +20,7 @@ namespace QuestWebApp.Pages
         {
             // All passwords are placholders that should be replaces with the passwords stored in the database
 
-            char classification;
-            //Session["FirstName"] = FirstNameTextBox.Text;
+            string classification = "";
 
             switch (username.Text)
             {
@@ -29,8 +28,9 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury") 
                     {
                         answer.Text = "Login Admin";
-                        classification = 'A'; // Replace with primary key for admin
-                        //Response.Redirect("");
+                        Session.Add(classification, "A"); // Stores classification in a session variable
+                        //classification = 'A'; 
+                        Response.Redirect("http://localhost:52416/Pages/adminDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -39,8 +39,9 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury")
                     {
                         answer.Text = "Login Teacher";
-                        classification = 'T'; // Replace with primary key for teacher
-                        //Response.Redirect("");
+                        Session.Add(classification, "T"); // Stores classification in a session variable 
+                        //classification = 'T'; 
+                        Response.Redirect("http://localhost:52416/Pages/TeacherDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -49,8 +50,9 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury")
                     {
                         answer.Text = "Login Student";
-                        classification = 'S';  // Replace with primary key for the student
-                        //Response.Redirect("");
+                        Session.Add(classification, "S"); // Stores classification in a session variable
+                        //classification = 'S';  
+                        Response.Redirect("http://localhost:52416/Pages/StudentDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
