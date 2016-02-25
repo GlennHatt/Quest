@@ -39,7 +39,7 @@
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons testAlert">sentiment_dissatisfied</i>
                         <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Oh no!</div>
-                        <p style="font-size: 175%;">You've wandered off the path, hurry and get back to safety.</p>
+                        <p style="font-size: 175%;">You've wandered off the path or our servers have been attacked by wandering bandits, hurry and get back to safety.</p>
                     </div>
                     <div style="text-align: right">
                         <br />
@@ -48,31 +48,6 @@
                         </asp:LinkButton>
                     </div>
                 </div>
-            
-
-
-     <!-- Wide card with share menu button 
-    <div class="mdl-card mdl-shadow--2dp demo-card-wide">
-      <div class="mdl-card__title">
-          <i class="material-icons testAlert">sentiment_dissatisfied</i>
-        <h2 class="mdl-card__title-text">Oh no!</h2>
-      </div>
-      <div class="mdl-card__supporting-text">
-        You've wandered off the path, hurry and get back to safety.
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Get Started
-        </a>
-      </div>
-      <div class="mdl-card__menu">
-        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-          <i class="material-icons">share</i>
-        </button>
-      </div>
-    </div> -->
-            
-
 
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
