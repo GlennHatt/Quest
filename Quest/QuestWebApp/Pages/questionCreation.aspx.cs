@@ -11,7 +11,15 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            test.Text = Session["Test_ID"].ToString();
+            if(Session["Test_ID"] == null)
+            {
+                Session["Test_ID"] = "1";
+            }
+        }
+
+        protected void btnAddQuestion_Click(object sender, EventArgs e)
+        {
+            sqlAddQuestion.Insert();
         }
     }
 }
