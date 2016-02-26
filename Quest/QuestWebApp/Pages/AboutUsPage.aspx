@@ -14,14 +14,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 </head>
 
-  <body>
+  <body  >
+
+
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <div class="mdl-tabs__tab-bar">
           <a href="#starks-panel" class="mdl-tabs__tab is-active">Quest Testing Center</a>
           <a href="#lannisters-panel" class="mdl-tabs__tab">R.P.G. Team</a>
       </div>
     
-      <div class="mdl-tabs__panel is-active" id="starks-panel" >
+        <!-- Quest panel -->
+      <div class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/mountains.jpg'); background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment:fixed; margin-top: -10%;" >
         
           <style>
               *{
@@ -92,8 +98,11 @@
       </div>
 
 
-
-      <div class="mdl-tabs__panel" id="lannisters-panel">
+        <!-- RPG Panel -->
+      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/woods.jpg'); background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment:fixed; margin-top: -10%;">
            <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
                                     <div class="mdl-card__RPG">        
                             
@@ -228,12 +237,6 @@
                     </div>
                 </div>
           <br />
-      </div>
-      <div class="mdl-tabs__panel" id="targaryens-panel">
-        <ul>
-          <li>Viserys</li>
-          <li>Daenerys</li>
-        </ul>
       </div>
     </div>
   </body>
