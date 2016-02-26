@@ -40,6 +40,15 @@
     margin: 0 auto;
     margin-top:10%;
   }
+          
+    .featureCard {
+    width: 25%;
+    margin: 0 auto;
+    margin-top:10%;
+    
+    
+  }      
+
   .demo-card-wide > .mdl-card__title {
     height: 50px;
   }
@@ -78,8 +87,9 @@
                     </div>
                 </div>
 
-
-          <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+          <div>
+          <!-- Mobile card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard">
                                     <div class="mdl-card__title">
                                         
                                     
@@ -94,12 +104,38 @@
                       
                     </div>
                 </div>
+          <!-- Mobile card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard">
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                            </div>
+                     <div class="mdl-card__supporting-text " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">phone_iphone</i>
+                        <div style="font-size: 150%;  margin-top: 5%">Optimized for mobile devices so you're not bound to the desktop.</div>
+                        
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                      
+                    </div>
+                </div>
+
+          </div>
           
       </div>
 
 
         <!-- RPG Panel -->
-      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/mountainwoods.jpg'); background-position: center;
+      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" 
+          background: 
+    linear-gradient(
+      rgba(255, 255, 255, 0.2), 
+      rgba(255, 255, 255, 0.2)
+    ),
+    /* bottom, image */
+    url(../Assets/Images/mountainwoods.jpg);
+    /*background-image: url('../Assets/Images/mountainwoods.jpg');*/ background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
    background-attachment:fixed; margin-top: -10%;">
