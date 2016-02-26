@@ -42,7 +42,7 @@
         Product of RPG
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
     </div>
-    <div class="buttonDiscover" style="text-align: right; margin-right: 65px;">
+    <div class="buttonDiscover" style="text-align: right; margin-right: 100px;">
         <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
     </div>
 </asp:Content>

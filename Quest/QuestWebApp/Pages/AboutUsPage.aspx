@@ -18,7 +18,7 @@
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <div class="mdl-tabs__tab-bar">
           <a href="#starks-panel" class="mdl-tabs__tab is-active">Quest Testing Center</a>
-          <a href="#lannisters-panel" class="mdl-tabs__tab">RPG Team</a>
+          <a href="#lannisters-panel" class="mdl-tabs__tab">R.P.G. Team</a>
       </div>
     
       <div class="mdl-tabs__panel is-active" id="starks-panel" >
@@ -100,7 +100,7 @@
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <img src="../Assets/Images/transparent%20-%20Copy.png" style="height:300px; width:300px" />
                         <p style="font-size: 175%;">
-                            RPG (Royal Programming Gentleman)
+                            R.P.G. (Royal Programming Gentleman)
                         </p>
 
                     </div>
@@ -108,22 +108,126 @@
                 </div>
           <br />
 
+           <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__RPGInfo">        
+                            
+                    <div class="mdl-card__supporting-text " style="text-align: center">
+                        <br />
+                        <br />
+                        <p style="font-size: 175%;">
+                           R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center.   
+                        </p>
 
-          <div>Founded in 2016</div>
+                    </div>
+                    </div>
+                </div>
           <br />
-          <img src="../Assets/Images/glenn.jpg" style="height:300px; width:300px"/>
-          <div> Glenn Hatt - PM</div>
-          <img src="../Assets/Images/Ryan.jpg" style="height:300px; width:300px"/>
-          <div> Ryan Carroll - AM</div>
+
+          <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__Glenn">        
+                            
+                    <div class="mdl-card__supporting-text" style="width: 78% ">
+                        <img src="../Assets/Images/glenn.jpg" style="height:300px; width:300px"/>
+                        <div style="font-size: 175%; float:right">
+                            <div style="font-size: 175%; float:left"> <u>Glenn Hatt</u></div> 
+                            <br />
+                            <ul style="font-size:100%">
+                            <li>Project Manager</li>
+                            <li>Enjoys long walks on the beach</li>
+                            <li>Database Expert</li>
+                            <li>Part-time Youth Pastor</li>
+                            <li>Part-time Barbie dress designer</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
           <br />
-          <img src="../Assets/Images/Jesse.jpg" style="height:300px; width:300px"/>
-          <div> Jesse Upchurch - Secretary </div>
+
+                    <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__Ryan">        
+                            
+                    <div class="mdl-card__supporting-text" style="width: 88% ">
+                        <img src="../Assets/Images/Ryan.jpg" style="height:300px; width:300px"/>
+                        <div style="font-size: 175%; float:right">
+                            <div style="font-size: 175%; float:left"><u>Ryan Carroll</u></div> 
+                            <br />
+                            <ul style="font-size:100%">
+                            <li>Assistant Project Manager</li>
+                            <li>Design Expert</li>
+                            <li>A+ Certified</li>
+                            <li>Drinks 3 gallons of water a day</li>
+                            <li>Weekend bingo manager</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
           <br />
-          <img src="../Assets/Images/zo.jpg" style="height:300px; width:300px"/>
-          <div> Lorenzo Lewis - Scheduler </div>
+          
+           <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__Jesse">        
+                            
+                    <div class="mdl-card__supporting-text " style="width: 78% ">
+                        <img src="../Assets/Images/Jesse.jpg" style="height:300px; width:300px"/>
+                        <div style="font-size: 175%; float:right">
+                            <div style="font-size: 175%; float:left"><u>Jesse Upchurch</u></div>
+                            <br />
+                            <ul style="font-size:100%">
+                            <li>Secretary</li>
+                            <li>Back-end Genuis</li>
+                            <li>Working out is REQUIRED</li>
+                            <li>D.C. Reppin</li>
+                            <li>Part-time dog surfing instructor</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
           <br />
-          <img src="../Assets/Images/you.jpg" style="height:300px; width:300px"/>
-          <div> Yousef Khoury - Memeber 5</div>
+          
+          <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__Lorenzo" style="width: 94% ">        
+                            
+                    <div class="mdl-card__supporting-text">
+                        <img src="../Assets/Images/zo.jpg" style="height:300px; width:300px"/>
+                        <div style="font-size: 175%; float:right">
+                            <div style="font-size: 175%; float:left"><u>Lorenzo Lewis</u></div>
+                            <br />
+                            <ul style="font-size:100%">
+                            <li>Scheduler</li>
+                            <li>A Poet</li>
+                            <li>5'5 and proud</li>
+                            <li>In and Out Burger ALL DAY, EveryDay. </li>
+                            <li>Part-time horseback rider</li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+          <br />
+
+                    <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                                    <div class="mdl-card__Yousef">        
+                            
+                    <div class="mdl-card__supporting-text" style="width: 75% ">
+                        <img src="../Assets/Images/you.jpg" style="height:300px; width:300px"/>
+                        <div style="font-size: 175%; float:right">
+                        <div style="font-size: 175%; float:left"><u>Yousef Khoury</u></div> 
+                            <br />
+                            <ul style="font-size:100%">
+                            <li>Team Member 5</li>
+                            <li>Ball is life</li>
+                            <li>Jerusalem is his crib</li>
+                            <li>Ball is life</li>
+                            <li>Part-time fortune cookie writer </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+          <br />
       </div>
       <div class="mdl-tabs__panel" id="targaryens-panel">
         <ul>
