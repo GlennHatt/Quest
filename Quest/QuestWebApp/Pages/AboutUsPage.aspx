@@ -157,7 +157,7 @@
                     <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
                                     <div class="mdl-card__Ryan">        
                             
-                    <div class="mdl-card__supporting-text" style="width: 88% ">
+                    <div class="mdl-card__supporting-text" style="width: 75% ">
                         <img src="../Assets/Images/Ryan.jpg" style="height:300px; width:300px"/>
                         <div style="font-size: 175%; float:right">
                             <div style="font-size: 175%; float:left"><u>Ryan Carroll</u></div> 
