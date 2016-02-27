@@ -18,7 +18,7 @@
             <div class="mdl-cell mdl-cell--2-col">
 
 
-                <!-- Square card -->
+                <!-- Square card! -->
 
                 <div class="demo-card-square mdl-card mdl-shadow--2dp" style="text-align: center">
                     <div class="mdl-card__title mdl-card--expand" style="text-align: center">

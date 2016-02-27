@@ -116,12 +116,14 @@
     <Content Include="Assets\Images\woods.jpg" />
     <Content Include="Assets\Images\you.jpg" />
     <Content Include="Assets\Images\zo.jpg" />
+    <Content Include="Assets\JS\AboutusJS.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
     <None Include="Assets\mdl\material.min.css.bak" />
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
+    <Content Include="Assets\Styles\AboutUs.css" />
     <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
