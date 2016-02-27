@@ -41,6 +41,15 @@
     margin: 0 auto;
     margin-top:10%;
   }
+          
+    .featureCard {
+    width: 25%;
+    margin: 0 auto;
+    margin-top:10%;
+    
+    
+  }      
+
   .demo-card-wide > .mdl-card__title {
     height: 50px;
   }
@@ -79,8 +88,25 @@
                     </div>
                 </div>
 
+          <div>
+          <!-- Mobile card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard">
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                </div>
+                     <div class="mdl-card__supporting-text " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">phone_iphone</i>
+                        <div style="font-size: 150%;  margin-top: 5%">Optimized for mobile devices so you're not bound to the desktop.</div>
 
-          <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+
+                    </div>
+                </div>
+          <!-- Mobile card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard">
                                     <div class="mdl-card__title">
                                         
                                     
@@ -97,8 +123,15 @@
                 </div>
           
       </div>
- <!-- RPG Panel -->
-     
+          
+      </div>
+
+
+        <!-- RPG Panel -->
+      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/woods.jpg'); background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment:fixed; margin-top: -10%;">
            <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
                                     <div class="mdl-card__RPG">        
                             
@@ -151,8 +184,8 @@
                             <li>Part-time Youth Pastor</li>
                             <li>Part-time Barbie dress designer</li>
                             </ul>
+                        </div>
                     </div>
-                </div>
                 <a class="mc-btn-action">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -164,9 +197,9 @@
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
                     <a class="fa fa-fw fa-google-plus"></a>
-                </div>
+                    </div>
             </article>
-        </div>
+                </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Pink">
                 <h2>
@@ -188,8 +221,8 @@
                             <li>Drinks 3 gallons of water a day</li>
                             <li>Weekend bingo manager</li>
                             </ul>
+                        </div>
                     </div>
-                </div>
                 <a class="mc-btn-action">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -201,9 +234,9 @@
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
                     <a class="fa fa-fw fa-google-plus"></a>
-                </div>
+                    </div>
             </article>
-        </div>
+                </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Purple">
                 <h2>
@@ -225,7 +258,7 @@
                             <li>D.C. Reppin</li>
                             <li>Part-time dog surfing instructor</li>
                             </ul>
-                    </div>
+                        </div>
                 </div>
                 <a class="mc-btn-action">
                     <i class="fa fa-bars"></i>
@@ -238,9 +271,9 @@
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
                     <a class="fa fa-fw fa-google-plus"></a>
-                </div>
+                    </div>
             </article>
-        </div>
+                    </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Deep-Purple">
                 <h2>
@@ -253,7 +286,7 @@
                 <div class="mc-content">
                     <div class="img-container">
                         <img class="img-responsive" src="../Assets/Images/zo.jpg"/>
-                    </div>
+                </div>
                     <div class="mc-description">
                         <ul>
                             <li>Scheduler</li>
@@ -262,7 +295,7 @@
                             <li>In and Out Burger ALL DAY, EveryDay. </li>
                             <li>Part-time horseback rider</li>
                             </ul>
-                    </div>
+                        </div>
                 </div>
                 <a class="mc-btn-action">
                     <i class="fa fa-bars"></i>
@@ -275,9 +308,9 @@
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
                     <a class="fa fa-fw fa-google-plus"></a>
-                </div>
+                    </div>
             </article>
-        </div>
+                    </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Indigo">
                 <h2>
@@ -290,9 +323,9 @@
                 <div class="mc-content">
                     <div class="img-container">
                         <img class="img-responsive" src="../Assets/Images/you.jpg"/>
-                    </div>
+                </div>
                     <div class="mc-description">
-                        <br />
+                            <br />
                             <ul style="font-size:100%">
                             <li>Team Member 5</li>
                             <li>Ball is life</li>
@@ -300,8 +333,8 @@
                             <li>Ball is life</li>
                             <li>Part-time fortune cookie writer </li>
                             </ul>
+                        </div>
                     </div>
-                </div>
                 <a class="mc-btn-action">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -315,7 +348,7 @@
                     <a class="fa fa-fw fa-google-plus"></a>
                 </div>
             </article>
-        </div>
+      </div>
     </div>
 </section>
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
