@@ -46,20 +46,9 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">
-                <!-- Card for adding a teacher -->
-                <!--
-<style>
-.demo-card-wide.mdl-cardAddTeacher {
-
-  margin:10%;
-  width: 400px;
-  height: 578px;
-}
-
-</style> -->
                 <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red"></asp:Label>
-               <div class="demo-card-wide mdl-cardAddTeacher mdl-shadow--3dp">
-                    <div class="mdl-card__supporting-text" style="text-align:center">
+                <div class="demo-card-wide mdl-cardAddTeacher mdl-shadow--3dp">
+-                    <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>Add New User</h1>
                         <!-- Textfield with Floating Label for teacher First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
