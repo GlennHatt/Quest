@@ -13,44 +13,5 @@ namespace QuestWebApp.Pages
         {
 
         }
-
-        protected void loginButton_Click(object sender, EventArgs e)
-        {
-            // All passwords are placholders that should be replaces with the passwords stored in the database
-
-            int classification;
-
-            switch (username.Text)
-            {
-                case "admin": // Placeholder for admin username
-                    if (password.Text == "khury")
-                    {
-                        Response.Redirect("http://localhost:52416/Pages/adminDashboard.aspx");
-                        classification = 1; // Replace with primary key for admin
-                    }
-                    break;
-                case "teacher": // Placeholder for teacher username
-                    if (password.Text == "khury")
-                    {
-                        Response.Redirect("http://localhost:52416/Pages/TeacherDashboard.aspx");
-                        classification = 2; // Replace with primary key for teacher
-                    }
-                    break;
-                case "student": // Placeholder for student username
-                    if (password.Text == "khury")
-                    {
-                        Response.Redirect("http://localhost:52416/Pages/StudentDashboard.aspx");
-                        classification = 3;  // Replace with primary key for the student
-                    }
-                    break;
-                default:
-                    answer.Text = "Incorrect username and/or password";
-                    break;
-            }
-        }
-             protected void discoverButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("http://localhost:52416/Pages/AboutUsPage.aspx");
-        }
     }
 }
