@@ -47,6 +47,16 @@
     <meta name="msapplication-TileColor" content="#3372DF"/>
     <link rel="shortcut icon" href="images/favicon.png"/>
 
+    <!-- Styles to fix MDL card sizing -->
+    <link href="../Assets/Styles/mdl-card-fix.css" rel="stylesheet" />
+
+    <!-- Styles to get dropdown lists working -->
+    <link href="../Assets/Styles/dropdown.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='http://fian.my.id/marka/static/marka/css/marka.css'/>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://fian.my.id/marka/static/marka/js/marka.js'></script>
+    <script src="../Assets/JS/dropdown.js"></script>
+
     <!-- Extra referances -->
     <asp:ContentPlaceHolder ID="extraReferances" runat="server">
 
@@ -54,8 +64,22 @@
 
 
         <!-- End Material Design Packages -->
+   
 </head>
-<body>
+<body style=" background-image: url('../Assets/Images/mountains.png'); background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat; ">
+    <div 
+        style="position:fixed;
+        padding:0;
+        margin:0;
+
+        top:0;
+        left:0;
+
+        width: 100%;
+        height: 100%;
+        background:rgba(255,255,255,0.2);">
 
     <!--<div id="center">
         <div id="main" style="text-align:center">
@@ -80,5 +104,6 @@
 
     <!-- MDL script -->
     <script src="../Assets/mdl/material.min.js"></script>
+    </div>
 </body>
 </html>

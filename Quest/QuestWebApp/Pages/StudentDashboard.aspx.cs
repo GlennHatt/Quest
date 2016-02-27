@@ -9,9 +9,37 @@ namespace QuestWebApp.Pages
 {
     public partial class StudentDashboard : System.Web.UI.Page
     {
+
+        bool isTest = false; // If there is a pending test, change to true
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            displayGreeting();
+            testAlertTemplate.Visible = false;
+
+            if (isTest == false)
+                noTestMessage.Visible = true;
+            else
+                noTestMessage.Visible = false;
 
         }
+
+        private void displayGreeting()
+        {
+            if(DateTime.Now.Hour < 12)
+{
+                lblStudentGreeting.Text = "Good Morning";
+            }
+                else if (DateTime.Now.Hour < 17)
+            {
+                lblStudentGreeting.Text = "Good Afternoon";
+            }
+            else
+            {
+                lblStudentGreeting.Text = "Good Evening";
+            }
+        }
     }
+
+
 }

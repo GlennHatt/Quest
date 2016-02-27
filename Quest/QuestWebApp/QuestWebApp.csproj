@@ -102,15 +102,32 @@
     <Content Include="Assets\Images\android-desktop.png" />
     <Content Include="Assets\Images\crown.png" />
     <Content Include="Assets\Images\favicon.png" />
+    <Content Include="Assets\Images\glenn.jpg" />
+    <Content Include="Assets\Images\greek.png" />
     <Content Include="Assets\Images\ios-desktop.png" />
+    <Content Include="Assets\Images\Jesse.jpg" />
+    <Content Include="Assets\Images\materialblue2.jpg" />
+    <Content Include="Assets\Images\mountains.jpg" />
+    <Content Include="Assets\Images\mountains.png" />
+    <Content Include="Assets\Images\mountainwoods.jpg" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
+    <Content Include="Assets\Images\Ryan.jpg" />
+    <Content Include="Assets\Images\transparent - Copy.png" />
+    <Content Include="Assets\Images\woods.jpg" />
+    <Content Include="Assets\Images\you.jpg" />
+    <Content Include="Assets\Images\zo.jpg" />
+    <Content Include="Assets\JS\AboutusJS.js" />
+    <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
     <None Include="Assets\mdl\material.min.css.bak" />
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
+    <Content Include="Assets\Styles\AboutUs.css" />
+    <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
+    <Content Include="Assets\Styles\loginStyles.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
@@ -128,30 +145,34 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Master-Pages\admin.master" />
+    <Content Include="Pages\AboutUsPage.aspx" />
+    <Content Include="Pages\error.aspx" />
+    <Content Include="Pages\studentPreTest.aspx" />
+    <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
     <Content Include="Master-Pages\withoutSidebar.master" />
     <Content Include="Master-Pages\withSidebar.master" />
+    <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
-    <Content Include="Pages\adminTest.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\takingTestTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="Pages\TestCreation.aspx" />
-    <Content Include="Pages\login.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
     <Content Include="test pond\Database.aspx" />
     <Content Include="test pond\DBTestPage.aspx" />
+    <Content Include="test pond\dropdownList.aspx" />
+    <Content Include="test pond\dropdownTest.aspx" />
     <Content Include="test pond\material.css" />
     <Content Include="test pond\material.js" />
     <Content Include="test pond\material.min.css" />
@@ -183,12 +204,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Pages\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Master-Pages\admin.master.cs">
+      <DependentUpon>admin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master-Pages\admin.master.designer.cs">
       <DependentUpon>admin.master</DependentUpon>
@@ -242,12 +260,26 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AboutUsPage.aspx.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
+      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
@@ -269,6 +301,13 @@
     </Compile>
     <Compile Include="Pages\nosidebarTest.aspx.designer.cs">
       <DependentUpon>nosidebarTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\studentPreTest.aspx.cs">
+      <DependentUpon>studentPreTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentPreTest.aspx.designer.cs">
+      <DependentUpon>studentPreTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentTest.aspx.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
@@ -326,6 +365,20 @@
     </Compile>
     <Compile Include="test pond\DBTestPage.aspx.designer.cs">
       <DependentUpon>DBTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\dropdownList.aspx.cs">
+      <DependentUpon>dropdownList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\dropdownList.aspx.designer.cs">
+      <DependentUpon>dropdownList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\dropdownTest.aspx.cs">
+      <DependentUpon>dropdownTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\dropdownTest.aspx.designer.cs">
+      <DependentUpon>dropdownTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="test pond\zoPractice.aspx.cs">
       <DependentUpon>zoPractice.aspx</DependentUpon>
