@@ -21,5 +21,10 @@ namespace QuestWebApp.Pages
         {
             sqlAddQuestion.Insert();
         }
+
+        protected void rblAddType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
