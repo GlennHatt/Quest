@@ -20,12 +20,12 @@
             <div class="title">LOGIN</div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label class="mdl-textfield__label" for="sample3">E-mail</label>
+                <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">E-mail</label>
                 <asp:TextBox ID="username" runat="server" class="mdl-textfield__input"></asp:TextBox>
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label class="mdl-textfield__label" for="sample3">Password</label>
+                <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">Password</label>
                 <asp:TextBox ID="password" runat="server" class="mdl-textfield__input" TextMode="Password"></asp:TextBox>
             </div>
 
