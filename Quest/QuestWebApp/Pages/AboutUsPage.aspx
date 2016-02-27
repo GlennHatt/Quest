@@ -106,7 +106,7 @@
                     </div>
                 </div>
           <!-- Mobile card -->
-          <div class="mdl-card mdl-shadow--3dp  featureCard">
+          <div class="mdl-card mdl-shadow--3dp  featureCard" >
                                     <div class="mdl-card__title">
                                         
                                     
