@@ -16,8 +16,12 @@
             <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME" />
             <asp:BoundField DataField="PERMISSION_LEVEL" HeaderText="Permission" SortExpression="PERMISSION_LEVEL" />
             <asp:BoundField DataField="EMAIL" HeaderText="e-mail" SortExpression="EMAIL" />
+            <asp:ButtonField ButtonType="Button" Text="Active">
+            <ItemStyle BackColor="#33CC33" BorderColor="#33CC33" ForeColor="#33CC33" />
+            </asp:ButtonField>
         </Columns> 
     </asp:GridView>
+    <asp:Button ID="btnUpdate" runat="server" Text="Button" />
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>
