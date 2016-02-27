@@ -38,7 +38,7 @@
                         <asp:Label runat="server" ID="lbScore"> <h2>(Test Score)</h2> </asp:Label>
                         <asp:Label runat="server" ID="lblDateSub"> <h2>(Date Submitted)</h2> </asp:Label>
                         <asp:LinkButton ID="btnContactTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server">
-                            <i class="material-icons">mail</i>
+                            <i class="material-icons">mail </i>
                         </asp:LinkButton>
                     </div>
                 </div>
