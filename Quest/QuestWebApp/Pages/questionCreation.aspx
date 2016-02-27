@@ -29,13 +29,19 @@ SELECT *
     <br />
     <br />
     <asp:Label ID="lblAddType" runat="server" Text="Question Type:" /><br />
-    <asp:RadioButtonList ID="rblAddType" runat="server">
+    <asp:RadioButtonList ID="rblAddType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged">
         <asp:ListItem Text="Essay" Value="E" />
         <asp:ListItem Text="Matching" Value="M" />
         <asp:ListItem Text="Multiple Choice" Value="MC" />
         <asp:ListItem Text="Short Answer" Value="SA" />
         <asp:ListItem Text="True/False" Value="TF" />
     </asp:RadioButtonList>
+    <br />
+    <asp:Label ID="lblAddQuestionText" runat="server" Text="Question Text: " />
+    <asp:TextBox ID="txtAddQuestionText" runat="server" />
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
     <br />
     <asp:Button ID="btnAddQuestion" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
 </asp:Content>
