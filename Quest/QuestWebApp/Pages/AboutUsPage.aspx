@@ -25,7 +25,15 @@
       </div>
     
         <!-- Quest panel -->
-      <div class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/mountains.jpg'); background-position: center;
+      <div class="mdl-tabs__panel is-active" id="starks-panel" style=" background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 255, 255, 0.2), 
+      rgba(255, 255, 255, 0.2)
+    ),
+    /* bottom, image */
+    url(../Assets/Images/mountains.jpg);
+          /*background-image: url('../Assets/Images/mountains.jpg');*/ background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
    background-attachment:fixed; margin-top: -10%;" >
@@ -128,7 +136,17 @@
 
 
         <!-- RPG Panel -->
-      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/mountainwoods.jpg'); background-position: center;
+      <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" 
+          background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 255, 255, 0.2), 
+      rgba(255, 255, 255, 0.2)
+    ),
+    /* bottom, image */
+    url(../Assets/Images/mountainwoods.jpg);
+          
+          /*background-image: url('../Assets/Images/mountainwoods.jpg');*/ background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
    background-attachment:fixed; margin-top: -10%;">
