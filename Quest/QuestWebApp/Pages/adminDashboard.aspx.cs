@@ -64,6 +64,7 @@ namespace QuestWebApp.Pages
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 
+            lblError.Visible = false;
             
             
               if (currentMonth >= 8)
@@ -101,6 +102,7 @@ namespace QuestWebApp.Pages
                 lblWarning.Text += "First name empty;";
                 txtbxTeacherFirstName.BorderColor = Color.Red;
                 errorCount++;
+                lblError.Visible = true;
             }
             if (txtbxTeacherLastName.Text == String.Empty)
             {
