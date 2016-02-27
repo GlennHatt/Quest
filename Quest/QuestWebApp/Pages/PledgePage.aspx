@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="PledgePage.aspx.cs" Inherits="QuestWebApp.Pages.PledgePage" %>
+﻿<%@ Page Title="Pledge Page" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="PledgePage.aspx.cs" Inherits="QuestWebApp.Pages.PledgePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">
@@ -6,33 +6,30 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="withoutSidebarExtraReferances" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
-    <!-- Wide card with share menu button -->
+    
+    <!-- Wide card -->
 <style>
 .demo-card-wide.mdl-card {
-  width: 512px;
-}
-
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
+  width: 640px;
 }
 </style>
 
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">If you did not cheat, please type your name</h2>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left: 510px;">
+  <div class="mdl-card__title" style="text-align:center">
+    <h1 class="mdl-card__title-text" style="margin-left: 101px;">If you did not cheat please type your name.</h1>
   </div>
-  <asp:textbox runat="server" class="mdl-card__supporting-text">
-   
-  </c>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin-left: 171px;">
+                            <asp:TextBox ID="txtbxUsersName" class="mdl-textfield__input" type="text" runat="server"/>
+                            <label class="mdl-textfield__label" for="sample3">First and Last Name:</label>
+                        </div>  
+
   <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      Get Started
-    </a>
-  </div>
-  <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-      <i class="material-icons">share</i>
-    </button>
+    <asp:linkbutton runat="server"  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 200px;">
+      I Cheated
+    </asp:linkbutton>
+      <asp:linkbutton runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      I Did NOT Cheat
+    </asp:linkbutton>
   </div>
 </div>
 </asp:Content>
