@@ -13,5 +13,10 @@ namespace QuestWebApp.Pages
         {
 
         }
+
+        protected void btnTaketest_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("loginTest.aspx");
+        }
     }
 }
