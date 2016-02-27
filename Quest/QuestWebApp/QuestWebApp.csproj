@@ -134,6 +134,7 @@
     <Content Include="Master-Pages\withSidebar.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
+    <Content Include="Pages\PledgePage.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PledgePage.aspx.cs">
+      <DependentUpon>PledgePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PledgePage.aspx.designer.cs">
+      <DependentUpon>PledgePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
