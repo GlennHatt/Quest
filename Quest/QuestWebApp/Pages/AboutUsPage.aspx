@@ -123,9 +123,6 @@
                 </div>
           
       </div>
-          
-      </div>
-
 
         <!-- RPG Panel -->
       <div class="mdl-tabs__panel" id="lannisters-panel" class="mdl-tabs__panel is-active" id="starks-panel" style=" background-image: url('../Assets/Images/woods.jpg'); background-position: center;
