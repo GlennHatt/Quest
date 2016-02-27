@@ -67,26 +67,62 @@ namespace QuestWebApp.Pages
         // Insert user into database
         protected void btnAddTeacher_Click(object sender, EventArgs e)
         {
+            string passwordStrength;
+            int errorCount = 0;
+
+            lblWarning.Text = string.Empty;
+
             if (txtbxTeacherFirstName.Text == String.Empty)
-                txtbxTeacherFirstName.BorderColor = Color.Red;
-            if (txtbxTeacherLastName.Text == String.Empty)
-                txtbxTeacherLastName.BorderColor = Color.Red;
-            if (txtbxTeacherEmail.Text == String.Empty)
-                txtbxTeacherEmail.BorderColor = Color.Red;
-            if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
             {
-                txtbxTeacherPassword.Text = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
+                lblWarning.Text += "First name empty;";
+                txtbxTeacherFirstName.BorderColor = Color.Red;
+                errorCount++;
+            }
+            if (txtbxTeacherLastName.Text == String.Empty)
+            {
+                lblWarning.Text += " Last name empty;";
+                txtbxTeacherLastName.BorderColor = Color.Red;
+                errorCount++;
+            }
+            if (txtbxTeacherEmail.Text == String.Empty)
+            {
+                lblWarning.Text += " Email empty;";
+                txtbxTeacherEmail.BorderColor = Color.Red;
+                errorCount++;
+            }
+            if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
+            {
+                lblWarning.Text += " Password empty;";
+                txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+                errorCount++;
+            }
+            else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
+            {
+                passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
+
+                if(passwordStrength == "Weak" || passwordStrength == "VeryWeak")
+                {
+                    txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
+                    lblWarning.Text = " Password is " + passwordStrength + ";";
+                    errorCount++;
+                }
             }
             else
             {
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+                lblWarning.Text = " Passwords are not identical;";
+                txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
+                errorCount++;
             }
 
             if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
             {
-                lblUserError.Text = "Select User Type";
+                ddlUserSelect.BorderColor = Color.Red;
+                lblWarning.Text += " Select User Type";
+                errorCount++;
             }
-            else
+            
+            if(errorCount == 0)
             {
                 sqlTeacher.Insert();
                 clearUserFields();
@@ -96,8 +132,29 @@ namespace QuestWebApp.Pages
         // Insert class into database
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
-            sqlClass.Insert();
-            clearClassFields();
+            int errorCount = 0;
+
+            if(txtbxClassTitle.Text == String.Empty)
+            {
+                txtbxClassTitle.BorderColor = Color.Red;
+                lblWarning.Text += " Enter Class Title;";
+                errorCount++;
+            }
+
+            // TODO: Validate course number
+
+            if(txtbxCourseNumber.Text == String.Empty)
+            {
+                txtbxCourseNumber.BorderColor = Color.Red;
+                lblWarning.Text += " Enter Course Number";
+                errorCount++;
+            }
+
+            if (errorCount == 0)
+            {
+                sqlClass.Insert();
+                clearClassFields();
+            }
         }
     }
 }
