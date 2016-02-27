@@ -10,96 +10,96 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class testCreation {
+    public partial class questionCreation {
         
         /// <summary>
-        /// SQLSectionSelect control.
+        /// sqlAddQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SQLSectionSelect;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAddQuestion;
         
         /// <summary>
-        /// lblSection control.
+        /// lblAddWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSection;
+        protected global::System.Web.UI.WebControls.Label lblAddWeight;
         
         /// <summary>
-        /// ddlSection control.
+        /// txtAddWeight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSection;
+        protected global::System.Web.UI.WebControls.TextBox txtAddWeight;
         
         /// <summary>
-        /// lblName control.
+        /// lblAddType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lblAddType;
         
         /// <summary>
-        /// txtName control.
+        /// rblAddType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblAddType;
         
         /// <summary>
-        /// lblTimeLimit control.
+        /// lblAddQuestionText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTimeLimit;
+        protected global::System.Web.UI.WebControls.Label lblAddQuestionText;
         
         /// <summary>
-        /// ddlTimeLimit control.
+        /// txtAddQuestionText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTimeLimit;
+        protected global::System.Web.UI.WebControls.TextBox txtAddQuestionText;
         
         /// <summary>
-        /// lblDate control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// cldrTestDay control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldrTestDay;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
         
         /// <summary>
-        /// btnAddInfo control.
+        /// btnAddQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddInfo;
+        protected global::System.Web.UI.WebControls.Button btnAddQuestion;
     }
 }
