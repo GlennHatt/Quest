@@ -13,24 +13,6 @@ namespace QuestWebApp.Pages {
     public partial class StudentDashboard {
         
         /// <summary>
-        /// lblStudentGreeting control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStudentGreeting;
-        
-        /// <summary>
-        /// testAlertTemplate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl testAlertTemplate;
-        
-        /// <summary>
         /// lblTestSubject control.
         /// </summary>
         /// <remarks>
@@ -65,14 +47,5 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnTaketest;
-        
-        /// <summary>
-        /// noTestMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noTestMessage;
     }
 }

@@ -15,7 +15,7 @@
           <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
             <!-- Title -->
-                <span class="mdl-layout-title">Quest Testing Center</span>
+                <span class="mdl-layout-title">Quest</span>
              </div>
           </header>
           <div class="mdl-layout__drawer">
