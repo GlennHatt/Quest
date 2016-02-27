@@ -49,13 +49,13 @@
           .demo-card-wide.mdl-card {
     width: 58%;
     margin: 0 auto;
-    margin-top:10%;
+    margin-top:3%;
   }
           
     .featureCard {
-    width: 25%;
+    width: 50%;
     margin: 0 auto;
-    margin-top:10%;
+    margin-top:3%;
     
     
   }      
@@ -85,7 +85,7 @@
                                         
                                     
                             </div>
-                    <div class="mdl-card__supporting-text " style="text-align: center">
+                    <div class=" " style="text-align: center">
                         
                         
                         <p style="font-size: 175%;">
@@ -99,15 +99,19 @@
                 </div>
 
           <div>
-          <!-- Mobile card -->
+            <!-- Description card -->
           <div class="mdl-card mdl-shadow--3dp  featureCard">
                                     <div class="mdl-card__title">
                                         
                                     
                 </div>
-                     <div class="mdl-card__supporting-text " style="text-align: center">
-                        <i class="material-icons noTest" style="font-size:800%;">phone_iphone</i>
-                        <div style="font-size: 150%;  margin-top: 5%">Optimized for mobile devices so you're not bound to the desktop.</div>
+                     <div class=" " style="text-align: center">
+                        
+                        <div style="font-size: 100%;  margin-top: 5%; padding:5%;">Quest is an online testing center that allows teachers to craft tests to be given to students. Teachers can view all 
+                            students in a particular class as well as the classes that they teach. Teachers also have the option of viewing old tests and modifying grades if needed. <br /><br />
+
+                            Quest makes it easy for students to take tests and track their grades in various classes. They also have the ability to email their teacher for help.
+                        </div>
 
                     </div>
                     <div style="text-align: right">
@@ -115,15 +119,33 @@
 
                     </div>
                 </div>
+
           <!-- Mobile card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard">
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                </div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">phone_iphone</i>
+                        <div style="font-size: 100%;  margin-top: 5%">Optimized for mobile devices so you're not bound to the desktop.
+                        </div>
+
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+
+                    </div>
+                </div>
+          <!-- Cloud card -->
           <div class="mdl-card mdl-shadow--3dp  featureCard" >
                                     <div class="mdl-card__title">
                                         
                                     
                             </div>
-                     <div class="mdl-card__supporting-text " style="text-align: center">
-                        <i class="material-icons noTest" style="font-size:800%;">phone_iphone</i>
-                        <div style="font-size: 150%;  margin-top: 5%">Optimized for mobile devices so you're not bound to the desktop.</div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">backup</i>
+                        <div style="font-size: 100%;  margin-top: 5%">Completely online so you can use any computer without saving locally.</div>
                         
                     </div>
                     <div style="text-align: right">
@@ -131,6 +153,75 @@
                       
                     </div>
                 </div>
+
+               <!-- Mail card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard" >
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                            </div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">contact_mail</i>
+                        <div style="font-size: 100%;  margin-top: 5%">Students and teachers can email each other with questions.</div>
+                        
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                      
+                    </div>
+                </div>
+
+               <!-- Mail card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard" >
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                            </div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">assessment</i>
+                        <div style="font-size: 100%;  margin-top: 5%">Track grades and see class averages.</div>
+                        
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                      
+                    </div>
+                </div>
+
+              <!-- time card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard" >
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                            </div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">watch_later</i>
+                        <div style="font-size: 100%;  margin-top: 5%">Schedule tests with time limits.</div>
+                        
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                      
+                    </div>
+                </div>
+              <!-- A/V card -->
+          <div class="mdl-card mdl-shadow--3dp  featureCard" >
+                                    <div class="mdl-card__title">
+                                        
+                                    
+                            </div>
+                     <div class=" " style="text-align: center">
+                        <i class="material-icons noTest" style="font-size:800%;">volume_up</i>
+                         <i class="material-icons noTest" style="font-size:800%;">photo</i>
+                        <div style="font-size: 100%;  margin-top: 5%">All-new audio and visual based questions.</div>
+                        
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                      
+                    </div>
+                </div>
+
           
       </div>
           
