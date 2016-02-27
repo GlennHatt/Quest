@@ -40,8 +40,8 @@ BEGIN
 END;"
         ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM CLASS">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
-            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Code" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
 

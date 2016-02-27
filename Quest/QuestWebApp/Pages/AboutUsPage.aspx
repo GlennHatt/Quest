@@ -375,7 +375,7 @@
                 <h2>
                     <span style="color:white">Lorenzo Lewis</span>
                     <strong style="color:white">
-                        <i class="material-icons testAlert" style="color:white">monetization_on</i>
+                        <i class="material-icons testAlert" style="color:white">attach_money</i>
                         Zo
                     </strong>
                 </h2>
@@ -407,9 +407,9 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Indigo">
                 <h2>
-                    <span style="color:white">Yousef Khoury</span>
+                    <span style="color:white">Yousef Khury</span>
                     <strong style="color:white">
-                        <i class="fa fa-fw fa-star" style="color:white"></i>
+                        <i class="material-icons testAlert" style="color:white">fingerprint</i>
                         Security
                     </strong>
                 </h2>
