@@ -30,7 +30,7 @@
             </div>
 
             <div class="button login" style="text-align: center;">
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" style="color:white" OnClick="loginButton_Click" />
                 <br />
                 <div style="text-align: center; font-size: 13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
@@ -43,7 +43,7 @@
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
     </div>
     <div class="buttonDiscover" style="text-align: right; margin-right: 100px;">
-        <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
+        <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="loginPageSpecificJS" runat="server">

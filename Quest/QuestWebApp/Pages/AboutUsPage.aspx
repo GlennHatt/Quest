@@ -162,18 +162,18 @@
                     </div>
                     </div>
                 </div>
-          <br />
 
            <div class="mdl-card mdl-shadow--3dp demo-card-wide ">
                                     <div class="mdl-card__RPGInfo">        
                             
-                    <div class="mdl-card__supporting-text " style="text-align: center">
+                    <div class="mdl-card__supporting-text" style="text-align:center">
+                        <br />
                         <br />
                         <br />
                         <p style="font-size: 175%;">
-                           R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center.   
+                           R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center. 
+                           As every team member does their part, they have created the Quest Testing Center.
                         </p>
-
                     </div>
                     </div>
                 </div>
@@ -184,9 +184,9 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Red">
                 <h2>
-                    <span>Glenn Hatt</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
+                    <span style="color:white">Glenn Hatt</span>
+                    <strong style="color:white">
+                        <i class="fa fa-fw fa-star" style="color:white"></i>
                         The Database Expert
                     </strong>
                 </h2>
@@ -205,12 +205,9 @@
                         </div>
                     </div>
                 <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
                     <a class="fa fa-fw fa-facebook"></a>
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
@@ -221,9 +218,9 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Pink">
                 <h2>
-                    <span>Ryan Carroll</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
+                    <span style="color:white">Ryan Carroll</span>
+                    <strong style="color:white">
+                        <i class="fa fa-fw fa-star" style="color:white"></i>
                         Design Master
                     </strong>
                 </h2>
@@ -241,13 +238,10 @@
                             </ul>
                         </div>
                     </div>
-                <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
+                <a class="mc-btn-action" style="color:white">
+                    <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
                     <a class="fa fa-fw fa-facebook"></a>
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
@@ -258,9 +252,9 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Purple">
                 <h2>
-                    <span>Jesse Upchurch</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
+                    <span style="color:white">Jesse Upchurch</span>
+                    <strong style="color:white">
+                        <i class="material-icons testAlert" style="color:white">fitness_center</i>
                         Work-Out Junkie
                     </strong>
                 </h2>
@@ -278,13 +272,10 @@
                             </ul>
                         </div>
                 </div>
-                <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
+                <a class="mc-btn-action" style="color:white">
+                    <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
                     <a class="fa fa-fw fa-facebook"></a>
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
@@ -293,11 +284,11 @@
             </article>
                     </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
-            <article class="material-card Deep-Purple">
+            <article class="material-card Deep Orange">
                 <h2>
-                    <span>Lorenzo Lewis</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
+                    <span style="color:white">Lorenzo Lewis</span>
+                    <strong style="color:white">
+                        <i class="material-icons testAlert" style="color:white">monetization_on</i>
                         Zo
                     </strong>
                 </h2>
@@ -315,13 +306,10 @@
                             </ul>
                         </div>
                 </div>
-                <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
+                <a class="mc-btn-action" style="color:white">
+                    <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
                     <a class="fa fa-fw fa-facebook"></a>
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
@@ -332,9 +320,9 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <article class="material-card Indigo">
                 <h2>
-                    <span>Yousef Khoury</span>
-                    <strong>
-                        <i class="fa fa-fw fa-star"></i>
+                    <span style="color:white">Yousef Khoury</span>
+                    <strong style="color:white">
+                        <i class="fa fa-fw fa-star" style="color:white"></i>
                         Security
                     </strong>
                 </h2>
@@ -354,12 +342,9 @@
                         </div>
                     </div>
                 <a class="mc-btn-action">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <h4>
-                        Social
-                    </h4>
                     <a class="fa fa-fw fa-facebook"></a>
                     <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
