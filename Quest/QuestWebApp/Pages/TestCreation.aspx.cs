@@ -13,7 +13,6 @@ namespace QuestWebApp.Pages
 
     public partial class testCreation : System.Web.UI.Page
     {
-        int testID;
 
         protected void Page_Load(object sender, EventArgs e)
         {

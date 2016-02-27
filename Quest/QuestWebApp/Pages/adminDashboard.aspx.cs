@@ -102,7 +102,7 @@ namespace QuestWebApp.Pages
 
                 if(passwordStrength == "Weak" || passwordStrength == "VeryWeak")
                 {
-                    txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
+                    //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
                     lblWarning.Text = " Password is " + passwordStrength + ";";
                     errorCount++;
                 }
@@ -111,7 +111,7 @@ namespace QuestWebApp.Pages
             {
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
                 lblWarning.Text = " Passwords are not identical;";
-                txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
+                //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
                 errorCount++;
             }
 
