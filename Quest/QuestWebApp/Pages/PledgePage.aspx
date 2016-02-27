@@ -16,7 +16,7 @@
 
 <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="margin-left: 510px;">
   <div class="mdl-card__title" style="text-align:center">
-    <h1 class="mdl-card__title-text" style="margin-left: 101px;">If you did not cheat please type your name.</h1>
+    <h1 class="mdl-card__title-text" style="margin-left: 101px;">If you did not cheat please type your name</h1>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin-left: 171px;">
                             <asp:TextBox ID="txtbxUsersName" class="mdl-textfield__input" type="text" runat="server"/>
