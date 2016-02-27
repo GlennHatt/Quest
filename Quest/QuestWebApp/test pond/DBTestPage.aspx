@@ -3,9 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="teacherBody" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
     <asp:SqlDataSource ID="SQLTest" runat="server" ConnectionString="Provider=MSDAORA;Data Source=CS414;Persist Security Info=True;Password=CS414team1;User ID=CS414s16" ProviderName="System.Data.OleDb" SelectCommand="
 SELECT *
   FROM END_USER" />

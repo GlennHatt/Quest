@@ -13,13 +13,40 @@ namespace QuestWebApp.Pages {
     public partial class adminDashboard {
         
         /// <summary>
-        /// txtbxTeacherfirstName control.
+        /// sqlTeacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherfirstName;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacher;
+        
+        /// <summary>
+        /// sqlClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlClass;
+        
+        /// <summary>
+        /// lblWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarning;
+        
+        /// <summary>
+        /// txtbxTeacherFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherFirstName;
         
         /// <summary>
         /// txtbxTeacherLastName control.
@@ -40,6 +67,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtbxTeacherEmail;
         
         /// <summary>
+        /// lblPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPassword;
+        
+        /// <summary>
         /// txtbxTeacherPassword control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxTeacherConfirmPassword;
+        
+        /// <summary>
+        /// ddlUserSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlUserSelect;
         
         /// <summary>
         /// btnAddTeacher control.
