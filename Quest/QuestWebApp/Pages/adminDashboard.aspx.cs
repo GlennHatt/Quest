@@ -51,12 +51,16 @@ namespace QuestWebApp.Pages
         {
             txtbxTeacherFirstName.Text = txtbxTeacherLastName.Text = txtbxTeacherEmail.Text = 
             txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = String.Empty;
+            txtbxTeacherFirstName.BorderColor = txtbxTeacherLastName.BorderColor = txtbxTeacherEmail.BorderColor =
+            txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.LightGray;
+
         }
 
         // Clear fields after class addition
         void clearClassFields()
         {
             txtbxClassTitle.Text = txtbxCourseNumber.Text = String.Empty;
+            txtbxClassTitle.BorderColor = txtbxCourseNumber.BorderColor =Color.LightGray;
         }
 
         protected void Page_Load(object sender, EventArgs e)
