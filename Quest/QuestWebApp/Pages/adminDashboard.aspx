@@ -38,11 +38,11 @@ BEGIN
       p_Title  =&gt; :p_Title);
 END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM CLASS">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Code" PropertyName="Text" />
-            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Title" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
-
+    
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">
@@ -57,7 +57,7 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
 }
 
 </style> -->
-
+                <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red"></asp:Label>
                <div class="demo-card-wide mdl-cardAddTeacher mdl-shadow--3dp">
                     <div class="mdl-card__supporting-text" style="text-align:center">
                         <h1>Add New User</h1>
@@ -91,21 +91,15 @@ END;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                             <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                         </div>
 
-                        <!-- Used for testing errors -->
-                        <!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" for="sample3">Warnings:</label>
-                            <asp:Label ID="lblUserError" class="mdl-textfield__label" runat="server"></asp:Label>
-                        </div> -->
-
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:DropDownList ID="ddlUserSelect" runat="server" AppendDataBoundItems="true">
+                            <asp:DropDownList ID="ddlUserSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="true">
                                 <asp:ListItem Value="" >--Select Type--</asp:ListItem>
                                 <asp:ListItem Value="S">Student</asp:ListItem>
                                 <asp:ListItem Value="T">Teacher</asp:ListItem>
                                 <asp:ListItem Value="A">Administrator</asp:ListItem>
                             </asp:DropDownList>
-                            <label class="mdl-textfield__label" style="bottom:0px" for="sample3">User Type:</label>
+                          
                         </div>
 
                     </div>
