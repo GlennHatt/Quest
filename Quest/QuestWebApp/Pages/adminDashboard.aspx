@@ -124,12 +124,14 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Title:</label>
+                            <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>
                         </div>
 
                         <!-- Textfield with Floating Label for Course Number -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Course Number:</label>
+                            <span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>
                         </div>
 
                         <div style="text-align: right">
@@ -153,6 +155,7 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:DropDownList ID="ddlSemester" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                             </asp:DropDownList>
+                             <span id="lblSemesterError" runat="server" class="mdl-textfield__error">Select a semester</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
@@ -169,23 +172,26 @@ END;"
                                 <asp:ListItem Value="9"></asp:ListItem>
                                 <asp:ListItem Value="10"></asp:ListItem>
                             </asp:DropDownList>
+                            <span id="lblSectionError" runat="server" class="mdl-textfield__error">Select a section</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                                 <asp:ListItem Value="Course:"></asp:ListItem>
                             </asp:DropDownList>
+                            <span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
+                            <span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>
                         </div>
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server">
+                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server" OnClick="btnAddSection_Click">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
