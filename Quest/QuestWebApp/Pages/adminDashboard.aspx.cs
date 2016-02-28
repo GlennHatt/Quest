@@ -61,6 +61,31 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int currentMonth = DateTime.Now.Month;
+            int currentYear = DateTime.Now.Year;
+
+            lblError.Visible = false;
+            
+            
+              if (currentMonth >= 8)
+            {
+                ddlSemester.Items.Add(new ListItem("Semester:"));
+                ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
+                ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
+                ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 1)));
+                ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
+                ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 2)));
+            }
+            else
+            {
+                ddlSemester.Items.Add(new ListItem("Semester:"));
+                ddlSemester.Items.Add(new ListItem("Spring " + currentYear));
+                ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
+                ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
+                ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 1)));
+                ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
+            }
+
 
         }
 
@@ -77,6 +102,7 @@ namespace QuestWebApp.Pages
                 lblWarning.Text += "First name empty;";
                 txtbxTeacherFirstName.BorderColor = Color.Red;
                 errorCount++;
+                lblError.Visible = true;
             }
             if (txtbxTeacherLastName.Text == String.Empty)
             {
