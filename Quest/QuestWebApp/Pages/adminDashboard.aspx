@@ -58,7 +58,7 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
-                            <span id="lblError" runat="server" class="mdl-textfield__error">Input is not a number!</span>
+                            <span id="lblFnameError" runat="server" class="mdl-textfield__error">Please enter first name</span>
                         </div>
                                 
                                
@@ -66,24 +66,29 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Last Name:</label>
                             <asp:TextBox ID="txtbxTeacherLastName" class="mdl-textfield__input" type="text" runat="server" />
+                            <span id="lblLnameError" runat="server" class="mdl-textfield__error">Please enter last name</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Email Address:</label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
+                            <span id="lblEmailError" runat="server" class="mdl-textfield__error">Please enter an email</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="sample3">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                            <span id="lblPassError" runat="server" class="mdl-textfield__error">Please enter a password</span>
+                            <span id="lblPassWeak" runat="server" class="mdl-textfield__error">Password is weak</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>
                             <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                            <span id="lblConfirmPassError" runat="server" class="mdl-textfield__error">Passwords must match</span>
                         </div>
 
                         <!-- Textfield with Floating DropDown for user type -->
@@ -94,7 +99,7 @@ END;"
                                 <asp:ListItem Value="T">Teacher</asp:ListItem>
                                 <asp:ListItem Value="A">Administrator</asp:ListItem>
                             </asp:DropDownList>
-
+                            <span id="lblUserTypeError" runat="server" class="mdl-textfield__error">Select user type</span>
                         </div>
 
                     </div>

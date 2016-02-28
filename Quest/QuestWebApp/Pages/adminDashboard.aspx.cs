@@ -64,7 +64,13 @@ namespace QuestWebApp.Pages
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 
-            lblError.Visible = false;
+            lblFnameError.Visible = false;
+            lblLnameError.Visible = false;
+            lblEmailError.Visible = false;
+            lblPassError.Visible = false;
+            lblConfirmPassError.Visible = false;
+            lblPassWeak.Visible = false;
+            lblUserTypeError.Visible = false;
             
             
               if (currentMonth >= 8)
@@ -102,25 +108,28 @@ namespace QuestWebApp.Pages
                 lblWarning.Text += "First name empty;";
                 txtbxTeacherFirstName.BorderColor = Color.Red;
                 errorCount++;
-                lblError.Visible = true;
+                lblFnameError.Visible = true;
             }
             if (txtbxTeacherLastName.Text == String.Empty)
             {
                 lblWarning.Text += " Last name empty;";
                 txtbxTeacherLastName.BorderColor = Color.Red;
                 errorCount++;
+                lblLnameError.Visible = true;
             }
             if (txtbxTeacherEmail.Text == String.Empty)
             {
                 lblWarning.Text += " Email empty;";
                 txtbxTeacherEmail.BorderColor = Color.Red;
                 errorCount++;
+                lblEmailError.Visible = true;
             }
             if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
             {
                 lblWarning.Text += " Password empty;";
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
                 errorCount++;
+                lblPassError.Visible = true;
             }
             else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
             {
@@ -129,6 +138,7 @@ namespace QuestWebApp.Pages
                 if(passwordStrength == "Weak" || passwordStrength == "VeryWeak")
                 {
                     //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
+                    lblPassWeak.Visible = true;
                     lblWarning.Text = " Password is " + passwordStrength + ";";
                     errorCount++;
                 }
@@ -137,6 +147,7 @@ namespace QuestWebApp.Pages
             {
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
                 lblWarning.Text = " Passwords are not identical;";
+                lblConfirmPassError.Visible = true;
                 //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
                 errorCount++;
             }
@@ -146,6 +157,7 @@ namespace QuestWebApp.Pages
                 ddlUserSelect.BorderColor = Color.Red;
                 lblWarning.Text += " Select User Type";
                 errorCount++;
+                lblUserTypeError.Visible = true;
             }
             
             if(errorCount == 0)
