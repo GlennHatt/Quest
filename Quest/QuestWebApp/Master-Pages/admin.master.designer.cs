@@ -10,7 +10,7 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class admin1 {
+    public partial class admin {
         
         /// <summary>
         /// adminBreadcrumbs control.
