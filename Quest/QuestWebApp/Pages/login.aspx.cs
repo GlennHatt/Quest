@@ -20,7 +20,7 @@ namespace QuestWebApp.Pages
         {
             // All passwords are placholders that should be replaces with the passwords stored in the database
 
-            string classification = "";
+            //value = classification = "";
 
             switch (username.Text)
             {
@@ -28,7 +28,7 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury") 
                     {
                         answer.Text = "Login Admin";
-                        Session.Add(classification, "A"); // Stores classification in a session variable
+                        //Session.Add(classification, "A"); // Stores classification in a session variable
                         //classification = 'A'; 
                         Response.Redirect("http://localhost:52416/Pages/adminDashboard.aspx");
                     }
@@ -39,7 +39,7 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury")
                     {
                         answer.Text = "Login Teacher";
-                        Session.Add(classification, "T"); // Stores classification in a session variable 
+                        //Session.Add(classification, "T"); // Stores classification in a session variable 
                         //classification = 'T'; 
                         Response.Redirect("http://localhost:52416/Pages/TeacherDashboard.aspx");
                     }
@@ -50,7 +50,7 @@ namespace QuestWebApp.Pages
                     if (password.Text == "khury")
                     {
                         answer.Text = "Login Student";
-                        Session.Add(classification, "S"); // Stores classification in a session variable
+                        //Session.Add(classification, "S"); // Stores classification in a session variable
                         //classification = 'S';  
                         Response.Redirect("http://localhost:52416/Pages/StudentDashboard.aspx");
                     }
@@ -64,7 +64,6 @@ namespace QuestWebApp.Pages
         }
 
         public string CalculateHash(string passwordInput) // Hashes the string that is passed into it
-
         {
             MD5 hashed_algorithm = System.Security.Cryptography.MD5.Create();
             byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(passwordInput);
