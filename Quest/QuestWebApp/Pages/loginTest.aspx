@@ -32,7 +32,7 @@
             <div class="button login" style="text-align: center;">
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" style="color:white" OnClick="loginButton_Click" />
                 <br />
-                <div style="text-align: center; font-size: 13px;">
+                <div style="text-align: center; font-size:13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
             </div>
             <div style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</div>
