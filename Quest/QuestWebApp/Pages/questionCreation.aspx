@@ -8,22 +8,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-    <asp:SqlDataSource ID="sqlAddQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" InsertCommand="
-BEGIN
-  :v_Dummy := QUESTIONS.add(
-    p_TestID =&gt; :p_TestID,
-    p_Weight =&gt; :p_Weight,
-    P_Type   =&gt; :p_Type);
-END;" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
-SELECT *
-  FROM question">
-        <InsertParameters>
-            <asp:Parameter DbType="Int32" Direction="Output" Name="v_Dummy" />
-            <asp:SessionParameter DbType="Int32" Name="p_TestID" SessionField="Test_ID" />
-            <asp:ControlParameter ControlID="txtAddWeight" Name="p_Weight" PropertyName="Text" />
-            <asp:ControlParameter ControlID="rblAddType" Name="p_Type" PropertyName="SelectedValue" />
-        </InsertParameters>
-    </asp:SqlDataSource>
     <asp:Label ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Point Value: " />
     <asp:TextBox ID="txtAddWeight" runat="server" />
     <br />
@@ -40,8 +24,21 @@ SELECT *
     <asp:Label ID="lblAddQuestionText" runat="server" Text="Question Text: " />
     <asp:TextBox ID="txtAddQuestionText" runat="server" />
     <br />
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:Label ID="lblAddAnswer" runat="server" Text="Answer:" />
+    <br />
+    <asp:RadioButtonList ID="rblAddTFAnswer" runat="server" RepeatDirection="Horizontal">
+        <asp:ListItem Text="True" Value="T" />
+        <asp:ListItem Text="False" Value="F" />
+    </asp:RadioButtonList>
+    <br />
+    <asp:Label ID="lblBeforeText" runat="server" Text="Before Text: " />
+    <asp:TextBox ID="txtBeforeText" runat="server" />
+    <br />
+    <asp:Label ID="lblAnswerText" runat="server" Text="Answer Text: " />
+    <asp:TextBox ID="txtAnswerText" runat="server" />
+    <br />
+    <asp:Label ID="lblAfterText" runat="server" Text="After Text: " />
+    <asp:TextBox ID="txtAfterText" runat="server" />
     <br />
     <asp:Button ID="btnAddQuestion" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
 </asp:Content>
