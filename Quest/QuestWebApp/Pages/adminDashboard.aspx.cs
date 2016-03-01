@@ -79,7 +79,7 @@ namespace QuestWebApp.Pages
             lblTeacherError.Visible = false;
             
             
-              if (currentMonth >= 8)
+            if (currentMonth >= 8 && ddlSemester.Items.Count == 0)
             {
                 ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
@@ -88,7 +88,7 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
                 ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 2)));
             }
-            else
+            else if (ddlSemester.Items.Count == 0)
             {
                 ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Spring " + currentYear));
