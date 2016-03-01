@@ -19,16 +19,13 @@ namespace QuestWebApp.Pages
         protected void loginButton_Click(object sender, EventArgs e)
         {
             // All passwords are placholders that should be replaces with the passwords stored in the database
-
-            Session["classification"] = "X";
-
             switch (username.Text)
             {
                 case "admin": // Placeholder for admin username
                     if (password.Text == "password")
                     {
-                        Response.Redirect("adminDashboard.aspx");
                         Session["classification"] = 'A';
+                        Response.Redirect("adminDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -36,8 +33,8 @@ namespace QuestWebApp.Pages
                 case "teacher": // Placeholder for teacher username
                     if (password.Text == "password")
                     {
-                        Response.Redirect("TeacherDashboard.aspx");
                         Session["classification"] = 'T';
+                        Response.Redirect("TeacherDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
@@ -45,8 +42,8 @@ namespace QuestWebApp.Pages
                 case "student": // Placeholder for student username
                     if (password.Text == "password")
                     {
-                        Response.Redirect("StudentDashboard.aspx");
                         Session["classification"] = 'S';
+                        Response.Redirect("StudentDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
