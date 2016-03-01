@@ -64,7 +64,7 @@ namespace QuestWebApp.Pages
 
             for (int i = 0; i < hash.Length; i++)
             {
-                hashedValue.Append(hash[i].ToString("X2"));
+                hashedValue.Append(hash[i].ToString("X2")); 
             }
 
             return hashedValue.ToString();
