@@ -136,7 +136,7 @@ END;"
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -12px" runat="server" OnClick="btnAddClass_Click">
+                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -7px" runat="server" OnClick="btnAddClass_Click">
                                 <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
@@ -191,7 +191,7 @@ END;"
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server" OnClick="btnAddSection_Click">
+                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -15px" runat="server" OnClick="btnAddSection_Click">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>

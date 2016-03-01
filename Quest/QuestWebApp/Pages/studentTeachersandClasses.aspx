@@ -6,7 +6,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="studentExtraReferances" runat="server">
 
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.css'/>
-    <link rel='stylesheet prefetch' href='https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css'/>
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
