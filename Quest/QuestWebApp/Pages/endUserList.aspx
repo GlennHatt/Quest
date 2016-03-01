@@ -12,13 +12,11 @@
         SELECT USER_ID, F_NAME, L_NAME, PERMISSION_LEVEL, EMAIL, PASSWORD FROM END_USER" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" />
     <asp:GridView ID="end_user" runat="server" DataSourceID="end_user_list" AutoGenerateColumns="False" DataKeyNames="USER_ID" >
         <Columns>  
+            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="F_NAME" HeaderText="First Name" SortExpression="F_NAME" />
             <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME" />
             <asp:BoundField DataField="PERMISSION_LEVEL" HeaderText="Permission" SortExpression="PERMISSION_LEVEL" />
             <asp:BoundField DataField="EMAIL" HeaderText="e-mail" SortExpression="EMAIL" />
-            <asp:ButtonField ButtonType="Button" Text="Active">
-            <ItemStyle BackColor="#33CC33" BorderColor="#33CC33" ForeColor="#33CC33" />
-            </asp:ButtonField>
         </Columns> 
     </asp:GridView>
     <asp:Button ID="btnUpdate" runat="server" Text="Button" />
