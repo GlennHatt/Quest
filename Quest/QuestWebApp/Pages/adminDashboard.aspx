@@ -40,8 +40,8 @@ BEGIN
 END;"
         ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM CLASS">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
-            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Code" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
 
@@ -58,7 +58,7 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
-                            <span id="lblError" runat="server" class="mdl-textfield__error">Input is not a number!</span>
+                            <span id="lblFnameError" runat="server" class="mdl-textfield__error">Please enter first name</span>
                         </div>
                                 
                                
@@ -66,24 +66,29 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Last Name:</label>
                             <asp:TextBox ID="txtbxTeacherLastName" class="mdl-textfield__input" type="text" runat="server" />
+                            <span id="lblLnameError" runat="server" class="mdl-textfield__error">Please enter last name</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Email Address:</label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
+                            <span id="lblEmailError" runat="server" class="mdl-textfield__error">Please enter an email</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="sample3">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                            <span id="lblPassError" runat="server" class="mdl-textfield__error">Please enter a password</span>
+                            <span id="lblPassWeak" runat="server" class="mdl-textfield__error">Password is weak</span>
                         </div>
 
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>
                             <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                            <span id="lblConfirmPassError" runat="server" class="mdl-textfield__error">Passwords must match</span>
                         </div>
 
                         <!-- Textfield with Floating DropDown for user type -->
@@ -94,7 +99,7 @@ END;"
                                 <asp:ListItem Value="T">Teacher</asp:ListItem>
                                 <asp:ListItem Value="A">Administrator</asp:ListItem>
                             </asp:DropDownList>
-
+                            <span id="lblUserTypeError" runat="server" class="mdl-textfield__error">Select user type</span>
                         </div>
 
                     </div>
@@ -119,12 +124,14 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Title:</label>
+                            <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>
                         </div>
 
                         <!-- Textfield with Floating Label for Course Number -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Course Number:</label>
+                            <span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>
                         </div>
 
                         <div style="text-align: right">
@@ -148,6 +155,7 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:DropDownList ID="ddlSemester" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                             </asp:DropDownList>
+                             <span id="lblSemesterError" runat="server" class="mdl-textfield__error">Select a semester</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
@@ -164,26 +172,26 @@ END;"
                                 <asp:ListItem Value="9"></asp:ListItem>
                                 <asp:ListItem Value="10"></asp:ListItem>
                             </asp:DropDownList>
+                            <span id="lblSectionError" runat="server" class="mdl-textfield__error">Select a section</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                                 <asp:ListItem Value="Course:"></asp:ListItem>
                             </asp:DropDownList>
+                            <span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="L_NAME" DataSourceID="sqlSectionTeacher" DataValueField="L_NAME">
+                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlSectionTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME
-FROM END_USER 
-WHERE PERMISSION_LEVEL = 'T'"></asp:SqlDataSource>
+                            <span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>
                         </div>
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server">
+                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server" OnClick="btnAddSection_Click">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>

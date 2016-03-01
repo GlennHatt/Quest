@@ -23,24 +23,36 @@ namespace QuestWebApp.Pages
             switch (username.Text)
             {
                 case "admin": // Placeholder for admin username
-                    if (password.Text == "khury")
+                    if (password.Text == "password")
                     {
-                        Response.Redirect("http://localhost:52416/Pages/adminDashboard.aspx");
+                        Response.Redirect("adminDashboard.aspx");
                         classification = 1; // Replace with primary key for admin
+                    }
+                    else
+                    {
+                        answer.Text = "Incorrect username and/or password";
                     }
                     break;
                 case "teacher": // Placeholder for teacher username
                     if (password.Text == "khury")
                     {
-                        Response.Redirect("http://localhost:52416/Pages/TeacherDashboard.aspx");
+                        Response.Redirect("TeacherDashboard.aspx");
                         classification = 2; // Replace with primary key for teacher
+                    }
+                    else
+                    {
+                        answer.Text = "Incorrect username and/or password";
                     }
                     break;
                 case "student": // Placeholder for student username
                     if (password.Text == "khury")
                     {
-                        Response.Redirect("http://localhost:52416/Pages/StudentDashboard.aspx");
+                        Response.Redirect("StudentDashboard.aspx");
                         classification = 3;  // Replace with primary key for the student
+                    }
+                    else
+                    {
+                        answer.Text = "Incorrect username and/or password";
                     }
                     break;
                 default:
@@ -50,7 +62,7 @@ namespace QuestWebApp.Pages
         }
              protected void discoverButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("http://localhost:52416/Pages/AboutUsPage.aspx");
+            Response.Redirect("AboutUsPage.aspx");
         }
     }
 }
