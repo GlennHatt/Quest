@@ -173,9 +173,12 @@ END;"
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
+                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="L_NAME" DataSourceID="sqlSectionTeacher" DataValueField="L_NAME">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
+                            <asp:SqlDataSource ID="sqlSectionTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME
+FROM END_USER 
+WHERE PERMISSION_LEVEL = 'T'"></asp:SqlDataSource>
                         </div>
 
                         <div style="text-align: right">
