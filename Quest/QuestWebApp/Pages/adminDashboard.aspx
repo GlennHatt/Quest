@@ -43,7 +43,7 @@ END;"
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
         </InsertParameters>
-    </asp:SqlDataSource>
+    </asp:SqlDataSource> 
 
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
@@ -57,6 +57,7 @@ END;"
                         <!-- Textfield with Floating Label for teacher First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:RequiredFieldValidator ID="valTeacherFname" ControlToValidate="txtbxTeacherFirstName" runat="server" ErrorMessage="This is a test" CssClass="" SetFocusOnError="True" ValidationGroup="grpAddUser" Display="Dynamic"></asp:RequiredFieldValidator>
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
                             <span id="lblFnameError" runat="server" class="mdl-textfield__error">Please enter first name</span>
                         </div>
@@ -105,7 +106,7 @@ END;"
                     </div>
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
+                        <asp:LinkButton ID="btnAddTeacher" ValidationGroup="grpAddUser" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
@@ -208,6 +209,7 @@ where permission_level = 'T'"></asp:SqlDataSource>
         </div>
 
     </main>
+    <asp:ScriptManager ID="jquery" runat="server"></asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
 </asp:Content>
