@@ -148,6 +148,7 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Pages\AboutUsPage.aspx" />
+    <Content Include="Pages\AdminClasses.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\StudentScores.aspx" />
@@ -271,6 +272,13 @@
     </Compile>
     <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminClasses.aspx.cs">
+      <DependentUpon>AdminClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminClasses.aspx.designer.cs">
+      <DependentUpon>AdminClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>

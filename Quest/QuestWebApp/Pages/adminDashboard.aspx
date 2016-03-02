@@ -38,10 +38,10 @@ BEGIN
       p_Code   =&gt; :p_Code,
       p_Title  =&gt; :p_Title);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM CLASS">
+        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE FROM CLASS">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Code" PropertyName="Text" />
-            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Title" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource>
 
@@ -136,7 +136,7 @@ END;"
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -12px" runat="server" OnClick="btnAddClass_Click">
+                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -7px" runat="server" OnClick="btnAddClass_Click">
                                 <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
@@ -176,22 +176,25 @@ END;"
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
+                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="TITLE">
                                 <asp:ListItem Value="Course:"></asp:ListItem>
                             </asp:DropDownList>
                             <span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
+                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="FULL_NAME">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
+                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select l_name || ', ' || f_name as full_name
+from end_user
+where permission_level = 'T'"></asp:SqlDataSource>
                             <span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>
                         </div>
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: -3px" runat="server" OnClick="btnAddSection_Click">
+                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -15px" runat="server" OnClick="btnAddSection_Click">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>

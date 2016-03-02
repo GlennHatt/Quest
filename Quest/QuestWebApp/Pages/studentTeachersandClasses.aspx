@@ -37,13 +37,13 @@
 					<a href="#" class="btn" id="cancel" style="color:black">Cancel</a>
 				</div>
                     </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </main>
 
 
-
+            
     <div class="protect">
 		<div class="fab">
 			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24px" height="24px" viewBox="-129 130.5 24 24">
@@ -60,7 +60,7 @@
 					<div class="material-input">
 						<input type="text" >
 						<label>Name</label> <span></span>
-					</div>
+        </div>
 
 					<div class="material-input">
 						<input type="text" >
