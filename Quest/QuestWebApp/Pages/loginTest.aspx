@@ -11,7 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
     <div style="text-align: center; color: white">
-        <h1 style="font-family: 'Quicksand', sans-serif; font-weight: bold">Quest Testing Center!
+        <h1 style="font-family: 'Quicksand', sans-serif; text-align:center; font-weight: bold; font-size:600%" >Quest Testing Center!
             <br />
         </h1>
     </div>
