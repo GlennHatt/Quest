@@ -147,6 +147,10 @@ END;",
                 case  "M":
                     break;
                 case "MC":
+                    lblAddQuestionText.Visible = true;
+                    txtAddQuestionText.Visible = true;
+                    lblMultipleChoiceBody.Visible = true;
+                    grdMultipleChoiceBody.Visible = true;
                     break;
                 case "SA":
                     lblBeforeText.Visible = true;
@@ -171,8 +175,8 @@ END;",
             if (choices == null)
                 choices = new ArrayList();
             choices.Add(new multipleChocieBody());
-            rptMultipleChoiceBody.DataSource = choices;
-            rptMultipleChoiceBody.DataBind();
+            grdMultipleChoiceBody.DataSource = choices;
+            grdMultipleChoiceBody.DataBind();
             //rptMultipleChoiceBody.Items[]
         }
 

@@ -40,13 +40,21 @@
     <asp:Label ID="lblAfterText" runat="server" Text="After Text: " />
     <asp:TextBox ID="txtAfterText" runat="server" />
     <br />
-    <asp:Label ID="lblMultipleChoiceBody" runat="server" Text="ChoiceBody"></asp:Label>
-    <asp:Repeater ID="rptMultipleChoiceBody" runat="server">
-        <ItemTemplate>
-            <asp:RadioButton ID="rbnMultipleChoiceBody" runat="server" GroupName="grpMultipleChoice" />
-            <asp:TextBox ID="txtMultipleChoiceBody" runat="server" />
-        </ItemTemplate>
-    </asp:Repeater>
+    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="SELECT choice_id, question_id, choice_text, set_order
+  FROM question_multiple_choice_body
+ WHERE question_id = :p_QuestionID">
+        <SelectParameters>
+            <asp:SessionParameter Name="p_QuestionID" SessionField="QuestionID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:Label ID="lblMultipleChoiceBody"  runat="server" Text="ChoiceBody"></asp:Label>
+    <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
+        <Columns>
+            <asp:BoundField DataField="QUESTION_ID" HeaderText="QUESTION_ID" SortExpression="QUESTION_ID" />
+            <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
+            <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
+        </Columns>
+    </asp:GridView>
     <br />
     <asp:Button ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click"/>
     <br />

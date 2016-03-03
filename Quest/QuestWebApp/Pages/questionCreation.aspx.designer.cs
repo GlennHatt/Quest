@@ -139,6 +139,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAfterText;
         
         /// <summary>
+        /// sqlMultipleChoiceBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlMultipleChoiceBody;
+        
+        /// <summary>
         /// lblMultipleChoiceBody control.
         /// </summary>
         /// <remarks>
@@ -148,13 +157,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblMultipleChoiceBody;
         
         /// <summary>
-        /// rptMultipleChoiceBody control.
+        /// grdMultipleChoiceBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMultipleChoiceBody;
+        protected global::System.Web.UI.WebControls.GridView grdMultipleChoiceBody;
         
         /// <summary>
         /// btnNewMultipleChoice control.
