@@ -15,7 +15,7 @@
         <div class="content-grid mdl-grid" style="width: 100%;">
 
 
-            <div class="mdl-cell mdl-cell--2-col">
+            <div class="mdl-cell mdl-cell--4-col">
 
 
                 <!-- Square card! -->
@@ -24,8 +24,8 @@
                     <div class="mdl-card__title mdl-card--expand" style="text-align: center">
                         <img src="../Assets/Images/greek.png" style="height: 25%; width: 25%; padding-left: 38%;" />
                     </div>
-                    <div class="mdl-card__title" style="text-align: center">
-                        <div class="mdl-card__title-text" style="font-size: 250%; color: rgba(0,0,0,.54); text-align:center;">
+                    <div class="mdl-card__title" style="text-align: center;">
+                        <div class="mdl-card__supporting-text" style="font-size: 250%; color: rgba(0,0,0,.54); text-align:center; line-height: inherit;">
                             <asp:Label ID="lblStudentGreeting" runat="server" Text=""></asp:Label>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                 <div class="mdl-card mdl-shadow--3dp  demo-card-square">
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons noTest">check_circle</i>
-                        <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Congratulations!</div>
+                        <div style="font-size: 250%; margin-bottom: 7%; margin-top: 5%;">Congratulations!</div>
                         You're all caught up on tests (for now).
                     </div>
                 </div>

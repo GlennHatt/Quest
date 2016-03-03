@@ -81,16 +81,20 @@ END;"
                         </div>
 
                         <!-- Textfield with Floating Label for teacher password -->
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="sample3">Password:</label>
-                            <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                            <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Password:</label>
+                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
                             <!-- fix the regex for the password -->
-                            <asp:RegularExpressionValidator ID="valUserPass" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Weak Password" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="valUserPass" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserPassReq" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             <span id="lblPassError" runat="server" class="mdl-textfield__error">Please enter a password</span>
                             <span id="lblPassWeak" runat="server" class="mdl-textfield__error">Password is weak</span>
                         </div>
-
+                                                                                <!-- Multiline Tooltip -->
+                                                <br /><div id="helpIconPass" class="icon material-icons" style="text-align: right; top: 11px;">help</div>
+<div class="mdl-tooltip" for="helpIconPass">
+Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
+</div>
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>
@@ -143,7 +147,7 @@ END;"
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -7px" runat="server" OnClick="btnAddClass_Click">
+                            <asp:LinkButton ID="btnAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click">
                                 <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
@@ -154,7 +158,7 @@ END;"
             <!-- Card for adding a section to a course -->
             <div class="mdl-cell mdl-cell--4-col">
 
-                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height: 500px;">
+                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height: 575px;">
 
 
                     <div class="mdl-card__supporting-text" style="text-align: center">
@@ -201,7 +205,7 @@ where permission_level = 'T'"></asp:SqlDataSource>
 
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: -16px; bottom: -15px" runat="server" OnClick="btnAddSection_Click">
+                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -15px" runat="server" OnClick="btnAddSection_Click">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>

@@ -47,8 +47,8 @@
                         <h1>You Have
                             <asp:Label ID="lblTestsToGrade" runat="server" Text="0"></asp:Label>
                             Tests to Grade </h1>
-                        <asp:LinkButton ID="viewTest" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" Text="View Test" Style="background-color: #EE7600; color: white; margin-right: -395px;
-    margin-bottom: -7px;">
+                        <asp:LinkButton ID="viewTest" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" Text="View Test" Style="background-color: #EE7600; color: white; margin-right: -59%;
+    margin-bottom: 2%;">
                            
                         </asp:LinkButton>
                     </div>
