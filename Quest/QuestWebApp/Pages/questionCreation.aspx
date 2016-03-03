@@ -13,7 +13,7 @@
     <br />
     <br />
     <asp:Label ID="lblAddType" runat="server" Text="Question Type:" /><br />
-    <asp:RadioButtonList ID="rblAddType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged">
+    <asp:RadioButtonList ID="rblAddType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
         <asp:ListItem Text="Essay" Value="E" />
         <asp:ListItem Text="Matching" Value="M" />
         <asp:ListItem Text="Multiple Choice" Value="MC" />
@@ -39,6 +39,16 @@
     <br />
     <asp:Label ID="lblAfterText" runat="server" Text="After Text: " />
     <asp:TextBox ID="txtAfterText" runat="server" />
+    <br />
+    <asp:Label ID="lblMultipleChoiceBody" runat="server" Text="ChoiceBody"></asp:Label>
+    <asp:Repeater ID="rptMultipleChoiceBody" runat="server">
+        <ItemTemplate>
+            <asp:RadioButton ID="rbnMultipleChoiceBody" runat="server" GroupName="grpMultipleChoice" />
+            <asp:TextBox ID="txtMultipleChoiceBody" runat="server" />
+        </ItemTemplate>
+    </asp:Repeater>
+    <br />
+    <asp:Button ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click"/>
     <br />
     <asp:Button ID="btnAddQuestion" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
 </asp:Content>
