@@ -84,17 +84,21 @@ END;"
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
+                                                            <!-- Multiline Tooltip -->
+ <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;">help</div>
+<div class="mdl-tooltip" for="helpIconPass">
+Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
+</div>
+
+
+                        
                             <!-- fix the regex for the password -->
                             <asp:RegularExpressionValidator ID="valUserPass" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserPassReq" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             <span id="lblPassError" runat="server" class="mdl-textfield__error">Please enter a password</span>
                             <span id="lblPassWeak" runat="server" class="mdl-textfield__error">Password is weak</span>
                         </div>
-                                                                                <!-- Multiline Tooltip -->
-                                                <br /><div id="helpIconPass" class="icon material-icons" style="text-align: right; top: 11px;">help</div>
-<div class="mdl-tooltip" for="helpIconPass">
-Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
-</div>
+                                                                                
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>

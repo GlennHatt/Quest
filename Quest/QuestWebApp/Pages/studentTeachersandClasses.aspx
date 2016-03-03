@@ -21,20 +21,34 @@
             <div class="mdl-cell mdl-cell--12-col ">
                 <!-- Card for Creating a test -->
 
-
-                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="height:1000px; width:1000px">
+                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h3>
                             <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
                         <h3>
                             <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
                         <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
-                         <div class="protect">
-                        <div class="fab">
+        </div>
+                    </div>
+                </div>
+                    </div>
+        <div class="content-grid mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col ">
+                <!-- Card for Creating a test -->
+
+
+                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="height:200px; width:700px">
+                    <div class="mdl-card__supporting-text" style="text-align: center">
+                        <h1>
+                            <asp:Label ID="Label1" runat="server" Text="Contact A Teacher"></asp:Label>
+                        </h1>
+                        </div>
+                         <div class="protect" style="z-index:99999">
+                        <div class="fab" style="z-index:99999">
                                 <i class="material-icons" style="color:white">mail</i>
                     
                             <div class='cntt-wrapper' style="z-index:99999">
-                                <div id="fab-hdr">
+                                <div id="fab-hdr" style="z-index:99999">
                                     <h1>FAB to Modal Window</h1>
                                 </div>
 
@@ -67,7 +81,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
 </div>
             </div>
         </div>
