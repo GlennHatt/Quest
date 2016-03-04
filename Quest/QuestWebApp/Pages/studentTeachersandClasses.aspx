@@ -8,8 +8,7 @@
 
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link href="../Assets/Styles/dialog.css" rel="stylesheet" />
-
-
+    <link href="../Assets/Styles/loginStyles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
@@ -37,7 +36,7 @@
                 <!-- Card for Creating a test -->
 
 
-                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="height:200px; width:700px">
+                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="height:100px; width:100px">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>
                             <asp:Label ID="Label1" runat="server" Text="Contact A Teacher"></asp:Label>
@@ -87,7 +86,53 @@
                     
     </main>
 
+    <div class="materialContainer" >
 
+
+   <div class="box" style="height:400px; width:400px">
+
+      <div class="ClassInfo" style="text-align: center">
+          <h3> <asp:Label ID="Label2" runat="server" Text="Class"></asp:Label></h3>
+                        <h3> <asp:Label ID="Label3" runat="server" Text="Teacher"></asp:Label></h3>
+                        <p>Current Grade:<asp:Label ID="Label4" runat="server" Text=" B+(89%)"></asp:Label></p>
+         <span class="spin"></span>
+      </div>
+
+
+   </div>
+
+   <div class="overbox">
+      <div class="material-button alt-2">
+          <i class="material-icons" style="color:white; margin: 59px;">mail</i></div>
+
+      <div class="title">REGISTER</div>
+
+      <div class="input">
+         <label for="regname">Username</label>
+         <input type="text" name="regname" id="regname">
+         <span class="spin"></span>
+      </div>
+
+      <div class="input">
+         <label for="regpass">Password</label>
+         <input type="password" name="regpass" id="regpass">
+         <span class="spin"></span>
+      </div>
+
+      <div class="input">
+         <label for="reregpass">Repeat Password</label>
+         <input type="password" name="reregpass" id="reregpass">
+         <span class="spin"></span>
+      </div>
+
+      <div class="button">
+         <button><span>NEXT</span></button>
+      </div>
+
+
+   </div>
+
+</div>
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
@@ -95,6 +140,5 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../Assets/JS/dialog.js"></script>
-
+    <script src="../Assets/JS/loginJS.js"></script>
 </asp:Content>

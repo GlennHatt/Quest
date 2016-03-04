@@ -309,8 +309,8 @@
    border-radius: 50%;
    background: #ED2553;
    position: absolute;
-   top: 40px;
-   right: -70px;
+   bottom: 0px;
+   right: 2px;
    cursor: pointer;
    z-index: 100;
    transform: translate(0%, 0%);

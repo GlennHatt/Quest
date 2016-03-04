@@ -226,4 +226,6 @@ where permission_level = 'T'"></asp:SqlDataSource>
     <asp:ScriptManager ID="jquery" runat="server"></asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
+    <script src="../Assets/JS/loginJS.js"></script>
+    <script src="../Assets/JS/loginJS.js"></script>
 </asp:Content>
