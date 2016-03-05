@@ -11,7 +11,9 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // TODO: Session variable for test ID?
+            int test_id = 1;
         }
+
     }
 }
