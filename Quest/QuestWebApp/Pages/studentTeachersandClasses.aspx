@@ -8,16 +8,13 @@
 
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link href="../Assets/Styles/dialog.css" rel="stylesheet" />
-    <link href="../Assets/Styles/loginStyles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="studentWithSidebarBodyContent" runat="server">
 
 
-    <main class="mdl-layout__content">
-        <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col ">
+    <%--<div class="mdl-cell mdl-cell--12-col ">
                 <!-- Card for Creating a test -->
 
                 <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card">
@@ -29,110 +26,84 @@
                         <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
         </div>
                     </div>
-                </div>
-                    </div>
-        <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col ">
-                <!-- Card for Creating a test -->
+                </div>--%>
 
 
-                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="height:100px; width:100px">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h1>
-                            <asp:Label ID="Label1" runat="server" Text="Contact A Teacher"></asp:Label>
-                        </h1>
-                        </div>
-                         <div class="protect" style="z-index:99999">
-                        <div class="fab" style="z-index:99999">
-                                <i class="material-icons" style="color:white">mail</i>
+
+    <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
+        <div class="content-grid mdl-grid" style="width: 100%;">
+            
                     
-                            <div class='cntt-wrapper' style="z-index:99999">
-                                <div id="fab-hdr" style="z-index:99999">
-                                    <h1>FAB to Modal Window</h1>
-                                </div>
+       <div class="mdl-cell mdl-cell--6-col ">
 
 
-                                <div class="material-input">
-                                    <input type="text">
-                                    <label>Name</label>
-                                    <span></span>
-                                </div>
+   <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
 
-                                <div class="material-input">
-                                    <input type="text">
-                                    <label>Email</label>
-                                    <span></span>
-                                </div>
+      <%--<div class="title">LOGIN</div>
 
-                                <div class="material-input">
-                                    <input type="text">
-                                    <label>Site</label>
-                                    <span></span>
-                                </div>
-
-                               
-                                <div class="btn-wrapper">
-                                    <a href="#" type="button" class="btn" id="submit">Add
-                                    </a>
-                                    <a href="#" class="btn" id="cancel" style="color: black">Cancel</a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-</div>
-            </div>
-        </div>
-                    
-    </main>
-
-    <div class="materialContainer" >
-
-
-   <div class="box" style="height:400px; width:400px">
-
-      <div class="ClassInfo" style="text-align: center">
-          <h3> <asp:Label ID="Label2" runat="server" Text="Class"></asp:Label></h3>
-                        <h3> <asp:Label ID="Label3" runat="server" Text="Teacher"></asp:Label></h3>
-                        <p>Current Grade:<asp:Label ID="Label4" runat="server" Text=" B+(89%)"></asp:Label></p>
+      <div class="input">
+         <label for="name">Username</label>
+         <input type="text" name="name" id="name">
          <span class="spin"></span>
       </div>
 
+      <div class="input">
+         <label for="pass">Password</label>
+         <input type="password" name="pass" id="pass">
+         <span class="spin"></span>
+      </div>
 
-   </div>
+      <div class="button login">
+         <button><span>GO</span> <i class="fa fa-check"></i></button>
+      </div>
+
+      <a href="" class="pass-forgot">Forgot your password?</a>--%>
+
+       <div class="mdl-card__supporting-text" style="text-align: center">
+                        <h3>
+                            <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
+                        <h3>
+                            <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
+                        <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+
+
+  
 
    <div class="overbox">
-      <div class="material-button alt-2">
-          <i class="material-icons" style="color:white; margin: 59px;">mail</i></div>
+      <div class="material-button alt-2"><span class="shape"></span></div>
 
-      <div class="title">REGISTER</div>
+      <div class="title">Email</div>
 
-      <div class="input">
-         <label for="regname">Username</label>
-         <input type="text" name="regname" id="regname">
-         <span class="spin"></span>
-      </div>
+     <div class="input">
+         <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
+         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Subject:</label>
+     </div>
 
-      <div class="input">
-         <label for="regpass">Password</label>
-         <input type="password" name="regpass" id="regpass">
-         <span class="spin"></span>
-      </div>
-
-      <div class="input">
-         <label for="reregpass">Repeat Password</label>
-         <input type="password" name="reregpass" id="reregpass">
-         <span class="spin"></span>
-      </div>
+       <div class="input">
+         <asp:TextBox ID="txtbxMessageBody" class="mdl-textfield__input" type="text" runat="server" />
+         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Message</label>
+     </div>
 
       <div class="button">
-         <button><span>NEXT</span></button>
+         <asp:LinkButton ID="btnCancel" runat="server">Cancel</asp:LinkButton><button><span>Send</span></button>
       </div>
 
 
    </div>
 
+
+                    </div>
+
+   </div>
+
 </div>
+
+
+           
+        </div>
+    </main>
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
@@ -140,5 +111,5 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="../Assets/JS/loginJS.js"></script>
+    <script src="../Assets/JS/dialog.js"></script>
 </asp:Content>

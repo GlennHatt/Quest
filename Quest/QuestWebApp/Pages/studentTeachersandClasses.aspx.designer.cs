@@ -40,39 +40,30 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblcurGrade;
         
         /// <summary>
-        /// Label1 control.
+        /// txtbxMessageSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtbxMessageSubject;
         
         /// <summary>
-        /// Label2 control.
+        /// txtbxMessageBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox txtbxMessageBody;
         
         /// <summary>
-        /// Label3 control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
     }
 }
