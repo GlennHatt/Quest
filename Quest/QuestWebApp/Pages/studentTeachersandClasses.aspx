@@ -14,6 +14,28 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="studentWithSidebarBodyContent" runat="server">
 
 
+    <style>
+
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    white;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    white;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    white;
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    white;
+}
+
+    </style>
+
     <%--<div class="mdl-cell mdl-cell--12-col ">
                 <!-- Card for Creating a test -->
 
@@ -82,13 +104,19 @@
      </div>
 
        <div class="input">
-         <asp:TextBox ID="txtbxMessageBody" class="mdl-textfield__input" type="text" runat="server" />
-         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Message</label>
-     </div>
+           <textarea class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
+           </div>
 
-      <div class="button">
+
+       <div class="button">
+          <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" runat="server">
+                            <i class="material-icons">add</i>
+                        </asp:LinkButton>
+
+       </div>
+      <%--<div class="button">
          <asp:LinkButton ID="btnCancel" runat="server">Cancel</asp:LinkButton><button><span>Send</span></button>
-      </div>
+      </div>--%>
 
 
    </div>
