@@ -338,12 +338,14 @@
 .alt-2 .shape:before {
    width: 25px;
    height: 4px;
+   display:none;
 }
 
 .material-button .shape:after,
 .alt-2 .shape:after {
    height: 25px;
    width: 4px;
+   display:none;
 }
 
 .material-button.active,

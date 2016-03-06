@@ -87,6 +87,7 @@
                         <h3>
                             <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
                         <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+
            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
 
@@ -94,7 +95,7 @@
   
 
    <div class="overbox">
-      <div class="material-button alt-2"><span class="shape"></span></div>
+      <div class="material-button alt-2"><span class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
 
       <div class="title">Email</div>
 
@@ -108,10 +109,16 @@
            </div>
 
 
-       <div class="button">
-          <asp:LinkButton ID="btnAddTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" runat="server">
-                            <i class="material-icons">add</i>
+       <div class="button" style="text-align:right; ">
+          <asp:LinkButton ID="btnCancelMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;margin-right:5%;" runat="server">
+                            <i class="material-icons">clear</i>
                         </asp:LinkButton>
+
+           <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;" runat="server" OnClick="btnSendMessage_Click">
+                            <i class="material-icons">done</i>
+                        </asp:LinkButton>
+
+
 
        </div>
       <%--<div class="button">
@@ -133,8 +140,32 @@
         </div>
     </main>
 
+    <Button  id="demoshowtoast" class="mdl-button mdl-js-button mdl-button--raised" type="button" >Show Toast</Button>
+<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action" type="button"></button>
+</div>
+<script>
+(function() {
+  'use strict';
+  window['counter'] = 0;
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demoshowtoast');
+  showToastButton.addEventListener('click', function() {
+    'use strict';
+    var data = {message: 'Example Message # ' + ++counter};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  });
+}());
+</script>
+
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
+
+
+
+
+
 
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/modernizr.js"></script>

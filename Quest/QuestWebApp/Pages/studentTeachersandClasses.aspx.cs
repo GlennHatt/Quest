@@ -14,9 +14,10 @@ namespace QuestWebApp.Pages
 
         }
 
-        protected void btnCreateTest_Click(object sender, EventArgs e)
+        protected void btnSendMessage_Click(object sender, EventArgs e)
         {
-            
+
         }
+
     }
 }
