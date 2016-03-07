@@ -152,6 +152,7 @@
     <Content Include="Pages\AboutUsPage.aspx" />
     <Content Include="Pages\AdminClasses.aspx" />
     <Content Include="Pages\error.aspx" />
+    <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\StudentScores.aspx" />
     <Content Include="test pond\admin.master" />
@@ -300,6 +301,13 @@
     </Compile>
     <Compile Include="Pages\error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\questionCreation.aspx.cs">
+      <DependentUpon>questionCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\questionCreation.aspx.designer.cs">
+      <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\StudentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
