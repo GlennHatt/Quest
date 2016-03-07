@@ -168,6 +168,7 @@
     <Content Include="Pages\TeacherDashboard.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\takingTestTest.aspx" />
     <Content Include="Pages\teacherTest.aspx" />
     <Content Include="Pages\TestCreation.aspx" />
