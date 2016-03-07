@@ -165,6 +165,7 @@
     <Content Include="Pages\PledgePage.aspx" />
     <Content Include="Pages\StudentDashboard.aspx" />
     <Content Include="Pages\studentTeachersandClasses.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
     <Content Include="Pages\TeacherDashboard.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
@@ -342,6 +343,13 @@
     </Compile>
     <Compile Include="Pages\StudentScores.aspx.designer.cs">
       <DependentUpon>StudentScores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\studentTest.aspx.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentTest.aspx.designer.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeacherDashboard.aspx.cs">
       <DependentUpon>TeacherDashboard.aspx</DependentUpon>
