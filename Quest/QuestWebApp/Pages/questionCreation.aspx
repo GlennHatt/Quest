@@ -40,7 +40,7 @@
      <asp:Label ID="lblAfterText" runat="server" Text="After Text: " />
      <asp:TextBox ID="txtAfterText" runat="server" />
      <br />
-    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="SELECT choice_id, question_id, choice_text, set_order
+    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT choice_id, question_id, choice_text, set_order
   FROM question_multiple_choice_body
  WHERE question_id = :p_QuestionID">
         <SelectParameters>
