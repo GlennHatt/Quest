@@ -13,7 +13,6 @@
 
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlTestQuestions">
             <ItemTemplate>
-                <asp:PlaceHolder ID="TFTemplate" Visible="false" runat="server">
                 <div class="mdl-cell mdl-cell--4-col">
                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                         <div class="mdl-card__supporting-text" style="text-align: center">
@@ -25,20 +24,6 @@
                         </div>
                     </div>
                 </div>
-                </asp:PlaceHolder>
-        </ItemTemplate>
-        <ItemTemplate>
-                <asp:PlaceHolder ID="SATemplate" Visible="false" runat="server">
-                <div class="mdl-cell mdl-cell--4-col">
-                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
-                        <div class="mdl-card__supporting-text" style="text-align: center">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </asp:PlaceHolder>
         </ItemTemplate>
 </asp:Repeater>
 </div>
@@ -47,6 +32,7 @@
 WHERE question.TEST_ID = 1 
 and question.question_id = question_true_false.question_id"></asp:SqlDataSource>
 
+    <asp:ListView ID="ListView1" runat="server"></asp:ListView>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
 </asp:Content>
