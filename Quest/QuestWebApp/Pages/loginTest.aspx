@@ -38,11 +38,11 @@
             <div style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</div>
         </div>
     </div>
-    <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">
+     <div style="position: absolute; bottom: 38px; width: 320px; right: 0px; color: white; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">
         Product of RPG
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
     </div>
-    <div class="buttonDiscover" style="text-align: right; margin-right: 100px;">
+    <div class="buttonDiscover" style= "position: absolute; bottom: 0px; width: 162px; right: 83px;">
         <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
     </div>
 </asp:Content>
