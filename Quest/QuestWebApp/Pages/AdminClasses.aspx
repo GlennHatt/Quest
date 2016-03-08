@@ -23,6 +23,7 @@ from class, section, end_user
 where end_user.user_id = section.teacher_id
 and section.class_id = class.class_id"></asp:SqlDataSource>
 
+    <asp:Button ID="Button1" runat="server" Text="Hey Lorenzo" OnClick="Button1_Click" />
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
