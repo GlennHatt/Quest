@@ -201,6 +201,8 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="test pond\template\index.html" />
     <Content Include="test pond\template\styles.css" />
+    <Content Include="test pond\withoutSidebar.aspx" />
+    <Content Include="test pond\withSidebar.aspx" />
     <Content Include="test pond\zoPractice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -419,6 +421,20 @@
     </Compile>
     <Compile Include="test pond\dropdownTest.aspx.designer.cs">
       <DependentUpon>dropdownTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.designer.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.designer.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
     </Compile>
     <Compile Include="test pond\zoPractice.aspx.cs">
       <DependentUpon>zoPractice.aspx</DependentUpon>
