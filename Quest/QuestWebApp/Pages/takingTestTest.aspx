@@ -8,7 +8,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
 <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">
-    <asp:Label ID="lblTesting" runat="server" Text="1"></asp:Label>
+    <%--<asp:Label ID="lblTesting" runat="server" Text="1"></asp:Label>--%>
     <br /><br />
 
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlTestQuestions">
@@ -48,5 +48,5 @@ WHERE question.TEST_ID = 1
 and question.question_id = question_true_false.question_id"></asp:SqlDataSource>
 
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
 </asp:Content>

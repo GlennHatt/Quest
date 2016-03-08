@@ -9,8 +9,11 @@
     <asp:ContentPlaceHolder ID="takingTestExtraReferances" runat="server" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
+    <asp:ContentPlaceHolder ID="takingTestHeadBodyContent" runat="server" />
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
     <asp:ContentPlaceHolder ID="takingTestBodyContent" runat="server" />
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
     <asp:ContentPlaceHolder ID="takingTestPageSpecificJS" runat="server" />
 </asp:Content>

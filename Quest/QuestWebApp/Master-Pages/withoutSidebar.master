@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Master-Pages/Head.Master" AutoEventWireup="true" CodeBehind="withoutSidebar.master.cs" Inherits="QuestWebApp.Master_Pages.withoutSidebar" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
     <asp:ContentPlaceHolder ID="withoutSidebarBreadCrumb" runat="server" />
 </asp:Content>
@@ -10,7 +11,21 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="headBody" runat="server">
     <asp:ContentPlaceHolder ID="withoutSidebarHeadBodyContent" runat="server" />
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          
+          
+          <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- Your content goes here --> 
+                <asp:ContentPlaceHolder ID="withoutSidebarBodyContent" runat="server" />
+            </div>
+          </main>
+        </div>
+
+
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="pageSpecificJS" runat="server">
     <asp:ContentPlaceHolder ID="withoutSidebarPageSpecificJS" runat="server" />
 </asp:Content>
+
+
