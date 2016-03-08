@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Pages {
+namespace QuestWebApp.test_pond {
     
     
-    public partial class studentTest {
+    public partial class Database {
         
         /// <summary>
-        /// btnTakeTest control.
+        /// classes_list control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnTakeTest;
+        protected global::System.Web.UI.WebControls.SqlDataSource classes_list;
+        
+        /// <summary>
+        /// classes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView classes;
     }
 }
