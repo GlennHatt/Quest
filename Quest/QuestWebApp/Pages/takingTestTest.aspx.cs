@@ -15,5 +15,10 @@ namespace QuestWebApp.Pages
             int test_id = 1;
         }
 
+        protected void btnSubmitTest_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

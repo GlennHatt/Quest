@@ -25,6 +25,15 @@
                     </div>
                 </div>
         </ItemTemplate>
+        <FooterTemplate>
+            <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                <div class="mdl-card__supporting-text" style="text-align: center">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <asp:Button ID="btnSubmitTest" class="mdl-textfield__input" Text="Finish Test" runat="server" OnClick="btnSubmitTest_Click" />
+                    </div>
+                </div>
+            </div>
+        </FooterTemplate>
 </asp:Repeater>
 </div>
                 </main>
