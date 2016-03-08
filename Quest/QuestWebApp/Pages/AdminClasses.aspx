@@ -9,6 +9,21 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
 
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses">
+        <Columns>
+            <asp:BoundField DataField="CODE" HeaderText="CODE" SortExpression="CODE"></asp:BoundField>
+            <asp:BoundField DataField="TITLE" HeaderText="TITLE" SortExpression="TITLE"></asp:BoundField>
+            <asp:BoundField DataField="SECTION_NUMBER" HeaderText="SECTION_NUMBER" SortExpression="SECTION_NUMBER"></asp:BoundField>
+            <asp:BoundField DataField="L_NAME" HeaderText="L_NAME" SortExpression="L_NAME"></asp:BoundField>
+        </Columns>
+    </asp:GridView>
+
+    <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="select class.code, class.title, section.section_number, end_user.l_name 
+from class, section, end_user 
+where end_user.user_id = section.teacher_id
+and section.class_id = class.class_id"></asp:SqlDataSource>
+
+
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
 </asp:Content>
