@@ -13,20 +13,32 @@
 
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="sqlTestQuestions">
             <ItemTemplate>
-                
-                        <div class="mdl-cell mdl-cell--4-col">
-                            <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
-                                <div class="mdl-card__supporting-text" style="text-align: center">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
-                                        <asp:RadioButton ID="RadioButton1" class="mdl-radio__button" Text="True" runat="server" GroupName="TFChoice" /> 
-                                        <asp:RadioButton ID="RadioButton2" class="mdl-radio__button" Text="False" runat="server" GroupName="TFChoice" />
-                                    </div>
-                                </div>
+                <asp:PlaceHolder ID="TFTemplate" Visible="false" runat="server">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                        <div class="mdl-card__supporting-text" style="text-align: center">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
+                                <asp:RadioButton ID="RadioButton1" class="mdl-radio__button" Text="True" runat="server" GroupName="TFChoice" /> 
+                                <asp:RadioButton ID="RadioButton2" class="mdl-radio__button" Text="False" runat="server" GroupName="TFChoice" />
                             </div>
                         </div>
-                    
-          <br />
+                    </div>
+                </div>
+                </asp:PlaceHolder>
+        </ItemTemplate>
+        <ItemTemplate>
+                <asp:PlaceHolder ID="SATemplate" Visible="false" runat="server">
+                <div class="mdl-cell mdl-cell--4-col">
+                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                        <div class="mdl-card__supporting-text" style="text-align: center">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </asp:PlaceHolder>
         </ItemTemplate>
 </asp:Repeater>
 </div>
