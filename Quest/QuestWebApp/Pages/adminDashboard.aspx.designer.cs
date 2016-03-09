@@ -58,15 +58,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valUserFname;
         
         /// <summary>
-        /// lblFnameError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblFnameError;
-        
-        /// <summary>
         /// txtbxTeacherLastName control.
         /// </summary>
         /// <remarks>
@@ -83,15 +74,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valUserLname;
-        
-        /// <summary>
-        /// lblLnameError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblLnameError;
         
         /// <summary>
         /// txtbxTeacherEmail control.
@@ -119,15 +101,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valUserEmailReq;
-        
-        /// <summary>
-        /// lblEmailError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEmailError;
         
         /// <summary>
         /// lblPassword control.
@@ -166,24 +139,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valUserPassReq;
         
         /// <summary>
-        /// lblPassError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPassError;
-        
-        /// <summary>
-        /// lblPassWeak control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPassWeak;
-        
-        /// <summary>
         /// txtbxTeacherConfirmPassword control.
         /// </summary>
         /// <remarks>
@@ -193,13 +148,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtbxTeacherConfirmPassword;
         
         /// <summary>
-        /// lblConfirmPassError control.
+        /// valConfirmPassMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblConfirmPassError;
+        protected global::System.Web.UI.WebControls.CompareValidator valConfirmPassMatch;
+        
+        /// <summary>
+        /// valCinfirmPassReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valCinfirmPassReq;
         
         /// <summary>
         /// ddlUserSelect control.
@@ -209,15 +173,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUserSelect;
-        
-        /// <summary>
-        /// lblUserTypeError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUserTypeError;
         
         /// <summary>
         /// btnAddTeacher control.
@@ -238,13 +193,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtbxClassTitle;
         
         /// <summary>
-        /// lblClasstitleError control.
+        /// valClassTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClasstitleError;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valClassTitle;
         
         /// <summary>
         /// txtbxCourseNumber control.
@@ -256,13 +211,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtbxCourseNumber;
         
         /// <summary>
-        /// lblClassNumError control.
+        /// valCourseNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClassNumError;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valCourseNumber;
+        
+        /// <summary>
+        /// valCourseNumRegex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valCourseNumRegex;
         
         /// <summary>
         /// btnAddClass control.
@@ -283,15 +247,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
         
         /// <summary>
-        /// lblSemesterError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSemesterError;
-        
-        /// <summary>
         /// ddlSection control.
         /// </summary>
         /// <remarks>
@@ -301,15 +256,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlSection;
         
         /// <summary>
-        /// lblSectionError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSectionError;
-        
-        /// <summary>
         /// ddlCourses control.
         /// </summary>
         /// <remarks>
@@ -317,15 +263,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCourses;
-        
-        /// <summary>
-        /// lblAddSectionCourseError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddSectionCourseError;
         
         /// <summary>
         /// ddlTeacher control.
@@ -344,15 +281,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacherSelect;
-        
-        /// <summary>
-        /// lblTeacherError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTeacherError;
         
         /// <summary>
         /// btnAddSection control.
