@@ -110,9 +110,9 @@
 
 
        <div class="button" style="text-align:right; ">
-          <asp:LinkButton ID="btnCancelMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;margin-right:5%;" runat="server">
+          <button ID="btnCancelMessage" type="button" onclick="myClosure()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;margin-right:5%;"  >
                             <i class="material-icons">clear</i>
-                        </asp:LinkButton>
+                        </button>
 
            <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;" runat="server" OnClick="btnSendMessage_Click">
                             <i class="material-icons">done</i>

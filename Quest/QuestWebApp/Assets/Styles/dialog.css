@@ -87,8 +87,8 @@
 .input label,
 .input input,
 .input .spin,
-.button,
-.button button {
+/*.button,
+.button button*/ {
    width: 100%;
    float: left;
 }
@@ -165,8 +165,8 @@
    left: 20%;
 }
 
-.button.login button,
-.button button {
+.button.login /*button,
+.button button*/ {
    width: 100%;
    line-height: 64px;
    left: 0%;

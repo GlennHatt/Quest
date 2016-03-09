@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     $(".input input").focus(function () {
-
+        //console.log
         $(this).parent(".input").each(function () {
             $("label", this).css({
                 "line-height": "18px",
@@ -30,22 +30,22 @@
         }
     });
 
-    $(".button").click(function (e) {
-        var pX = e.pageX,
-           pY = e.pageY,
-           oX = parseInt($(this).offset().left),
-           oY = parseInt($(this).offset().top);
+    //$(".button").click(function (e) {
+    //    var pX = e.pageX,
+    //       pY = e.pageY,
+    //       oX = parseInt($(this).offset().left),
+    //       oY = parseInt($(this).offset().top);
 
-        $(this).append('<span class="click-efect x-' + oX + ' y-' + oY + '" style="margin-left:' + (pX - oX) + 'px;margin-top:' + (pY - oY) + 'px;"></span>')
-        $('.x-' + oX + '.y-' + oY + '').animate({
-            "width": "1000px",
-            "height": "1000px",
-            "top": "-250px",
-            "left": "-250px",
+    //    $(this).append('<span class="click-efect x-' + oX + ' y-' + oY + '" style="margin-left:' + (pX - oX) + 'px;margin-top:' + (pY - oY) + 'px;"></span>')
+    //    $('.x-' + oX + '.y-' + oY + '').animate({
+    //        "width": "1000px",
+    //        "height": "1000px",
+    //        "top": "-250px",
+    //        "left": "-250px",
 
-        }, 600);
-        $("button", this).addClass('active');
-    })
+    //    }, 600);
+    //    $("button", this).addClass('active');
+    //})
 
     $(".alt-2").click(function () {
         if (!$(this).hasClass('material-button')) {
@@ -54,7 +54,6 @@
                 "height": "100%",
                 "transform": "rotate(0deg)"
             })
-
             setTimeout(function () {
                 $(".overbox").css({
                     "overflow": "initial"
@@ -118,4 +117,37 @@
 
     });
 
-});
+})
+
+myClosure = function () {
+    if (!$(this).hasClass('material-button')) {
+            $(".shape").css({
+                "width": "100%",
+                "height": "100%",
+                "transform": "rotate(0deg)"
+            })
+            setTimeout(function () {
+                $(".overbox").css({
+                    "overflow": "initial"
+                })
+            }, 600)
+
+            $(this).animate({
+                "width": "140px",
+                "height": "140px"
+            }, 500, function () {
+                $(".box").removeClass("back");
+
+                $(this).removeClass('active')
+            });
+
+            $(".overbox .title").fadeOut(300);
+            $(".overbox .input").fadeOut(300);
+            $(".overbox .button").fadeOut(300);
+
+            $(".alt-2").addClass('material-buton');
+        }
+}
+
+
+;
