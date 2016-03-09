@@ -113,6 +113,12 @@
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
     <Content Include="Assets\Images\Ryan.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy01160307.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy03160307.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy07160307.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy10160307.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy18160307.jpg" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy29160307.jpg" />
     <Content Include="Assets\Images\transparent - Copy.png" />
     <Content Include="Assets\Images\woods.jpg" />
     <Content Include="Assets\Images\you.jpg" />
@@ -132,6 +138,7 @@
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\dialog.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
+    <Content Include="Assets\Styles\Misc.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
