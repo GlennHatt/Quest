@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,11 @@ namespace QuestWebApp.Pages
 
         protected void btnSubmitTest_Click(object sender, EventArgs e)
         {
-
+            foreach(ListViewItem question in lvTest.Items)
+            {
+                string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["ConnectionString"].ToString();
+                //SqlConnection takenTest = new SqlCommand("")
+            }
         }
 
     }
