@@ -112,11 +112,11 @@
     <Content Include="Assets\Images\mountainwoods.jpg" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy10160307.jpg" />
     <Content Include="Assets\Images\Ryan.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy01160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy03160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy07160307.jpg" />
-    <Content Include="Assets\Images\Team Pics\RPG.smaller copy10160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy18160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy29160307.jpg" />
     <Content Include="Assets\Images\transparent - Copy.png" />
@@ -159,7 +159,8 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Pages\AboutUsPage.aspx" />
-    <Content Include="Pages\AdminClasses.aspx" />
+    <Content Include="Pages\AdminClass.aspx" />
+    <Content Include="Pages\AdminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
@@ -221,6 +222,20 @@
     <Content Include="App_Code\utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminClass.aspx.cs">
+      <DependentUpon>AdminClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminClass.aspx.designer.cs">
+      <DependentUpon>AdminClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminUser.aspx.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminUser.aspx.designer.cs">
+      <DependentUpon>AdminUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\classesList.aspx.cs">
       <DependentUpon>classesList.aspx</DependentUpon>
@@ -298,13 +313,6 @@
     </Compile>
     <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
       <DependentUpon>AboutUsPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.designer.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
