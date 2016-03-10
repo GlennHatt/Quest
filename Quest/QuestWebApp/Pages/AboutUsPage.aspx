@@ -259,7 +259,7 @@
                         <br />
                         <p style="font-size: 175%; padding-left: 10%;">
                            R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center. 
-                           As every team member does their part, they have created the Quest Testing Center.
+                           As every team member does his part, they have successfully created the Quest Testing Center.
                         </p>
                     </div>
                     </div>
@@ -377,10 +377,10 @@
                     <div class="mc-description">
                         <ul style ="font-size:100%;">
                             <li>Project Scheduler</li>
-                            <li>A Poet</li>
                             <li>5'5" and Proud of it</li>
                             <li>In and Out Burger ALL DAY, EVERYDAY. </li>
                             <li>California Kid</li>
+                            <li>Romans 8:38-39</li>
                             </ul>
                         </div>
                 </div>
@@ -411,9 +411,9 @@
                             <ul style ="font-size:100%;">
                             <li>Team Member 5</li>
                             <li>Ball is life</li>
-                            <li>Jerusalem is his crib</li>
-                            <li>Ball is life</li>
-                            <li>Part-time fortune cookie writer </li>
+                            <li>Video Game Master(Chief)</li>
+                            <li>He's Probably Read That </li>
+                            <li>Psalm 91:2</li>
                             </ul>
                         </div>
                     </div>
