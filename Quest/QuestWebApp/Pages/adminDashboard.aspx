@@ -10,7 +10,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-    <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+    <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" InsertCommand="
 DECLARE
   v_dummy pls_integer;
 BEGIN
@@ -21,7 +21,7 @@ BEGIN
     p_LName           =&gt; :p_LName,
     p_PermissionLevel =&gt; :p_PermissionLevel);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
+        ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="SELECT * FROM END_USER">
         <InsertParameters>
             <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Email" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherConfirmPassword" Name="p_Password" PropertyName="Text" />
@@ -30,7 +30,7 @@ END;"
             <asp:ControlParameter ControlID="ddlUserSelect" Name="p_PermissionLevel" PropertyName="SelectedValue" />
         </InsertParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlClass" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+    <asp:SqlDataSource ID="sqlClass" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" InsertCommand="
 DECLARE
    v_dummy pls_integer;
 BEGIN
@@ -38,7 +38,7 @@ BEGIN
       p_Code   =&gt; :p_Code,
       p_Title  =&gt; :p_Title);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE FROM CLASS">
+        ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="SELECT TITLE FROM CLASS">
         <InsertParameters>
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
@@ -201,7 +201,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                             <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="FULL_NAME">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select l_name || ', ' || f_name as full_name
+                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="select l_name || ', ' || f_name as full_name
 from end_user
 where permission_level = 'T'"></asp:SqlDataSource>
                             <span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>

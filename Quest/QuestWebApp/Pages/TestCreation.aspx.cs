@@ -30,7 +30,7 @@ BEGIN
     P_DueDate        => :p_DueDate,
     p_TimeLimit      => :p_TimeLimit);
 END;",
-            new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+            new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString));
             cmdAddTest.Parameters.AddWithValue("p_SectionID",      ddlSection.SelectedValue);
             cmdAddTest.Parameters.AddWithValue("p_Title",          txtName.Text);
             cmdAddTest.Parameters.AddWithValue("p_DueDate",        cldrTestDay.SelectedDate);

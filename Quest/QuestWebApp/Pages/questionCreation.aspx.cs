@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
     {
         // Global Veriables
         int QuestionID; // ID of the current question.
-        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
         ArrayList choices;
         string questionType;
 
@@ -55,24 +55,17 @@ namespace QuestWebApp.Pages
                 case "M":
                     break;
                 case "MC":
-                    cmdAddQuestion = new OracleCommand(@"
- BEGIN
-   :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE.add(
-     p_QuestionID QUESTIONS.t_QuestionID,
-     p_ChoiceText t_ChoiceText);
- END;",
-                    connectionString);
 
                     cmdAddQuestion = new OracleCommand(@"
  BEGIN
    QUESTIONS_MULTIPLE_CHOICE.add(
-     p_QuestionID   QUESTIONS.t_QuestionID,
-     P_ChoiceID     QUESTIONS_MULTIPLE_CHOICE_BODY.t_ChoiceID,
-     p_QuestionText t_QuestionText);
+     p_QuestionID   => :p_QuestionID,
+     P_ChoiceID     => :p_ChoiceID,
+     p_QuestionText => :p_QuestionText);
  END;",
                     connectionString);
                     cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestion.Parameters.AddWithValue("P_ChoiceID", QuestionID);
+                    cmdAddQuestion.Parameters.AddWithValue("P_ChoiceID", Session["ChoiceID"]);
                     cmdAddQuestion.Parameters.AddWithValue("p_QuestionText", txtAddQuestionText.Text);
                     break;
                 case "SA":
@@ -145,12 +138,16 @@ namespace QuestWebApp.Pages
                     txtAddQuestionText.Visible = true;
                     break;
                 case "M":
+                    tblMatchingSection.Visible = true;
+                    grdAddMatchingQuestion.Visible = true;
                     break;
                 case "MC":
                     lblAddQuestionText.Visible = true;
                     txtAddQuestionText.Visible = true;
                     lblMultipleChoiceBody.Visible = true;
                     grdMultipleChoiceBody.Visible = true;
+                    chkMultipleChoiceAnswer.Visible = true;
+                    txtMultipleChoiceBody.Visible = true;
                     btnNewMultipleChoice.Visible = true;
                     break;
                 case "SA":
@@ -171,6 +168,35 @@ namespace QuestWebApp.Pages
             btnAddQuestion.Visible = true;
         }
 
+        protected void btnAddMultipleChoice_Click(object sender, EventArgs e)
+        {
+            OracleCommand cmdAddQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS_MATCHING_BODY.add(
+    p_QuestionID   => :p_QuestionID,
+    p_QuestionText => :p_QuestionText,
+    P_Answer       => :p_Answer);
+END;",
+            connectionString);
+            cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+            cmdAddQuestion.Parameters.AddWithValue("p_QuestionText", txtAddMatchingQuestion.Text);
+            cmdAddQuestion.Parameters.AddWithValue("p_Answer", txtAddMatchingAnswer.Text);
+
+
+            cmdAddQuestion.Connection.Open();
+            cmdAddQuestion.ExecuteNonQuery();
+
+            if (chkMultipleChoiceAnswer.Checked)
+            {
+                Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
+            }
+
+            cmdAddQuestion.Connection.Close();
+            grdMultipleChoiceBody.DataBind();
+            txtMultipleChoiceBody.Text = string.Empty;
+            chkMultipleChoiceAnswer.Checked = false;
+        }
+
         protected void btnNewMultipleChoice_Click(object sender, EventArgs e)
         {
             OracleCommand cmdAddQuestion = new OracleCommand(@"
@@ -181,7 +207,7 @@ BEGIN
 END;",
             connectionString);
             cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-            cmdAddQuestion.Parameters.AddWithValue("p_ChoiceText", txtAddWeight.Text);
+            cmdAddQuestion.Parameters.AddWithValue("p_ChoiceText", txtMultipleChoiceBody.Text);
             cmdAddQuestion.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
 
@@ -190,7 +216,7 @@ END;",
 
             if (chkMultipleChoiceAnswer.Checked)
             {
-                Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_QuestionID"].Value);
+                Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
             }
 
             cmdAddQuestion.Connection.Close();
@@ -201,6 +227,7 @@ END;",
 
         protected void hideInputs()
         {
+
             lblAddQuestionText.Visible = false;
             txtAddQuestionText.Visible = false;
             lblAddAnswer.Visible = false;
@@ -212,8 +239,15 @@ END;",
             lblAfterText.Visible = false;
             txtAfterText.Visible = false;
             lblMultipleChoiceBody.Visible = false;
+            grdMultipleChoiceBody.Visible = false;
+            chkMultipleChoiceAnswer.Visible = false;
+            txtMultipleChoiceBody.Visible = false;
             btnNewMultipleChoice.Visible = false;
             btnAddQuestion.Visible = false;
+
+            // Matching Section
+            tblMatchingSection.Visible = false;
+            grdAddMatchingQuestion.Visible = false;
         }
     }
 

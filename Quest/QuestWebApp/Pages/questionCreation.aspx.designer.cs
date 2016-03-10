@@ -193,6 +193,78 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Button btnNewMultipleChoice;
         
         /// <summary>
+        /// tblMatchingSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblMatchingSection;
+        
+        /// <summary>
+        /// lblAddMatchingAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddMatchingAnswer;
+        
+        /// <summary>
+        /// lblAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddMatchingQuestion;
+        
+        /// <summary>
+        /// btnAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddMatchingQuestion;
+        
+        /// <summary>
+        /// txtAddMatchingAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddMatchingAnswer;
+        
+        /// <summary>
+        /// txtAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddMatchingQuestion;
+        
+        /// <summary>
+        /// sqlAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAddMatchingQuestion;
+        
+        /// <summary>
+        /// grdAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAddMatchingQuestion;
+        
+        /// <summary>
         /// btnAddQuestion control.
         /// </summary>
         /// <remarks>

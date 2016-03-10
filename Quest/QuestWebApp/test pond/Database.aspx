@@ -8,7 +8,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-    <asp:SqlDataSource ID="sqlTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlTest" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" SelectCommand="
   SELECT *
     FROM end_user" ProviderName="System.Data.OleDb" />
     <asp:GridView ID="grdTest" runat="server" DataSourceID="sqlTest" AutoGenerateColumns="False" DataKeyNames="USER_ID" >
