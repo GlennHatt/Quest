@@ -127,6 +127,7 @@
     <None Include="Assets\JS\dialog.js.old" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
+    <Content Include="Assets\JS\toastr.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
     <Content Include="App_Themes\ControlSkins\ControlSkins.skin" />
@@ -140,6 +141,7 @@
     <Content Include="Assets\Styles\loginStyles.css" />
     <Content Include="Assets\Styles\Misc.css" />
     <Content Include="Assets\Styles\styles.css" />
+    <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />

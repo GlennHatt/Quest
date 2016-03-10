@@ -8,6 +8,9 @@
 
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link href="../Assets/Styles/dialog.css" rel="stylesheet" />
+    <link href="../Assets/Styles/toastr.css" rel="stylesheet" />
+    <script src="../Assets/JS/toastr.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
@@ -36,68 +39,33 @@
 
     </style>
 
-    <%--<div class="mdl-cell mdl-cell--12-col ">
-                <!-- Card for Creating a test -->
-
-                <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h3>
-                            <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
-                        <h3>
-                            <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
-                        <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
-        </div>
-                    </div>
-                </div>--%>
-
-
 
     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
         <div class="content-grid mdl-grid" style="width: 100%;">
             
                     
-       <div class="mdl-cell mdl-cell--6-col ">
+       <div class="mdl-cell mdl-cell--4-col ">
 
 
    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
-
-      <%--<div class="title">LOGIN</div>
-
-      <div class="input">
-         <label for="name">Username</label>
-         <input type="text" name="name" id="name">
-         <span class="spin"></span>
-      </div>
-
-      <div class="input">
-         <label for="pass">Password</label>
-         <input type="password" name="pass" id="pass">
-         <span class="spin"></span>
-      </div>
-
-      <div class="button login">
-         <button><span>GO</span> <i class="fa fa-check"></i></button>
-      </div>
-
-      <a href="" class="pass-forgot">Forgot your password?</a>--%>
 
        <div class="mdl-card__supporting-text" style="text-align: center">
                         <h3>
                             <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
                         <h3>
                             <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
-                        <p>Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+                        <p style="font-size:120%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
 
-           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+           <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
 
 
   
 
    <div class="overbox">
-      <div class="material-button alt-2"><span class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
+      <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
 
-      <div class="title">Email</div>
+      <div class="title">Email</div><br />
 
      <div class="input">
          <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
@@ -121,11 +89,6 @@
 
 
        </div>
-      <%--<div class="button">
-         <asp:LinkButton ID="btnCancel" runat="server">Cancel</asp:LinkButton><button><span>Send</span></button>
-      </div>--%>
-
-
    </div>
 
 
@@ -140,25 +103,7 @@
         </div>
     </main>
 
-    <Button  id="demoshowtoast" class="mdl-button mdl-js-button mdl-button--raised" type="button" >Show Toast</Button>
-<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
-  <div class="mdl-snackbar__text"></div>
-  <button class="mdl-snackbar__action" type="button"></button>
-</div>
-<script>
-(function() {
-  'use strict';
-  window['counter'] = 0;
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demoshowtoast');
-  showToastButton.addEventListener('click', function() {
-    'use strict';
-    var data = {message: 'Example Message # ' + ++counter};
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
-  });
-}());
-</script>
-
+    <asp:LinkButton runat="server"  id="demoshowtoast" class="mdl-button mdl-js-button mdl-button--raised"  OnClientClick=""  type="button" OnClick="demoshowtoast_Click" >Show Toast</asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
 

@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     $(".input input").focus(function () {
-        //console.log
+        console.log("test1");
         $(this).parent(".input").each(function () {
             $("label", this).css({
                 "line-height": "18px",
@@ -120,33 +120,64 @@
 })
 
 myClosure = function () {
-    if (!$(this).hasClass('material-button')) {
-            $(".shape").css({
-                "width": "100%",
-                "height": "100%",
-                "transform": "rotate(0deg)"
-            })
-            setTimeout(function () {
-                $(".overbox").css({
-                    "overflow": "initial"
-                })
-            }, 600)
+    
+    //$(".shape").css({
+    //    "width": "100%",
+    //    "height": "100%",
+    //    "transform": "rotate(0deg)"
+    //})
+    //setTimeout(function () {
+    //    $(".overbox").css({
+    //        "overflow": "initial"
+    //    })
+    //}, 600)
 
-            $(this).animate({
-                "width": "140px",
-                "height": "140px"
-            }, 500, function () {
-                $(".box").removeClass("back");
+    //$(this).animate({
+    //    "width": "140px",
+    //    "height": "140px"
+    //}, 500, function () {
+    //    $(".box").removeClass("back");
 
-                $(this).removeClass('active')
-            });
+    //    $(this).removeClass('active')
+    //});
 
-            $(".overbox .title").fadeOut(300);
-            $(".overbox .input").fadeOut(300);
-            $(".overbox .button").fadeOut(300);
+    //$(".overbox .title").fadeOut(300);
+    //$(".overbox .input").fadeOut(300);
+    //$(".overbox .button").fadeOut(300);
 
-            $(".alt-2").addClass('material-buton');
-        }
+    //$(".alt-2").addClass('material-buton');
+
+    //$(".shape").css({
+    //    "width": "100%",
+    //    "height": "100%",
+    //    "transform": "rotate(0deg)"
+    //})
+    //setTimeout(function () {
+    //    $(".overbox").css({
+    //        "overflow": "initial"
+    //    })
+    //}, 600)
+
+    //$(this).animate({
+    //    "width": "140px",
+    //    "height": "140px"
+    //}, 500, function () {
+    //    $(".box").removeClass("back");
+
+    //    $(this).removeClass('active')
+    //});
+
+    //$(".overbox .title").fadeOut(300);
+    //$(".overbox .input").fadeOut(300);
+    //$(".overbox .button").fadeOut(300);
+
+    //$(".alt-2").addClass('material-buton');
+
+
+
+    var myBox = document.getElementById('overbox');
+    myBox.click();
+    
 }
 
 
