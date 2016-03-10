@@ -57,7 +57,7 @@ END;"
                         <!-- Textfield with Floating Label for teacher First name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
-                            <asp:RequiredFieldValidator ID="valTeacherFname" ControlToValidate="txtbxTeacherFirstName" runat="server" ErrorMessage="This is a test" CssClass="" SetFocusOnError="True" ValidationGroup="grpAddUser" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="valTeacherFname" ControlToValidate="txtbxTeacherFirstName" runat="server" ErrorMessage="This is a test" CssClass="mdl-textfield__error" SetFocusOnError="True" ValidationGroup="grpAddUser" Display="Dynamic"></asp:RequiredFieldValidator>
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
                             <span id="lblFnameError" runat="server" class="mdl-textfield__error">Please enter first name</span>
                         </div>
@@ -106,7 +106,7 @@ END;"
                     </div>
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddTeacher" ValidationGroup="grpAddUser" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
+                        <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
