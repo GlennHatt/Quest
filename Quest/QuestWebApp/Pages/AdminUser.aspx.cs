@@ -13,5 +13,10 @@ namespace QuestWebApp.Pages
         {
 
         }
+
+        protected void GVUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         Itm    
+        }
     }
 }

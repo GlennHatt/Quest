@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
     <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 60%; left: 26%;">
-    <asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable" ID="GVUser" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
+    <asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable" ID="GVUser" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers" OnSelectedIndexChanged="GVUser_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="FIRSTNAME" HeaderText="First Name" SortExpression="FIRSTNAME" />

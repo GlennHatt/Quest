@@ -17,7 +17,7 @@
             <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME"></asp:BoundField>
             <asp:TemplateField HeaderText="Delete">
             <ItemTemplate>
-                <asp:LinkButton ID="activeButton" runat="server" Text="SendMail"><i class="material-icons testAlert">clear</i></asp:LinkButton> 
+                <asp:LinkButton ID="deleteButton" runat="server"><i class="material-icons testAlert">clear</i></asp:LinkButton> 
             </ItemTemplate>
         </asp:TemplateField>
         </Columns>
