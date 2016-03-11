@@ -8,8 +8,7 @@
 
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link href="../Assets/Styles/dialog.css" rel="stylesheet" />
-    <link href="../Assets/Styles/toastr.css" rel="stylesheet" />
-    <script src="../Assets/JS/toastr.js"></script>
+    
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
@@ -103,7 +102,6 @@
         </div>
     </main>
 
-    <asp:LinkButton runat="server"  id="demoshowtoast" class="mdl-button mdl-js-button mdl-button--raised"  OnClientClick=""  type="button" OnClick="demoshowtoast_Click" >Show Toast</asp:LinkButton>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
 

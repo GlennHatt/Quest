@@ -22,7 +22,7 @@
 
                 <div class="demo-card-square mdl-card mdl-shadow--2dp" style="text-align: center">
                     <div class="mdl-card__title mdl-card--expand" style="text-align: center">
-                        <img src="../Assets/Images/greek.png" style="height: 25%; width: 25%; padding-left: 38%;" />
+                        <img src="../Assets/Images/greek.png" style="height: 100%; width: 25%; padding-left: 38%;" />
                     </div>
                     <div class="mdl-card__title" style="text-align: center;">
                         <div class="mdl-card__supporting-text" style="font-size: 250%; color: rgba(0,0,0,.54); text-align:center; line-height: inherit;">

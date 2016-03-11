@@ -30,7 +30,7 @@
                 error: error,
                 getContainer: getContainer,
                 info: info,
-                options: {},
+                options: {  },
                 subscribe: subscribe,
                 success: success,
                 version: '2.1.2',
@@ -38,6 +38,8 @@
             };
 
             var previousToast;
+
+            toastr.options.positionClass = 'toast-bottom-right';
 
             return toastr;
 
@@ -179,7 +181,7 @@
                         warning: 'toast-warning'
                     },
                     iconClass: 'toast-info',
-                    positionClass: 'toast-top-right',
+                    positionClass: 'toast-bottom-right',
                     timeOut: 5000, // Set timeOut and extendedTimeOut to 0 to make it sticky
                     titleClass: 'toast-title',
                     messageClass: 'toast-message',
