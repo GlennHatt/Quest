@@ -1,3 +1,13 @@
 ﻿.customTable{
-    left:12%;
+    left:13%;
+    top: 7px;
+    height: 299px;
+    width: 597px;
+}
+
+.customTable2 {
+    left:7%;
+    top: 7px;
+    height: 299px;
+    width: 597px;
 }
