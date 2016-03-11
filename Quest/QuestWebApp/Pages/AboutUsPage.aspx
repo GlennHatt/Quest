@@ -304,7 +304,7 @@
                 <h2>
                     <span style="color:white">Ryan Carroll</span>
                     <strong style="color:white">
-                        <i class="fa fa-fw fa-star" style="color:white"></i>
+                        <i class="material-icons testAlert" style="color:white">directions_bike</i>
                         Design Master
                     </strong>
                 </h2>
@@ -318,7 +318,7 @@
                             <li>Design Expert</li>
                             <li>A+ Certified</li>
                             <li>Delights in Biking</li>
-                            <li>Weekend bingo manager</li>
+                            <li><a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A8&version=AKJV" target="_blank">Matthew 5:8</a></li>
                             </ul>
                         </div>
                     </div>
@@ -326,7 +326,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-linkedin"></a>
+                    <a href="https://www.linkedin.com/in/carrollmedia" target="_blank" class="fa fa-fw fa-linkedin"></a>
                     </div>
             </article>
                 </div>
