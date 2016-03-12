@@ -12,7 +12,6 @@ namespace QuestWebApp.App_Code
         {
             if (id == null)
             {
-                //Console.WriteLine("Redirect to login page");
                 HttpContext.Current.Response.Redirect("loginTest.aspx"); // Redirect to login page
             }
             else

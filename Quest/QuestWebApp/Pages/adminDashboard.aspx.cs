@@ -199,8 +199,9 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
+            // TODO: Regex r = new Regex(ValidationExpression);
 
-            if(txtbxClassTitle.Text == String.Empty)
+            if (txtbxClassTitle.Text == String.Empty)
             {
                 txtbxClassTitle.BorderColor = Color.Red;
                 errorCount++;
