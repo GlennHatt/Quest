@@ -55,7 +55,7 @@ END;"
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>Add New User</h1>
-                        <!-- Textfield with Floating Label for teacher First name -->
+                        <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtbxTeacherFirstName" ErrorMessage="Please enter first name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
