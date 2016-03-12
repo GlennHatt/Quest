@@ -187,26 +187,21 @@ namespace QuestWebApp.Pages
             {
                 sqlTeacher.Insert();
                 clearUserFields();
-            }
-
-            // TODO verify the user has been added
-            if(true)
-            {
+                ddlTeacher.DataBind();
+                // Toast
                 showAddUserMessage = true;
                 Session["showAddUserMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
-
-
-
         }
 
         // Insert class into database
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
+            // TODO: Regex r = new Regex(ValidationExpression);
 
-            if(txtbxClassTitle.Text == String.Empty)
+            if (txtbxClassTitle.Text == String.Empty)
             {
                 txtbxClassTitle.BorderColor = Color.Red;
                 errorCount++;
@@ -224,11 +219,8 @@ namespace QuestWebApp.Pages
             {
                 sqlClass.Insert();
                 clearClassFields();
-            }
-
-            // TODO verify the class has been added
-            if (true)
-            {
+                ddlCourses.DataBind();
+                // toast
                 showAddUserMessage = true;
                 Session["showAddClassMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
