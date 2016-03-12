@@ -158,9 +158,9 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Pages\AboutUsPage.aspx" />
-    <Content Include="Pages\AdminClass.aspx" />
-    <Content Include="Pages\AdminUser.aspx" />
+    <Content Include="Pages\aboutUsPage.aspx" />
+    <Content Include="Pages\adminClass.aspx" />
+    <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
@@ -223,19 +223,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminClass.aspx.cs">
-      <DependentUpon>AdminClass.aspx</DependentUpon>
+    <Compile Include="Pages\adminClass.aspx.cs">
+      <DependentUpon>adminClass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AdminClass.aspx.designer.cs">
-      <DependentUpon>AdminClass.aspx</DependentUpon>
+    <Compile Include="Pages\adminClass.aspx.designer.cs">
+      <DependentUpon>adminClass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminUser.aspx.cs">
-      <DependentUpon>AdminUser.aspx</DependentUpon>
+    <Compile Include="Pages\adminUser.aspx.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AdminUser.aspx.designer.cs">
-      <DependentUpon>AdminUser.aspx</DependentUpon>
+    <Compile Include="Pages\adminUser.aspx.designer.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\classesList.aspx.cs">
       <DependentUpon>classesList.aspx</DependentUpon>
@@ -307,12 +307,12 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\aboutUsPage.aspx.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>

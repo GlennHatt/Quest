@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Classes" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="AdminClass.aspx.cs" Inherits="QuestWebApp.Pages.AdminClass" %>
+﻿<%@ Page Title="Admin | Classes" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminClass.aspx.cs" Inherits="QuestWebApp.Pages.AdminClass" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="adminHead" runat="server">
