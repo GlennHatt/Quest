@@ -188,19 +188,11 @@ namespace QuestWebApp.Pages
                 sqlTeacher.Insert();
                 clearUserFields();
                 ddlTeacher.DataBind();
-
-            }
-
-            // TODO verify the user has been added
-            if(true)
-            {
+                // Toast
                 showAddUserMessage = true;
                 Session["showAddUserMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
-
-
-
         }
 
         // Insert class into database
@@ -227,11 +219,7 @@ namespace QuestWebApp.Pages
                 sqlClass.Insert();
                 clearClassFields();
                 ddlCourses.DataBind();
-            }
-
-            // TODO verify the class has been added
-            if (true)
-            {
+                // toast
                 showAddUserMessage = true;
                 Session["showAddClassMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
