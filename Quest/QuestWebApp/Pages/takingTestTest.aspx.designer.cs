@@ -22,13 +22,49 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlTestQuestions;
         
         /// <summary>
-        /// lvTest control.
+        /// lvTFQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvTest;
+        protected global::System.Web.UI.WebControls.ListView lvTFQuestions;
+        
+        /// <summary>
+        /// lvEssayQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvEssayQuestions;
+        
+        /// <summary>
+        /// lvShortAnswerQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvShortAnswerQuestions;
+        
+        /// <summary>
+        /// sqlShortAnswerQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlShortAnswerQuestions;
+        
+        /// <summary>
+        /// sqlEssayQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlEssayQuestions;
         
         /// <summary>
         /// btnSubmitTest control.

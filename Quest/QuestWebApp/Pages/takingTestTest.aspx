@@ -27,16 +27,15 @@ END;">
         </InsertParameters>
     </asp:SqlDataSource>
 
-        <asp:ListView ID="lvTest" runat="server" DataSourceID="sqlTestQuestions">
+        <asp:ListView ID="lvTFQuestions" runat="server" DataSourceID="sqlTestQuestions">
             <ItemTemplate>
-                    <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-cell mdl-cell--12-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
                                     <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
                                     <asp:RadioButton ID="rdbTrue" class="mdl-radio__button" Text="True" runat="server" GroupName="TFChoice" />
-                                    <br />
                                     <asp:RadioButton ID="rdbFalse" class="mdl-radio__button" Text="False" runat="server" GroupName="TFChoice" />
                                 </div>
                             </div>
@@ -44,6 +43,48 @@ END;">
                     </div>
             </ItemTemplate>
         </asp:ListView>
+        <asp:ListView ID="lvEssayQuestions" runat="server" DataSourceID="sqlEssayQuestions">
+            <ItemTemplate>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                            <div class="mdl-card__supporting-text" style="text-align: center">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
+                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("essay_question") %>' runat="server" />
+                                    <asp:TextBox ID="TextBox1" runat="server" Height="50px" Width="300px" TextMode="MultiLine" ToolTip="Enter Answer Here"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </ItemTemplate>
+        </asp:ListView>
+        <asp:ListView ID="lvShortAnswerQuestions" runat="server" DataSourceID="sqlShortAnswerQuestions">
+            <ItemTemplate>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                            <div class="mdl-card__supporting-text" style="text-align: center">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
+                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("before_sa_question") %>' runat="server" />
+                                    <asp:TextBox ID="TextBox1" runat="server" TextMode="SingleLine" ToolTip="Enter Answer Here"></asp:TextBox>
+                                    <asp:Label ID="Label3" class="mdl-textfield__input" Text='<%# Eval("after_sa_question") %>' runat="server" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </ItemTemplate>
+        </asp:ListView>
+    <asp:SqlDataSource ID="sqlShortAnswerQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT question_short_answer.before_text before_sa_question, 
+       question_short_answer.after_text after_sa_question, 
+       question.question_id quest_id
+FROM QUESTION, QUESTION_SHORT_ANSWER
+WHERE question.TEST_ID = 1 and question.question_id = question_short_answer.question_id"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlEssayQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT question_essay.question_text essay_question, question.question_id quest_id
+FROM QUESTION, QUESTION_ESSAY
+WHERE question.TEST_ID = 1 and question.question_id = question_essay.question_id">
+    </asp:SqlDataSource>
     <asp:Button ID="btnSubmitTest" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" />
 </main>
     <asp:TextBox ID="txtTestAnswer" runat="server" Height="52px" Width="257px"></asp:TextBox>
