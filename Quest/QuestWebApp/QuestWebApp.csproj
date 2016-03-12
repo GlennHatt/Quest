@@ -125,6 +125,7 @@
     <Content Include="Assets\Images\zo.jpg" />
     <Content Include="Assets\JS\AboutusJS.js" />
     <None Include="Assets\JS\dialog.js.old" />
+    <Content Include="Assets\JS\DatePicker.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\JS\toastr.js" />
@@ -135,6 +136,7 @@
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
     <Content Include="Assets\Styles\AboutUs.css" />
+    <Content Include="Assets\Styles\DatePicker.css" />
     <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\dialog.css" />

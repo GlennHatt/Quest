@@ -4,10 +4,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
+        <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
+     <link rel='stylesheet prefetch' href='http://kuruczcsaba.hu/works/material-calendar/datepicker.css'>
+        <link rel="stylesheet" href="css/style.css">
+
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+
+        <link rel="stylesheet" href="css/style.css">
+
     <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
@@ -56,6 +65,36 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         </div>
       
         </div>
+    <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
+<input type="text" data-type="date" />
+<div id="material-header-holder" style="display:none">
+  <div class="ui-datepicker-material-header">
+    <div class="ui-datepicker-material-day">
+    </div>
+    <div class="ui-datepicker-material-date">
+      <div class="ui-datepicker-material-month">
+      </div>
+      <div class="ui-datepicker-material-day-num">
+      </div>
+      <div class="ui-datepicker-material-year">
+      </div>
+    </div>
+  </div>
+</div>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js'></script>
+<script src="../Assets/JS/DatePicker.js"></script>
+        <script src="js/index.js"></script>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
+
+        <script src="../Assets/JS/DatePicker.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://kuruczcsaba.hu/works/material-calendar/datepicker2.js'></script>
+     <script src="js/index.js"></script>
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js'></script>
 </asp:Content>
