@@ -19,7 +19,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </div>
 
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <label class="mdl-textfield__label"style="bottom:0px"> Test Name: </label>
+    <label class="mdl-textfield__label"style="bottom:0px"> Test Name:</label>
     <asp:TextBox ID="txtName" class="mdl-textfield__input" runat="server" />
     </div>
 
