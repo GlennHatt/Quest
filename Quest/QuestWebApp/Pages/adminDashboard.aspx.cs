@@ -11,6 +11,9 @@ namespace QuestWebApp.Pages
 {
     public partial class adminDashboard : System.Web.UI.Page
     {
+        bool showAddUserMessage,
+             showAddClassMessage,
+             showAddSectionMessage;
 
         // Work in progress ------------------------------------
         public enum PasswordScore
@@ -63,8 +66,49 @@ namespace QuestWebApp.Pages
         {
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
-            
-            
+
+            // toast notifications 
+            if (Session["showAddUserMessage"] != null)
+                showAddUserMessage = (bool)Session["showAddUserMessage"];
+            else
+                showAddUserMessage = false;
+
+            if (Session["showAddClassMessage"] != null)
+                showAddClassMessage = (bool)Session["showAddClassMessage"];
+            else
+                showAddClassMessage = false;
+
+            if (Session["showAddSectionMessage"] != null)
+                showAddSectionMessage = (bool)Session["showAddSectionMessage"];
+            else
+                showAddSectionMessage = false;
+
+
+            if (showAddUserMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('User has been added', 'Success!')", true);
+                Session["showAddUserMessage"] = false;
+            }
+
+            if (showAddClassMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Class has been added', 'Success!')", true);
+                Session["showAddClassMessage"] = false;
+            }
+
+            if (showAddSectionMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Section has been added', 'Success!')", true);
+                Session["showAddSectionMessage"] = false;
+            }
+
+
             if (currentMonth >= 8 && ddlSemester.Items.Count == 0)
             {
                 //ddlSemester.Items.Add(new ListItem("Semester:"));
@@ -144,6 +188,17 @@ namespace QuestWebApp.Pages
                 sqlTeacher.Insert();
                 clearUserFields();
             }
+
+            // TODO verify the user has been added
+            if(true)
+            {
+                showAddUserMessage = true;
+                Session["showAddUserMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
+
+
+
         }
 
         // Insert class into database
@@ -169,6 +224,14 @@ namespace QuestWebApp.Pages
             {
                 sqlClass.Insert();
                 clearClassFields();
+            }
+
+            // TODO verify the class has been added
+            if (true)
+            {
+                showAddUserMessage = true;
+                Session["showAddClassMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
 
@@ -198,6 +261,14 @@ namespace QuestWebApp.Pages
             {
                 ddlTeacher.BorderColor = Color.Red;
                 errorCount++;
+            }
+
+            // TODO verify the section has been added
+            if (true)
+            {
+                showAddSectionMessage = true;
+                Session["showAddSectionMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
     }
