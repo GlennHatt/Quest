@@ -25,7 +25,8 @@ namespace QuestWebApp.Pages
                     if (password.Text == "password")
                     {
                         Session["classification"] = 'A';
-                        Response.Redirect("adminDashboard.aspx");
+                        //Response.Redirect("adminDashboard.aspx");
+                        HttpContext.Current.Response.Redirect("adminDashboard.aspx");
                     }
                     else
                         answer.Text = "Incorrect username and/or password";
