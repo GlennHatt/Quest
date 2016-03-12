@@ -187,6 +187,8 @@ namespace QuestWebApp.Pages
             {
                 sqlTeacher.Insert();
                 clearUserFields();
+                ddlTeacher.DataBind();
+
             }
 
             // TODO verify the user has been added
@@ -224,6 +226,7 @@ namespace QuestWebApp.Pages
             {
                 sqlClass.Insert();
                 clearClassFields();
+                ddlCourses.DataBind();
             }
 
             // TODO verify the class has been added

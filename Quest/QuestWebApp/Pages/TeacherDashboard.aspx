@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="TeacherDashboard.aspx.cs" Inherits="QuestWebApp.Pages.TeacherDashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherDashboard.aspx.cs" Inherits="QuestWebApp.Pages.TeacherDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
 </asp:Content>
