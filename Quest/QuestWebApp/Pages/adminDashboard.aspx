@@ -46,14 +46,54 @@ END;"
         </InsertParameters>
     </asp:SqlDataSource> 
 
+
+    <script>
+        function makeLarge()
+        {
+            var isChecked = false;
+            //document.writeln("test");
+            if (isChecked == false) {
+                document.getElementById("cardUser").className = "mdl-cell mdl-cell--12-col";
+                //document.getElementById("switch-1").setAttribute("checked");
+                //document.getElementById("switch-1").checked = false;
+                var userCardElement = document.getElementById("switch-1")
+                var mdlUserCardtoggle = new MaterialCheckbox(userCardElement)
+
+                // now you can just use the functions provided by the MDL component
+                mdlUserCardtoggle.check();
+                isChecked = true;
+            }
+            else
+            {
+                var userCardElement = document.getElementById("switch-1")
+                var mdlUserCardtoggle = new MaterialCheckbox(userCardElement)
+                //document.getElementById("switch-1").removeAttribute("checked");
+                document.getElementById("cardUser").className = "mdl-cell mdl-cell--4-col";
+                //document.getElementById("switch-1").checked = false;
+                mdlUserCardtoggle.uncheck();
+                isChecked = false;
+                
+            }
+            return false;
+        }
+
+
+    </script>
+
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
 
                 <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red"></asp:Label>
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        <button ID="btnResizeLrg"  onclick="makeLarge(); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Large</button>
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" style="text-align:left;">
+                            <input type="checkbox" id="switch-1" class="mdl-switch__input" onclick="makeLarge(); return false">
+                            <span class="mdl-switch__label">Card Size</span>
+                        </label>
+
                         <h1>Add New User</h1>
                         <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
