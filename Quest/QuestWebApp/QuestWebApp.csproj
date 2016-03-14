@@ -128,6 +128,7 @@
     <Content Include="Assets\JS\DatePicker.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
+    <Content Include="Assets\JS\misc.js" />
     <Content Include="Assets\JS\toastr.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
