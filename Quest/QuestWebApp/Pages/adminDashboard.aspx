@@ -49,24 +49,26 @@ END;"
 
     <script>
 
-        function changeUserCardSize()
+        function changeUserCardSize(cardID, SmButtonID, LrgButtonID)
         {
 
             //document.writeln("test");
-            if (document.getElementById("btnResizeLrg").disabled == false) {
-                document.getElementById("cardUser").className = "mdl-cell mdl-cell--12-col";
-                document.getElementById("btnResizeLrg").disabled = true;
-                document.getElementById("btnResizeSm").disabled = false;
+            if (document.getElementById(LrgButtonID).disabled == false) {
+                document.getElementById(cardID).className = "mdl-cell mdl-cell--12-col";
+                document.getElementById(LrgButtonID).disabled = true;
+                document.getElementById(SmButtonID).disabled = false;
             }
             else
             {
-                document.getElementById("cardUser").className = "mdl-cell mdl-cell--4-col";
-                document.getElementById("btnResizeLrg").disabled = false;
-                document.getElementById("btnResizeSm").disabled = true;
+                document.getElementById(cardID).className = "mdl-cell mdl-cell--4-col";
+                document.getElementById(LrgButtonID).disabled = false;
+                document.getElementById(SmButtonID).disabled = true;
             }
             
             return false;
         }
+
+        
 
 
     </script>
@@ -80,8 +82,8 @@ END;"
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         Card Size:<br />
-                        <button ID="btnResizeSm" disabled="disabled" onclick="changeUserCardSize(); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Small</button>
-                        <button ID="btnResizeLrg"  onclick="changeUserCardSize(); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Large</button>
+                        <button ID="btnResizeUserSm" disabled="disabled" onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Small</button>
+                        <button ID="btnResizeUserLrg"  onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Large</button>
                         <h1>Add New User</h1>
                         <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
