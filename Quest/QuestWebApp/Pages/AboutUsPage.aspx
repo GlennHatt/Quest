@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.AboutUsPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="aboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.AboutUsPage" %>
 
 <!DOCTYPE html>
 

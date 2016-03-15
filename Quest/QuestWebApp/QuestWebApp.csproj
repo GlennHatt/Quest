@@ -145,12 +145,12 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Pages\AboutUsPage.aspx" />
+    <Content Include="Pages\aboutUsPage.aspx" />
     <Content Include="Pages\actualTest.aspx" />
-    <Content Include="Pages\AdminClasses.aspx" />
+    <Content Include="Pages\adminClasses.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
-    <Content Include="Pages\StudentScores.aspx" />
+    <Content Include="Pages\studentScores.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -159,11 +159,11 @@
     <Content Include="Master-Pages\admin.master" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Pages\adminDashboard.aspx" />
-    <Content Include="Pages\PledgePage.aspx" />
-    <Content Include="Pages\StudentDashboard.aspx" />
+    <Content Include="Pages\pledgePage.aspx" />
+    <Content Include="Pages\studentDashboard.aspx" />
     <Content Include="Pages\studentTeachersandClasses.aspx" />
     <Content Include="Pages\studentTest.aspx" />
-    <Content Include="Pages\TeacherDashboard.aspx" />
+    <Content Include="Pages\teacherDashboard.aspx" />
     <Content Include="Pages\loginTest.aspx" />
     <Content Include="Pages\nosidebarTest.aspx" />
     <Content Include="Pages\studentTest.aspx" />
@@ -267,12 +267,12 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\aboutUsPage.aspx.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\actualTest.aspx.cs">
       <DependentUpon>actualTest.aspx</DependentUpon>
@@ -281,12 +281,12 @@
     <Compile Include="Pages\actualTest.aspx.designer.cs">
       <DependentUpon>actualTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
+    <Compile Include="Pages\adminClasses.aspx.cs">
+      <DependentUpon>adminClasses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.designer.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
+    <Compile Include="Pages\adminClasses.aspx.designer.cs">
+      <DependentUpon>adminClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
@@ -295,12 +295,12 @@
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PledgePage.aspx.cs">
-      <DependentUpon>PledgePage.aspx</DependentUpon>
+    <Compile Include="Pages\pledgePage.aspx.cs">
+      <DependentUpon>pledgePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PledgePage.aspx.designer.cs">
-      <DependentUpon>PledgePage.aspx</DependentUpon>
+    <Compile Include="Pages\pledgePage.aspx.designer.cs">
+      <DependentUpon>pledgePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -309,12 +309,12 @@
     <Compile Include="Pages\error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StudentDashboard.aspx.cs">
-      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\studentDashboard.aspx.cs">
+      <DependentUpon>studentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\StudentDashboard.aspx.designer.cs">
-      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\studentDashboard.aspx.designer.cs">
+      <DependentUpon>studentDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\loginTest.aspx.cs">
       <DependentUpon>loginTest.aspx</DependentUpon>
@@ -344,12 +344,12 @@
     <Compile Include="Pages\studentPreTest.aspx.designer.cs">
       <DependentUpon>studentPreTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StudentScores.aspx.cs">
-      <DependentUpon>StudentScores.aspx</DependentUpon>
+    <Compile Include="Pages\studentScores.aspx.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\StudentScores.aspx.designer.cs">
-      <DependentUpon>StudentScores.aspx</DependentUpon>
+    <Compile Include="Pages\studentScores.aspx.designer.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentTest.aspx.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
@@ -358,12 +358,12 @@
     <Compile Include="Pages\studentTest.aspx.designer.cs">
       <DependentUpon>studentTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TeacherDashboard.aspx.cs">
-      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\teacherDashboard.aspx.cs">
+      <DependentUpon>teacherDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\TeacherDashboard.aspx.designer.cs">
-      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\teacherDashboard.aspx.designer.cs">
+      <DependentUpon>teacherDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
