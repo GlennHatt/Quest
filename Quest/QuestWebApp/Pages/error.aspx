@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="withoutSidebarExtraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
 
 
 

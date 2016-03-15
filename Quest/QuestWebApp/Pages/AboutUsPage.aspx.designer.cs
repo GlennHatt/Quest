@@ -10,6 +10,6 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class AboutUsPage {
+    public partial class aboutUsPage {
     }
 }

@@ -12,12 +12,10 @@
     <!-- Card for when a test is due -->
 <style>
 .demo-card-wide.mdl-card {
-
   margin:10%;
   width: 400px;
   height: 200px;
 }
-
 </style>
 <div class="demo-card-wide mdl-card mdl-shadow--3dp">
   <div class="mdl-card__supporting-text" style="text-align:center">

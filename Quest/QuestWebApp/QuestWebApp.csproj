@@ -162,12 +162,14 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Pages\aboutUsPage.aspx" />
+    <Content Include="Pages\actualTest.aspx" />
     <Content Include="Pages\adminClass.aspx" />
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
+    <Content Include="Pages\studentTest.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -218,6 +220,8 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="test pond\template\index.html" />
     <Content Include="test pond\template\styles.css" />
+    <Content Include="test pond\withoutSidebar.aspx" />
+    <Content Include="test pond\withSidebar.aspx" />
     <Content Include="test pond\zoPractice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -225,6 +229,13 @@
     <Content Include="App_Code\utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\aboutUsPage.aspx.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminClass.aspx.cs">
       <DependentUpon>adminClass.aspx</DependentUpon>
@@ -310,12 +321,12 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\aboutUsPage.aspx.cs">
-      <DependentUpon>aboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\actualTest.aspx.cs">
+      <DependentUpon>actualTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
-      <DependentUpon>aboutUsPage.aspx</DependentUpon>
+    <Compile Include="Pages\actualTest.aspx.designer.cs">
+      <DependentUpon>actualTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
@@ -345,7 +356,7 @@
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StudentDashboard.aspx.cs">
+    <Compile Include="Pages\studentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -366,6 +377,13 @@
     <Compile Include="Pages\noSidebarTest.aspx.designer.cs">
       <DependentUpon>noSidebarTest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\studentScores.aspx.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentScores.aspx.designer.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\studentTeachersandClasses.aspx.cs">
       <DependentUpon>studentTeachersandClasses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,12 +398,12 @@
     <Compile Include="Pages\studentPreTest.aspx.designer.cs">
       <DependentUpon>studentPreTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\studentScores.aspx.cs">
-      <DependentUpon>studentScores.aspx</DependentUpon>
+    <Compile Include="Pages\studentTest.aspx.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\studentScores.aspx.designer.cs">
-      <DependentUpon>studentScores.aspx</DependentUpon>
+    <Compile Include="Pages\studentTest.aspx.designer.cs">
+      <DependentUpon>studentTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\teacherDashboard.aspx.cs">
       <DependentUpon>teacherDashboard.aspx</DependentUpon>
@@ -450,6 +468,20 @@
     </Compile>
     <Compile Include="test pond\dropdownTest.aspx.designer.cs">
       <DependentUpon>dropdownTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.designer.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.designer.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
     </Compile>
     <Compile Include="test pond\zoPractice.aspx.cs">
       <DependentUpon>zoPractice.aspx</DependentUpon>

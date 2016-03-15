@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="aboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.AboutUsPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="aboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.aboutUsPage" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'/>
 
 </head>
-
+<body>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <div class="mdl-tabs__tab-bar">
           <a href="#starks-panel" class="mdl-tabs__tab is-active">Quest Testing Center</a>
@@ -43,7 +43,6 @@
                  color: 	#606060; 
                   
               }
-
           .demo-card-wide.mdl-card {
     width: 58%;
     margin: 0 auto;
@@ -57,21 +56,16 @@
     
     
   }      
-
   .demo-card-wide > .mdl-card__title {
     height: 50px;
   }
-
   
   .demo-card-wide > .mdl-card__titleQuest {
     height: 400px;
     background: url('../Assets/Images/quest.png') center / cover;
   }
-
     .demo-card-wide > .mdl-card__RPG {
     height: 400px;
-
-
   }
   .demo-card-wide > .mdl-card__menu {
     color: #fff;
@@ -426,6 +420,7 @@
             </article>
       </div>
     </div>
+</body>
 </section>
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
       <script src="../Assets/JS/AboutusJS.js"></script>

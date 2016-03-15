@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class StudentScores {
+    public partial class studentScores {
         
         /// <summary>
         /// ddlStudentClasses control.
