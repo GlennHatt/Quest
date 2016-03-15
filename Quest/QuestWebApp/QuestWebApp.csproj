@@ -345,8 +345,8 @@
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\studentDashboard.aspx.cs">
-      <DependentUpon>studentDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\StudentDashboard.aspx.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\studentDashboard.aspx.designer.cs">
