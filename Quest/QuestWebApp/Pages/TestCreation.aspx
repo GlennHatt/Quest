@@ -4,11 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
-        <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
-     <link rel='stylesheet prefetch' href='http://kuruczcsaba.hu/works/material-calendar/datepicker.css'>
-        <link rel="stylesheet" href="css/style.css">
-
-    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -21,18 +16,20 @@
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
        JOIN class c USING (class_id)" />
-    <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width:30%;float:none ">
+        <div style="text-align:center">
+            <asp:Label ID="lblCreate" class="mdl-textfield__input" runat="server" Text="Create A Test " />
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="right: -15%;">
     <asp:Label ID="lblSection" class="mdl-textfield__input" runat="server" Text="Section: " />
     <asp:DropDownList ID="ddlSection" class="mdl-textfield__input" runat="server" DataSourceID="SQLSectionSelect" DataTextField="section_title" DataValueField="section_id" />
     </div>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="right: -15%;">
     <label class="mdl-textfield__label"style="bottom:0px"> Test Name:</label>
     <asp:TextBox ID="txtName" class="mdl-textfield__input" runat="server" />
     </div>
 
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="right: -15%;">
     <asp:Label ID="lblTimeLimit" class="mdl-textfield__input" runat="server" Text="Time Limit: " />
     <asp:DropDownList ID="ddlTimeLimit" class="mdl-textfield__input" runat="server" >
         <asp:ListItem Value="5">5 minutes</asp:ListItem>
@@ -65,9 +62,10 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         </div>
       
         </div>
+        </div>
     <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
 <input type="text" data-type="date" />
-<div id="material-header-holder" style="display:none">
+<div id="material-header-holder" >
   <div class="ui-datepicker-material-header">
     <div class="ui-datepicker-material-day">
     </div>
@@ -90,11 +88,5 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 
         <script src="../Assets/JS/DatePicker.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://kuruczcsaba.hu/works/material-calendar/datepicker2.js'></script>
-     <script src="js/index.js"></script>
 
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js'></script>
 </asp:Content>
