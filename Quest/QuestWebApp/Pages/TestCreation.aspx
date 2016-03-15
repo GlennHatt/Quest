@@ -18,7 +18,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
        JOIN class c USING (class_id)" />
     <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width:30%;float:none ">
         <div style="text-align:center">
-            <asp:Label ID="lblCreate" class="mdl-textfield__input" runat="server" Text="Create A Test " />
+            <asp:Label ID="lblCreate" cssclass="mdl-textfield__input" runat="server" Text="Create A Test " />
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="right: -15%;">
     <asp:Label ID="lblSection" class="mdl-textfield__input" runat="server" Text="Section: " />
     <asp:DropDownList ID="ddlSection" class="mdl-textfield__input" runat="server" DataSourceID="SQLSectionSelect" DataTextField="section_title" DataValueField="section_id" />

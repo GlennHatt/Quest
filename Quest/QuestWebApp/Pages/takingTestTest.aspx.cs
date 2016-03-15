@@ -12,7 +12,7 @@ namespace QuestWebApp.Pages
 {
     public partial class takingTestTest : System.Web.UI.Page
     {
-        //string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["ConnectionString"].ToString();
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
         protected void Page_Load(object sender, EventArgs e)
         {

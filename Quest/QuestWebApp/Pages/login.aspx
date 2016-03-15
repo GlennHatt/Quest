@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Quest Log In" Language="C#" MasterPageFile="~/Master-Pages/login.master" AutoEventWireup="true" CodeBehind="loginTest.aspx.cs" Inherits="QuestWebApp.Pages.loginTest" %>
+﻿<%@ Page Title="Quest Log In" Language="C#" MasterPageFile="~/Master-Pages/login.master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="QuestWebApp.Pages.loginTest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="loginBreadCrumb" runat="server">
 </asp:Content>
