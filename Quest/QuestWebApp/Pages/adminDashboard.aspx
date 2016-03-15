@@ -47,31 +47,7 @@ END;"
     </asp:SqlDataSource> 
 
 
-    <script>
-
-        function changeUserCardSize(cardID, SmButtonID, LrgButtonID)
-        {
-
-            //document.writeln("test");
-            if (document.getElementById(LrgButtonID).disabled == false) {
-                document.getElementById(cardID).className = "mdl-cell mdl-cell--12-col";
-                document.getElementById(LrgButtonID).disabled = true;
-                document.getElementById(SmButtonID).disabled = false;
-            }
-            else
-            {
-                document.getElementById(cardID).className = "mdl-cell mdl-cell--4-col";
-                document.getElementById(LrgButtonID).disabled = false;
-                document.getElementById(SmButtonID).disabled = true;
-            }
-            
-            return false;
-        }
-
-        
-
-
-    </script>
+    
 
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
@@ -82,8 +58,9 @@ END;"
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         Card Size:<br />
-                        <button ID="btnResizeUserSm" disabled="disabled" onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Small</button>
-                        <button ID="btnResizeUserLrg"  onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Large</button>
+                        <a id="cardNewClassLink" href="#cardNewClass" style="display:none;"></a>
+                        <button style="background-color: #FF6E40;" ID="btnResizeUserSm" disabled="disabled" onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeUserLrg"  onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add New User</h1>
                         <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -163,9 +140,12 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
 
 
             <!-- Card for adding a class -->
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardNewClass" class="mdl-cell mdl-cell--4-col">
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        Card Size:<br />
+                        <button style="background-color: #FF6E40;" ID="btnResizeClassSm" disabled="disabled" onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeClassLrg"  onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add a Class </h1>
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -187,7 +167,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
                             <asp:LinkButton ID="btnAddClass" ValidationGroup="grpAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click">
-                                <i class="material-icons">add</i>
+                                <i id="myTest" class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
                     </div>

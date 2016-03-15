@@ -63,6 +63,7 @@
 
     <!-- Extra referances -->
     <link href="../Assets/Styles/Misc.css" rel="stylesheet" />
+    <script src="../Assets/JS/misc.js"></script>
     <asp:ContentPlaceHolder ID="extraReferances" runat="server">
 
     </asp:ContentPlaceHolder>
