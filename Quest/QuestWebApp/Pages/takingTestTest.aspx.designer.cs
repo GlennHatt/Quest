@@ -49,6 +49,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.ListView lvShortAnswerQuestions;
         
         /// <summary>
+        /// lvMultipleChoiceQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvMultipleChoiceQuestions;
+        
+        /// <summary>
         /// sqlShortAnswerQuestions control.
         /// </summary>
         /// <remarks>
@@ -74,14 +83,5 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmitTest;
-        
-        /// <summary>
-        /// txtTestAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTestAnswer;
     }
 }
