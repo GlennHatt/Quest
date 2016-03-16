@@ -128,9 +128,11 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
             }
 
+            
+
             // Reset the sizing buttons on page refresh
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtons", "pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');", true);
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtonsLrg", "pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg'); ", true);
+            ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtons", "<script>pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');</script>", false);
+            ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtonsLrg", "<script>pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg');</script> ", false);
 
 
         }

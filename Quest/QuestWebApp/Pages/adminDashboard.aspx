@@ -9,8 +9,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-    <script></script>
+<asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server" >
+    <script>
+
+
+    </script>
     <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
 DECLARE
   v_dummy pls_integer;
@@ -49,7 +52,7 @@ END;"
 
     
 
-    <main class="mdl-layout__content" >
+    <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
