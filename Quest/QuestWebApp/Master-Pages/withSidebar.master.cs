@@ -13,5 +13,11 @@ namespace QuestWebApp.Master_Pages
         {
 
         }
+
+        // Use the utilities page to nullify classification values
+        protected void logout_onlcick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
