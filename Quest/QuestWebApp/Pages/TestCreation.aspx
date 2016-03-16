@@ -67,9 +67,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         </div>
         </div>
         <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
-        </div> 
-    
-
+        
     <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
 <input type="text" data-type="date" />
 <div id="material-header-holder" >
@@ -86,6 +84,12 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </div>
   </div>
 </div>
+    
+    
+    </div> 
+    
+
+    
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js'></script>
