@@ -8,7 +8,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-        <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 50%; left: 26%;">
+        <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="left:12%; width:80%">
+            <div style="align-content:center">
     <asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses">
         <Columns>
             <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
@@ -22,6 +23,8 @@
         </asp:TemplateField>
         </Columns>
     </asp:GridView>
+                <br />
+                </div>
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
 select class.code, class.title, section.section_number, end_user.l_name 
 from class, section, end_user 
