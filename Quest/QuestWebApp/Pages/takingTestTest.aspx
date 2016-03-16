@@ -74,34 +74,40 @@ END;">
                     </div>
             </ItemTemplate>
         </asp:ListView>
-        <asp:ListView ID="lvMultipleChoiceQuestions" runat="server">
+        <asp:ListView ID="lvMultipleChoiceQuestions" runat="server" DataSourceID="sqlMultipleChoiceQuestions">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("before_sa_question") %>' runat="server" />
-                                    <asp:ListView ID="lvMultipleChoiceAnswers" runat="server">
-                    <ItemTemplate>
-                        <div class="mdl-cell mdl-cell--12-col">
-                            <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
-                                <div class="mdl-card__supporting-text" style="text-align: center">
+                                    <asp:Label ID="Label4" class="mdl-textfield__input" Text='<%# Eval("choice_id") %>' runat="server" Visible="false" />
+                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("question_text") %>' runat="server" />
+                           <asp:ListView ID="lvMultipleChoiceAnswers" runat="server" DataSourceID="sqlMultipleChoiceChoices">
+                                <ItemTemplate>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                        <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("before_sa_question") %>' runat="server" />
+                                        <asp:Label ID="Label4" class="mdl-textfield__input" Text='<%# Eval("choice_id") %>' runat="server" Visible="false" />
+                                        <asp:RadioButton ID="RadioButton1" class="mdl-textfield__input" Text='<%# Eval("choice_text") %>' runat="server" GroupName="Choices" />
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                                    </asp:ListView>
+                                </ItemTemplate>
+                            </asp:ListView>
                                 </div>
                             </div>
                         </div>
                     </div>
             </ItemTemplate>
         </asp:ListView>
+    <asp:SqlDataSource ID="sqlMultipleChoiceQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+select question.question_id quest_id, question_multiple_choice.choice_id choice_id, question_multiple_choice.question_text question_text
+from   question, question_multiple_choice
+where  question.test_id = 1 
+and    question.question_id = question_multiple_choice.question_id"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlMultipleChoiceChoices" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select question.question_id quest_id, 
+       question_multiple_choice_body.choice_id choice_id, 
+       question_multiple_choice_body.choice_text choice_text
+from question, question_multiple_choice_body
+where question.test_id = 1 
+and question.question_id = question_multiple_choice_body.question_id"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlShortAnswerQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_short_answer.before_text before_sa_question, 
        question_short_answer.after_text after_sa_question, 

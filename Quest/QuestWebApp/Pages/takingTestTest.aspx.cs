@@ -12,7 +12,7 @@ namespace QuestWebApp.Pages
 {
     public partial class takingTestTest : System.Web.UI.Page
     {
-        //string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["ConnectionString"].ToString();
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,8 +29,10 @@ namespace QuestWebApp.Pages
             {
                 if (((RadioButton)question.FindControl("rdbTrue")).Checked == true)
                     TFAnswer = "T";
-                else
+                else if (((RadioButton)question.FindControl("rdbFalse")).Checked == true)
                     TFAnswer = "F";
+                else
+                    TFAnswer = "N";
 
                 OracleCommand cmdAddTFQuestion = new OracleCommand(@"
 
@@ -49,15 +51,8 @@ END;",
                 cmdAddTFQuestion.ExecuteNonQuery();
 
                 cmdAddTFQuestion.Connection.Close();
-                /* txtTestAnswer.Text += "/" + ((Label)question.FindControl("Label1")).Text + ", ";
-                 if (((RadioButton)question.FindControl("rdbTrue")).Checked == true)
-                     txtTestAnswer.Text += "T";
-                 else
-                     txtTestAnswer.Text += "F"; */
             }
             
-
-            // TODO: Need to pass the answer to the database?
             foreach(ListViewItem question in lvEssayQuestions.Items)
             {
                 OracleCommand cmdAddEQuestion = new OracleCommand(@"
@@ -67,6 +62,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID);
 END;",
              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                
                 //TODO: need to worry about the test_id when needed ----v
                 cmdAddEQuestion.Parameters.AddWithValue("p_TestTakenID", 1);
                 cmdAddEQuestion.Parameters.AddWithValue("p_QuestionID", ((Label)question.FindControl("Label1")).Text);
@@ -97,6 +93,7 @@ END;",
 
                 cmdAddSAQuestion.Connection.Close();
             }
+
         }
 
     }
