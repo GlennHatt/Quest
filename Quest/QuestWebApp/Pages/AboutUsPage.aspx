@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>About Us</title>
-
+    
 
     <!-- Material Design Lite -->
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
@@ -254,10 +254,10 @@
                                     <div class="mdl-card__RPGInfo">        
                             
                     <div class="mdl-card__supporting-text" style="text-align:center">
+                        <img src="../Assets/Images/Team%20Pics/RPG.smaller%20copy01160307.jpg" style="width:104%; padding-left: 10%;" />
                         <br />
                         <br />
-                        <br />
-                        <p style="font-size: 175%;">
+                        <p style="font-size: 175%; padding-left: 10%;">
                            R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center. 
                            As every team member does their part, they have created the Quest Testing Center.
                         </p>
@@ -279,10 +279,10 @@
                 </h2>
                 <div class="mc-content">
                     <div class="img-container">
-                        <img class="img-responsive" src="../Assets/Images/glenn.jpg"/>
+                        <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy07160307.jpg" />
                     </div>
                     <div class="mc-description">
-                        <ul>
+                        <ul style ="font-size:100%;">
                             <li>Project Manager</li>
                             <li>Enjoys long walks on the beach</li>
                             <li>Database Expert</li>
@@ -295,10 +295,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-facebook"></a>
-                    <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
-                    <a class="fa fa-fw fa-google-plus"></a>
                     </div>
             </article>
                 </div>
@@ -313,14 +310,14 @@
                 </h2>
                 <div class="mc-content">
                     <div class="img-container">
-                        <img class="img-responsive" src="../Assets/Images/Ryan.jpg"/>
+                        <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy18160307.jpg" />
                     </div>
                     <div class="mc-description">
-                        <ul>
+                        <ul style ="font-size:100%;">
                             <li>Assistant Project Manager</li>
                             <li>Design Expert</li>
                             <li>A+ Certified</li>
-                            <li>Drinks 3 gallons of water a day</li>
+                            <li>Delights in Biking</li>
                             <li>Weekend bingo manager</li>
                             </ul>
                         </div>
@@ -329,10 +326,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-facebook"></a>
-                    <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
-                    <a class="fa fa-fw fa-google-plus"></a>
                     </div>
             </article>
                 </div>
@@ -342,20 +336,20 @@
                     <span style="color:white">Jesse Upchurch</span>
                     <strong style="color:white">
                         <i class="material-icons testAlert" style="color:white">fitness_center</i>
-                        Work-Out Junkie
+                        Work-Out Zealot
                     </strong>
                 </h2>
                 <div class="mc-content">
                     <div class="img-container">
-                        <img class="img-responsive" src="../Assets/Images/Jesse.jpg"/>
+                        <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy03160307.jpg" />
                     </div>
                     <div class="mc-description">
-                        <ul>
-                            <li>Secretary</li>
-                            <li>Back-end Genuis</li>
-                            <li>Working out is REQUIRED</li>
-                            <li>D.C. Reppin</li>
-                            <li>Part-time dog surfing instructor</li>
+                        <ul style ="font-size:100%;">
+                            <li>Project Secretary</li>
+                            <li>Runs on Pre-Workout</li>
+                            <li>Does Heavy Lifting</li>
+                            <li>NOVA/DMV</li>
+                            <li>Early Bird</li>
                             </ul>
                         </div>
                 </div>
@@ -363,10 +357,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-facebook"></a>
-                    <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
-                    <a class="fa fa-fw fa-google-plus"></a>
                     </div>
             </article>
                     </div>
@@ -381,15 +372,15 @@
                 </h2>
                 <div class="mc-content">
                     <div class="img-container">
-                        <img class="img-responsive" src="../Assets/Images/zo.jpg"/>
+                        <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy29160307.jpg" />
                 </div>
                     <div class="mc-description">
-                        <ul>
-                            <li>Scheduler</li>
+                        <ul style ="font-size:100%;">
+                            <li>Project Scheduler</li>
                             <li>A Poet</li>
-                            <li>5'5 and proud</li>
-                            <li>In and Out Burger ALL DAY, EveryDay. </li>
-                            <li>Part-time horseback rider</li>
+                            <li>5'5" and Proud of it</li>
+                            <li>In and Out Burger ALL DAY, EVERYDAY. </li>
+                            <li>California Kid</li>
                             </ul>
                         </div>
                 </div>
@@ -398,9 +389,7 @@
                 </a>
                 <div class="mc-footer">
                     <a class="fa fa-fw fa-facebook"></a>
-                    <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
-                    <a class="fa fa-fw fa-google-plus"></a>
                     </div>
             </article>
                     </div>
@@ -415,11 +404,11 @@
                 </h2>
                 <div class="mc-content">
                     <div class="img-container">
-                        <img class="img-responsive" src="../Assets/Images/you.jpg"/>
+                        <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy10160307.jpg" />
                 </div>
                     <div class="mc-description">
                             <br />
-                            <ul style="font-size:100%">
+                            <ul style ="font-size:100%;">
                             <li>Team Member 5</li>
                             <li>Ball is life</li>
                             <li>Jerusalem is his crib</li>
@@ -432,10 +421,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-facebook"></a>
-                    <a class="fa fa-fw fa-twitter"></a>
                     <a class="fa fa-fw fa-linkedin"></a>
-                    <a class="fa fa-fw fa-google-plus"></a>
                 </div>
             </article>
       </div>

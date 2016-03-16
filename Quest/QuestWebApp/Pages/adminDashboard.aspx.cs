@@ -63,25 +63,11 @@ namespace QuestWebApp.Pages
         {
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
-
-            lblFnameError.Visible = false;
-            lblLnameError.Visible = false;
-            lblEmailError.Visible = false;
-            lblPassError.Visible = false;
-            lblConfirmPassError.Visible = false;
-            lblPassWeak.Visible = false;
-            lblUserTypeError.Visible = false;
-            lblClassNumError.Visible = false;
-            lblClasstitleError.Visible = false;
-            lblSemesterError.Visible = false;
-            lblSectionError.Visible = false;
-            lblAddSectionCourseError.Visible = false;
-            lblTeacherError.Visible = false;
             
             
             if (currentMonth >= 8 && ddlSemester.Items.Count == 0)
             {
-                ddlSemester.Items.Add(new ListItem("Semester:"));
+                //ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
                 ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 1)));
@@ -90,7 +76,7 @@ namespace QuestWebApp.Pages
             }
             else if (ddlSemester.Items.Count == 0)
             {
-                ddlSemester.Items.Add(new ListItem("Semester:"));
+                //ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Spring " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
@@ -111,31 +97,23 @@ namespace QuestWebApp.Pages
 
             if (txtbxTeacherFirstName.Text == String.Empty)
             {
-                //lblWarning.Text += "First name empty;";
                 txtbxTeacherFirstName.BorderColor = Color.Red;
                 errorCount++;
-                lblFnameError.Visible = true;
             }
             if (txtbxTeacherLastName.Text == String.Empty)
             {
-                //lblWarning.Text += " Last name empty;";
                 txtbxTeacherLastName.BorderColor = Color.Red;
                 errorCount++;
-                lblLnameError.Visible = true;
             }
             if (txtbxTeacherEmail.Text == String.Empty)
             {
-                //lblWarning.Text += " Email empty;";
                 txtbxTeacherEmail.BorderColor = Color.Red;
                 errorCount++;
-                lblEmailError.Visible = true;
             }
             if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
             {
-               // lblWarning.Text += " Password empty;";
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
                 errorCount++;
-                lblPassError.Visible = true;
             }
             else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
             {
@@ -144,7 +122,7 @@ namespace QuestWebApp.Pages
                 if(passwordStrength == "Weak" || passwordStrength == "VeryWeak")
                 {
                     //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
-                    lblPassWeak.Visible = true;
+                   // lblPassWeak.Visible = true;
                     //lblWarning.Text = " Password is " + passwordStrength + ";";
                     errorCount++;
                 }
@@ -152,18 +130,13 @@ namespace QuestWebApp.Pages
             else
             {
                 txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-                //lblWarning.Text = " Passwords are not identical;";
-                lblConfirmPassError.Visible = true;
-                //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
                 errorCount++;
             }
 
             if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
             {
                 ddlUserSelect.BorderColor = Color.Red;
-               // lblWarning.Text += " Select User Type";
                 errorCount++;
-                lblUserTypeError.Visible = true;
             }
             
             if(errorCount == 0)
@@ -181,9 +154,7 @@ namespace QuestWebApp.Pages
             if(txtbxClassTitle.Text == String.Empty)
             {
                 txtbxClassTitle.BorderColor = Color.Red;
-                //lblWarning.Text += " Enter Class Title;";
                 errorCount++;
-                lblClasstitleError.Visible = true;
             }
 
             // TODO: Validate course number
@@ -191,8 +162,6 @@ namespace QuestWebApp.Pages
             if(txtbxCourseNumber.Text == String.Empty)
             {
                 txtbxCourseNumber.BorderColor = Color.Red;
-                //lblWarning.Text += " Enter Course Number";
-                lblClassNumError.Visible = true;
                 errorCount++;
             }
 
@@ -210,28 +179,24 @@ namespace QuestWebApp.Pages
             if(ddlSemester.SelectedIndex == 0)
             {
                 ddlSemester.BorderColor = Color.Red;
-                lblSemesterError.Visible = true;
                 errorCount++;
             }
 
             if(ddlSection.SelectedIndex == 0)
             {
                 ddlSection.BorderColor = Color.Red;
-                lblSectionError.Visible = true;
                 errorCount++;
             }
 
             if(ddlCourses.SelectedIndex == 0)
             {
                 ddlCourses.BorderColor = Color.Red;
-                lblAddSectionCourseError.Visible = true;
                 errorCount++;
             }
 
             if(ddlTeacher.SelectedIndex == 0)
             {
                 ddlTeacher.BorderColor = Color.Red;
-                lblTeacherError.Visible = true;
                 errorCount++;
             }
         }

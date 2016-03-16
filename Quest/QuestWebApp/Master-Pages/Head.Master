@@ -58,6 +58,7 @@
     <script src="../Assets/JS/dropdown.js"></script>
 
     <!-- Extra referances -->
+    <link href="../Assets/Styles/Misc.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="extraReferances" runat="server">
 
     </asp:ContentPlaceHolder>

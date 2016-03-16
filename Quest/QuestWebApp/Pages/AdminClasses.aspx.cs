@@ -13,5 +13,13 @@ namespace QuestWebApp.Pages
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (Button1.Text == "Hey Lorenzo")
+                Button1.Text = "Nice Socks";
+            else
+                Button1.Text = "Hey Lorenzo";
+        }
     }
 }

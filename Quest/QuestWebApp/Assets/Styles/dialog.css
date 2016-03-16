@@ -37,13 +37,6 @@
    z-index: -1;
 }
 
-.overbox .title {
-   color: #EE7600;
-}
-
-.overbox .title:before {
-   background: #EE7600;
-}
 
 .title {
    width: 100%;
@@ -94,8 +87,8 @@
 .input label,
 .input input,
 .input .spin,
-.button,
-.button button {
+/*.button,
+.button button*/ {
    width: 100%;
    float: left;
 }
@@ -172,8 +165,8 @@
    left: 20%;
 }
 
-.button.login button,
-.button button {
+.button.login /*button,
+.button button*/ {
    width: 100%;
    line-height: 64px;
    left: 0%;
@@ -194,7 +187,7 @@
 
 .button button {
    background-color: #fff;
-   color: #ED2553;
+   color: #EE7600;
    border: none;
 }
 
@@ -307,7 +300,7 @@
    width: 140px;
    height: 140px;
    border-radius: 50%;
-   background: #ED2553;
+   background: #EE7600;
    position: absolute;
    bottom: 0px;
    right: 2px;
@@ -345,12 +338,14 @@
 .alt-2 .shape:before {
    width: 25px;
    height: 4px;
+   display:none;
 }
 
 .material-button .shape:after,
 .alt-2 .shape:after {
    height: 25px;
    width: 4px;
+   display:none;
 }
 
 .material-button.active,
@@ -363,12 +358,7 @@
 }
 
 body {
-   background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   min-height: 100vh;
-   font-family: 'Roboto', sans-serif;
+  
 }
 
 body,

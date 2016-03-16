@@ -40,12 +40,21 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblcurGrade;
         
         /// <summary>
-        /// btnCreateTest control.
+        /// txtbxMessageSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCreateTest;
+        protected global::System.Web.UI.WebControls.TextBox txtbxMessageSubject;
+        
+        /// <summary>
+        /// btnSendMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSendMessage;
     }
 }

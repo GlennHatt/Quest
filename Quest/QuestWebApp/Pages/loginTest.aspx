@@ -11,7 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
     <div style="text-align: center; color: white">
-        <h1 style="font-family: 'Quicksand', sans-serif; font-weight: bold">Quest Testing Center!
+        <h1 style="font-family: 'Quicksand',sans-serif; text-align:center; font-weight: bold; font-size:600%" >Quest Testing Center!
             <br />
         </h1>
     </div>
@@ -32,17 +32,17 @@
             <div class="button login" style="text-align: center;">
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" style="color:white" OnClick="loginButton_Click" />
                 <br />
-                <div style="text-align: center; font-size: 13px;">
+                <div style="text-align: center; font-size:13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
             </div>
             <div style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</div>
         </div>
     </div>
-    <div style="text-align: right; color: white; margin-top: 590px; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">
+    <div style="position: absolute; bottom: 38px; width: 320px; right: 0px; color: white; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">
         Product of RPG
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
     </div>
-    <div class="buttonDiscover" style="text-align: right; margin-right: 100px;">
+    <div class="buttonDiscover" style= "position: absolute; bottom: 0px; width: 162px; right: 83px;">
         <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
     </div>
 </asp:Content>

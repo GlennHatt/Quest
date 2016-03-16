@@ -20,19 +20,21 @@
     <div class="demo-card-wide mdl-card mdl-shadow--3dp" style="text-align: center">
         <div class="mdl-card__supporting-text" style="text-align: center">
             <h1>Test Time!</h1>
-            <div style="font-size: 17pt">
+            <div style="font-size: 150%">
                 You have
                             <asp:Label runat="server"> 0 </asp:Label>
                 minutes to finish your Test! Good Luck!
             </div>
             <br />
             <br />
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                Take Test
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                I'm Not Ready
-            </button>
+            <asp:linkbutton runat="server" id="btnNotReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px" ForeColor="#FF3300">
+            I am NOT Ready
+            </asp:linkbutton>
+            <asp:linkbutton runat="server" id="btnReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px">
+            I am Ready
+            </asp:linkbutton>
+            <br />
+            <br />
             <br />
             <br />
         </div>
