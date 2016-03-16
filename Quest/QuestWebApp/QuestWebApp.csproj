@@ -112,11 +112,11 @@
     <Content Include="Assets\Images\mountainwoods.jpg" />
     <Content Include="Assets\Images\quest.ico" />
     <Content Include="Assets\Images\quest.png" />
+    <Content Include="Assets\Images\Team Pics\RPG.smaller copy10160307.jpg" />
     <Content Include="Assets\Images\Ryan.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy01160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy03160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy07160307.jpg" />
-    <Content Include="Assets\Images\Team Pics\RPG.smaller copy10160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy18160307.jpg" />
     <Content Include="Assets\Images\Team Pics\RPG.smaller copy29160307.jpg" />
     <Content Include="Assets\Images\transparent - Copy.png" />
@@ -124,9 +124,11 @@
     <Content Include="Assets\Images\you.jpg" />
     <Content Include="Assets\Images\zo.jpg" />
     <Content Include="Assets\JS\AboutusJS.js" />
-    <None Include="Assets\JS\dialog.js.old" />
+    <Content Include="Assets\JS\DatePicker.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
+    <Content Include="Assets\JS\misc.js" />
+    <Content Include="Assets\JS\toastr.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
     <Content Include="App_Themes\ControlSkins\ControlSkins.skin" />
@@ -134,12 +136,14 @@
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
     <Content Include="Assets\Styles\AboutUs.css" />
+    <Content Include="Assets\Styles\DatePicker.css" />
     <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\dialog.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
     <Content Include="Assets\Styles\Misc.css" />
     <Content Include="Assets\Styles\styles.css" />
+    <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
     <Content Include="Content\mdl-v1.0.5\material.js" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />
@@ -156,12 +160,13 @@
     <Content Include="Master-Pages\Head.Master" />
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
-    <Content Include="Pages\AboutUsPage.aspx" />
-    <Content Include="Pages\AdminClasses.aspx" />
+    <Content Include="Pages\aboutUsPage.aspx" />
+    <Content Include="Pages\adminClass.aspx" />
+    <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
-    <Content Include="Pages\StudentScores.aspx" />
+    <Content Include="Pages\studentScores.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -172,16 +177,13 @@
     <Content Include="Pages\adminDashboard.aspx" />
     <Content Include="Pages\classesList.aspx" />
     <Content Include="Pages\endUserList.aspx" />
-    <Content Include="Pages\PledgePage.aspx" />
-    <Content Include="Pages\StudentDashboard.aspx" />
+    <Content Include="Pages\pledgePage.aspx" />
+    <Content Include="Pages\studentDashboard.aspx" />
     <Content Include="Pages\studentTeachersandClasses.aspx" />
-    <Content Include="Pages\TeacherDashboard.aspx" />
-    <Content Include="Pages\loginTest.aspx" />
-    <Content Include="Pages\nosidebarTest.aspx" />
+    <Content Include="Pages\teacherDashboard.aspx" />
+    <Content Include="Pages\login.aspx" />
     <Content Include="Pages\takingTestTest.aspx" />
-    <Content Include="Pages\teacherTest.aspx" />
-    <Content Include="Pages\TestCreation.aspx" />
-    <Content Include="Pages\WebForm1.aspx" />
+    <Content Include="Pages\testCreation.aspx" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="scripts\jquery-2.2.0.min.map" />
@@ -212,6 +214,8 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="test pond\template\index.html" />
     <Content Include="test pond\template\styles.css" />
+    <Content Include="test pond\withoutSidebar.aspx" />
+    <Content Include="test pond\withSidebar.aspx" />
     <Content Include="test pond\zoPractice.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -219,6 +223,27 @@
     <Content Include="App_Code\utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\aboutUsPage.aspx.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
+      <DependentUpon>aboutUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminClass.aspx.cs">
+      <DependentUpon>adminClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminClass.aspx.designer.cs">
+      <DependentUpon>adminClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminUser.aspx.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminUser.aspx.designer.cs">
+      <DependentUpon>adminUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\classesList.aspx.cs">
       <DependentUpon>classesList.aspx</DependentUpon>
@@ -290,20 +315,6 @@
     <Compile Include="Master-Pages\withSidebar.master.designer.cs">
       <DependentUpon>withSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AboutUsPage.aspx.designer.cs">
-      <DependentUpon>AboutUsPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\AdminClasses.aspx.designer.cs">
-      <DependentUpon>AdminClasses.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\adminDashboard.aspx.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -311,12 +322,12 @@
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PledgePage.aspx.cs">
-      <DependentUpon>PledgePage.aspx</DependentUpon>
+    <Compile Include="Pages\pledgePage.aspx.cs">
+      <DependentUpon>pledgePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\PledgePage.aspx.designer.cs">
-      <DependentUpon>PledgePage.aspx</DependentUpon>
+    <Compile Include="Pages\pledgePage.aspx.designer.cs">
+      <DependentUpon>pledgePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -332,26 +343,26 @@
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StudentDashboard.aspx.cs">
+    <Compile Include="Pages\studentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\StudentDashboard.aspx.designer.cs">
-      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\studentDashboard.aspx.designer.cs">
+      <DependentUpon>studentDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\loginTest.aspx.cs">
-      <DependentUpon>loginTest.aspx</DependentUpon>
+    <Compile Include="Pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\loginTest.aspx.designer.cs">
-      <DependentUpon>loginTest.aspx</DependentUpon>
+    <Compile Include="Pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\nosidebarTest.aspx.cs">
-      <DependentUpon>nosidebarTest.aspx</DependentUpon>
+    <Compile Include="Pages\studentScores.aspx.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\nosidebarTest.aspx.designer.cs">
-      <DependentUpon>nosidebarTest.aspx</DependentUpon>
+    <Compile Include="Pages\studentScores.aspx.designer.cs">
+      <DependentUpon>studentScores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentTeachersandClasses.aspx.cs">
       <DependentUpon>studentTeachersandClasses.aspx</DependentUpon>
@@ -367,19 +378,12 @@
     <Compile Include="Pages\studentPreTest.aspx.designer.cs">
       <DependentUpon>studentPreTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\StudentScores.aspx.cs">
-      <DependentUpon>StudentScores.aspx</DependentUpon>
+    <Compile Include="Pages\teacherDashboard.aspx.cs">
+      <DependentUpon>teacherDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\StudentScores.aspx.designer.cs">
-      <DependentUpon>StudentScores.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TeacherDashboard.aspx.cs">
-      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TeacherDashboard.aspx.designer.cs">
-      <DependentUpon>TeacherDashboard.aspx</DependentUpon>
+    <Compile Include="Pages\teacherDashboard.aspx.designer.cs">
+      <DependentUpon>teacherDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
@@ -388,26 +392,12 @@
     <Compile Include="Pages\takingTestTest.aspx.designer.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\teacherTest.aspx.cs">
-      <DependentUpon>teacherTest.aspx</DependentUpon>
+    <Compile Include="Pages\testCreation.aspx.cs">
+      <DependentUpon>testCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\teacherTest.aspx.designer.cs">
-      <DependentUpon>teacherTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TestCreation.aspx.cs">
-      <DependentUpon>TestCreation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TestCreation.aspx.designer.cs">
-      <DependentUpon>TestCreation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Pages\testCreation.aspx.designer.cs">
+      <DependentUpon>testCreation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test pond\Database.aspx.cs">
@@ -437,6 +427,20 @@
     </Compile>
     <Compile Include="test pond\dropdownTest.aspx.designer.cs">
       <DependentUpon>dropdownTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withoutSidebar.aspx.designer.cs">
+      <DependentUpon>withoutSidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test pond\withSidebar.aspx.designer.cs">
+      <DependentUpon>withSidebar.aspx</DependentUpon>
     </Compile>
     <Compile Include="test pond\zoPractice.aspx.cs">
       <DependentUpon>zoPractice.aspx</DependentUpon>

@@ -9,15 +9,31 @@ namespace QuestWebApp.Pages
 {
     public partial class studentTeachersandClasses : System.Web.UI.Page
     {
+        bool showMessage;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["showMessage"] != null)
+                showMessage = (bool)Session["showMessage"];
+            else
+                showMessage = false;
 
+
+
+            // showMessage = Convert.ToBoolean(ViewState["showMessage"]);
+            if (showMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Message has been sent', 'Success!')", true);
+                Session["showMessage"] = false;
+            }
         }
 
         protected void btnSendMessage_Click(object sender, EventArgs e)
         {
-
+            showMessage = true;
+            Session["showMessage"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
         }
-
     }
 }

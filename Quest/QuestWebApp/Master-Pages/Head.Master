@@ -57,8 +57,13 @@
     <script src='http://fian.my.id/marka/static/marka/js/marka.js'></script>
     <script src="../Assets/JS/dropdown.js"></script>
 
+    <!-- Toast styles -->
+    <link href="../Assets/Styles/toastr.css" rel="stylesheet" />
+    <script src="../Assets/JS/toastr.js"></script>
+
     <!-- Extra referances -->
     <link href="../Assets/Styles/Misc.css" rel="stylesheet" />
+    <script src="../Assets/JS/misc.js"></script>
     <asp:ContentPlaceHolder ID="extraReferances" runat="server">
 
     </asp:ContentPlaceHolder>

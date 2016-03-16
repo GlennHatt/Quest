@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
 {
-    public partial class StudentScores : System.Web.UI.Page
+    public partial class studentScores : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

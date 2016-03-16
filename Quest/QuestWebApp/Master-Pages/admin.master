@@ -10,8 +10,9 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
     <asp:ContentPlaceHolder ID="adminWithSidebarSidebar" runat="server" />
-    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i> Users</a>
-    <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">class</i> Classes</a>
+    <!--TODO Use ASP tags for links (~/) -->
+    <a class="mdl-navigation__link" href="../Pages/endUserList.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i> Users</a>
+    <a class="mdl-navigation__link" href="../Pages/adminClass.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">class</i> Classes</a>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
     <asp:ContentPlaceHolder ID="adminWithSidebarBodyContent" runat="server" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.AboutUsPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="aboutUsPage.aspx.cs" Inherits="QuestWebApp.Pages.aboutUsPage" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'/>
 
 </head>
-
+<body>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
       <div class="mdl-tabs__tab-bar">
           <a href="#starks-panel" class="mdl-tabs__tab is-active">Quest Testing Center</a>
@@ -43,7 +43,6 @@
                  color: 	#606060; 
                   
               }
-
           .demo-card-wide.mdl-card {
     width: 58%;
     margin: 0 auto;
@@ -57,21 +56,16 @@
     
     
   }      
-
   .demo-card-wide > .mdl-card__title {
     height: 50px;
   }
-
   
   .demo-card-wide > .mdl-card__titleQuest {
     height: 400px;
     background: url('../Assets/Images/quest.png') center / cover;
   }
-
     .demo-card-wide > .mdl-card__RPG {
     height: 400px;
-
-
   }
   .demo-card-wide > .mdl-card__menu {
     color: #fff;
@@ -259,7 +253,7 @@
                         <br />
                         <p style="font-size: 175%; padding-left: 10%;">
                            R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center. 
-                           As every team member does their part, they have created the Quest Testing Center.
+                           As every team member does his part, they have successfully created the Quest Testing Center.
                         </p>
                     </div>
                     </div>
@@ -304,7 +298,7 @@
                 <h2>
                     <span style="color:white">Ryan Carroll</span>
                     <strong style="color:white">
-                        <i class="fa fa-fw fa-star" style="color:white"></i>
+                        <i class="material-icons testAlert" style="color:white">directions_bike</i>
                         Design Master
                     </strong>
                 </h2>
@@ -318,7 +312,7 @@
                             <li>Design Expert</li>
                             <li>A+ Certified</li>
                             <li>Delights in Biking</li>
-                            <li>Weekend bingo manager</li>
+                            <li><a href="https://www.biblegateway.com/passage/?search=Matthew+5%3A8&version=AKJV" target="_blank">Matthew 5:8</a></li>
                             </ul>
                         </div>
                     </div>
@@ -326,7 +320,7 @@
                     <i class="fa fa-bars" style="color:white"></i>
                 </a>
                 <div class="mc-footer">
-                    <a class="fa fa-fw fa-linkedin"></a>
+                    <a href="https://www.linkedin.com/in/carrollmedia" target="_blank" class="fa fa-fw fa-linkedin"></a>
                     </div>
             </article>
                 </div>
@@ -377,10 +371,10 @@
                     <div class="mc-description">
                         <ul style ="font-size:100%;">
                             <li>Project Scheduler</li>
-                            <li>A Poet</li>
                             <li>5'5" and Proud of it</li>
                             <li>In and Out Burger ALL DAY, EVERYDAY. </li>
                             <li>California Kid</li>
+                            <li>Romans 8:38-39</li>
                             </ul>
                         </div>
                 </div>
@@ -411,9 +405,9 @@
                             <ul style ="font-size:100%;">
                             <li>Team Member 5</li>
                             <li>Ball is life</li>
-                            <li>Jerusalem is his crib</li>
-                            <li>Ball is life</li>
-                            <li>Part-time fortune cookie writer </li>
+                            <li>Video Game Master(Chief)</li>
+                            <li>He's Probably Read That </li>
+                            <li>Psalm 91:2</li>
                             </ul>
                         </div>
                     </div>
@@ -426,6 +420,7 @@
             </article>
       </div>
     </div>
+</body>
 </section>
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
       <script src="../Assets/JS/AboutusJS.js"></script>

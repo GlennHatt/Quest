@@ -10,33 +10,24 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class AdminClasses {
+    public partial class AdminUser {
         
         /// <summary>
-        /// GridView1 control.
+        /// GVUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GVUser;
         
         /// <summary>
-        /// sqlAdminClasses control.
+        /// sqlAdminUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlAdminClasses;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAdminUsers;
     }
 }

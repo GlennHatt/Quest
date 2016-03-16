@@ -7,369 +7,333 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Pages {
+namespace QuestWebApp.test_pond {
     
     
-    public partial class questionCreation {
+    public partial class withSidebar {
         
         /// <summary>
-        /// lblAddWeight control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddWeight;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtAddWeight control.
+        /// RadioButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddWeight;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
         
         /// <summary>
-        /// lblAddType control.
+        /// RadioButton2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddType;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
         
         /// <summary>
-        /// rblAddType control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblAddType;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// tblAddEssay control.
+        /// RadioButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddEssay;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
         
         /// <summary>
-        /// lblAddEssayText control.
+        /// RadioButton4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddEssayText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton4;
         
         /// <summary>
-        /// txtAddEssayText control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddEssayText;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// sqlAddMatchingQuestion control.
+        /// RadioButton5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlAddMatchingQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton5;
         
         /// <summary>
-        /// tblMatchingSection control.
+        /// RadioButton6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblMatchingSection;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton6;
         
         /// <summary>
-        /// lblAddMatchingText control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMatchingText;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// txtAddMatchingText control.
+        /// RadioButton7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddMatchingText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton7;
         
         /// <summary>
-        /// lblAddMatchingAnswer control.
+        /// RadioButton8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMatchingAnswer;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton8;
         
         /// <summary>
-        /// lblAddMatchingQuestion control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMatchingQuestion;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// btnAddMatchingQuestion control.
+        /// RadioButton9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddMatchingQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton9;
         
         /// <summary>
-        /// txtAddMatchingAnswer control.
+        /// RadioButton10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddMatchingAnswer;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton10;
         
         /// <summary>
-        /// txtAddMatchingQuestion control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddMatchingQuestion;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// grdAddMatchingQuestion control.
+        /// RadioButton11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdAddMatchingQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton11;
         
         /// <summary>
-        /// sqlMultipleChoiceBody control.
+        /// RadioButton12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlMultipleChoiceBody;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton12;
         
         /// <summary>
-        /// tblAddMultipleChoice control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddMultipleChoice;
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// lblAddMutipleChoiceQuestion control.
+        /// RadioButton13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMutipleChoiceQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton13;
         
         /// <summary>
-        /// txtAddMultipleChoiceQuestion control.
+        /// RadioButton14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddMultipleChoiceQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton14;
         
         /// <summary>
-        /// lblAddMultipleChoiceAnswer control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMultipleChoiceAnswer;
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// lblAddMultipleChoiceBody control.
+        /// RadioButton15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMultipleChoiceBody;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton15;
         
         /// <summary>
-        /// btnNewMultipleChoice control.
+        /// RadioButton16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewMultipleChoice;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton16;
         
         /// <summary>
-        /// chkMultipleChoiceAnswer control.
+        /// Label9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMultipleChoiceAnswer;
+        protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// txtMultipleChoiceBody control.
+        /// RadioButton17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMultipleChoiceBody;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton17;
         
         /// <summary>
-        /// grdMultipleChoiceBody control.
+        /// RadioButton18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdMultipleChoiceBody;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton18;
         
         /// <summary>
-        /// tblAddShortAnswer control.
+        /// Label10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddShortAnswer;
+        protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// lblBeforeText control.
+        /// RadioButton19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBeforeText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton19;
         
         /// <summary>
-        /// lblAnswerText control.
+        /// RadioButton20 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAnswerText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton20;
         
         /// <summary>
-        /// lblAfterText control.
+        /// Label11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAfterText;
+        protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// txtBeforeText control.
+        /// RadioButton21 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBeforeText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton21;
         
         /// <summary>
-        /// txtAnswerText control.
+        /// RadioButton22 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnswerText;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton22;
         
         /// <summary>
-        /// txtAfterText control.
+        /// Label12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAfterText;
+        protected global::System.Web.UI.WebControls.Label Label12;
         
         /// <summary>
-        /// tblAddTrueFalse control.
+        /// RadioButton23 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddTrueFalse;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton23;
         
         /// <summary>
-        /// lblAddTFQuestion control.
+        /// RadioButton24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddTFQuestion;
-        
-        /// <summary>
-        /// txtAddTFQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddTFQuestion;
-        
-        /// <summary>
-        /// lblAddTFAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddTFAnswer;
-        
-        /// <summary>
-        /// rblAddTFAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblAddTFAnswer;
-        
-        /// <summary>
-        /// btnAddQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddQuestion;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton24;
     }
 }

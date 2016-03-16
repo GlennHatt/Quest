@@ -10,6 +10,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
+    <script></script>
     <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
 DECLARE
   v_dummy pls_integer;
@@ -45,16 +46,28 @@ END;"
         </InsertParameters>
     </asp:SqlDataSource> 
 
-    <main class="mdl-layout__content">
+
+    
+
+    <main class="mdl-layout__content" >
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
 
                 <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red"></asp:Label>
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        Card Size:<br />
+
+                        <!-- Hidden links for navigating to cards -->
+                        <a id="cardUserLink" href="#cardUser" style="display:none;"></a>
+                        <a id="cardNewClassLink" href="#cardNewClass" style="display:none;"></a>
+                        <a id="cardNewSectionLink" href="#cardNewSection" style="display:none;"></a>
+
+                        <button style="background-color: #FF6E40;" ID="btnResizeUserSm" disabled="disabled" onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeUserLrg"  onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add New User</h1>
-                        <!-- Textfield with Floating Label for teacher First name -->
+                        <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtbxTeacherFirstName" ErrorMessage="Please enter first name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
@@ -85,7 +98,7 @@ END;"
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
                                                             <!-- Multiline Tooltip -->
- <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;">help</div>
+ <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
 <div class="mdl-tooltip" for="helpIconPass">
 Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
                         </div>
@@ -132,9 +145,12 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
 
 
             <!-- Card for adding a class -->
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardNewClass" class="mdl-cell mdl-cell--4-col">
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        Card Size:<br />
+                        <button style="background-color: #FF6E40;" ID="btnResizeClassSm" disabled="disabled" onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeClassLrg"  onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add a Class </h1>
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -156,7 +172,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
                             <asp:LinkButton ID="btnAddClass" ValidationGroup="grpAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click">
-                                <i class="material-icons">add</i>
+                                <i id="myTest" class="material-icons">add</i>
                             </asp:LinkButton>
                         </div>
                     </div>
@@ -164,12 +180,15 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
             </div>
 
             <!-- Card for adding a section to a course -->
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardNewSection" class="mdl-cell mdl-cell--4-col">
 
-                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height: 575px;">
+                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="padding-bottom:1%">
 
 
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        Card Size: <br >
+                        <button style="background-color: #FF6E40;" ID="btnResizeSectionSm" disabled="disabled" onclick="changeUserCardSize('cardNewSection', 'btnResizeSectionSm', 'btnResizeSectionLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeSectionLrg"  onclick="changeUserCardSize('cardNewSection', 'btnResizeSectionSm', 'btnResizeSectionLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add a Section </h1>
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Semester:</Label>
@@ -232,6 +251,5 @@ where permission_level = 'T'"></asp:SqlDataSource>
     <asp:ScriptManager ID="jquery" runat="server"></asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
-    <script src="../Assets/JS/loginJS.js"></script>
     <script src="../Assets/JS/loginJS.js"></script>
 </asp:Content>

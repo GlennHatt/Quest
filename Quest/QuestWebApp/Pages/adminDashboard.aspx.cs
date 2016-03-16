@@ -11,6 +11,9 @@ namespace QuestWebApp.Pages
 {
     public partial class adminDashboard : System.Web.UI.Page
     {
+        bool showAddUserMessage,
+             showAddClassMessage,
+             showAddSectionMessage;
 
         // Work in progress ------------------------------------
         public enum PasswordScore
@@ -63,8 +66,49 @@ namespace QuestWebApp.Pages
         {
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
-            
-            
+
+            // toast notifications 
+            if (Session["showAddUserMessage"] != null)
+                showAddUserMessage = (bool)Session["showAddUserMessage"];
+            else
+                showAddUserMessage = false;
+
+            if (Session["showAddClassMessage"] != null)
+                showAddClassMessage = (bool)Session["showAddClassMessage"];
+            else
+                showAddClassMessage = false;
+
+            if (Session["showAddSectionMessage"] != null)
+                showAddSectionMessage = (bool)Session["showAddSectionMessage"];
+            else
+                showAddSectionMessage = false;
+
+
+            if (showAddUserMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('User has been added', 'Success!')", true);
+                Session["showAddUserMessage"] = false;
+            }
+
+            if (showAddClassMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Class has been added', 'Success!')", true);
+                Session["showAddClassMessage"] = false;
+            }
+
+            if (showAddSectionMessage == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Section has been added', 'Success!')", true);
+                Session["showAddSectionMessage"] = false;
+            }
+
+
             if (currentMonth >= 8 && ddlSemester.Items.Count == 0)
             {
                 //ddlSemester.Items.Add(new ListItem("Semester:"));
@@ -83,6 +127,10 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 1)));
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
             }
+
+            // Reset the sizing buttons on page refresh
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtons", "pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');", true);
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtonsLrg", "pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg'); ", true);
 
 
         }
@@ -122,7 +170,7 @@ namespace QuestWebApp.Pages
                 if(passwordStrength == "Weak" || passwordStrength == "VeryWeak")
                 {
                     //txtbxTeacherPassword.BorderColor = txtbxStudentConfirmPassword.BorderColor = Color.Red;
-                   // lblPassWeak.Visible = true;
+                    // lblPassWeak.Visible = true;
                     //lblWarning.Text = " Password is " + passwordStrength + ";";
                     errorCount++;
                 }
@@ -143,6 +191,11 @@ namespace QuestWebApp.Pages
             {
                 sqlTeacher.Insert();
                 clearUserFields();
+                ddlTeacher.DataBind();
+                // Toast
+                showAddUserMessage = true;
+                Session["showAddUserMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
 
@@ -150,8 +203,9 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
+            // TODO: Regex r = new Regex(ValidationExpression);
 
-            if(txtbxClassTitle.Text == String.Empty)
+            if (txtbxClassTitle.Text == String.Empty)
             {
                 txtbxClassTitle.BorderColor = Color.Red;
                 errorCount++;
@@ -169,6 +223,11 @@ namespace QuestWebApp.Pages
             {
                 sqlClass.Insert();
                 clearClassFields();
+                ddlCourses.DataBind();
+                // toast
+                showAddUserMessage = true;
+                Session["showAddClassMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
 
@@ -198,6 +257,14 @@ namespace QuestWebApp.Pages
             {
                 ddlTeacher.BorderColor = Color.Red;
                 errorCount++;
+            }
+
+            // TODO verify the section has been added
+            if (true)
+            {
+                showAddSectionMessage = true;
+                Session["showAddSectionMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
     }
