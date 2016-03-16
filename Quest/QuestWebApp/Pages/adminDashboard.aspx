@@ -49,7 +49,7 @@ END;"
 
     
 
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content" >
         <div class="content-grid mdl-grid">
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
@@ -58,7 +58,12 @@ END;"
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         Card Size:<br />
+
+                        <!-- Hidden links for navigating to cards -->
+                        <a id="cardUserLink" href="#cardUser" style="display:none;"></a>
                         <a id="cardNewClassLink" href="#cardNewClass" style="display:none;"></a>
+                        <a id="cardNewSectionLink" href="#cardNewSection" style="display:none;"></a>
+
                         <button style="background-color: #FF6E40;" ID="btnResizeUserSm" disabled="disabled" onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
                         <button style="background-color: #FF6E40;" ID="btnResizeUserLrg"  onclick="changeUserCardSize('cardUser', 'btnResizeUserSm', 'btnResizeUserLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add New User</h1>
@@ -175,12 +180,15 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
             </div>
 
             <!-- Card for adding a section to a course -->
-            <div class="mdl-cell mdl-cell--4-col">
+            <div id="cardNewSection" class="mdl-cell mdl-cell--4-col">
 
-                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="height: 575px;">
+                <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card" style="padding-bottom:1%">
 
 
                     <div class="mdl-card__supporting-text" style="text-align: center">
+                        Card Size: <br >
+                        <button style="background-color: #FF6E40;" ID="btnResizeSectionSm" disabled="disabled" onclick="changeUserCardSize('cardNewSection', 'btnResizeSectionSm', 'btnResizeSectionLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                        <button style="background-color: #FF6E40;" ID="btnResizeSectionLrg"  onclick="changeUserCardSize('cardNewSection', 'btnResizeSectionSm', 'btnResizeSectionLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add a Section </h1>
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Semester:</Label>
@@ -243,6 +251,5 @@ where permission_level = 'T'"></asp:SqlDataSource>
     <asp:ScriptManager ID="jquery" runat="server"></asp:ScriptManager>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
-    <script src="../Assets/JS/loginJS.js"></script>
     <script src="../Assets/JS/loginJS.js"></script>
 </asp:Content>

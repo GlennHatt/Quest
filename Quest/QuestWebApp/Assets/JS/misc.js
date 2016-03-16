@@ -7,6 +7,7 @@
         document.getElementById(SmButtonID).disabled = false;
         //document.getElementById('myTest').focus();
         //getFocused(cardID);
+        // All links must have an ID of the ID of the card + Link
         document.getElementById(cardID + 'Link').click();
 
     }
@@ -26,4 +27,18 @@ function getFocused(id)
         // document.getElementById("test").focus();
     });
 
+}
+
+// Reset the sizing buttons on page refresh
+function pageResetSmall()
+{
+    for (var i = 0; i < arguments.length; i++) {
+        document.getElementById(arguments[i]).disabled = true;
+    }
+}
+
+function pageResetLarge() {
+    for (var i = 0; i < arguments.length; i++) {
+        document.getElementById(arguments[i]).disabled = false;
+    }
 }
