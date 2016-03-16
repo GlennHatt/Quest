@@ -18,6 +18,11 @@ namespace QuestWebApp.Pages
         {
             // TODO: Session variable for test ID needed here
             int test_id = 1;
+
+            foreach (ListViewItem question in lvMultipleChoiceQuestions.Items)
+            {
+                lblMCIdentity.Text += ((Label)lvMultipleChoiceQuestions.FindControl("lblMCQuestion")).Text + " ";
+            }
         }
 
         protected void btnSubmitTest_Click(object sender, EventArgs e)
@@ -95,6 +100,5 @@ END;",
             }
 
         }
-
     }
 }
