@@ -40,6 +40,33 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder teacherExtraReferances;
         
         /// <summary>
+        /// create control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink create;
+        
+        /// <summary>
+        /// studentsandClasses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink studentsandClasses;
+        
+        /// <summary>
+        /// tests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink tests;
+        
+        /// <summary>
         /// teacherWithSidebarSidebar control.
         /// </summary>
         /// <remarks>
