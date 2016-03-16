@@ -128,6 +128,7 @@
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\JS\misc.js" />
+    <Content Include="Assets\JS\ResponsiveTable.js" />
     <Content Include="Assets\JS\toastr.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
@@ -142,6 +143,7 @@
     <Content Include="Assets\Styles\dialog.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
     <Content Include="Assets\Styles\Misc.css" />
+    <Content Include="Assets\Styles\ResponsiveTable.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
