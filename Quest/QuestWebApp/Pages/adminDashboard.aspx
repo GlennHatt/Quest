@@ -104,7 +104,7 @@ END;"
  <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
 <div class="mdl-tooltip" for="helpIconPass">
 Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
-</div>
+                        </div>
 
 
                         
@@ -137,7 +137,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                     </div>
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddTeacher" ValidationGroup="grpAddUser" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
+                        <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
