@@ -4,19 +4,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
+
+    <script src="../Assets/JS/Datepicker/moment.min.js"></script>
+    <script src="../Assets/JS/Datepicker/jquery-2.1.3.min.js"></script>
+    <script src="../Assets/JS/Datepicker/knockout-3.2.0.js"></script>
+    <script src="../Assets/JS/Datepicker/material.datepicker.js"></script>
+    <link href="../Assets/Styles/material.datepicker.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
-
-        <link rel="stylesheet" href="css/style.css">
+    
 
     <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
        JOIN class c USING (class_id)" />
-    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width:70%; right:-25%">
+    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width:70%; right:-16%; height:1200px;">
         <div style="text-align:center">
             <h1>Create A Test</h1>
         </div>
@@ -66,38 +71,22 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </asp:Calendar>
         </div>
         </div>
-        <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
         
-    <link href="../Assets/Styles/DatePicker.css" rel="stylesheet" />
-<input type="text" data-type="date" />
-<div id="material-header-holder" >
-  <div class="ui-datepicker-material-header">
-    <div class="ui-datepicker-material-day">
-    </div>
-    <div class="ui-datepicker-material-date">
-      <div class="ui-datepicker-material-month">
-      </div>
-      <div class="ui-datepicker-material-day-num">
-      </div>
-      <div class="ui-datepicker-material-year">
-      </div>
-    </div>
-  </div>
-</div>
+        
     
-    
-    </div> 
-    
+        <!-- start datepicker -->
+        <input id="field" style="font-size:16px;height:30px;border-radius:2px;border:1 solid gray;padding:0px 10px; display:none;" ><br><br>
+		<script>
+			var options = {};
+			$('#field').datepicker(options);
+		</script>
 
+        <!-- end datepicker -->
     
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js'></script>
-<script src="../Assets/JS/DatePicker.js"></script>
-        <script src="js/index.js"></script>
+    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
+    </div> 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 
-        <script src="../Assets/JS/DatePicker.js"></script>
-
+    
 </asp:Content>
