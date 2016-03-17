@@ -67,15 +67,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.ListView lvMultipleChoiceQuestions;
         
         /// <summary>
-        /// lvMultipleChoiceAnswers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvMultipleChoiceAnswers;
-        
-        /// <summary>
         /// lvMatchingQuestions control.
         /// </summary>
         /// <remarks>
@@ -85,13 +76,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.ListView lvMatchingQuestions;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// sqlMatchingQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlMatchingQuestions;
         
         /// <summary>
         /// sqlMultipleChoiceQuestions control.
