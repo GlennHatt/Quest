@@ -8,8 +8,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-    <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 850px;">
-<%--    <asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable2" ID="GVUser" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
+    <%--<div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 850px;">--%>
+<%--<asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable2" ID="GVUser" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
         <Columns>
             <asp:BoundField DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="FIRSTNAME" HeaderText="First Name" SortExpression="FIRSTNAME" />
@@ -22,19 +22,27 @@
             </ItemTemplate>
         </asp:TemplateField>
         </Columns>
-    </asp:GridView>--%>
-<div id="demo">
+    </asp:GridView>--%>--%>
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Material Design - Responsive Table</title>
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-    <script src="../Assets/JS/ResponsiveTable.js"></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src="js/index.js"></script>
+
+<link href="../Assets/Styles/ResponsiveTable.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    
         <link rel="stylesheet" href="css/style.css">
 
-        <link href="../Assets/Styles/ResponsiveTable.css" rel="stylesheet" />
-     
-  <h1>Material Design Responsive Table</h1>
-  <h2>Table of my other Material Design works (list was updated 08.2015)</h2>
-  
+  </head>
+
+  <body>
+
+    <div id="demo">
   <!-- Responsive table starts here -->
   <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
   <div class="table-responsive-vertical shadow-z-1">
@@ -133,10 +141,14 @@
       </tbody>
     </table>
   </div>
-</div>
-        </div>
-   
-    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+<script src="../Assets/JS/ResponsiveTable.js"></script>
+    </div>
+  </body>
+</html>
+
         	  <asp:SqlDataSource ID="sqlAdminUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select email Email, f_name FirstName, l_name LastName, password, permission_level Classification
 from end_user"></asp:SqlDataSource>
 </asp:Content>
