@@ -127,7 +127,8 @@
     <Content Include="Assets\JS\Datepicker\jquery-2.1.3.min.js" />
     <Content Include="Assets\JS\Datepicker\knockout-3.2.0.js" />
     <Content Include="Assets\JS\Datepicker\material.datepicker.js" />
-    <Content Include="Assets\JS\Datepicker\moment.min.js" />
+    <None Include="Assets\JS\Datepicker\moment.min.js.old" />
+    <Content Include="Assets\JS\Datepicker\moment.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\JS\misc.js" />

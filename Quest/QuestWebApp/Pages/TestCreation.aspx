@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
 
-    <script src="../Assets/JS/Datepicker/moment.min.js"></script>
+    <script src="../Assets/JS/Datepicker/moment.js"></script>
     <script src="../Assets/JS/Datepicker/jquery-2.1.3.min.js"></script>
     <script src="../Assets/JS/Datepicker/knockout-3.2.0.js"></script>
     <script src="../Assets/JS/Datepicker/material.datepicker.js"></script>
@@ -61,14 +61,14 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 <div style="text-align:center">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <asp:Label ID="lblDate" cssclass="mdl-textfield__input" runat="server" Text=" Due Date: " />
-    <asp:Calendar ID="cldrTestDay" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" NextPrevFormat="FullMonth">
+    <%--<asp:Calendar ID="cldrTestDay" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" NextPrevFormat="FullMonth">
         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
         <NextPrevStyle Font-Size="8pt" ForeColor="#333333" Font-Bold="True" VerticalAlign="Bottom" />
         <OtherMonthDayStyle ForeColor="#999999" />
         <SelectedDayStyle BackColor="#333399" ForeColor="White" />
         <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
         <TodayDayStyle BackColor="#CCCCCC" />
-    </asp:Calendar>
+    </asp:Calendar>--%>
         </div>
         </div>
         
@@ -82,7 +82,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 		</script>
 
         <!-- end datepicker -->
-    
+        <asp:DropDownList ID="ddltime" runat="server" class="mdl-textfield__input"></asp:DropDownList>
     <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
     </div> 
 </asp:Content>

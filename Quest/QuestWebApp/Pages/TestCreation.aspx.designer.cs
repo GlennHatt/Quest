@@ -76,13 +76,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblDate;
         
         /// <summary>
-        /// cldrTestDay control.
+        /// ddltime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldrTestDay;
+        protected global::System.Web.UI.WebControls.DropDownList ddltime;
         
         /// <summary>
         /// btnAddInfo control.
