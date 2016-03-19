@@ -8,8 +8,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
 
 <main class="mdl-layout__content">
-    
-    <%--<asp:Label ID="lblTesting" runat="server" Text="1"></asp:Label>--%>
     <br /><br />
     <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_true_false.question_text tf_question, question.question_id quest_id
@@ -28,6 +26,7 @@ END;">
     </asp:SqlDataSource>
     <asp:Label ID="lblMCIdentity" runat="server" Text="" Visible="true"></asp:Label>
 
+        <!-- TRUE/FALSE QUESTIONS -->
         <asp:ListView ID="lvTFQuestions" runat="server" DataSourceID="sqlTestQuestions">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
@@ -45,6 +44,7 @@ END;">
             </ItemTemplate>
         </asp:ListView>
 
+        <!-- ESSAY QUESTIONS -->
         <asp:ListView ID="lvEssayQuestions"  runat="server" DataSourceID="sqlEssayQuestions">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
@@ -61,6 +61,7 @@ END;">
             </ItemTemplate>
         </asp:ListView>
 
+        <!-- SHORT ANSWER QUESTIONS -->
         <asp:ListView ID="lvShortAnswerQuestions" runat="server" DataSourceID="sqlShortAnswerQuestions">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
@@ -78,6 +79,7 @@ END;">
             </ItemTemplate>
         </asp:ListView>
         
+        <!-- MULTIPLE CHOICE QUESTIONS -->
         <asp:ListView ID="lvMultipleChoiceQuestions" runat="server" DataSourceID="sqlMultipleChoiceQuestions">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
@@ -94,35 +96,38 @@ END;">
                     </div>
             </ItemTemplate>
         </asp:ListView>
-    <!--This stuff is for the layout of the matching questions. Work in progress.-->
-    <!--     <LayoutTemplate>
-                                <table>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </table>
-                            </LayoutTemplate> -->
 
-        <div class="mdl-cell mdl-cell--12-col">
+        <!-- MATCHING QUESTIONS -->
+        <div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                 <div class="mdl-card__supporting-text" style="text-align: center">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <asp:ListView ID="lvMatchingQuestions" runat="server" DataSourceID="sqlMatchingQuestions">
                             <ItemTemplate>
-                                <asp:Label ID="Label1" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_question") %>' runat="server" />
+                                <asp:CheckBox Id="Checkbox1" class="mdl-checkbox__input" Text='<%# Eval("matching_question")%>' runat="server" />
                                 <br />
-                                <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_answer")%>' runat="server"/>
-                                <br /><br />
                             </ItemTemplate>
                         </asp:ListView>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="mdl-cell mdl-cell--6-col">
+            <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                <div class="mdl-card__supporting-text" style="text-align: center">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <asp:ListView ID="lvMatchingAnswers" runat="server" DataSourceID="sqlMatchingQuestions">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" class="mdl-textfield" Text='<%# Eval("matching_answer")%>' runat="server"/>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--
     <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlMatchingQuestions"></asp:GridView>
+    -->
 
     <asp:SqlDataSource ID="sqlMatchingQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select question_matching.question_id quest_id, question_matching_body.question_text matching_question, question_matching_body.answer matching_answer
@@ -162,6 +167,30 @@ WHERE  question.TEST_ID = 1 and question.question_id = question_essay.question_i
     <asp:Button ID="btnSubmitTest" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" />
 </main>
 
+    <!-- This the code construction zone. Code may or may not be needed in this section-->
+<!--
+    --------layout template for matching questions----------     
+    <LayoutTemplate>
+                                <table>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </table>
+                            </LayoutTemplate> -->
+    <!--<td id="itemPlaceholder" runat="server"></td>
+        
+        
+        
+        
+      ------------------NEED FOR ALL MATCHING-------------------  
+        <asp:Label ID="Label1"  Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
+                                <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_question") %>' runat="server" />
+                                <br />
+        
+        -->
+
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
 </asp:Content>
+
