@@ -13,7 +13,7 @@
     <link href="../Assets/Styles/ResponsiveTable.css" rel="stylesheet" />
 <asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable2" ID="GVUser" runat="server" RowStyle-Wrap="false" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
     
-        <Columns >
+        <Columns>
             <asp:BoundField DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="FIRSTNAME" HeaderText="First Name" SortExpression="FIRSTNAME" />
             <asp:BoundField DataField="LASTNAME" HeaderText="Last Name" SortExpression="LASTNAME" />
