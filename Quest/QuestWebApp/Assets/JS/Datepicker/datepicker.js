@@ -13,6 +13,17 @@
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_DatePicker
  */
+
+// for the datepicker i used zebraDatepicker and animate.css
+//http://daneden.github.io/animate.css/
+// http://stefangabos.ro/jquery/zebra-datepicker/
+
+
+
+
+
+
+
 ; (function ($) {
 
     'use strict';
@@ -23,10 +34,10 @@
 
             //  setting this property to a jQuery element, will result in the date picker being always visible, the indicated
             //  element being the date picker's container;
-            always_visible: false,
+            always_visible: true,
 
             //  days of the week; Sunday to Saturday
-            days: ['VasÃ¡rnap', 'HÃ©tfÅ‘', 'Kedd', 'Szerda', 'CsÃ¼tÃ¶rtÃ¶k', 'PÃ©ntek', 'Szombat'],
+            days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
 
             //  by default, the abbreviated name of a day consists of the first 2 letters from the day's full name;
             //  while this is common for most languages, there are also exceptions for languages like Thai, Loa, Myanmar,
@@ -102,7 +113,7 @@
             //  valid values are 0 to 6, Sunday to Saturday
             //
             //  default is 1, Monday
-            first_day_of_week: 1,
+            first_day_of_week: 0,
 
             //  format of the returned date
             //
@@ -118,7 +129,7 @@
             //  "days" for the "view" property makes no sense if the date format doesn't allow the selection of days.
             //
             //  default is Y-m-d
-            format: 'Y-m-d',
+            format: 'm-d-Y',
 
             //  captions in the datepicker's header, for the 3 possible views: days, months, years
             //
@@ -169,10 +180,10 @@
             inside: true,
 
             //  the caption for the "Clear" button
-            lang_clear_date: 'DÃ¡tum tÃ¶rlÃ©se',
+            lang_clear_date: 'Clear',
 
             //  months names
-            months: ['JanuÃ¡r', 'FebruÃ¡r', 'MÃ¡rcius', 'Ãprilis', 'MÃ¡jus', 'JÃºnius', 'JÃºlius', 'Augusztus', 'Szeptember', 'OktÃ³ber', 'November', 'December'],
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 
             //  by default, the abbreviated name of a month consists of the first 3 letters from the month's full name;
             //  while this is common for most languages, there are also exceptions for languages like Thai, Loa, Myanmar,
@@ -993,7 +1004,7 @@
 
             // if the "Today" button is to be shown and it makes sense to be shown
             // (the "days" view is available and "today" is not a disabled date)
-            show_select_today = (plugin.settings.show_select_today !== false && $.inArray('days', views) > -1 && !is_disabled(current_system_year, current_system_month, current_system_day) ? plugin.settings.show_select_today : false);
+            show_select_today = (plugin.settings.show_select_today !== false && $.inArray('days', views) > -1 && !is_disabled(current_system_year, current_system_month, current_system_day) ? plugin.settings.show_select_today : true);
 
             // if we just needed to recompute the things above, return now
             if (update) return;
@@ -1038,9 +1049,8 @@
                     '<div class="dpbottom"><table class="dp_daypicker"></table>' +
                     '<table class="dp_monthpicker"></table>' +
                     '<table class="dp_yearpicker"></table>' +
-                    '<table class="dp_footer"><tr>' +
-                        '<td class="dp_today"' + (plugin.settings.show_clear_date !== false ? ' style="width:50%"' : '') + '>' + show_select_today + '</td>' +
-                        '<td class="dp_clear"' + (show_select_today !== false ? ' style="width:50%"' : '') + '>' + plugin.settings.lang_clear_date + '</td>' +
+                    '<table class="dp_footer" style="text-align:center; width: 100% !important;"><tr>' +
+                        '<td class="dp_today"' + (plugin.settings.show_clear_date !== false ? ' style="width:50%"' : '') + '>' + '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Today</button>' + '</td>' +
                     '</tr></table></div>' +
                 '</div>';
             // create a jQuery object out of the HTML above and create a reference to it
@@ -2530,7 +2540,7 @@
 
                     // make the header and the footer have the same size as the day picker
                     header.css('width', width);
-                    footer.css('width', width);
+                    //footer.css('width', width);
 
                     // hide the date picker again
                     datepicker.css('visibility', '').addClass('dp_hidden');
@@ -2644,6 +2654,7 @@
 
                     // show it, and set it's width to 50% of the available space
                     selecttoday.css('width', '50%');
+                    //selecttoday.class_name = 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent';
 
                     // the "Clear date" button only takes up 50% of the available space
                     cleardate.css('width', '50%');
@@ -2979,3 +2990,25 @@
     };
 
 })(jQuery);
+
+
+
+
+
+
+
+$(document).ready(function () {
+
+    $('.searchslide').addClass('active');
+    $('#zebracontainer1').addClass('active');
+    $('.datepicker').Zebra_DatePicker({ direction: 1, always_visible: $('#zebracontainer1') });
+    $('#datepickbox1').bind('click', function () {
+        $('.searchslide').addClass('active');
+        $('#zebracontainer1').addClass('active');
+
+    });
+    $('.dp_daypicker, .dp_footer').bind('click', function () {
+        $('.searchslide').removeClass('active');
+        $('.zbc').removeClass('active');
+    });
+});

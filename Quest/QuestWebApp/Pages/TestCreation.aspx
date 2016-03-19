@@ -11,6 +11,9 @@
     <script src="../Assets/JS/Datepicker/material.datepicker.js"></script>
     <link href="../Assets/Styles/material.datepicker.css" rel="stylesheet" />--%>
 
+    <link href="../Assets/Styles/datepicker.css" rel="stylesheet" />
+
+
 
 
 </asp:Content>
@@ -83,6 +86,19 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 			$('#field').datepicker(options);
 		</script>--%>
 
+
+        <div class="searchbox" >
+<div class="searchslide search1 on">
+<div id="search" class="bbox" >
+<fieldset>
+<div id="datepickbox1" class="datepickbox"><input type="text" id="indnap" name="h" title="Current Day"  value="" class="searchinput datepicker" placeholder="When?" runat="server"/></div>
+</fieldset>
+</div>
+<div id="zebracontainer1" class="zbc">
+</div>
+</div><!--/searchslide-->
+</div><!--/searchbox-->
+
         <!-- end datepicker -->
 
         <div style="text-align:center">
@@ -96,6 +112,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </div> 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
-
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../Assets/JS/Datepicker/datepicker.js"></script>
     
 </asp:Content>

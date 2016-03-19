@@ -20,20 +20,23 @@ namespace QuestWebApp.Pages
 
             for (int index = defaultStartTime; index <= 11; index++)
             {
-                ddltime.Items.Add(new ListItem(index + ":" + "00" + "AM"));
+                ddltime.Items.Add(new ListItem(index + ":" + "00" + " AM"));
             }
 
-            ddltime.Items.Add(new ListItem(12 + ":" + "00" + "PM"));
+            ddltime.Items.Add(new ListItem(12 + ":" + "00" + " PM"));
 
-            for(int index = 1; index <= 7; index++)
+            for(int index = 1; index <= 11; index++)
             {
-                ddltime.Items.Add(new ListItem(index + ":" + "00" + "PM"));
+                ddltime.Items.Add(new ListItem(index + ":" + "00" + " PM"));
             }
+            ddltime.Items.Add(new ListItem(12 + ":" + "00" + " AM"));
+
         }
 
         protected void btnAddInfo_Click(object sender, EventArgs e)
         {
-            //DateTime testDate = (DateTime)field.Value;
+            string dateString = indnap.Value + " " + ddltime.SelectedValue;
+            DateTime testDateTime = DateTime.Parse(dateString);
             
             OracleCommand cmdAddTest = new OracleCommand(@"
 
