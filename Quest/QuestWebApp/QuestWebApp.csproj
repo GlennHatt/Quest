@@ -124,7 +124,9 @@
     <Content Include="Assets\Images\you.jpg" />
     <Content Include="Assets\Images\zo.jpg" />
     <Content Include="Assets\JS\AboutusJS.js" />
-    <Content Include="Assets\JS\Datepicker\jquery-2.1.3.min.js" />
+    <Content Include="Assets\JS\gridview3.js" />
+    <Content Include="Assets\JS\jquery-2.1.3.min.js" />
+    <Content Include="Assets\JS\jquery.responsivetable.min.js" />
     <Content Include="Assets\JS\Datepicker\knockout-3.2.0.js" />
     <Content Include="Assets\JS\Datepicker\material.datepicker.js" />
     <None Include="Assets\JS\Datepicker\moment.min.js.old" />
