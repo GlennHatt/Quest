@@ -265,8 +265,9 @@ namespace QuestWebApp.Pages
             }
 
             // TODO verify the section has been added
-            if (true)
+            if (errorCount == 0)
             {
+
                 showAddSectionMessage = true;
                 Session["showAddSectionMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up

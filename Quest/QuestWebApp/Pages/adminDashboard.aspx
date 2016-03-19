@@ -48,7 +48,7 @@ END;"
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource> 
-
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 
     
 
