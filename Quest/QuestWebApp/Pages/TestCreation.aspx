@@ -5,11 +5,13 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
 
-    <script src="../Assets/JS/Datepicker/moment.js"></script>
+   <%-- <script src="../Assets/JS/Datepicker/moment.js"></script>
     <script src="../Assets/JS/Datepicker/jquery-2.1.3.min.js"></script>
-    <script src="../Assets/JS/Datepicker/knockout-3.2.0.js"></script>
+    <script src="../Assets/JS/Datepicker/knockout-3.4.0.js"></script>
     <script src="../Assets/JS/Datepicker/material.datepicker.js"></script>
-    <link href="../Assets/Styles/material.datepicker.css" rel="stylesheet" />
+    <link href="../Assets/Styles/material.datepicker.css" rel="stylesheet" />--%>
+
+
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
@@ -75,14 +77,21 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         
     
         <!-- start datepicker -->
-        <input id="field" style="font-size:16px;height:30px;border-radius:2px;border:1 solid gray;padding:0px 10px; display:none;" ><br><br>
+        <%--<input id="field" style="font-size:16px;height:30px;border-radius:2px;border:1 solid gray;padding:0px 10px; display:none;" ><br><br>
 		<script>
 			var options = {};
 			$('#field').datepicker(options);
-		</script>
+		</script>--%>
 
         <!-- end datepicker -->
-        <asp:DropDownList ID="ddltime" runat="server" class="mdl-textfield__input"></asp:DropDownList>
+
+        <div style="text-align:center">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <asp:Label ID="Label1" cssclass="mdl-textfield__input" runat="server" Text=" Time Due: " />
+        
+        <asp:DropDownList ID="ddltime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
+            </div>
+            </div>
     <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
     </div> 
 </asp:Content>
