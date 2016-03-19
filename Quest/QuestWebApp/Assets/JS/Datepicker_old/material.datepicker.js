@@ -90,7 +90,8 @@ $.fn.datepicker = function (options) {
 
 		self.processDate = function(day) {
 			if (day) {
-				var date = moment(self.viewingYear() + '-' + self.viewingMonth() + '-' + day);
+			    var date = moment(self.viewingYear() + '-' + self.viewingMonth() + '-' + day);
+			    //var date = Date.parse(self.viewingMonth() + '-' + day + '-' + self.viewingYear());
 				self.datePickerValue(date);
 				var year = self.viewingYear();
 				var month = self.viewingMonth();
@@ -113,7 +114,8 @@ $.fn.datepicker = function (options) {
 	    	self.monthStruct.removeAll();
 	    	var month = self.viewingMonth();
 	    	var year = self.viewingYear();
-	    	var startOfMonth = moment(year + '-' + month + '-01').startOf('month');
+		    var startOfMonth = moment(year + '-' + month + '-01').startOf('month');
+	    	//var startOfMonth = Date.parse(month + '-' + year + '-01').startOf('month');
 	    	var startDay = startOfMonth.format('dddd');
 	    	var startingPoint = startOfMonth.day();
 	    	var daysInMonth = startOfMonth.endOf('month').date();
