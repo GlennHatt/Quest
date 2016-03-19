@@ -8,10 +8,11 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
-<%--    <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 850px;">--%>
-<asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable2" ID="GVUser" runat="server" RowStyle-Wrap="false" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
-    
+    <%--Link http://ngenioussolutions.com/blog/responsive-gridview-for-mobile-phone-tablet-and-desktop-display-in-asp-net/--%>
+
+    <%--<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width"--%>>
+    <%--<div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%;">--%>
+<%--<asp:GridView CssClass="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp customTable2 footable" Style="max-width: 500px" ID="GVUser" runat="server" RowStyle-Wrap="false" AutoGenerateColumns="False" DataSourceID="sqlAdminUsers">
         <Columns>
             <asp:BoundField  DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="FIRSTNAME" HeaderText="First Name" SortExpression="FIRSTNAME" />
@@ -26,17 +27,48 @@
         </Columns>
     
     </asp:GridView>
-        <script src="../Assets/JS/ResponsiveTable.js"></script>
+
+        <%--</div>--%>
+
+<%--    <link href=”https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css”
+        rel=”stylesheet” type=”text/css” />
+    <script type=”text/javascript” src=”http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js”></script>
+    <script type=”text/javascript” src=”https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js”></script>
+    <script type=”text/javascript”>
+        $(function () {
+            $(‘[id*=GridView1]’).footable();
+        });
+    </script>--%>
+ 
+The HTML Markup consists of an ASP.Net GridView. You have to apply the CSS class footable to the GridView.
+    <asp:GridView ID="GridView1" CssClass=”footable” runat="server" AutoGenerateColumns="false"
+        Style="max-width: 500px">
+        <Columns>
+            <asp:BoundField DataField="Id" HeaderText="Id" />
+            <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:BoundField DataField="Company" HeaderText="Company" />
+            <asp:BoundField DataField="t" HeaderText="Age" />
+            <asp:BoundField DataField="k" HeaderText="Age" />
+            <asp:BoundField DataField="o" HeaderText="Age" />
+            <asp:BoundField DataField="te" HeaderText="Age" />
+            <asp:BoundField DataField="ka" HeaderText="Age" />
+            <asp:BoundField DataField="ee" HeaderText="Age" />
+            <asp:BoundField DataField="aa" HeaderText="Age" />
+        </Columns>
+    </asp:GridView>
 
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css"
+        rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src=”http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js”></script>
+    <script type="text/javascript" src=”https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js”></script>
+    <script type="text/javascript">
+        $(function () {
+            $("[id*=GridView1]").footable();
+        });
+    </script>
 
-	<link href="styles/basic.css" type="text/css" rel="stylesheet" />
-    <script src="scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="scripts/jquery.responsivetable.min.js" type="text/javascript"></script>
-    <script src="../Assets/JS/jquery.responsivetable.min.js"></script>
-    <script src="../Assets/JS/ResponsiveTable.js"></script>
-    <script src="../Assets/JS/gridview3.js"></script>
-
+            <script src="../Assets/JS/ResponsiveTable.js"></script>
         	  <asp:SqlDataSource ID="sqlAdminUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select email Email, f_name FirstName, l_name LastName, password, permission_level Classification
 from end_user"></asp:SqlDataSource>
 </asp:Content>
