@@ -87,7 +87,7 @@ END;">
                                     <asp:Label ID="lblMCQuestion" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
                                     <asp:Label ID="Label4" class="mdl-textfield__input" Text='<%# Eval("choice_id") %>' runat="server" Visible="false" />
                                     <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("question_text") %>' runat="server" />
-                                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="sqlMultipleChoiceChoices"></asp:RadioButtonList>
+                                    <asp:RadioButtonList ID="RadioButtonList1" ItemType="Text" DataSourceID="sqlMultipleChoiceChoices" runat="server"></asp:RadioButtonList>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,9 @@ END;">
                             <ItemTemplate>
                                 <asp:Label ID="Label1" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
                                 <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_question") %>' runat="server" />
+                                <br />
                                 <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_answer")%>' runat="server"/>
+                                <br /><br />
                             </ItemTemplate>
                         </asp:ListView>
                     </div>
@@ -140,7 +142,7 @@ select question_id, choice_id, choice_text
 from   question_multiple_choice_body
 where  question_id = :question_id">
         <SelectParameters>
-            <asp:ControlParameter ControlID="lblMCIdentity" Name="question_id" PropertyName="Text" Type="String" DefaultValue="17" />
+            <asp:ControlParameter ControlID="lblMCIdentity" Name="question_id" PropertyName="Text" Type="String" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
     
