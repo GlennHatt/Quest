@@ -35,7 +35,7 @@ END;">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("tf_question") %>' runat="server" />
+                                    <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("tf_question") %>' runat="server" />
                                     <asp:RadioButton ID="rdbTrue" class="mdl-radio__button" Text="True" runat="server" GroupName="TFChoice" />
                                     <asp:RadioButton ID="rdbFalse" class="mdl-radio__button" Text="False" runat="server" GroupName="TFChoice" />
                                 </div>
@@ -52,7 +52,7 @@ END;">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("essay_question") %>' runat="server" />
+                                    <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
                                     <asp:TextBox ID="TextBox1" runat="server" Height="50px" Width="300px" TextMode="MultiLine" ToolTip="Enter Answer Here"></asp:TextBox>
                                 </div>
                             </div>
@@ -68,9 +68,9 @@ END;">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("before_sa_question") %>' runat="server" />
+                                    <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("before_sa_question") %>' runat="server" />
                                     <asp:TextBox ID="TextBox1" runat="server" TextMode="SingleLine" ToolTip="Enter Answer Here"></asp:TextBox>
-                                    <asp:Label ID="Label3" class="mdl-textfield__input" Text='<%# Eval("after_sa_question") %>' runat="server" />
+                                    <asp:Label ID="Label3" class="mdl-textfield" Text='<%# Eval("after_sa_question") %>' runat="server" />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ END;">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="lblMCQuestion" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
                                     <asp:Label ID="Label4" class="mdl-textfield__input" Text='<%# Eval("choice_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("question_text") %>' runat="server" />
+                                    <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("question_text") %>' runat="server" />
                                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="sqlMultipleChoiceChoices"></asp:RadioButtonList>
                                 </div>
                             </div>
@@ -94,23 +94,31 @@ END;">
                     </div>
             </ItemTemplate>
         </asp:ListView>
+    <!--This stuff is for the layout of the matching questions. Work in progress.-->
+    <!--     <LayoutTemplate>
+                                <table>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </table>
+                            </LayoutTemplate> -->
 
-        <asp:ListView ID="lvMatchingQuestions" runat="server" DataSourceID="sqlMatchingQuestions">
-            <ItemTemplate>
-                    <div class="mdl-cell mdl-cell--12-col">
-                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text" style="text-align: center">
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlMatchingQuestions"></asp:GridView>
-                                    <asp:Label ID="Label1" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
-                                    <asp:Label ID="Label2" class="mdl-textfield__input" Text='<%# Eval("matching_question") %>' runat="server" />
-                                    <asp:Label ID="Label3" class="mdl-textfield__input" Text='<%# Eval("matching_answer") %>' runat="server" />
-                                </div>
-                            </div>
-                        </div>
+        <div class="mdl-cell mdl-cell--12-col">
+            <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
+                <div class="mdl-card__supporting-text" style="text-align: center">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <asp:ListView ID="lvMatchingQuestions" runat="server" DataSourceID="sqlMatchingQuestions">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
+                                <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_question") %>' runat="server" />
+                                <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-js-ripple-effect" Text='<%# Eval("matching_answer")%>' runat="server"/>
+                            </ItemTemplate>
+                        </asp:ListView>
                     </div>
-            </ItemTemplate>
-        </asp:ListView>
+                </div>
+            </div>
+        </div>
 
     <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlMatchingQuestions"></asp:GridView>
 
