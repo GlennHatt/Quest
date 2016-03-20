@@ -41,7 +41,7 @@
     </script>--%>
  
 The HTML Markup consists of an ASP.Net GridView. You have to apply the CSS class footable to the GridView.
-    <asp:GridView ID="GridView1" CssClass=”footable” runat="server" AutoGenerateColumns="false"
+    <asp:GridView ID="GridView1" CssClass="footable" runat="server" AutoGenerateColumns="false"
         Style="max-width: 500px">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />

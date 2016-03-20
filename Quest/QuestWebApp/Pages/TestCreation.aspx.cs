@@ -18,6 +18,8 @@ namespace QuestWebApp.Pages
         {
             int defaultStartTime = 8;
 
+            indnap.Value = DateTime.Today.Month.ToString() + "-" + DateTime.Today.Day.ToString() + "-" + DateTime.Today.Year.ToString();
+
             for (int index = defaultStartTime; index <= 11; index++)
             {
                 ddltime.Items.Add(new ListItem(index + ":" + "00" + " AM"));

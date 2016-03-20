@@ -53,7 +53,7 @@
                             <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
                         <h3>
                             <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
-                        <p style="font-size:120%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+                        <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
 
            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
@@ -72,7 +72,7 @@
      </div>
 
        <div class="input">
-           <textarea class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
+           <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
            </div>
 
 
