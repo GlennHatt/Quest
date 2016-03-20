@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="studentextraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="studentwithSidebarSidebar" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="studentwithSidebarBodyContent" runat="server">
     <main class="mdl-layout__content">
