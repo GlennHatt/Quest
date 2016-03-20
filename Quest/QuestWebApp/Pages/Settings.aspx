@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Settings" Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="QuestWebApp.Pages.Settings" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -11,18 +12,15 @@
 
     <!-- Card for changing password a user -->
 
-                <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width:40%; left: 30%;">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
+    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
+        <div class="mdl-card__supporting-text" style="text-align: center">
                         <br />
 
                         <div style="font-size:200%">Change User Password</div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Email Address:</label>
-                            <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
-                            <asp:RegularExpressionValidator ID="valUserEmail" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Invalid email" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserEmailReq" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter email"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
-                            
-                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                            <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
+                            <asp:TextBox ID="TextBox1"  class="mdl-textfield__input" type="password" runat="server"/>
+                            </div>
                                 
                                
                        <!-- Textfield with Floating Label for teacher password -->
@@ -51,8 +49,8 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                             <asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error"></asp:CompareValidator>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                         </div>
-                   </div>
-                        </div>
+    </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
 </asp:Content>
