@@ -178,6 +178,7 @@
     <Content Include="Pages\Settings.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
+    <Content Include="Pages\teacherStudentsandClasses.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -409,6 +410,13 @@
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.designer.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\teacherStudentsandClasses.aspx.cs">
+      <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\teacherStudentsandClasses.aspx.designer.cs">
+      <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\testCreation.aspx.cs">
       <DependentUpon>testCreation.aspx</DependentUpon>
