@@ -199,7 +199,6 @@
 
             <!-- end feature cards -->
         </div>
-    </div>
 
 
     <!-- RPG Panel -->
@@ -216,7 +215,7 @@
                 <div class="mdl-card__supporting-text " style="text-align: center">
                     <img src="../Assets/Images/transparent%20-%20Copy.png" style="height: 300px; width: 300px" />
                     <p style="font-size: 175%;">
-                        R.P.G. (Royal Programming Gentleman)
+                        R.P.G. (Royal Programming Gentlemen)
                     </p>
 
                 </div>
@@ -401,6 +400,7 @@
                 </div>
             </div></section>
             </div>
+        </div>
 </body>
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../Assets/JS/AboutusJS.js"></script>

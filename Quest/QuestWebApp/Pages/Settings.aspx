@@ -51,6 +51,20 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         </div>
     </div>
     </div>
+    <br />
+
+    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
+        <div class="mdl-card__supporting-text" style="text-align: center">
+                        <br />
+
+                        <div style="font-size:200%">Enable E-mail </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+                            <label id="Label2" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword"> Do you want to Enable E-mail?</label>
+                            </div>
+                                
+                               
+    </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
 </asp:Content>

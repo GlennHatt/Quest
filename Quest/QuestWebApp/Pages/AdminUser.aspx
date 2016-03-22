@@ -50,7 +50,7 @@
 
         
 
-    <div class="table-responsive-vertical shadow-z-1">
+<%--    <div class="table-responsive-vertical shadow-z-1">
     <table id="" class="table table-hover table-mc-light-blue">
       <thead>
         <tr>
@@ -144,7 +144,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div>--%>
    
 
 
