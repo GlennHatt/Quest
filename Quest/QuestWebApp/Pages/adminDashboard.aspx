@@ -229,9 +229,11 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                             <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="FULL_NAME">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select l_name || ', ' || f_name as full_name
-from end_user
-where permission_level = 'T'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+select l_name || ', ' || f_name as full_name
+from   end_user
+where  permission_level = 'T'"
+                            ></asp:SqlDataSource>
                             <%--<span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>--%>
                         </div>
 
