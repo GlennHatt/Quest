@@ -152,6 +152,7 @@
     <None Include="Assets\Styles\material.datepicker.css.old" />
     <Content Include="Assets\Styles\Misc.css" />
     <Content Include="Assets\Styles\ResponsiveTable.css" />
+    <Content Include="Assets\Styles\responsiveTableNormalize.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
