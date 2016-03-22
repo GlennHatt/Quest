@@ -9,9 +9,5 @@ namespace QuestWebApp.Pages
 {
     public partial class aboutUsPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
