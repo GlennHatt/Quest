@@ -20,7 +20,9 @@ namespace QuestWebApp.Master_Pages
         protected void logout_onlcick(object sender, EventArgs e)
         {
             utilities util = new utilities();
-            util.checkAuthentication(null, null, null);
+            Session["userClassification"] = null;
+            Session["neededClassification"] = null;
+            util.checkAuthentication(null, ((char)Session["userClassification"]), (char)(Session["neededClassification"]));
         }
     }
 }
