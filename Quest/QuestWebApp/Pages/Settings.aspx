@@ -57,14 +57,30 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
         <div class="mdl-card__supporting-text" style="text-align: center">
                         <br />
 
-                        <div style="font-size:200%">Enable E-mail </div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-                            <label id="Label2" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword"> Do you want to Enable E-mail?</label>
-                            </div>
-                                
-                               
+                        <div style="font-size:200%">Enable E-mail Feature</div>
+            <br />
+            <div> Would you like to enable the e-mail feature?</div>
+            <br />
+            <br />
+            <asp:LinkButton cssclass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server">
+                Enable
+            </asp:LinkButton>
+            <br />
+             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">E-mail:</label>
+                            
+                        </div>   
+                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
+                            
+                        </div>                
     </div>
+
+
     </div>
+    <br />
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
 </asp:Content>
