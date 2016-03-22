@@ -16,9 +16,9 @@
     <%--Link http://ngenioussolutions.com/blog/responsive-gridview-for-mobile-phone-tablet-and-desktop-display-in-asp-net/--%>
 
    
-    <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%;">
+    <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
-<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound">
+<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False">
         <Columns>
             <asp:BoundField  DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="FIRSTNAME" HeaderText="First Name" SortExpression="FIRSTNAME" />
@@ -37,7 +37,7 @@
         </div>
 
 
-    <div class="table-responsive-vertical shadow-z-1">
+    <%--<div class="table-responsive-vertical shadow-z-1">
     <asp:GridView ID="GridView1" CssClass="table table-hover table-mc-light-blue" runat="server" OnRowDataBound="GridView1_RowDataBound" CellSpacing="-1" GridLines="None">
         <%--<Columns>
             <asp:BoundField DataField="ID" HeaderText="Id" />
@@ -46,11 +46,11 @@
             <asp:BoundField DataField="Status" HeaderText="Status" />
         </Columns>--%>
     </asp:GridView>
-        </div>
+        </div>--%>
 
         
 
-    <div class="table-responsive-vertical shadow-z-1">
+<%--    <div class="table-responsive-vertical shadow-z-1">
     <table id="" class="table table-hover table-mc-light-blue">
       <thead>
         <tr>
@@ -144,7 +144,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div>--%>
    
 
 
