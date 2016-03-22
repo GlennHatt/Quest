@@ -34,7 +34,7 @@ namespace QuestWebApp.Pages
                 
                 //Adds THEAD and TBODY to GridView.
                 GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
-                 //.HeaderRow.TableSection = TableRowSection.TableHeader;
+                 GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
 }
         
@@ -61,15 +61,12 @@ namespace QuestWebApp.Pages
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //TableCellCollection cell = e.Row.Cells;
-                //cell[0].Attributes.Add("data-title", "EMAIL");
-                //cell[1].Attributes.Add("data-title", "FIRSTNAME");
-                //cell[2].Attributes.Add("data-title", "LASTNAME");
-                //cell[3].Attributes.Add("data-title", "PASSWORD");
-                //cell[4].Attributes.Add("data-title", "CLASSIFICATION");
-                //cell[4].Attributes.Add("data-title", "CLASSIFICATION");
-                //cell[4].Attributes.Add("data-title", "CLASSIFICATION");
-                //cell[4].Attributes.Add("data-title", "CLASSIFICATION");
+                TableCellCollection cell = e.Row.Cells;
+                cell[0].Attributes.Add("data-title", "EMAIL");
+                cell[1].Attributes.Add("data-title", "FIRSTNAME");
+                cell[2].Attributes.Add("data-title", "LASTNAME");
+                cell[3].Attributes.Add("data-title", "PASSWORD");
+                cell[4].Attributes.Add("data-title", "CLASSIFICATION");
             }
         }
     }
