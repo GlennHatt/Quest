@@ -134,7 +134,8 @@ select question_matching.question_id quest_id, question_matching_body.question_t
 from   question_matching_body, question, question_matching
 where  question.test_id = 1
 and    question.question_id = question_matching.question_id
-and    question_matching.question_id = question_matching_body.question_id"></asp:SqlDataSource>
+and    question_matching.question_id = question_matching_body.question_id
+order by sys_guid()"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="sqlMultipleChoiceQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select question.question_id quest_id, question_multiple_choice.choice_id choice_id, question_multiple_choice.question_text question_text
