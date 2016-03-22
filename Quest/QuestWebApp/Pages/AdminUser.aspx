@@ -37,7 +37,7 @@
         </div>
 
 
-    <div class="table-responsive-vertical shadow-z-1">
+    <%--<div class="table-responsive-vertical shadow-z-1">
     <asp:GridView ID="GridView1" CssClass="table table-hover table-mc-light-blue" runat="server" OnRowDataBound="GridView1_RowDataBound" CellSpacing="-1" GridLines="None">
         <%--<Columns>
             <asp:BoundField DataField="ID" HeaderText="Id" />
@@ -46,7 +46,7 @@
             <asp:BoundField DataField="Status" HeaderText="Status" />
         </Columns>--%>
     </asp:GridView>
-        </div>
+        </div>--%>
 
         
 
