@@ -35,6 +35,7 @@ namespace QuestWebApp.Pages
             string TFAnswer;
             string SAAnswer;
 
+            // Grades T/F Questions on test
             foreach(ListViewItem question in lvTFQuestions.Items)
             {
                 if (((RadioButton)question.FindControl("rdbTrue")).Checked == true)
@@ -63,6 +64,7 @@ END;",
                 cmdAddTFQuestion.Connection.Close();
             }
             
+            //TODO
             foreach(ListViewItem question in lvEssayQuestions.Items)
             {
                 OracleCommand cmdAddEQuestion = new OracleCommand(@"
@@ -83,6 +85,7 @@ END;",
                 cmdAddEQuestion.Connection.Close();
             }
 
+            //TODO
             foreach(ListViewItem question in lvShortAnswerQuestions.Items)
             {
                 SAAnswer = ((TextBox)question.FindControl("TextBox1")).Text;
