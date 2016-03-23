@@ -62,9 +62,6 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
             <div> Would you like to enable the e-mail feature?</div>
             <br />
             <br />
-            <asp:LinkButton cssclass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server">
-                Enable
-            </asp:LinkButton>
             <br />
              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
@@ -74,8 +71,22 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
-                            
-                        </div>                
+                             
+                        </div>   
+                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <asp:TextBox ID="tbloginName" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Login ID:</label>
+                             
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <asp:TextBox ID="tbmailserver" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Mail Server Address:</label>
+                             
+                        </div>
+                            <br /> 
+                        <asp:LinkButton cssclass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server">
+                            Enable
+                            </asp:LinkButton>            
     </div>
 
 

@@ -85,13 +85,11 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 			var options = {};
 			$('#field').datepicker(options);
 		</script>--%>
-
-
         <div class="searchbox" >
 <div class="searchslide search1 on">
 <div id="search" class="bbox" >
 <fieldset>
-<div id="datepickbox1" class="datepickbox"><input type="text" id="indnap" name="h" title="Current Day"  value="" class="searchinput datepicker" placeholder="When?" runat="server"/></div>
+<div id="datepickbox1" class="datepickbox"><input type="text" id="indnap" name="h" title=""  value="" class="searchinput datepicker" placeholder="When?" runat="server"/></div>
 </fieldset>
 </div>
 <div id="zebracontainer1" class="zbc">

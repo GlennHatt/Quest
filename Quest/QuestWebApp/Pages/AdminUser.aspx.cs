@@ -62,11 +62,12 @@ namespace QuestWebApp.Pages
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 TableCellCollection cell = e.Row.Cells;
-                cell[0].Attributes.Add("data-title", "EMAIL");
-                cell[1].Attributes.Add("data-title", "FIRSTNAME");
-                cell[2].Attributes.Add("data-title", "LASTNAME");
-                cell[3].Attributes.Add("data-title", "PASSWORD");
-                cell[4].Attributes.Add("data-title", "CLASSIFICATION");
+                cell[0].Attributes.Add("data-title", "E-mail");
+                cell[1].Attributes.Add("data-title", "First Name");
+                cell[2].Attributes.Add("data-title", "Last Name");
+                cell[3].Attributes.Add("data-title", "Password");
+                cell[4].Attributes.Add("data-title", "Classification");
+                cell[5].Attributes.Add("data-title", "Status");
             }
         }
     }
