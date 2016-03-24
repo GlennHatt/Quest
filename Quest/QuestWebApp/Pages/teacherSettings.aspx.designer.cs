@@ -7,108 +7,126 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Master_Pages {
+namespace QuestWebApp.Pages {
     
     
-    public partial class withSidebar {
+    public partial class teacherSettings {
         
         /// <summary>
-        /// breadCrumb control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder breadCrumb;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
         
         /// <summary>
-        /// head control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// extraReferances control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder extraReferances;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPassword;
         
         /// <summary>
-        /// txtGreeting control.
+        /// txtbxTeacherPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtGreeting;
+        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherPassword;
         
         /// <summary>
-        /// home control.
+        /// valUserPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton home;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator valUserPass;
         
         /// <summary>
-        /// withSidebarSidebar control.
+        /// valUserPassReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder withSidebarSidebar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valUserPassReq;
         
         /// <summary>
-        /// settings control.
+        /// txtbxTeacherConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink settings;
+        protected global::System.Web.UI.WebControls.TextBox txtbxTeacherConfirmPassword;
         
         /// <summary>
-        /// userSettings control.
+        /// valConfirmPassMatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton userSettings;
+        protected global::System.Web.UI.WebControls.CompareValidator valConfirmPassMatch;
         
         /// <summary>
-        /// logout control.
+        /// valCinfirmPassReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logout;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valCinfirmPassReq;
         
         /// <summary>
-        /// withSidebarBodyContent control.
+        /// tbemail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder withSidebarBodyContent;
+        protected global::System.Web.UI.WebControls.TextBox tbemail;
         
         /// <summary>
-        /// pageSpecificJS control.
+        /// tbpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder pageSpecificJS;
+        protected global::System.Web.UI.WebControls.TextBox tbpassword;
+        
+        /// <summary>
+        /// tbStudentLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbStudentLogin;
+        
+        /// <summary>
+        /// btnDisable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDisable;
     }
 }

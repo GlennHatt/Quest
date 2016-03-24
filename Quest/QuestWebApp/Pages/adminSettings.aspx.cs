@@ -7,11 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
 {
-    public partial class TeacherDashboard : System.Web.UI.Page
+    public partial class adminSettings : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["neededClassification"] = 'T';
+        }
+
+        protected void btnEnable_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

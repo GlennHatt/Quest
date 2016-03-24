@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class Settings {
+    public partial class adminSettings {
         
         /// <summary>
         /// Label1 control.
@@ -112,21 +112,30 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox tbpassword;
         
         /// <summary>
-        /// tbloginName control.
+        /// tbStudentLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbloginName;
+        protected global::System.Web.UI.WebControls.TextBox tbStudentLogin;
         
         /// <summary>
-        /// tbmailserver control.
+        /// btnEnable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbmailserver;
+        protected global::System.Web.UI.WebControls.LinkButton btnEnable;
+        
+        /// <summary>
+        /// btnDisable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDisable;
     }
 }

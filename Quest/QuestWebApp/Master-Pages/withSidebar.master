@@ -21,20 +21,22 @@
           <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">Welcome, <asp:Label ID="txtGreeting" runat="server" Text="User!"></asp:Label></span>
             <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>
+              <!--<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home</a>-->
+                 <asp:LinkButton class="mdl-navigation__link" id="home" runat="server" Text="home" OnClick="home_onclick"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home </asp:LinkButton>
                 
                 <!-- for custom menu options -->
-                <asp:ContentPlaceHolder ID="withSidebarSidebar" runat="server" />
+                <asp:ContentPlaceHolder ID="withSidebarSidebar" runat="server" /> 
 
-              <asp:HyperLink class="mdl-navigation__link" runat="server" ID="settings" Text="Settings" NavigateUrl="~/Pages/Settings.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:HyperLink>
+              <!--<asp:HyperLink class="mdl-navigation__link" runat="server" ID="settings" Text="Settings" NavigateUrl="~/Pages/Settings.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:HyperLink>-->
+              <asp:LinkButton class="mdl-navigation__link" id="userSettings" runat="server" Text="Settings" OnClick="settings_onclick"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:LinkButton>
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help</a>
               <!-- Call utilities and nullify values-->
-              <asp:HyperLink class="mdl-navigation__link" runat="server" ID="logout" Text="Logout" Click="logout_onclick();" NavigateUrl="~/Pages/login.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i> Logout </asp:HyperLink>
+              <asp:LinkButton class="mdl-navigation__link" id="logout" runat="server" Text="Logout" OnClick="logout_onclick"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i> Logout </asp:LinkButton>
           </div>
           <main class="mdl-layout__content">
             <div class="page-content">
                 <!-- Your content goes here --> 
-                <asp:ContentPlaceHolder ID="withSidebarBodyContent" runat="server" />
+                <asp:ContentPlaceHolder ID="withSidebarBodyContent" runat="server"/>
             </div>
           </main>
         </div>
