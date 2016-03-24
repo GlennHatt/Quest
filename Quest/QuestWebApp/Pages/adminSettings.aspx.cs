@@ -15,7 +15,15 @@ namespace QuestWebApp.Pages
 
         protected void btnEnable_Click(object sender, EventArgs e)
         {
-            
+
+            cdEnable.Visible = false;
+            cdDisable.Visible = true;      
+        }
+
+        protected void btnDisable_Click(object sender, EventArgs e)
+        {
+            cdDisable.Visible = false;
+            cdEnable.Visible = true;
         }
     }
 }

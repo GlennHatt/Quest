@@ -94,6 +94,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valCinfirmPassReq;
         
         /// <summary>
+        /// cdEnable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cdEnable;
+        
+        /// <summary>
         /// tbemail control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbStudentLogin;
+        
+        /// <summary>
+        /// cdDisable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cdDisable;
         
         /// <summary>
         /// btnDisable control.

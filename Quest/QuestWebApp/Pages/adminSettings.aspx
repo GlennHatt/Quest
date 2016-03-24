@@ -56,7 +56,7 @@
     </div>
     <br />
 
-    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
+    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;" id="cdEnable" runat="server">
         <div class="mdl-card__supporting-text" style="text-align: center">
             <br />
 
@@ -86,7 +86,7 @@
         </div>
     </div>
     <br />
-    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
+    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;" id="cdDisable" runat="server">
         <div class="mdl-card__supporting-text" style="text-align: center">
             <br />
 
@@ -99,7 +99,7 @@
             
             </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="bottom: 30px; left: 41%;">
-                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDisable" runat="server">
+                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDisable" runat="server" OnClick="btnDisable_Click">
                             Disable
                 </asp:LinkButton>
         </div>
