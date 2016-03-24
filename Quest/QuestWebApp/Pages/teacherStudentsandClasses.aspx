@@ -20,9 +20,11 @@
             <!-- Textfield with Floating DropDown for user type -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlUserSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="TITLE" DataValueField="TITLE" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="title" DataValueField="class_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE FROM CLASS"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT title, class_id
+  FROM class"></asp:SqlDataSource>
             </div>
         </div>
     </div>
@@ -39,8 +41,14 @@
                 </Columns>
             </asp:GridView>
                 </div>
-            <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select f_name, l_name, email from end_user
-where permission_level = 'S'"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT f_name, l_name, email from end_user
+ WHERE permission_level = 'S'
+       AND :p_ClassID">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </div>
 </asp:Content>
