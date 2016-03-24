@@ -49,6 +49,15 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.Label txtGreeting;
         
         /// <summary>
+        /// home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton home;
+        
+        /// <summary>
         /// withSidebarSidebar control.
         /// </summary>
         /// <remarks>
@@ -73,7 +82,7 @@ namespace QuestWebApp.Master_Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink logout;
+        protected global::System.Web.UI.WebControls.LinkButton logout;
         
         /// <summary>
         /// withSidebarBodyContent control.

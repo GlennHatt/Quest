@@ -12,7 +12,7 @@ namespace QuestWebApp.App_Code
         {
             if (id == null)
             {
-                HttpContext.Current.Response.Redirect("loginTest.aspx"); // Redirect to login page
+                HttpContext.Current.Response.Redirect("login.aspx"); // Redirect to login page
             }
             else
             {
@@ -36,7 +36,7 @@ namespace QuestWebApp.App_Code
                             break;
                         default:
                             // Redirect to Login page
-                            HttpContext.Current.Response.Redirect("loginTest.aspx");
+                            HttpContext.Current.Response.Redirect("login.aspx");
                             break;
                     }
                 }
@@ -54,7 +54,7 @@ namespace QuestWebApp.App_Code
                             HttpContext.Current.Response.Redirect("StudentDashboard.aspx");
                             break;
                         default:
-                            HttpContext.Current.Response.Redirect("loginTest.aspx");
+                            HttpContext.Current.Response.Redirect("login.aspx");
                             break;
                     }
                 }
