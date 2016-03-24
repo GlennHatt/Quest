@@ -4,10 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="adminHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="adminExtraReferances" runat="server">
-
-    <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-    <link href="../Assets/Styles/responsiveTableNormalize.css" rel="stylesheet" />
-    <link href="../Assets/Styles/ResponsiveTable.css" rel="stylesheet" />
+    <script src="../Assets/JS/modernizerResponsiveTable.js"></script>
+    <%--<script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>--%>
+    <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
+    <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableUsers.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>

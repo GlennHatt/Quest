@@ -94,12 +94,39 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valCinfirmPassReq;
         
         /// <summary>
-        /// Label2 control.
+        /// tbemail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
+        protected global::System.Web.UI.WebControls.TextBox tbemail;
+        
+        /// <summary>
+        /// tbpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbpassword;
+        
+        /// <summary>
+        /// tbloginName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbloginName;
+        
+        /// <summary>
+        /// tbmailserver control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbmailserver;
     }
 }
