@@ -103,7 +103,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <asp:Label ID="Label1" cssclass="mdl-textfield__input" runat="server" Text=" Time Due: " />
         
-        <asp:DropDownList ID="ddltime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
+        <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
             </div>
             </div>
     <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
