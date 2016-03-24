@@ -13,6 +13,13 @@ namespace QuestWebApp.Pages
 {
     public partial class studentTeachersandClasses : System.Web.UI.Page
     {
+/*SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_name
+    FROM enrollment e
+         JOIN section  s  USING (section_id)
+         JOIN class    c  USING (class_id)
+         JOIN end_user eu ON    (teacher_id = user_id)
+   WHERE student_id = :p_StudentID*/
+
         bool showMessage;
         protected void Page_Load(object sender, EventArgs e)
         {

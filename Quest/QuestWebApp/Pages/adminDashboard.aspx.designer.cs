@@ -31,13 +31,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlClass;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// sqlSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlSection;
         
         /// <summary>
         /// lblWarning control.

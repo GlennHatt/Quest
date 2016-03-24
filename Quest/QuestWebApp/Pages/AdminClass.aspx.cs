@@ -11,11 +11,7 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
                 GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
-
         }
 
         protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
