@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class Settings {
+    public partial class adminSettings {
         
         /// <summary>
         /// Label1 control.
