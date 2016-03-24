@@ -21,7 +21,7 @@
             </div>
 
 
-            <!-- Textfield with Floating Label for teacher password -->
+            <!-- Textfield with Floating Label for teacher password-->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">New Password:</label>
                 <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
