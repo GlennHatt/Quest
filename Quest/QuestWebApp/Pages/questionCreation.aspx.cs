@@ -274,6 +274,10 @@ END;",
             case "Delete":
                break;
             case "Update":
+               TextBox weight   = (TextBox)lstView.Items[index].FindControl("txtWeight");
+               TextBox question = (TextBox)lstView.Items[index].FindControl("txtQuestion");
+               TextBox answer   = (TextBox)lstView.Items[index].FindControl("txtAnswer");
+
                cmdEditQuestion = new OracleCommand(@"
 BEGIN
   QUESTIONS.change(
@@ -286,10 +290,10 @@ BEGIN
     P_Answer       => :p_Answer);
 END;",
                connectionString);
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", index);
-               cmdEditQuestion.Parameters.AddWithValue("p_Weight", lstView.Items[index].Controls;
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", txtAddTFQuestion.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Answer", rblAddTFAnswer.SelectedValue);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID",   index);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", question.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text);
                
                break;
             case "Cancel":

@@ -232,7 +232,7 @@ SELECT question_id, weight, type, question_text, answer
                                         <asp:TableHeaderCell>
                                             <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
                                         </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="lblWeight" runat="server" Text='<%#Bind("weight") %>' />
+                                            <asp:TextBox ID="txtWeight" runat="server" Text='<%#Bind("weight") %>' />
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
@@ -241,14 +241,14 @@ SELECT question_id, weight, type, question_text, answer
                                         <asp:TableHeaderCell>
                                             <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
                                         </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="lblQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                            <asp:TextBox ID="txtQuestion" runat="server" Text='<%#Bind("question_text") %>' />
                                         </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
                                             <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
                                         </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="lblAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                            <asp:TextBox ID="txtAnswer" runat="server" Text='<%#Bind("answer") %>' />
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
