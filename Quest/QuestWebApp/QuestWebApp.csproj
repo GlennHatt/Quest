@@ -175,12 +175,15 @@
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Pages\aboutUsPage.aspx" />
     <Content Include="Pages\adminClass.aspx" />
+    <Content Include="Pages\adminSettings.aspx" />
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\Settings.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
+    <Content Include="Pages\studentSettings.aspx" />
+    <Content Include="Pages\teacherSettings.aspx" />
     <Content Include="Pages\teacherStudentsandClasses.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
@@ -252,6 +255,13 @@
     </Compile>
     <Compile Include="Pages\adminClass.aspx.designer.cs">
       <DependentUpon>adminClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminSettings.aspx.cs">
+      <DependentUpon>adminSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminSettings.aspx.designer.cs">
+      <DependentUpon>adminSettings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminUser.aspx.cs">
       <DependentUpon>adminUser.aspx</DependentUpon>
@@ -386,6 +396,13 @@
     <Compile Include="Pages\studentScores.aspx.designer.cs">
       <DependentUpon>studentScores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\studentSettings.aspx.cs">
+      <DependentUpon>studentSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentSettings.aspx.designer.cs">
+      <DependentUpon>studentSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\studentTeachersandClasses.aspx.cs">
       <DependentUpon>studentTeachersandClasses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -413,6 +430,13 @@
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.designer.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\teacherSettings.aspx.cs">
+      <DependentUpon>teacherSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\teacherSettings.aspx.designer.cs">
+      <DependentUpon>teacherSettings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\teacherStudentsandClasses.aspx.cs">
       <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>

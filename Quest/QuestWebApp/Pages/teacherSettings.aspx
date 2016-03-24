@@ -1,16 +1,15 @@
-﻿<%@ Page Title="Settings" Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="QuestWebApp.Pages.Settings" %>
+﻿<%@ Page Title="Teacher | Settings" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherSettings.aspx.cs" Inherits="QuestWebApp.Pages.teacherSettings" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
 
-<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
-
-    <!-- Card for changing password a user -->
+        <!-- Card for changing password a user -->
 
     <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
         <div class="mdl-card__supporting-text" style="text-align: center">
@@ -108,5 +107,5 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>
