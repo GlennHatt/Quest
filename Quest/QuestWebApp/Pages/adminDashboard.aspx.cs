@@ -64,6 +64,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["neededClassification"] = 'A';
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 

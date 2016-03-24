@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
+using QuestWebApp.App_Code;
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace QuestWebApp.Pages
 {
     public partial class loginTest : System.Web.UI.Page
     {
+        utilities util = new utilities();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace QuestWebApp.Pages
                 case "admin": // Placeholder for admin username
                     if (password.Text == "password")
                     {
-                        Session["classification"] = 'A';
+                        Session["userClassification"] = 'A';
                         Response.Redirect("adminDashboard.aspx");
                     }
                     else
@@ -33,7 +34,7 @@ namespace QuestWebApp.Pages
                 case "teacher": // Placeholder for teacher username
                     if (password.Text == "password")
                     {
-                        Session["classification"] = 'T';
+                        Session["userClassification"] = 'T';
                         Response.Redirect("TeacherDashboard.aspx");
                     }
                     else
@@ -42,7 +43,7 @@ namespace QuestWebApp.Pages
                 case "student": // Placeholder for student username
                     if (password.Text == "password")
                     {
-                        Session["classification"] = 'S';
+                        Session["userClassification"] = 'S';
                         Response.Redirect("StudentDashboard.aspx");
                     }
                     else

@@ -17,10 +17,18 @@ namespace QuestWebApp.Master_Pages
         }
 
         // Use the utilities page to nullify classification values 
-        protected void logout_onlcick(object sender, EventArgs e)
+        protected void logout_onclick(Object sender, EventArgs e)
         {
             utilities util = new utilities();
+            Session["userClassification"] = null;
+            Session["neededClassification"] = null;
             util.checkAuthentication(null, null, null);
+        }
+
+        protected void home_onclick(Object sender, EventArgs e)
+        {
+            utilities util = new utilities();
+            util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]); // Use the session variables
         }
     }
 }

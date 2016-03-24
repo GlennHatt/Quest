@@ -12,7 +12,7 @@ namespace QuestWebApp.App_Code
         {
             if (id == null)
             {
-                HttpContext.Current.Response.Redirect("loginTest.aspx"); // Redirect to login page
+                HttpContext.Current.Response.Redirect("login.aspx"); // Redirect to login page
             }
             else
             {
@@ -23,7 +23,7 @@ namespace QuestWebApp.App_Code
                         case 'A':
                             // If it is student reditrect to admin, otherwise do nothing
                             if (neededClassification == 'S')
-                            HttpContext.Current.Response.Redirect("adminDashboard.aspx");
+                                HttpContext.Current.Response.Redirect("adminDashboard.aspx");
                             // Access to both admin and teacher dashboard
                             break;
                         case 'T':
@@ -36,7 +36,25 @@ namespace QuestWebApp.App_Code
                             break;
                         default:
                             // Redirect to Login page
-                            HttpContext.Current.Response.Redirect("loginTest.aspx");
+                            HttpContext.Current.Response.Redirect("login.aspx");
+                            break;
+                    }
+                }
+                else if (actualClassification == neededClassification) // If classifications match
+                {
+                    switch (actualClassification)
+                    {
+                        case 'A':
+                            HttpContext.Current.Response.Redirect("adminDashboard.aspx");
+                            break;
+                        case 'T':
+                            HttpContext.Current.Response.Redirect("TeacherDashboard.aspx");
+                            break;
+                        case 'S':
+                            HttpContext.Current.Response.Redirect("StudentDashboard.aspx");
+                            break;
+                        default:
+                            HttpContext.Current.Response.Redirect("login.aspx");
                             break;
                     }
                 }
