@@ -67,20 +67,23 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">E-mail:</label>
+                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address"  SetFocusOnError="True" ValidationGroup="grpEnableEmail"></asp:RequiredFieldValidator>
 
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="text" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
+                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailPassword" ControlToValidate="tbpassword" ErrorMessage="Please enter email password"  SetFocusOnError="True" ValidationGroup="grpEnableEmail"></asp:RequiredFieldValidator>
 
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:TextBox ID="tbStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label>
+                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailID" ControlToValidate="tbStudentLogin" ErrorMessage="Please enter student ID"  SetFocusOnError="True" ValidationGroup="grpEnableEmail"></asp:RequiredFieldValidator>
 
             </div>
             <br />
-            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEnable" runat="server" OnClick="btnEnable_Click">
+            <asp:LinkButton ValidationGroup="grpEnableEmail" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEnable" runat="server" OnClick="btnEnable_Click">
                             Enable
             </asp:LinkButton>
         </div>
