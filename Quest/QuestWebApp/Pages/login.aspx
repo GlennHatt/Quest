@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="loginExtraReferances" runat="server">
 
-    <link href="../Assets/Styles/loginStyles.css" rel="stylesheet" />
+    <link href="../Assets/Styles/loginStyles.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="loginBodyContent" runat="server">
