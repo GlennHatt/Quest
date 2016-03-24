@@ -32,37 +32,46 @@ namespace QuestWebApp.Pages
 
         protected void btnSubmitTest_Click(object sender, EventArgs e)
         {
+            int noAnswerCounter = 0;
             string TFAnswer;
             string SAAnswer;
 
             foreach(ListViewItem question in lvTFQuestions.Items)
             {
                 if (((RadioButton)question.FindControl("rdbTrue")).Checked == true)
+                {
                     TFAnswer = "T";
+                }
                 else if (((RadioButton)question.FindControl("rdbFalse")).Checked == true)
+                {
                     TFAnswer = "F";
+                }
                 else
+                {
+                    noAnswerCounter++;
                     TFAnswer = "N";
+                }
 
-                OracleCommand cmdAddTFQuestion = new OracleCommand(@"
+                    OracleCommand cmdAddTFQuestion = new OracleCommand(@"
 
 BEGIN
-   questions_true_false.grade_question(
+    questions_true_false.grade_question(
     p_TestTakenID   => :p_TestTakenID,
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;",
-             new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-                cmdAddTFQuestion.Parameters.AddWithValue("p_TestTakenID", 1);
-                cmdAddTFQuestion.Parameters.AddWithValue("p_QuestionID", ((Label)question.FindControl("Label1")).Text);
-                cmdAddTFQuestion.Parameters.AddWithValue("p_Answer", TFAnswer);
+                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                    cmdAddTFQuestion.Parameters.AddWithValue("p_TestTakenID", 1);
+                    cmdAddTFQuestion.Parameters.AddWithValue("p_QuestionID", ((Label)question.FindControl("Label1")).Text);
+                    cmdAddTFQuestion.Parameters.AddWithValue("p_Answer", TFAnswer);
 
-                cmdAddTFQuestion.Connection.Open();
-                cmdAddTFQuestion.ExecuteNonQuery();
+                    cmdAddTFQuestion.Connection.Open();
+                    cmdAddTFQuestion.ExecuteNonQuery();
 
-                cmdAddTFQuestion.Connection.Close();
+                    cmdAddTFQuestion.Connection.Close();
             }
             
+// GRADE QUESTION NOT UP YET FOR ANY UNDER HERE
             foreach(ListViewItem question in lvEssayQuestions.Items)
             {
                 OracleCommand cmdAddEQuestion = new OracleCommand(@"
