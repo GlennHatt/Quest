@@ -27,7 +27,7 @@
             <asp:BoundField DataField="CLASSIFICATION" HeaderText="Classification" SortExpression="CLASSIFICATION" />
             <asp:TemplateField HeaderText="Active">
             <ItemTemplate>
-                <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" OnClick="active_Click"></asp:LinkButton> 
+                <asp:LinkButton cssclass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" ForeColor="White" OnClick="active_Click"/> 
             </ItemTemplate>
         </asp:TemplateField>
         </Columns>
