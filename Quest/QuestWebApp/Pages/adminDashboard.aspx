@@ -49,7 +49,7 @@ END;"
 
     
 
-    <main class="mdl-layout__content" >
+    <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
