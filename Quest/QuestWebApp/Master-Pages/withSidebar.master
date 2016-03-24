@@ -25,7 +25,7 @@
                  <asp:LinkButton class="mdl-navigation__link" id="home" runat="server" Text="home" OnClick="home_onclick"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home </asp:LinkButton>
                 
                 <!-- for custom menu options -->
-                <asp:ContentPlaceHolder ID="withSidebarSidebar" runat="server" />
+                <asp:ContentPlaceHolder ID="withSidebarSidebar" runat="server" /> 
 
               <!--<asp:HyperLink class="mdl-navigation__link" runat="server" ID="settings" Text="Settings" NavigateUrl="~/Pages/Settings.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:HyperLink>-->
               <asp:LinkButton class="mdl-navigation__link" id="userSettings" runat="server" Text="Settings" OnClick="settings_onclick"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:LinkButton>
