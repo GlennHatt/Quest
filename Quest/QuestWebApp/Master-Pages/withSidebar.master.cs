@@ -28,7 +28,7 @@ namespace QuestWebApp.Master_Pages
         protected void home_onclick(Object sender, EventArgs e)
         {
             utilities util = new utilities();
-            util.checkAuthentication(1, 'A', 'A'); // Use the session variables
+            util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]); // Use the session variables
         }
     }
 }
