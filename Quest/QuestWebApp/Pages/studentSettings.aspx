@@ -14,7 +14,10 @@
     <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;">
         <div class="mdl-card__supporting-text" style="text-align: center">
             <br />
-
+            <!-- 
+SELECT receive_email
+  FROM end_user
+ WHERE user_id = :p_EndUserID;-->
             <div style="font-size: 200%">Change User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
