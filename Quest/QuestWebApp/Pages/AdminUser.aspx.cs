@@ -30,5 +30,21 @@ namespace QuestWebApp.Pages
                 cell[5].Attributes.Add("data-title", "Status");
             }
         }
+
+        protected void active_Click(object sender, EventArgs e)
+        {
+            LinkButton btnactive = (LinkButton)sender;
+            if (btnactive.Text == "Active")
+            {
+                btnactive.Text = "Inactive";
+                btnactive.BackColor = System.Drawing.Color.Red;
+            }
+
+            else
+            {
+                btnactive.Text = "Active";
+                btnactive.BackColor = System.Drawing.Color.Green;
+            }
+        }
     }
 }
