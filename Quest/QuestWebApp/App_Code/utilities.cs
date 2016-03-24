@@ -8,7 +8,7 @@ namespace QuestWebApp.App_Code
 {
     public class utilities
     {
-        public void checkAuthentication(int? id, char actualClassification, char neededClassification)
+        public void checkAuthentication(int? id, char? actualClassification, char? neededClassification)
         {
             if (id == null)
             {

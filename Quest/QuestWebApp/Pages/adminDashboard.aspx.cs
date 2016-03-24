@@ -67,6 +67,8 @@ namespace QuestWebApp.Pages
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 
+            Response.Cache.SetNoStore();
+
             // toast notifications 
             if (Session["showAddUserMessage"] != null)
                 showAddUserMessage = (bool)Session["showAddUserMessage"];
@@ -89,7 +91,8 @@ namespace QuestWebApp.Pages
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                 "toastr_message",
                 "toastr.success('User has been added', 'Success!')", true);
-                Session["showAddUserMessage"] = false;
+                Session["showAddUserMessage"] = null;
+                showAddUserMessage = false;
             }
 
             if (showAddClassMessage == true)
@@ -97,7 +100,8 @@ namespace QuestWebApp.Pages
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                 "toastr_message",
                 "toastr.success('Class has been added', 'Success!')", true);
-                Session["showAddClassMessage"] = false;
+                Session["showAddClassMessage"] = null;
+                showAddClassMessage = false;
             }
 
             if (showAddSectionMessage == true)
@@ -105,13 +109,13 @@ namespace QuestWebApp.Pages
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                 "toastr_message",
                 "toastr.success('Section has been added', 'Success!')", true);
-                Session["showAddSectionMessage"] = false;
+                Session["showAddSectionMessage"] = null;
+                showAddSectionMessage = false;
             }
 
 
             if (currentMonth >= 8 && ddlSemester.Items.Count == 0)
             {
-                //ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
                 ddlSemester.Items.Add(new ListItem("Fall " + (currentYear + 1)));
@@ -120,7 +124,6 @@ namespace QuestWebApp.Pages
             }
             else if (ddlSemester.Items.Count == 0)
             {
-                //ddlSemester.Items.Add(new ListItem("Semester:"));
                 ddlSemester.Items.Add(new ListItem("Spring " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Fall " + currentYear));
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 1)));
@@ -128,9 +131,11 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
             }
 
+            
+
             // Reset the sizing buttons on page refresh
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtons", "pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');", true);
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "fixSizingButtonsLrg", "pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg'); ", true);
+            ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtons", "<script>pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');</script>", false);
+            ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtonsLrg", "<script>pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg');</script> ", false);
 
 
         }
@@ -260,8 +265,9 @@ namespace QuestWebApp.Pages
             }
 
             // TODO verify the section has been added
-            if (true)
+            if (errorCount == 0)
             {
+
                 showAddSectionMessage = true;
                 Session["showAddSectionMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up

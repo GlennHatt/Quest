@@ -58,6 +58,24 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder withSidebarSidebar;
         
         /// <summary>
+        /// settings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink settings;
+        
+        /// <summary>
+        /// logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink logout;
+        
+        /// <summary>
         /// withSidebarBodyContent control.
         /// </summary>
         /// <remarks>

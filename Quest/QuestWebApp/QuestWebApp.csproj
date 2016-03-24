@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -124,10 +125,18 @@
     <Content Include="Assets\Images\you.jpg" />
     <Content Include="Assets\Images\zo.jpg" />
     <Content Include="Assets\JS\AboutusJS.js" />
-    <Content Include="Assets\JS\DatePicker.js" />
+    <Content Include="Assets\JS\Datepicker\datepicker.js" />
+    <Content Include="Assets\JS\Datepicker_old\jquery-2.1.3.min.js" />
+    <Content Include="Assets\JS\Datepicker_old\knockout-3.2.0.js" />
+    <Content Include="Assets\JS\Datepicker_old\knockout-3.4.0.js" />
+    <Content Include="Assets\JS\Datepicker_old\material.datepicker.js" />
+    <None Include="Assets\JS\Datepicker_old\moment.min.js.old" />
+    <Content Include="Assets\JS\Datepicker_old\moment.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\JS\misc.js" />
+    <Content Include="Assets\JS\modernizerResponsiveTable.js" />
+    <Content Include="Assets\JS\ResponsiveTable.js" />
     <Content Include="Assets\JS\toastr.js" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
@@ -136,12 +145,16 @@
     <Content Include="Assets\mdl\material.min.css" />
     <Content Include="Assets\mdl\material.min.js" />
     <Content Include="Assets\Styles\AboutUs.css" />
-    <Content Include="Assets\Styles\DatePicker.css" />
+    <Content Include="Assets\Styles\datepicker.css" />
     <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\dialog.css" />
     <Content Include="Assets\Styles\loginStyles.css" />
+    <None Include="Assets\Styles\material.datepicker.css.old" />
     <Content Include="Assets\Styles\Misc.css" />
+    <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableClass.css" />
+    <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableUsers.css" />
+    <Content Include="Assets\Styles\Responsive-Tables\responsiveTableNormalize.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
@@ -165,8 +178,10 @@
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
+    <Content Include="Pages\Settings.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
+    <Content Include="Pages\teacherStudentsandClasses.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
     <Content Include="Master-Pages\login.master" />
@@ -220,7 +235,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\utilities.cs" />
+    <Compile Include="App_Code\utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -343,6 +358,13 @@
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\studentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +413,13 @@
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.designer.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\teacherStudentsandClasses.aspx.cs">
+      <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\teacherStudentsandClasses.aspx.designer.cs">
+      <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\testCreation.aspx.cs">
       <DependentUpon>testCreation.aspx</DependentUpon>
@@ -453,6 +482,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

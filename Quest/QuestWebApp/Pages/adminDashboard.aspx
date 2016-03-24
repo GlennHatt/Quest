@@ -9,8 +9,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
-    <script></script>
+<asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server" >
+    <script>
+
+
+    </script>
     <asp:SqlDataSource ID="sqlTeacher" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
 DECLARE
   v_dummy pls_integer;
@@ -39,13 +42,14 @@ BEGIN
       p_Code   =&gt; :p_Code,
       p_Title  =&gt; :p_Title);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE FROM CLASS">
+        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT CLASS_ID FROM CLASS">
         <InsertParameters>
-            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
+            <asp:Parameter />
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource> 
-
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 
     
 
@@ -215,7 +219,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
 
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Course:</Label>
-                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="TITLE">
+                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="CLASS_ID" DataSourceID="sqlClass" DataValueField="CLASS_ID">
                                 <asp:ListItem Value="Course:"></asp:ListItem>
                             </asp:DropDownList>
                             <%--<span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>--%>
@@ -223,12 +227,14 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
 
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Teacher:</Label>
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="FULL_NAME">
+                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="USER_ID" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID">
                                 <asp:ListItem Value="Teacher:"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select l_name || ', ' || f_name as full_name
-from end_user
-where permission_level = 'T'"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+select user_id
+from   end_user
+where  permission_level = 'T'"
+                            ></asp:SqlDataSource>
                             <%--<span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>--%>
                         </div>
 
