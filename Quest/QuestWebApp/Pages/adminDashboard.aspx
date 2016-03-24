@@ -49,7 +49,23 @@ END;"
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
     </asp:SqlDataSource> 
-    <asp:SqlDataSource ID="sqlSection" runat="server"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlSection" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
+declare
+v_dummy pls_integer;
+begin
+v_dummy := sections.add(
+    p_TeacherID =&gt; :p_TeacherID,
+    p_ClassID =&gt; :p_ClassID,
+    p_Semester =&gt; :p_Semester,
+    p_SectionNumber =&gt; :p_SectionNumber);
+end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select * from section">
+        <InsertParameters>
+            <asp:ControlParameter ControlID="ddlTeacher" Name="p_TeacherID" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="ddlCourses" Name="p_ClassID" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="ddlSemester" Name="p_Semester" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="ddlSection" Name="p_SectionNumber" PropertyName="SelectedValue" />
+        </InsertParameters>
+    </asp:SqlDataSource>
 
     
 
