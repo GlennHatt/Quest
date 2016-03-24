@@ -179,7 +179,6 @@
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
-    <Content Include="Pages\Settings.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
     <Content Include="Pages\studentSettings.aspx" />
@@ -238,6 +237,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\settingsUtilities.cs" />
     <Compile Include="App_Code\utilities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -367,13 +367,6 @@
     </Compile>
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentDashboard.aspx.cs">
       <DependentUpon>StudentDashboard.aspx</DependentUpon>
