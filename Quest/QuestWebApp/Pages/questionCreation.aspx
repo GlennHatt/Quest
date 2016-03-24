@@ -167,18 +167,7 @@ SELECT choice_id, question_id, choice_text, set_order
 SELECT question_id, weight, type, question_text, answer
   FROM question
        JOIN question_true_false USING (question_id)
- WHERE test_id = :p_TestID"
-        UpdateCommand="
-BEGIN
-  QUESTIONS.change(
-    p_QuestionID =&gt; :p_QuestionID,
-    p_Weight     =&gt; :weight);
-    
-  QUESTIONS_TRUE_FALSE.change(
-    p_QuestionID   =&gt; :p_QuestionID,
-    p_QuestionText =&gt; :question_text,
-    P_Answer       =&gt; :answer);
-END;">
+ WHERE test_id = :p_TestID">
         <SelectParameters>
             <asp:SessionParameter Name="p_TestID" SessionField="Test_ID" />
         </SelectParameters>
@@ -189,32 +178,40 @@ END;">
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--4-col">
-                <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
+                <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemCommand="lstQuestionDisplay_ItemCommand">
                     <ItemTemplate>
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <asp:Table ID="tblQuestion" runat="server">
                                     <asp:TableHeaderRow>
                                         <asp:TableHeaderCell>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" /></asp:TableHeaderCell><asp:TableHeaderCell>
-                                                <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" /></asp:TableHeaderCell>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
+                                        </asp:TableHeaderCell><asp:TableHeaderCell>
+                                            <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
+                                        </asp:TableHeaderCell>
                                     </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
                                 <asp:Table ID="tblTFQuestion" runat="server">
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("question_text") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("question_text") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("answer") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("answer") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
                             </div>
@@ -226,25 +223,33 @@ END;">
                                 <asp:Table ID="tblQuestion" runat="server">
                                     <asp:TableHeaderRow>
                                         <asp:TableHeaderCell>
-                                            <asp:LinkButton ID="btnEditQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' /></asp:TableHeaderCell><asp:TableHeaderCell>
-                                                <asp:LinkButton ID="btnDeleteQuestion" runat="server" Text="Cancel" CommandName="Cancel" /></asp:TableHeaderCell>
+                                            <asp:LinkButton ID="btnEditQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
+                                        </asp:TableHeaderCell><asp:TableHeaderCell>
+                                            <asp:LinkButton ID="btnDeleteQuestion" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
+                                        </asp:TableHeaderCell>
                                     </asp:TableHeaderRow>
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:TextBox ID="lblWeight" runat="server" Text='<%#Bind("weight") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:TextBox ID="lblWeight" runat="server" Text='<%#Bind("weight") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
                                 <asp:Table ID="tblTFQuestion" runat="server">
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:TextBox ID="lblQuestion" runat="server" Text='<%#Bind("question_text") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:TextBox ID="lblQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " /></asp:TableHeaderCell><asp:TableCell>
-                                                <asp:TextBox ID="lblAnswer" runat="server" Text='<%#Bind("answer") %>' /></asp:TableCell>
+                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                        </asp:TableHeaderCell><asp:TableCell>
+                                            <asp:TextBox ID="lblAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                        </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
                             </div>
