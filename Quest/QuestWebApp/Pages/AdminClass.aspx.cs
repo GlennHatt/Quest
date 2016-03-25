@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace QuestWebApp.Pages
 {
     public partial class AdminClass : System.Web.UI.Page
@@ -25,6 +26,11 @@ namespace QuestWebApp.Pages
                 cell[3].Attributes.Add("data-title", "Last Name");
                 cell[4].Attributes.Add("data-title", "Delete");
             }
+        }
+
+        protected void btnDeleteClick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

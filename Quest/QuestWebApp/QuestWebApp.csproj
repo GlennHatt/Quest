@@ -132,6 +132,7 @@
     <Content Include="Assets\JS\Datepicker_old\material.datepicker.js" />
     <None Include="Assets\JS\Datepicker_old\moment.min.js.old" />
     <Content Include="Assets\JS\Datepicker_old\moment.js" />
+    <Content Include="Assets\JS\deleteButton.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
     <Content Include="Assets\JS\misc.js" />
@@ -146,6 +147,7 @@
     <Content Include="Assets\mdl\material.min.js" />
     <Content Include="Assets\Styles\AboutUs.css" />
     <Content Include="Assets\Styles\datepicker.css" />
+    <Content Include="Assets\Styles\deleteButton.css" />
     <Content Include="Assets\Styles\dropdown.css" />
     <Content Include="Assets\Styles\inputTransition.css" />
     <Content Include="Assets\Styles\dialog.css" />

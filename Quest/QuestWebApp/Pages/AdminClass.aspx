@@ -24,14 +24,35 @@
                     <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME"></asp:BoundField>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
-                            <asp:LinkButton ID="deleteButton" runat="server"><i class="material-icons testAlert">clear</i></asp:LinkButton>
+                            <link href="../Assets/Styles/deleteButton.css" rel="stylesheet" />
+
+    
+        <link rel="stylesheet" href="css/style.css">
+
+<div class="btn">
+  <div class="btn-back">
+    <p>Are you sure you want to do that?</p>
+      <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClick="btnDeleteClick"> <i class="material-icons">done</i></asp:LinkButton>
+    <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClick="btnDeleteClick"> <i class="material-icons">clear</i></asp:LinkButton>
+     <%-- <i class="material-icons">done</i>
+    <i class="material-icons">clear</i>--%>
+  </div>
+  <div class="btn-front">Delete</div>
+</div>
+
+    
+        <script src="js/index.js"></script>
+    <script src="../Assets/JS/deleteButton.js"></script>
+                            <%--<asp:LinkButton ID="deleteButton" runat="server" OnClick="btnDeleteClick"><i class="material-icons testAlert">clear</i></asp:LinkButton>--%>
                         </ItemTemplate>
+                        
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>
         <br />
     </div>
+
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
 select class.code, class.title, section.section_number, end_user.l_name 
 from class, section, end_user 
