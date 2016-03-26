@@ -27,17 +27,19 @@ function doStuff(event, mySender)
     });
 
     btn.setAttribute('data-direction', directions.shift().id);
+    // added for IE compatibility
+    btnFront.setAttribute("style", "display: none;");
     btn.classList.add('is-open');
 
 }//);
 
-btnYes.addEventListener('click', function (event) {
-    btn.classList.remove('is-open');
-});
+//btnYes.addEventListener('click', function (event) {
+//    btn.classList.remove('is-open');
+//});
 
-btnNo.addEventListener('click', function (event) {
-    btn.classList.remove('is-open');
-});
+//btnNo.addEventListener('click', function (event) {
+//    btn.classList.remove('is-open');
+//});
 
 function distance(x1, y1, x2, y2) {
     var dx = x1 - x2;
@@ -45,8 +47,9 @@ function distance(x1, y1, x2, y2) {
     return Math.sqrt(dx * dx + dy * dy);
 }
 
-function setElements(mySender)
+function setElements(mySender, event)
 {
+    myEvent = event;
     //mySender.
     //console.log(window.event.target.tag.toString());
     btn = mySender;
@@ -54,13 +57,22 @@ function setElements(mySender)
     btnYes = btn.querySelector('.btn-back .yes'),
     btnNo = btn.querySelector('.btn-back .no');
 
-    doStuff(event, mySender);
+    doStuff(myEvent, mySender);
 
-    //btnYes.addEventListener('click', function (event) {
-    //    btn.classList.remove('is-open');
-    //});
+    btnYes.addEventListener('click', function (event) {
+        btn.classList.remove('is-open');
+    });
 
     //btnNo.addEventListener('click', function (event) {
+    //    // maybe display of show?
     //    btn.classList.remove('is-open');
     //});
+}
+
+function closeBox(mySender, event)
+{
+    btn = this.parent.parent.parent;
+    btn.classList.remove('is-open');
+
+    return false;
 }
