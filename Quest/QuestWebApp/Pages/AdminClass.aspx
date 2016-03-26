@@ -8,6 +8,7 @@
     <script src="../Assets/JS/modernizerResponsiveTable.js"></script>
     <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
     <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableClass.css" rel="stylesheet" />
+    <link href="../Assets/Styles/deleteButton.css" rel="stylesheet" />
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
@@ -24,25 +25,19 @@
                     <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME"></asp:BoundField>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
-                            <link href="../Assets/Styles/deleteButton.css" rel="stylesheet" />
+                            
 
-    
-        <link rel="stylesheet" href="css/style.css">
-
-<div class="btn">
+<div class="btn" id="myButton" onclick="setElements(this)">
   <div class="btn-back">
     <p>Are you sure you want to do that?</p>
-      <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClick="btnDeleteClick"> <i class="material-icons">done</i></asp:LinkButton>
-    <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClick="btnDeleteClick"> <i class="material-icons">clear</i></asp:LinkButton>
-     <%-- <i class="material-icons">done</i>
-    <i class="material-icons">clear</i>--%>
+      <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClientClick="return false" OnClick="btnDeleteClick"> <i class="material-icons yes">done</i></asp:LinkButton>
+    <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClientClick="return false" OnClick="btnDeleteClick"> <i class="material-icons no">clear</i></asp:LinkButton>
   </div>
   <div class="btn-front">Delete</div>
 </div>
 
     
-        <script src="js/index.js"></script>
-    <script src="../Assets/JS/deleteButton.js"></script>
+       
                             <%--<asp:LinkButton ID="deleteButton" runat="server" OnClick="btnDeleteClick"><i class="material-icons testAlert">clear</i></asp:LinkButton>--%>
                         </ItemTemplate>
                         
@@ -64,4 +59,6 @@ and section.class_id = class.class_id"></asp:SqlDataSource>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/ResponsiveTable.js"></script>
+     <script src="js/index.js"></script>
+    <script src="../Assets/JS/deleteButton.js"></script>
 </asp:Content>
