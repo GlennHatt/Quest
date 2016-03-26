@@ -241,17 +241,19 @@ namespace QuestWebApp.Pages
         {
             int errorCount = 0;
 
-            if(ddlSemester.SelectedIndex == 0)
+            // May this can be revisited to check for already taken semesters and sections of classes
+            /*if(ddlSemester.SelectedIndex == 0)
             {
                 ddlSemester.BorderColor = Color.Red;
                 errorCount++;
-            }
+            }*/
 
-            if(ddlSection.SelectedIndex == 0)
+            /*if(ddlSection.SelectedIndex == 0)
             {
+                // Should we default the section to 1 or maybe the next available section?
                 ddlSection.BorderColor = Color.Red;
                 errorCount++;
-            }
+            }*/
 
             if(ddlCourses.SelectedIndex == 0)
             {
@@ -264,8 +266,7 @@ namespace QuestWebApp.Pages
                 ddlTeacher.BorderColor = Color.Red;
                 errorCount++;
             }
-
-            // TODO verify the section has been added
+            
             if (errorCount == 0)
             {
                 sqlSection.Insert();

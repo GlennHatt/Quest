@@ -236,16 +236,16 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
 
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Course:</Label>
-                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="CLASS_ID">
-                                <asp:ListItem Value="Course:"></asp:ListItem>
+                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
+                                <asp:ListItem>-- Select a Course --</asp:ListItem>
                             </asp:DropDownList>
                             <%--<span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>--%>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Teacher:</Label>
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID">
-                                <asp:ListItem Value="Teacher:"></asp:ListItem>
+                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID"  AppendDataBoundItems="true">
+                                <asp:ListItem>-- Select a Teacher --</asp:ListItem>
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER where permission_level = 'T'"
                             ></asp:SqlDataSource>
