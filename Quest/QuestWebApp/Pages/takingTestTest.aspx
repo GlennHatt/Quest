@@ -98,7 +98,7 @@ END;">
         </asp:ListView>
 <!-- EMPTY CARDS SHOWING UP NEED TO WORK ON
 
-        <!-- MATCHING QUESTIONS
+        MATCHING QUESTIONS -->
         <div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                 <div class="mdl-card__supporting-text" style="text-align: center">
@@ -126,10 +126,10 @@ END;">
                 </div>
             </div>
         </div>
--->
-    <!--
+
+
     <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlMatchingQuestions"></asp:GridView>
-    -->
+
 
     <asp:SqlDataSource ID="sqlMatchingQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select question_matching.question_id quest_id, question_matching_body.question_text matching_question, question_matching_body.answer matching_answer
