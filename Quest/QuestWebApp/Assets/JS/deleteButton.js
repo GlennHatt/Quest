@@ -1,10 +1,14 @@
-﻿var btn = document.querySelector('.btn');
+﻿//var btn = document.querySelector('.btn');
+var btn;
 
-var btnFront = btn.querySelector('.btn-front'),
-    btnYes = btn.querySelector('.btn-back .yes'),
-    btnNo = btn.querySelector('.btn-back .no');
+var btnFront,
+    btnYes,
+    btnNo;
 
-btnFront.addEventListener('click', function (event) {
+//btnFront.addEventListener('click', function (event) 
+
+function doStuff(event, mySender)
+{
     var mx = event.clientX - btn.offsetLeft,
         my = event.clientY - btn.offsetTop;
 
@@ -23,20 +27,52 @@ btnFront.addEventListener('click', function (event) {
     });
 
     btn.setAttribute('data-direction', directions.shift().id);
+    // added for IE compatibility
+    btnFront.setAttribute("style", "display: none;");
     btn.classList.add('is-open');
 
-});
+}//);
 
-btnYes.addEventListener('click', function (event) {
-    btn.classList.remove('is-open');
-});
+//btnYes.addEventListener('click', function (event) {
+//    btn.classList.remove('is-open');
+//});
 
-btnNo.addEventListener('click', function (event) {
-    btn.classList.remove('is-open');
-});
+//btnNo.addEventListener('click', function (event) {
+//    btn.classList.remove('is-open');
+//});
 
 function distance(x1, y1, x2, y2) {
     var dx = x1 - x2;
     var dy = y1 - y2;
     return Math.sqrt(dx * dx + dy * dy);
+}
+
+function setElements(mySender, event)
+{
+    myEvent = event;
+    //mySender.
+    //console.log(window.event.target.tag.toString());
+    btn = mySender;
+    btnFront = btn.querySelector('.btn-front'),
+    btnYes = btn.querySelector('.btn-back .yes'),
+    btnNo = btn.querySelector('.btn-back .no');
+
+    doStuff(myEvent, mySender);
+
+    btnYes.addEventListener('click', function (event) {
+        btn.classList.remove('is-open');
+    });
+
+    //btnNo.addEventListener('click', function (event) {
+    //    // maybe display of show?
+    //    btn.classList.remove('is-open');
+    //});
+}
+
+function closeBox(mySender, event)
+{
+    btn = this.parent.parent.parent;
+    btn.classList.remove('is-open');
+
+    return false;
 }

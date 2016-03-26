@@ -130,6 +130,7 @@
     <Content Include="Assets\JS\Datepicker_old\knockout-3.2.0.js" />
     <Content Include="Assets\JS\Datepicker_old\knockout-3.4.0.js" />
     <Content Include="Assets\JS\Datepicker_old\material.datepicker.js" />
+    <Content Include="Assets\JS\button.bak" />
     <None Include="Assets\JS\Datepicker_old\moment.min.js.old" />
     <Content Include="Assets\JS\Datepicker_old\moment.js" />
     <Content Include="Assets\JS\deleteButton.js" />
