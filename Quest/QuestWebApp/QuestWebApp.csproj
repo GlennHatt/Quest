@@ -136,6 +136,7 @@
     <Content Include="Assets\JS\deleteButton.js" />
     <Content Include="Assets\JS\dialog.js" />
     <Content Include="Assets\JS\loginJS.js" />
+    <Content Include="Assets\JS\marka.js" />
     <Content Include="Assets\JS\misc.js" />
     <Content Include="Assets\JS\modernizerResponsiveTable.js" />
     <Content Include="Assets\JS\ResponsiveTable.js" />

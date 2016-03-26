@@ -54,8 +54,9 @@
     <link href="../Assets/Styles/dropdown.css" rel="stylesheet" />
     <link rel='stylesheet prefetch' href='http://fian.my.id/marka/static/marka/css/marka.css'/>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://fian.my.id/marka/static/marka/js/marka.js'></script>
-    <script src="../Assets/JS/dropdown.js"></script>
+    <%--<script src='http://fian.my.id/marka/static/marka/js/marka.js'></script>--%>
+    <script src="../Assets/JS/marka.js"></script>
+    <%--<script src="../Assets/JS/dropdown.js"></script>--%>
 
     <!-- Toast styles -->
     <link href="../Assets/Styles/toastr.css" rel="stylesheet" />

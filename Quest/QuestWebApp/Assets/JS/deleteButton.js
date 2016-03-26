@@ -71,8 +71,8 @@ function setElements(mySender, event)
 
 function closeBox(mySender, event)
 {
-    btn = this.parent.parent.parent;
-    btn.classList.remove('is-open');
+    //btn = this.parent.parent.parent.Element;
+    //btn.classList.remove('is-open');
 
-    return false;
+    //return false;
 }
