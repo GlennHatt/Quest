@@ -33,7 +33,7 @@
         </asp:TableRow>
     </asp:Table>
     <!-- Matching -->
-    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
@@ -75,7 +75,7 @@ SELECT question_id, question_text, answer
     </asp:GridView>
 
     <!-- Multiple Choice -->
-    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT choice_id, question_id, choice_text, set_order
   FROM question_multiple_choice_body
  WHERE question_id = :p_QuestionID">
@@ -163,7 +163,7 @@ SELECT choice_id, question_id, choice_text, set_order
     <asp:Button ID="btnAddQuestion" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
 
     <!-- Question Display Section -->
-    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, weight, type, question_text, answer
   FROM question
        JOIN question_true_false USING (question_id)
@@ -171,9 +171,6 @@ SELECT question_id, weight, type, question_text, answer
         <SelectParameters>
             <asp:SessionParameter Name="p_TestID" SessionField="Test_ID" />
         </SelectParameters>
-        <UpdateParameters>
-            <asp:SessionParameter Name="p_TestID" SessionField="Test_ID" />
-        </UpdateParameters>
     </asp:SqlDataSource>
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
@@ -218,6 +215,7 @@ SELECT question_id, weight, type, question_text, answer
                         </div>
                     </ItemTemplate>
                     <EditItemTemplate>
+                        <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <asp:Table ID="tblQuestion" runat="server">

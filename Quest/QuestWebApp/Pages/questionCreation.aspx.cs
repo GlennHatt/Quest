@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
    {
       // Global Veriables
       int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
       ArrayList choices;
       string questionType;
 
@@ -262,11 +262,13 @@ END;",
       protected void lstQuestionDisplay_ItemUpdating(object sender, ListViewUpdateEventArgs e)
       {
          ListView lstView = (ListView)sender;
+         int questionID = Convert.ToInt32(((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnQuestionID")).Value);
          TextBox weight = (TextBox)lstView.EditItem.FindControl("txtWeight");
          TextBox question = (TextBox)lstView.EditItem.FindControl("txtQuestion");
          TextBox answer = (TextBox)lstView.EditItem.FindControl("txtAnswer");
 
-         /*OracleCommand cmdEditQuestion = new OracleCommand(@"
+
+         OracleCommand cmdEditQuestion = new OracleCommand (@"
 BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
@@ -276,35 +278,19 @@ BEGIN
     p_QuestionID   => :p_QuestionID,
     p_QuestionText => :p_QuestionText,
     P_Answer       => :p_Answer);
-END;",
-         connectionString);
-         cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", lstView.EditIndex);
+END;", connectionString);
+         cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
          cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
          cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", question.Text);
-         cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text);*/
+         cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text); ;
 
-         Session["updateQuestionID"] = lstView.EditIndex.ToString();
-         Session["updateWeight"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtWeight")).Text;
-         Session["updateQuestionText"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtQuestion")).Text;
-         Session["updateAnswer"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtAnswer")).Text;
-         sqlQuestionDisplay.UpdateCommand = @"
-DECLARE
-   v_Question pls_integer;
-BEGIN
-  v_Question := :p_QuestionID;
-  QUESTIONS.change(
-    p_QuestionID => v_QuestionID,
-    p_Weight     => :p_Weight);
+         cmdEditQuestion.Connection.Open();
+         cmdEditQuestion.ExecuteNonQuery();
+         cmdEditQuestion.Connection.Close();
 
-  QUESTIONS_TRUE_FALSE.change(
-    p_QuestionID   => v_QuestionID,
-    p_QuestionText => :p_QuestionText,
-    P_Answer       => :p_Answer);
-END;";
-         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_QuestionID", "updateQuestionID"));
-         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Weight", "updateWeight"));
-         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_QuestionText", "updateQuestionText"));
-         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Answer", "updateAnswer"));
+         e.Cancel = true;
+         lstView.EditIndex = -1;
+         lstView.DataBind();
       }
    }
 }
