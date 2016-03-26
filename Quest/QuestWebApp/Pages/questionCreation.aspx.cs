@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
    {
       // Global Veriables
       int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
       ArrayList choices;
       string questionType;
 
@@ -259,26 +259,14 @@ END;",
          grdAddMatchingQuestion.Visible = false;
       }
 
-      protected void lstQuestionDisplay_ItemCommand(object sender, ListViewCommandEventArgs e)
+      protected void lstQuestionDisplay_ItemUpdating(object sender, ListViewUpdateEventArgs e)
       {
-         OracleCommand cmdEditQuestion = new OracleCommand();
          ListView lstView = (ListView)sender;
-         int      index   = int.Parse(e.CommandArgument.ToString());
+         TextBox weight = (TextBox)lstView.EditItem.FindControl("txtWeight");
+         TextBox question = (TextBox)lstView.EditItem.FindControl("txtQuestion");
+         TextBox answer = (TextBox)lstView.EditItem.FindControl("txtAnswer");
 
-         switch (e.CommandName)
-         {
-            case "Edit":
-               lstView.EditIndex = index;
-               lstQuestionDisplay.DataBind();
-               break;
-            case "Delete":
-               break;
-            case "Update":
-               TextBox weight   = (TextBox)lstView.Items[index].FindControl("txtWeight");
-               TextBox question = (TextBox)lstView.Items[index].FindControl("txtQuestion");
-               TextBox answer   = (TextBox)lstView.Items[index].FindControl("txtAnswer");
-
-               cmdEditQuestion = new OracleCommand(@"
+         /*OracleCommand cmdEditQuestion = new OracleCommand(@"
 BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
@@ -289,17 +277,34 @@ BEGIN
     p_QuestionText => :p_QuestionText,
     P_Answer       => :p_Answer);
 END;",
-               connectionString);
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID",   index);
-               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", question.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text);
-               
-               break;
-            case "Cancel":
-               lstView.EditIndex = -1;
-               break;
-         }
+         connectionString);
+         cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", lstView.EditIndex);
+         cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+         cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", question.Text);
+         cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text);*/
+
+         Session["updateQuestionID"] = lstView.EditIndex.ToString();
+         Session["updateWeight"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtWeight")).Text;
+         Session["updateQuestionText"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtQuestion")).Text;
+         Session["updateAnswer"] = ((TextBox)lstView.Items[lstView.EditIndex].FindControl("txtAnswer")).Text;
+         sqlQuestionDisplay.UpdateCommand = @"
+DECLARE
+   v_Question pls_integer;
+BEGIN
+  v_Question := :p_QuestionID;
+  QUESTIONS.change(
+    p_QuestionID => v_QuestionID,
+    p_Weight     => :p_Weight);
+
+  QUESTIONS_TRUE_FALSE.change(
+    p_QuestionID   => v_QuestionID,
+    p_QuestionText => :p_QuestionText,
+    P_Answer       => :p_Answer);
+END;";
+         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_QuestionID", "updateQuestionID"));
+         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Weight", "updateWeight"));
+         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_QuestionText", "updateQuestionText"));
+         sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Answer", "updateAnswer"));
       }
    }
 }
