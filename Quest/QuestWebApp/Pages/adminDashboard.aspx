@@ -45,7 +45,6 @@ BEGIN
 END;"
         ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE, CLASS_ID FROM CLASS">
         <InsertParameters>
-            <asp:Parameter />
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
         </InsertParameters>
@@ -173,21 +172,22 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         <button style="background-color: #FF6E40;" ID="btnResizeClassSm" disabled="disabled" onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
                         <button style="background-color: #FF6E40;" ID="btnResizeClassLrg"  onclick="changeUserCardSize('cardNewClass', 'btnResizeClassSm', 'btnResizeClassLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
                         <h1>Add a Class </h1>
-                        <!-- Textfield with Floating Label for Title -->
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Title:</label>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
-                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>
-                        </div>
-
+                        
                         <!-- Textfield with Floating Label for Course Number -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
-                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Course Number:</label>
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Code: (AA ###)</label>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="valCourseNumRegex" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxCourseNumber" ErrorMessage="Invalid course number" ValidationExpression="[A-Z]{2} [1-9]{3}"></asp:RegularExpressionValidator>
                             <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>
+                        </div>
+
+                        <!-- Textfield with Floating Label for Title -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Name:</label>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
+                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>
                         </div>
 
                         <div style="text-align: right">
