@@ -209,7 +209,7 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
-            // TODO: Regex r = new Regex(ValidationExpression);
+            Regex r = new Regex(valCourseNumRegex.ToString());
 
             if (txtbxClassTitle.Text == String.Empty)
             {
@@ -219,7 +219,8 @@ namespace QuestWebApp.Pages
 
             // TODO: Validate course number
 
-            if(txtbxCourseNumber.Text == String.Empty)
+            Match m = r.Match(txtbxCourseNumber.Text);
+            if(!m.Success)
             {
                 txtbxCourseNumber.BorderColor = Color.Red;
                 errorCount++;
