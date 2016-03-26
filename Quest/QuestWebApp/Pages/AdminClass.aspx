@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
 
-    <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="width: 85%; margin-left:7%;" >
+    <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
             <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound">
                 <Columns>
@@ -34,10 +34,7 @@
     <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClientClick="closeBox(this, event)" OnClick="btnDeleteClick"> <i class="material-icons no">clear</i></asp:LinkButton>
   </div>
   <div class="btn-front">Delete</div>
-</div>
-
-    
-       
+</div> 
                             <%--<asp:LinkButton ID="deleteButton" runat="server" OnClick="btnDeleteClick"><i class="material-icons testAlert">clear</i></asp:LinkButton>--%>
                         </ItemTemplate>
                         
