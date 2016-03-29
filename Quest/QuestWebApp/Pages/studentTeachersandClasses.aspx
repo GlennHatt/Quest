@@ -61,7 +61,7 @@
 
   
 
-   <div class="overbox" runat="server">
+   <div id="mailButton" class="overbox" runat="server">
       <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
 
       <div class="title">Email</div><br />

@@ -20,7 +20,7 @@ namespace QuestWebApp.Master_Pages
         protected void logout_onclick(Object sender, EventArgs e)
         {
             utilities util = new utilities();
-            Session["userClassification"] = null;
+            Session["userClassification"]   = null;
             Session["neededClassification"] = null;
             util.checkAuthentication(null, null, null);
         }
