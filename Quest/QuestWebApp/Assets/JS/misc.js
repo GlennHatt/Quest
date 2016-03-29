@@ -42,3 +42,12 @@ function pageResetLarge() {
         document.getElementById(arguments[i]).disabled = false;
     }
 }
+
+function showQuestionCard() {
+    document.getElementById('cardQuestionType').setAttribute("display", "none");
+
+    //if (document.getElementById("txtAddWeight")) {
+    //div.setAttribute("visibility", "none");
+    //}
+   
+}

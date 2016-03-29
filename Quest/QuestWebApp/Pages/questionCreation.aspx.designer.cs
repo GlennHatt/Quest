@@ -13,6 +13,15 @@ namespace QuestWebApp.Pages {
     public partial class questionCreation {
         
         /// <summary>
+        /// cardPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardPoints;
+        
+        /// <summary>
         /// lblAddWeight control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddWeight;
+        
+        /// <summary>
+        /// cardQuestionType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardQuestionType;
         
         /// <summary>
         /// lblAddType control.
@@ -49,13 +67,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RadioButtonList rblAddType;
         
         /// <summary>
+        /// cardEssay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardEssay;
+        
+        /// <summary>
         /// tblAddEssay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddEssay;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAddEssay;
         
         /// <summary>
         /// lblAddEssayText control.

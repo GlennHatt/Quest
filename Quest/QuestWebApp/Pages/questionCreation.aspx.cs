@@ -84,6 +84,7 @@ namespace QuestWebApp.Pages
          {
             case "E":
                tblAddEssay.Visible = true;
+                    cardEssay.Visible = true;
                break;
             case "M":
                tblMatchingSection.Visible = true;
@@ -247,6 +248,7 @@ END;",
       protected void hideInputs()
       {
          tblAddEssay.Visible = false;
+            cardEssay.Visible = false;
          tblAddMultipleChoice.Visible = false;
          tblAddShortAnswer.Visible = false;
          tblAddTrueFalse.Visible = false;
@@ -307,5 +309,6 @@ END;";
          sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_QuestionText", "updateQuestionText"));
          sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Answer", "updateAnswer"));
       }
-   }
+
+    }
 }

@@ -11,16 +11,16 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
 
 
-<div class="demo-card-square mdl-card mdl-shadow--2dp" style="width:20%; float:none">
+<div class="demo-card-square mdl-card mdl-shadow--2dp" ID="cardPoints" runat="server" style="width:20%; float:none">
   <div class="mdl-card__title mdl-card--expand">
    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Point Value: " style="bottom:0px"/>
-    <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
+    <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " style="bottom:0px"/>
+    <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" onKeyPress="javascript:showQuestionCard();" />
         </div>
   </div>
 </div>
 
-    <div class="demo-card mdl-card mdl-shadow--2dp" style="width:46%; float:none;">
+    <div class="demo-card mdl-card mdl-shadow--2dp" ID="cardQuestionType" runat="server" style="width:46%; float:none; left:26%;">
    <div class="mdl-card__title mdl-card--expand">
     <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" /> 
     <asp:RadioButtonList ID="rblAddType" class="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
@@ -33,16 +33,17 @@
        </div>
     <br />
        </div>
+
     <!-- Essay -->
-    <asp:Table ID="tblAddEssay" runat="server">
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblAddEssayText" runat="server" Text="Question Text: " />
-            </asp:TableCell><asp:TableCell>
-                <asp:TextBox ID="txtAddEssayText" runat="server" />
-            </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
+    <div class="demo-card-square mdl-card mdl-shadow--2dp" ID="cardEssay" runat="server" style="width:20%; float:none">
+  <div class="mdl-card__title mdl-card--expand">
+    <div ID="tblAddEssay" runat="server">
+                <asp:Label class="mdl-textfield__label" ID="lblAddEssayText" runat="server" Text=" Essay Question: " style="bottom:0px" />
+                <asp:TextBox class="mdl-textfield__input" ID="txtAddEssayText" runat="server" />
+    </div>
+      </div>
+        </div>
+
     <!-- Matching -->
     <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
