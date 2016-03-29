@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -13,13 +15,8 @@ namespace QuestWebApp.Pages
 {
     public partial class studentTeachersandClasses : System.Web.UI.Page
     {
-/*SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_name
-    FROM enrollment e
-         JOIN section  s  USING (section_id)
-         JOIN class    c  USING (class_id)
-         JOIN end_user eu ON    (teacher_id = user_id)
-   WHERE student_id = :p_StudentID*/
-
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        
         bool showMessage;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,6 +35,53 @@ namespace QuestWebApp.Pages
                 "toastr.success('Message has been sent', 'Success!')", true);
                 Session["showMessage"] = false;
             }
+
+//            OracleCommand cmdEmailActive = new OracleCommand(@"
+//SELECT receive_email
+//  FROM end_user
+// WHERE user_id = :p_UserID", connectionString);
+//            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "5"/*Session["p_StudentID"]*/);
+
+//            cmdEmailActive.Connection.Open();
+//            OracleDataReader reader = cmdEmailActive.ExecuteReader();
+//            try
+//            {
+//                while (reader.Read())
+//                {
+//                    reader.GetValue(0);
+//                }
+//            }
+//            finally
+//            {
+//                reader.Close();
+//            }
+//            cmdEmailActive.Connection.Close();
+
+
+//            cmdEmailActive = new OracleCommand(@"
+//SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_name, teacher_id
+//  FROM enrollment e
+//       JOIN section  s  USING (section_id)
+//       JOIN class    c  USING (class_id)
+//       JOIN end_user eu ON    (teacher_id = user_id)
+// WHERE student_id = :p_StudentID", connectionString);
+//            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "5"/*Session["p_StudentID"]*/);
+
+//            cmdEmailActive.Connection.Open();
+//            reader = cmdEmailActive.ExecuteReader();
+//            try
+//            {
+//                while (reader.Read())
+//                {
+//                    reader.GetValue(2);
+//                }
+//            }
+//            finally
+//            {
+//                reader.Close();
+//            }
+//            cmdEmailActive.Connection.Close();
+
         }
 
         protected void btnSendMessage_Click(object sender, EventArgs e)

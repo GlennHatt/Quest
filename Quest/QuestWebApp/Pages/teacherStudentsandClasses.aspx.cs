@@ -14,6 +14,7 @@ namespace QuestWebApp.Pages
             if (!this.IsPostBack)
             {
                 gvStudents.HeaderRow.TableSection = TableRowSection.TableHeader;
+                
             }
         }
 
