@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
    {
       // Global Veriables
       int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
       ArrayList choices;
       string questionType;
 
@@ -262,16 +262,54 @@ END;",
       protected void lstQuestionDisplay_ItemUpdating(object sender, ListViewUpdateEventArgs e)
       {
          ListView lstView = (ListView)sender;
-         int questionID = Convert.ToInt32(((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnQuestionID")).Value);
-         TextBox weight = (TextBox)lstView.EditItem.FindControl("txtWeight");
-         TextBox question = (TextBox)lstView.EditItem.FindControl("txtQuestion");
-         TextBox answer = (TextBox)lstView.EditItem.FindControl("txtAnswer");
+         int questionID = Convert.ToInt32(((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnEditQuestionID")).Value);
+         string questionType = ((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnEditQuestionType")).Value;
+         TextBox weight = (TextBox)lstView.EditItem.FindControl("txtEditWeight");
+         TextBox testOrder = (TextBox)lstView.EditItem.FindControl("txtEditTestOrder");
+         OracleCommand cmdEditQuestion = new OracleCommand();
 
-
-         OracleCommand cmdEditQuestion = new OracleCommand (@"
+         switch (questionType)
+         {
+            case "E":
+               cmdEditQuestion = new OracleCommand(@"
 BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
+    p_TestOrder  => :p_TestOrder,
+    p_Weight     => :p_Weight);
+
+  QUESTIONS_ESSAY.change(
+    p_QuestionID   => :p_QuestionID,
+    p_QuestionText => :p_QuestionText);
+END;", connectionString);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+               cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditEQuestion")).Text);
+               break;
+            case "M":
+               cmdEditQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS.change(
+    p_QuestionID => :p_QuestionID,
+    p_TestOrder  => :p_TestOrder,
+    p_Weight     => :p_Weight);
+
+  QUESTIONS_MATCHING.change(
+    p_QuestionID   => :p_QuestionID,
+    p_QuestionText => :p_QuestionText);
+END;", connectionString);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+               cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
+               break;
+            case "TF":
+               cmdEditQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS.change(
+    p_QuestionID => :p_QuestionID,
+    p_TestOrder  => :p_TestOrder,
     p_Weight     => :p_Weight);
 
   QUESTIONS_TRUE_FALSE.change(
@@ -279,10 +317,13 @@ BEGIN
     p_QuestionText => :p_QuestionText,
     P_Answer       => :p_Answer);
 END;", connectionString);
-         cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-         cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-         cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", question.Text);
-         cmdEditQuestion.Parameters.AddWithValue("p_Answer", answer.Text); ;
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+               cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditTFQuestion")).Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((DropDownList)lstView.EditItem.FindControl("ddlEditTFAnswer")).SelectedValue);
+               break;
+         }
 
          cmdEditQuestion.Connection.Open();
          cmdEditQuestion.ExecuteNonQuery();
