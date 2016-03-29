@@ -230,7 +230,7 @@
                     <br />
                     <br />
                     <p style="font-size: 175%; padding-left: 10%;">
-                        R.P.G. was founded in 2016. This group of gentleman have been hand-picked to create an online testing center. 
+                        R.P.G. was founded in 2016. This group of gentlemen have been hand-picked to create an online testing center. 
                            As every team member does his part, they have successfully created the Quest Testing Center.
                     </p>
                 </div>
@@ -338,7 +338,7 @@
                         <h2>
                             <span style="color: white">Lorenzo Lewis</span>
                             <strong style="color: white">
-                                <i class="material-icons testAlert" style="color: white">attach_money</i>
+                                <i class="material-icons testAlert" style="color: white">local_atm</i>
                                 Zo
                             </strong>
                         </h2>
@@ -349,7 +349,7 @@
                             <div class="mc-description">
                                 <ul style="font-size: 100%;">
                                     <li>Project Scheduler</li>
-                                    <li>5'5" and Proud of it</li>
+                                    <li>5'5" Curly-Haired Brotha</li>
                                     <li>In and Out Burger ALL DAY, EVERYDAY. </li>
                                     <li>California Kid</li>
                                     <li>Romans 8:38-39</li>
@@ -360,7 +360,6 @@
                             <i class="fa fa-bars" style="color: white"></i>
                         </a>
                         <div class="mc-footer">
-                            <a class="fa fa-fw fa-facebook"></a>
                             <a class="fa fa-fw fa-linkedin"></a>
                         </div>
                     </article>
@@ -370,7 +369,7 @@
                         <h2>
                             <span style="color: white">Yousef Khury</span>
                             <strong style="color: white">
-                                <i class="material-icons testAlert" style="color: white">fingerprint</i>
+                                <i class="material-icons testAlert" style="color: white">games</i>
                                 Security
                             </strong>
                         </h2>
