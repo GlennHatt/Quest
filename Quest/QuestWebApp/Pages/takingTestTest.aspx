@@ -80,16 +80,25 @@ END;">
         </asp:ListView>
         
         <!-- MULTIPLE CHOICE QUESTIONS -->
-        <asp:ListView ID="lvMultipleChoiceQuestions" runat="server" DataSourceID="sqlMultipleChoiceQuestions">
+        <asp:ListView ID="lvMultipleChoiceQuestions" runat="server" DataSourceID="sqlMultipleChoiceQuestions" DataKeyNames="question_id">
             <ItemTemplate>
                     <div class="mdl-cell mdl-cell--12-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <asp:Label ID="lblMCQuestion" class="mdl-textfield__input" Text='<%# Eval("quest_id") %>' runat="server" Visible="false" />
+                                    <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
                                     <asp:Label ID="Label4" class="mdl-textfield__input" Text='<%# Eval("choice_id") %>' runat="server" Visible="false" />
                                     <asp:Label ID="Label2" class="mdl-textfield" Text='<%# Eval("question_text") %>' runat="server" />
-                                    <asp:RadioButtonList ID="RadioButtonList1" ItemType="Text" DataSourceID="sqlMultipleChoiceChoices" runat="server"></asp:RadioButtonList>
+                                    <asp:SqlDataSource ID="sqlMultipleChoiceQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT choice_id, choice_text
+  FROM question_multiple_choice_body
+ WHERE question_id = :p_QuestionID
+ ORDER BY set_order">
+                                        <SelectParameters>
+                                            <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="Value" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
+                                    <asp:RadioButtonList ID="RadioButtonList1" ItemType="Text" DataSourceID="sqlMultipleChoiceQuestions" DataTextField="choice_text" DataValueField="choice_id" runat="server"></asp:RadioButtonList>
                                 </div>
                             </div>
                         </div>
@@ -103,9 +112,10 @@ END;">
             <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                 <div class="mdl-card__supporting-text" style="text-align: center">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <asp:ListView ID="lvMatchingQuestions" runat="server" DataSourceID="sqlMatchingQuestions">
+                        <asp:ListView ID="lvMatchingQuestions" runat="server" DataSourceID="sqlMatchingQuestions" OnItemCreated="lvMatchingQuestions_ItemCreated">
                             <ItemTemplate>
-                                <asp:CheckBox Id="Checkbox1" class="mdl-checkbox__input" Text='<%# Eval("matching_question")%>' runat="server" />
+                                <asp:GridView ID="grdMatchingQuestions" runat="server"></asp:GridView>
+                                <%--<asp:CheckBox Id="Checkbox1" class="mdl-checkbox__input" Text='<%# Eval("matching_question")%>' runat="server" />--%>
                                 <br />
                             </ItemTemplate>
                         </asp:ListView>
@@ -113,7 +123,7 @@ END;">
                 </div>
             </div>
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
+        <%--<div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                 <div class="mdl-card__supporting-text" style="text-align: center">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -125,7 +135,7 @@ END;">
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
 
     <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlMatchingQuestions"></asp:GridView>
@@ -140,10 +150,10 @@ and    question_matching.question_id = question_matching_body.question_id
 order by sys_guid()"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="sqlMultipleChoiceQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-select question.question_id quest_id, question_multiple_choice.choice_id choice_id, question_multiple_choice.question_text question_text
-from   question, question_multiple_choice
-where  question.test_id = 1 
-and    question.question_id = question_multiple_choice.question_id"></asp:SqlDataSource>
+SELECT question_id, choice_id, question_text
+  FROM question
+       JOIN question_multiple_choice USING (question_id)
+ WHERE question.test_id = 1"></asp:SqlDataSource>
     
     <asp:SqlDataSource ID="sqlMultipleChoiceChoices" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select question_id, choice_id, choice_text

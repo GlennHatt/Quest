@@ -53,14 +53,12 @@ namespace QuestWebApp.Pages
                 }
 
                     OracleCommand cmdAddTFQuestion = new OracleCommand(@"
-
 BEGIN
     questions_true_false.grade_question(
     p_TestTakenID   => :p_TestTakenID,
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
-END;",
-                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+END;", connectionString);
                     cmdAddTFQuestion.Parameters.AddWithValue("p_TestTakenID", 1);
                     cmdAddTFQuestion.Parameters.AddWithValue("p_QuestionID", ((Label)question.FindControl("Label1")).Text);
                     cmdAddTFQuestion.Parameters.AddWithValue("p_Answer", TFAnswer);
@@ -114,6 +112,34 @@ END;",
             }
 
         }
+            
 
+        protected void lvMatchingQuestions_ItemCreated(object sender, ListViewItemEventArgs e)
+        {
+            
+            OracleCommand cmdAddTFQuestion = new OracleCommand(@"
+select question_id quest_id, question_matching_body.question_text matching_question, question_matching_body.answer matching_answer
+from   question_matching_body
+       JOIN question USING (question_id)
+       JOIN question_matching USING (question_id)
+where  question.test_id = 1", connectionString);
+
+            cmdAddTFQuestion.Connection.Open();
+            OracleDataReader reader = cmdAddTFQuestion.ExecuteReader();
+            try
+            {
+
+                while (reader.Read())
+                {
+                    //reader.GetValue(0);
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+
+            cmdAddTFQuestion.Connection.Close();
+        }
     }
 }
