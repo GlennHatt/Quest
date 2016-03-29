@@ -255,11 +255,12 @@
 }
 
 .click-efect {
-   position: absolute;
+   /*position: absolute;
    top: 0;
    left: 0;
    background: #ED2553;
    border-radius: 50%;
+   display: none;*/
 }
 
 .overbox {

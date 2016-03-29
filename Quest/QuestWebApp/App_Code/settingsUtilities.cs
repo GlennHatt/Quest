@@ -14,7 +14,7 @@ namespace QuestWebApp.App_Code
             switch (actualClassification)
             {
                 case 'A':
-                        HttpContext.Current.Response.Redirect("adminSettings.aspx");
+                    HttpContext.Current.Response.Redirect("adminSettings.aspx");
                     break;
                 case 'T':
                     HttpContext.Current.Response.Redirect("TeacherSettings.aspx");

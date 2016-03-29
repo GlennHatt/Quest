@@ -73,7 +73,7 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
 
-                <asp:Label ID="lblWarning" runat="server" Text="" ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblWarning" runat="server" Text="test" ForeColor="Red"></asp:Label>
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         Card Size:<br />
