@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QuestWebApp.App_Code;
 
 namespace QuestWebApp.Pages
 {
@@ -11,6 +12,20 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["userClassification"] == null)
+                    throw new NullReferenceException();
+                if ((char)Session["userClassification"] != 'A')
+                {
+                    settingsUtilities setUtil = new settingsUtilities();
+                    setUtil.check_settings((char)Session["userClassification"]);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
         protected void btnEnable_Click(object sender, EventArgs e)
