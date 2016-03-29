@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Text.RegularExpressions;
+using QuestWebApp.App_Code;
 
 namespace QuestWebApp.Pages
 {
@@ -64,6 +65,21 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["userClassification"] == null)
+                    throw new NullReferenceException();
+                if ((char)Session["userClassification"] != 'A')
+                {
+                    utilities util = new utilities();
+                    util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                Response.Redirect("login.aspx");
+            }
+
             Session["neededClassification"] = 'A';
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
