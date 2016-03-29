@@ -70,6 +70,8 @@ namespace QuestWebApp.Pages
 
             Response.Cache.SetNoStore();
 
+            lblWarning.Text = valCourseNumber.Text;
+
             // toast notifications 
             if (Session["showAddUserMessage"] != null)
                 showAddUserMessage = (bool)Session["showAddUserMessage"];
@@ -209,7 +211,8 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
-            Regex r = new Regex(valCourseNumRegex.ToString());
+            Regex r = new Regex(valCourseNumRegex.ValidationExpression);
+
 
             if (txtbxClassTitle.Text == String.Empty)
             {
