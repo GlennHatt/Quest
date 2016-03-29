@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
+﻿<%@ Page Title="Admin | Home" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="adminHead" runat="server">
-    <title>Admin | Home</title>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="adminExtraReferances" runat="server">
 </asp:Content>

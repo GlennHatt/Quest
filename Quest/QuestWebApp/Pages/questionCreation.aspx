@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="questionCreation.aspx.cs" Inherits="QuestWebApp.Pages.questionCreation" %>
+﻿<%@ Page Title="Teacher | Question Creation" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="questionCreation.aspx.cs" Inherits="QuestWebApp.Pages.questionCreation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
 </asp:Content>
@@ -9,19 +9,30 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-    <asp:Label ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Point Value: " />
-    <asp:TextBox ID="txtAddWeight" runat="server" />
-    <br />
-    <br />
-    <asp:Label ID="lblAddType" runat="server" Text="Question Type:" /><br />
-    <asp:RadioButtonList ID="rblAddType" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
+
+
+<div class="demo-card-square mdl-card mdl-shadow--2dp" style="width:20%; float:none">
+  <div class="mdl-card__title mdl-card--expand">
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Point Value: " style="bottom:0px"/>
+    <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
+        </div>
+  </div>
+</div>
+
+    <div class="demo-card mdl-card mdl-shadow--2dp" style="width:46%; float:none;">
+   <div class="mdl-card__title mdl-card--expand">
+    <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" /> 
+    <asp:RadioButtonList ID="rblAddType" class="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
         <asp:ListItem Text="Essay" Value="E" />
         <asp:ListItem Text="Matching" Value="M" />
         <asp:ListItem Text="Multiple Choice" Value="MC" />
         <asp:ListItem Text="Short Answer" Value="SA" />
         <asp:ListItem Text="True/False" Value="TF" />
     </asp:RadioButtonList>
+       </div>
     <br />
+       </div>
     <!-- Essay -->
     <asp:Table ID="tblAddEssay" runat="server">
         <asp:TableRow>
