@@ -72,7 +72,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  line-height: 80px;
+  line-height: 62px;
   background-color: #F44336;
   color: #fff;
   cursor: pointer;
@@ -152,8 +152,8 @@ body {
 }
 
 .btn.is-open {
-  width: 400px;
-  height: 160px;
+  width: 230px;
+  height: 110px;
 }
 
 .btn[data-direction="top"].is-open {
