@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
    {
       // Global Veriables
       int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
       ArrayList choices;
       string questionType;
 
@@ -332,6 +332,34 @@ END;", connectionString);
          e.Cancel = true;
          lstView.EditIndex = -1;
          lstView.DataBind();
+      }
+
+      protected void grdEditMQuestion_RowCommand(object sender, GridViewCommandEventArgs e)
+      {
+         ListView lstView = lstQuestionDisplay;
+         GridView grdView = (GridView)sender;
+         SqlDataSource sqlSource = (SqlDataSource)lstView.EditItem.FindControl("sqlEditMQuestion");
+         switch (e.CommandName)
+         {
+            case "Add":
+               OracleCommand cmdEditQuestion = new OracleCommand(@"
+ BEGIN
+     QUESTIONS_MATCHING_BODY.add(
+     p_QuestionID   => :p_QuestionID,
+     p_QuestionText => :p_QuestionText,
+     P_Answer       => :p_Answer);
+ END;", connectionString);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)grdView.FooterRow.FindControl("txtInsEditMQuestion")).Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)grdView.FooterRow.FindControl("txtInsEditMAnswer")).Text);
+
+               cmdEditQuestion.Connection.Open();
+               cmdEditQuestion.ExecuteNonQuery();
+               cmdEditQuestion.Connection.Close();
+               grdView.DataBind();
+
+               break;
+         }
       }
    }
 }

@@ -33,7 +33,7 @@
         </asp:TableRow>
     </asp:Table>
     <!-- Matching -->
-    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
@@ -75,7 +75,7 @@ SELECT question_id, question_text, answer
     </asp:GridView>
 
     <!-- Multiple Choice -->
-    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT choice_id, question_id, choice_text, set_order
   FROM question_multiple_choice_body
  WHERE question_id = :p_QuestionID">
@@ -163,7 +163,7 @@ SELECT choice_id, question_id, choice_text, set_order
     <asp:Button ID="btnAddQuestion" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
 
     <!-- Question Display Section -->
-    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, weight, type, test_order,
        e.question_text  AS essay_question, 
        m.question_text  AS matching_question,
@@ -230,7 +230,7 @@ SELECT question_id, weight, type, test_order,
                                 </asp:Table>
 
                                 <!-- Matching Question Display -->
-                                <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                                <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
@@ -255,7 +255,7 @@ SELECT question_id, question_text, answer
                                 </asp:GridView>
 
                                 <!-- Multiple Choice Question Display -->
-                                <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                                <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
   FROM question_multiple_choice mc
                   JOIN question_multiple_choice_body mcb USING (question_id)
@@ -387,16 +387,10 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                     </asp:TableRow>
                                     <asp:TableRow>
                                         <asp:TableCell ColumnSpan="2">
-                                            <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                                            <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT matching_body_id, question_id, question_text, answer
   FROM question_matching_body
- WHERE question_id = :p_QuestionID" InsertCommand="
-BEGIN
-    QUESTIONS_MATCHING_BODY.add(
-    p_QuestionID   =&gt; :question_id,
-    p_QuestionText =&gt; :question_text,
-    P_Answer       =&gt; :answer);
-END;" UpdateCommand="
+ WHERE question_id = :p_QuestionID"  UpdateCommand="
 BEGIN
     QUESTIONS_MATCHING_BODY.change(
     p_MatchingBodyID =&gt; :matching_body_id,
@@ -410,16 +404,50 @@ END;">
                                                     <asp:ControlParameter Name="p_QuestionID" ControlID="hdnEditQuestionID" PropertyName="value" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" AutoGenerateEditButton="true" AutoGenerateDeleteButton="true">
+                                            <asp:GridView ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" ShowFooter="true" OnRowCommand="grdEditMQuestion_RowCommand">
                                                 <Columns>
-                                                    <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
-                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="edit">Edit</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkBtnDeleteMQuestion" runat="server" CommandName="delete">Delete</asp:LinkButton>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:LinkButton ID="lnkBtnUpdateMQuestion" runat="server" CommandName="update">Update</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkBtnCancelMQuestion" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="Add">Add</asp:LinkButton>
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField SortExpression="question_text" HeaderText="Question">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:TextBox ID="txtInsEditMQuestion" runat="server" />
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField SortExpression="answer" HeaderText="Answer">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:TextBox ID="txtInsEditMAnswer" runat="server" />
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
 
+                                <!-- Edit Multiple Choice -->
 
                                 <!-- Edit True False -->
                                 <asp:Table ID="tblEditTFQuestion" runat="server">
