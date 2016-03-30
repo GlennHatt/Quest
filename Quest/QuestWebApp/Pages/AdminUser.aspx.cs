@@ -14,6 +14,10 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(IsPostBack)
+            {
+                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
              GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 

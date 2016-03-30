@@ -19,8 +19,15 @@
     <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
 <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" >
+    <EditRowStyle CssClass="GridViewEditRow" />
         <Columns>
             <asp:CommandField ShowEditButton="True" />
+            <%--<asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("user_id") %>' />
+                        </ItemTemplate>
+
+                    </asp:TemplateField>--%>
             <asp:BoundField DataField="USER_ID" HeaderText="User ID" SortExpression="USER_ID" Visible="false"/>
             <asp:BoundField DataField="EMAIL" HeaderText="E-Mail" SortExpression="EMAIL" />
             <asp:BoundField DataField="EMAIL_PASSWORD" HeaderText="E-Mail Password" SortExpression="EMAIL_PASSWORD" />

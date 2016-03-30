@@ -19,6 +19,7 @@
         <div class="table-responsive-vertical shadow-z-1">
             <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound">
                 <Columns>
+                    
                     <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
                     <asp:BoundField DataField="TITLE" HeaderText="Class Name" SortExpression="TITLE"></asp:BoundField>
                     <asp:BoundField DataField="SECTION_NUMBER" HeaderText="Section Number" SortExpression="SECTION_NUMBER"></asp:BoundField>
@@ -56,6 +57,5 @@ and section.class_id = class.class_id"></asp:SqlDataSource>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/ResponsiveTable.js"></script>
-     <%--<script src="js/index.js"></script>--%>
     <script src="../Assets/JS/deleteButton.js"></script>
 </asp:Content>
