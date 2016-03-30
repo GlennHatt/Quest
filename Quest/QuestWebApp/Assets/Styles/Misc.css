@@ -11,3 +11,6 @@
     height: 299px;
     width: 597px;
 }
+
+.GridViewEditRow input[type=text] {width:50px;} /* size textboxes */
+.GridViewEditRow select {width:50px;} /* size drop down lists */
