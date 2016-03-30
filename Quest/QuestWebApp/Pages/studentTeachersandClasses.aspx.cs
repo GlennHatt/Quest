@@ -59,7 +59,7 @@ SELECT receive_email, email, email_password, username, f_name, l_name
                     studentEmailAddress = reader.GetValue(1).ToString();
                     studentEmailPassword = reader.GetValue(2).ToString();
                     studentEmailUsername = reader.GetValue(3).ToString();
-                    studentName = reader.GetValue(4).ToString() + " " + reader.GetValue(4).ToString();
+                    studentName = reader.GetValue(4).ToString() + " " + reader.GetValue(5).ToString();
                 }
             }
             finally
