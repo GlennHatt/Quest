@@ -20,7 +20,31 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-         if (!IsPostBack)
+            ListItem li = new ListItem("Essay", "E");
+            li.Selected = false;
+            rblAddType.Items.Add(li);
+
+            ListItem lin = new ListItem("Matching", "M");
+            li.Selected = false;
+            rblAddType.Items.Add(li);
+
+            ListItem lit = new ListItem("Multiple Choice", "MC");
+            li.Selected = false;
+            li.Attributes.Add("Style", "margin-top:38%;");
+            rblAddType.Items.Add(li);
+
+            ListItem lir = new ListItem("Short Answer", "SA");
+            li.Selected = false;
+            li.Attributes.Add("Style", "margin-top:38%;");
+            rblAddType.Items.Add(li);
+
+            ListItem lil = new ListItem("True/False", "TF");
+            li.Selected = false;
+            li.Attributes.Add("Style", "margin-top:38%;");
+            rblAddType.Items.Add(li);
+
+
+            if (!IsPostBack)
          {
             if (Session["Test_ID"] == null)
             {
@@ -89,17 +113,21 @@ namespace QuestWebApp.Pages
             case "M":
                tblMatchingSection.Visible = true;
                grdAddMatchingQuestion.Visible = true;
-               break;
+                    cardMatching.Visible = true;
+                    break;
             case "MC":
                tblAddMultipleChoice.Visible = true;
                grdMultipleChoiceBody.Visible = true;
+                    cardMultipleChoice.Visible = true;
                break;
             case "SA":
                tblAddShortAnswer.Visible = true;
+                    cardShortAnswer.Visible = true;
                break;
             case "TF":
                tblAddTrueFalse.Visible = true;
                rblAddTFAnswer.Visible = true;
+                    cardTrueFalse.Visible = true;
                break;
          }
          btnAddQuestion.Visible = true;
@@ -250,9 +278,13 @@ END;",
          tblAddEssay.Visible = false;
             cardEssay.Visible = false;
          tblAddMultipleChoice.Visible = false;
+            cardMultipleChoice.Visible = false;
          tblAddShortAnswer.Visible = false;
+            cardShortAnswer.Visible = false;
          tblAddTrueFalse.Visible = false;
+            cardTrueFalse.Visible = false;
          tblMatchingSection.Visible = false;
+            cardMatching.Visible = false;
          grdAddMatchingQuestion.Visible = false;
          grdMultipleChoiceBody.Visible = false;
          btnAddQuestion.Visible = false;

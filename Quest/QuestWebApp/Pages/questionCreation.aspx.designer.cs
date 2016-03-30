@@ -112,13 +112,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlAddMatchingQuestion;
         
         /// <summary>
+        /// cardMatching control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardMatching;
+        
+        /// <summary>
         /// tblMatchingSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblMatchingSection;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblMatchingSection;
         
         /// <summary>
         /// lblAddMatchingText control.
@@ -148,24 +157,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblAddMatchingAnswer;
         
         /// <summary>
-        /// lblAddMatchingQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMatchingQuestion;
-        
-        /// <summary>
-        /// btnAddMatchingQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddMatchingQuestion;
-        
-        /// <summary>
         /// txtAddMatchingAnswer control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAddMatchingAnswer;
         
         /// <summary>
+        /// lblAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddMatchingQuestion;
+        
+        /// <summary>
         /// txtAddMatchingQuestion control.
         /// </summary>
         /// <remarks>
@@ -182,6 +182,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddMatchingQuestion;
+        
+        /// <summary>
+        /// btnAddMatchingQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddMatchingQuestion;
         
         /// <summary>
         /// grdAddMatchingQuestion control.
@@ -202,13 +211,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlMultipleChoiceBody;
         
         /// <summary>
+        /// cardMultipleChoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardMultipleChoice;
+        
+        /// <summary>
         /// tblAddMultipleChoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddMultipleChoice;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAddMultipleChoice;
         
         /// <summary>
         /// lblAddMutipleChoiceQuestion control.
@@ -229,15 +247,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAddMultipleChoiceQuestion;
         
         /// <summary>
-        /// lblAddMultipleChoiceAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddMultipleChoiceAnswer;
-        
-        /// <summary>
         /// lblAddMultipleChoiceBody control.
         /// </summary>
         /// <remarks>
@@ -245,24 +254,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAddMultipleChoiceBody;
-        
-        /// <summary>
-        /// btnNewMultipleChoice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewMultipleChoice;
-        
-        /// <summary>
-        /// chkMultipleChoiceAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMultipleChoiceAnswer;
         
         /// <summary>
         /// txtMultipleChoiceBody control.
@@ -274,6 +265,33 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtMultipleChoiceBody;
         
         /// <summary>
+        /// chkMultipleChoiceAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkMultipleChoiceAnswer;
+        
+        /// <summary>
+        /// lblAddMultipleChoiceAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddMultipleChoiceAnswer;
+        
+        /// <summary>
+        /// btnNewMultipleChoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNewMultipleChoice;
+        
+        /// <summary>
         /// grdMultipleChoiceBody control.
         /// </summary>
         /// <remarks>
@@ -283,13 +301,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.GridView grdMultipleChoiceBody;
         
         /// <summary>
+        /// cardShortAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardShortAnswer;
+        
+        /// <summary>
         /// tblAddShortAnswer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddShortAnswer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAddShortAnswer;
         
         /// <summary>
         /// lblBeforeText control.
@@ -301,24 +328,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblBeforeText;
         
         /// <summary>
-        /// lblAnswerText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAnswerText;
-        
-        /// <summary>
-        /// lblAfterText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAfterText;
-        
-        /// <summary>
         /// txtBeforeText control.
         /// </summary>
         /// <remarks>
@@ -326,6 +335,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBeforeText;
+        
+        /// <summary>
+        /// lblAnswerText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAnswerText;
         
         /// <summary>
         /// txtAnswerText control.
@@ -337,6 +355,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAnswerText;
         
         /// <summary>
+        /// lblAfterText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAfterText;
+        
+        /// <summary>
         /// txtAfterText control.
         /// </summary>
         /// <remarks>
@@ -346,13 +373,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAfterText;
         
         /// <summary>
+        /// cardTrueFalse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardTrueFalse;
+        
+        /// <summary>
         /// tblAddTrueFalse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblAddTrueFalse;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblAddTrueFalse;
         
         /// <summary>
         /// lblAddTFQuestion control.
@@ -379,7 +415,7 @@ namespace QuestWebApp.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddTFAnswer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddTFAnswer;
         
         /// <summary>
         /// rblAddTFAnswer control.
