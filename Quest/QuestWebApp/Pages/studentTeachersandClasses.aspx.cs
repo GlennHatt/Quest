@@ -18,10 +18,15 @@ namespace QuestWebApp.Pages
         OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
         
         bool showMessage;
+        string studentEmailEnabled = "false",
+                   studentEmailAddress = null,
+                   studentEmailPassword = null,
+                   studentEmailUsername = null,
+                   studentName = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             mailButton.Visible = false;
-            string studentEmailEnabled = "false";
             var teachersEmailEnabled = new MultiDimList<int, string>();
             
 
@@ -39,7 +44,7 @@ namespace QuestWebApp.Pages
             }
 
             OracleCommand cmdEmailActive = new OracleCommand(@"
-SELECT receive_email
+SELECT receive_email, email, email_password, username, f_name, l_name
   FROM end_user
  WHERE user_id = :p_UserID", connectionString);
             cmdEmailActive.Parameters.AddWithValue("p_UserID", "17"/*Session["p_StudentID"]*/);
@@ -51,6 +56,10 @@ SELECT receive_email
                 while (reader.Read())
                 {
                     studentEmailEnabled = reader.GetValue(0).ToString();
+                    studentEmailAddress = reader.GetValue(1).ToString();
+                    studentEmailPassword = reader.GetValue(2).ToString();
+                    studentEmailUsername = reader.GetValue(3).ToString();
+                    studentName = reader.GetValue(4).ToString() + " " + reader.GetValue(4).ToString();
                 }
             }
             finally
@@ -103,7 +112,7 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
         {
             SmtpClient smtpClient = new SmtpClient("students.pcci.edu", 25);
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\121585", "password");
+            smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\" + studentEmailUsername , studentEmailPassword);
             smtpClient.UseDefaultCredentials = true;
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtpClient.EnableSsl = true;
@@ -111,7 +120,7 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
             MailMessage mail = new MailMessage();
 
             //Setting From , To and CC
-            mail.From = new MailAddress("rcarro6542@students.pcci.edu", "Ryan Carroll");
+            mail.From = new MailAddress(studentEmailAddress, studentName);
             mail.To.Add(new MailAddress("ryan8440@gmail.com"));
             mail.Subject = txtbxMessageSubject.Text;
             mail.Body = txtbxMessageBody.Value;
