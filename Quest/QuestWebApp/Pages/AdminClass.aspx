@@ -17,9 +17,8 @@
 
     <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
-            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound">
+            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="class_id">
                 <Columns>
-                    
                     <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
                     <asp:BoundField DataField="TITLE" HeaderText="Class Name" SortExpression="TITLE"></asp:BoundField>
                     <asp:BoundField DataField="SECTION_NUMBER" HeaderText="Section Number" SortExpression="SECTION_NUMBER"></asp:BoundField>
@@ -47,7 +46,7 @@
     </div>
 
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
-select class.code, class.title, section.section_number, end_user.l_name 
+select class.class_id, class.code, class.title, section.section_number, end_user.l_name 
 from class, section, end_user 
 where end_user.user_id = section.teacher_id
 and section.class_id = class.class_id"></asp:SqlDataSource>

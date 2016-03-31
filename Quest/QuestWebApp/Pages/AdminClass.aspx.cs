@@ -62,7 +62,7 @@ BEGIN
     p_ClassID   => :p_ClassID);
 END;",
              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-            cmdAddTFQuestion.Parameters.AddWithValue("p_ClassID", ((Label)question.FindControl("Label1")).Text);
+            cmdAddTFQuestion.Parameters.AddWithValue("p_ClassID", GVClass.Sele;
             //CLASS ID -----------------------------------^
 
             cmdAddTFQuestion.Connection.Open();
