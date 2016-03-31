@@ -12,6 +12,9 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if ((char)Session["neededClassification"] != 'A')
+                Session["neededClassification"] = 'T';
+
             try
             {
                 if (Session["userClassification"] == null)
@@ -27,7 +30,7 @@ namespace QuestWebApp.Pages
                 Response.Redirect("login.aspx");
             }
             if ((char)Session["userClassification"] != 'A')
-                Session["neededClassification"] = 'T';
+                Session["userClassification"] = 'T';
         }
     }
 }

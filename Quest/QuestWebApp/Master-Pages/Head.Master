@@ -94,7 +94,7 @@
         </div>
     </div>-->
 
-    <div style="position:relative"><img src="../Assets/Images/quest.png" style="display:block; position: absolute; top:-81px; width:162px; float: right;  z-index:9999; right:-20px;"  />
+    <div style="position:relative"><img src="../Assets/Images/quest.png" style="display:block; position: absolute; top:-7px; width:85px; float: right;  z-index:9999; right:-7px;"  />
         </div>
     <form id="form1" runat="server">
     <div>
