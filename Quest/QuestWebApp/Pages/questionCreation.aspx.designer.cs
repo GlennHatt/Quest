@@ -40,6 +40,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAddWeight;
         
         /// <summary>
+        /// btnPointValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPointValue;
+        
+        /// <summary>
         /// cardQuestionType control.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Button btnAddMatchingQuestion;
         
         /// <summary>
+        /// cardAddedMatching control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardAddedMatching;
+        
+        /// <summary>
         /// grdAddMatchingQuestion control.
         /// </summary>
         /// <remarks>
@@ -290,6 +308,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNewMultipleChoice;
+        
+        /// <summary>
+        /// cardAddedMultiple control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardAddedMultiple;
         
         /// <summary>
         /// grdMultipleChoiceBody control.

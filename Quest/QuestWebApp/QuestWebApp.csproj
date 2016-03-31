@@ -141,6 +141,7 @@
     <Content Include="Assets\JS\modernizerResponsiveTable.js" />
     <Content Include="Assets\JS\ResponsiveTable.js" />
     <Content Include="Assets\JS\toastr.js" />
+    <Content Include="Assets\mdl\material - Copy.css" />
     <Content Include="Assets\mdl\material.css" />
     <Content Include="Assets\mdl\material.js" />
     <Content Include="App_Themes\ControlSkins\ControlSkins.skin" />

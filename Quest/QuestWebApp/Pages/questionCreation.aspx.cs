@@ -20,29 +20,10 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-            ListItem li = new ListItem("Essay", "E");
-            li.Selected = false;
-            rblAddType.Items.Add(li);
-
-            ListItem lin = new ListItem("Matching", "M");
-            li.Selected = false;
-            rblAddType.Items.Add(li);
-
-            ListItem lit = new ListItem("Multiple Choice", "MC");
-            li.Selected = false;
-            li.Attributes.Add("Style", "margin-top:38%;");
-            rblAddType.Items.Add(li);
-
-            ListItem lir = new ListItem("Short Answer", "SA");
-            li.Selected = false;
-            li.Attributes.Add("Style", "margin-top:38%;");
-            rblAddType.Items.Add(li);
-
-            ListItem lil = new ListItem("True/False", "TF");
-            li.Selected = false;
-            li.Attributes.Add("Style", "margin-top:38%;");
-            rblAddType.Items.Add(li);
-
+            if (!IsPostBack)
+            {
+                cardQuestionType.Visible = false;
+            }
 
             if (!IsPostBack)
          {
@@ -216,7 +197,8 @@ namespace QuestWebApp.Pages
 
       protected void btnAddMultipleChoice_Click(object sender, EventArgs e)
       {
-         OracleCommand cmdAddQuestion = new OracleCommand(@"
+            cardAddedMatching.Visible = true;
+            OracleCommand cmdAddQuestion = new OracleCommand(@"
 BEGIN
   QUESTIONS_MATCHING_BODY.add(
     p_QuestionID   => :p_QuestionID,
@@ -246,7 +228,8 @@ END;",
 
       protected void btnNewMultipleChoice_Click(object sender, EventArgs e)
       {
-         OracleCommand cmdAddQuestion = new OracleCommand(@"
+            cardAddedMultiple.Visible = true;
+            OracleCommand cmdAddQuestion = new OracleCommand(@"
 BEGIN
   :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE_BODY.add(
     p_QuestionID => :p_QuestionID,
@@ -286,7 +269,9 @@ END;",
          tblMatchingSection.Visible = false;
             cardMatching.Visible = false;
          grdAddMatchingQuestion.Visible = false;
+            cardAddedMatching.Visible = false;
          grdMultipleChoiceBody.Visible = false;
+            cardAddedMultiple.Visible = false;
          btnAddQuestion.Visible = false;
 
          // Matching Section
@@ -342,5 +327,9 @@ END;";
          sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Answer", "updateAnswer"));
       }
 
+        protected void btnPointValue_Click(object sender, EventArgs e)
+        {
+            cardQuestionType.Visible = true;
+        }
     }
 }
