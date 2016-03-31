@@ -12,6 +12,8 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="adminWithSidebarBodyContent" runat="server">
+
+    
     
     <%--Link http://ngenioussolutions.com/blog/responsive-gridview-for-mobile-phone-tablet-and-desktop-display-in-asp-net/--%>
 
@@ -35,7 +37,7 @@ END;">
              
     </asp:SqlDataSource>
             <asp:SqlDataSource ID="sqlPermissions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT DISTINCT &quot;PERMISSION_LEVEL&quot; FROM &quot;END_USER&quot;"></asp:SqlDataSource>    
-<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1">
+<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" > 
     <EditRowStyle CssClass="GridViewEditRow" />
         <Columns>
             <asp:CommandField ShowEditButton="True" />
@@ -74,122 +76,24 @@ END;">
     </asp:GridView>
             </div>
         </div>
-
-
-    <%--<div class="table-responsive-vertical shadow-z-1">
-    <asp:GridView ID="GridView1" CssClass="table table-hover table-mc-light-blue" runat="server" OnRowDataBound="GridView1_RowDataBound" CellSpacing="-1" GridLines="None">
-        <%--<Columns>
-            <asp:BoundField DataField="ID" HeaderText="Id" />
-            <asp:BoundField DataField="Name" HeaderText="Name" />
-            <asp:BoundField DataField="Link" HeaderText="Link" />
-            <asp:BoundField DataField="Status" HeaderText="Status" />
-        </Columns>--%>
-    </asp:GridView>
-        </div>--%>
-
-        
-
-<%--    <div class="table-responsive-vertical shadow-z-1">
-    <table id="" class="table table-hover table-mc-light-blue">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Link</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-title="ID">1</td>
-          <td data-title="Name">Material Design Color Palette</td>
-          <td data-title="Link">
-            <a href="https://github.com/zavoloklom/material-design-color-palette" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">2</td>
-          <td data-title="Name">Material Design Iconic Font</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/uqCsB" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-iconic-font" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">3</td>
-          <td data-title="Name">Material Design Hierarchical Display</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/eNaEBM" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-hierarchical-display" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">4</td>
-          <td data-title="Name">Material Design Sidebar</td>
-          <td data-title="Link"><a href="http://codepen.io/zavoloklom/pen/dIgco" target="_blank">Codepen</a></td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">5</td>
-          <td data-title="Name">Material Design Tiles</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/wtApI" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">6</td>
-          <td data-title="Name">Material Design Typography</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/IkaFL" target="_blank">Codepen</a>
-            <a href="https://github.com/zavoloklom/material-design-typography" target="_blank">GitHub</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">7</td>
-          <td data-title="Name">Material Design Buttons</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/Gubja" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">In progress</td>
-        </tr>
-        <tr>
-          <td data-title="ID">8</td>
-          <td data-title="Name">Material Design Form Elements</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/yaozl" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">In progress</td>
-        </tr>
-        <tr>
-          <td data-title="ID">9</td>
-          <td data-title="Name">Material Design Email Template</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/qEVqzx" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-        <tr>
-          <td data-title="ID">10</td>
-          <td data-title="Name">Material Design Animation Timing (old one)</td>
-          <td data-title="Link">
-            <a href="http://codepen.io/zavoloklom/pen/Jbrho" target="_blank">Codepen</a>
-          </td>
-          <td data-title="Status">Completed</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>--%>
-   
-
-
   
             <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
             <script src="../Assets/JS/ResponsiveTable.js"></script>
+
+    <script type="text/javascript">
+    var xPos, yPos;
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+    prm.add_beginRequest(BeginRequestHandler);
+    prm.add_endRequest(EndRequestHandler);
+    function BeginRequestHandler(sender, args) {
+        xPos = $get('scrollDiv').scrollLeft;
+        yPos = $get('scrollDiv').scrollTop;
+    }
+    function EndRequestHandler(sender, args) {
+        $get('scrollDiv').scrollLeft = xPos;
+        $get('scrollDiv').scrollTop = yPos;
+    }
+</script>
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
