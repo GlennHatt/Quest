@@ -31,6 +31,7 @@ namespace QuestWebApp.Pages
          } else
          {
             questionType = rblAddType.SelectedValue;
+            Page.MaintainScrollPositionOnPostBack = true;
          }
       }
 

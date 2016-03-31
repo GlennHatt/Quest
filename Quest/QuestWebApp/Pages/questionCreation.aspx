@@ -182,80 +182,115 @@ SELECT question_id, weight, type, test_order,
             <asp:SessionParameter Name="p_TestID" SessionField="Test_ID" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <main class="mdl-layout__content">
-        <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col">
-                <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
-                    <ItemTemplate>
-                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text" style="text-align: center">
-                                <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
-                                <asp:HiddenField ID="hdnQuestionType" runat="server" Value='<%#Bind("type") %>' />
-                                <asp:Table ID="tblQuestion" runat="server">
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
-                                        </asp:TableHeaderCell><asp:TableHeaderCell>
-                                            <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
-                                        </asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispTestOrder" runat="server" Text="Test Order: " />
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblTestOrder" runat="server" Text='<%#Eval("test_order") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
 
-                                <!-- Essay Question Display -->
-                                <asp:Table ID="tblEQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispEQuestion" runat="server" Text="Question: " />
-                                        </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblEQuestion" runat="server" Text='<%#Eval("essay_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
+    
+    <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
+    <!-- This fixes the partial post pack not maintaining scroll possition error -->
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+    <script type="text/javascript">
+        // It is important to place this JavaScript code after ScriptManager1
+        var xPos, yPos;
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
 
-                                <!-- Matching Question Display -->
-                                <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+        function BeginRequestHandler(sender, args) {
+            if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
+                // Get X and Y positions of scrollbar before the partial postback
+                xPos = $get('<%=pnlEditQuestions.ClientID%>').scrollLeft;
+                yPos = $get('<%=pnlEditQuestions.ClientID%>').scrollTop;
+            }
+        }
+
+        function EndRequestHandler(sender, args) {
+            if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
+            // Set X and Y positions back to the scrollbar
+            // after partial postback
+            $get('<%=pnlEditQuestions.ClientID%>').scrollLeft = xPos;
+            $get('<%=pnlEditQuestions.ClientID%>').scrollTop = yPos;
+        }
+    }
+
+    prm.add_beginRequest(BeginRequestHandler);
+    prm.add_endRequest(EndRequestHandler);
+    </script>
+
+    <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
+        <ContentTemplate>
+            <asp:Panel ID="pnlEditQuestions" runat="server" Height="300">
+                <!-- End borrowed Code, except the closeing tags... -->
+                <main class="mdl-layout__content">
+                    <div class="content-grid mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col">
+                            <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
+                                <ItemTemplate>
+                                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
+                                        <div class="mdl-card__supporting-text" style="text-align: center">
+                                            <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
+                                            <asp:HiddenField ID="hdnQuestionType" runat="server" Value='<%#Bind("type") %>' />
+                                            <asp:Table ID="tblQuestion" runat="server">
+                                                <asp:TableHeaderRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
+                                                    </asp:TableHeaderCell><asp:TableHeaderCell>
+                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
+                                                    </asp:TableHeaderCell>
+                                                </asp:TableHeaderRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblDispTestOrder" runat="server" Text="Test Order: " />
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblTestOrder" runat="server" Text='<%#Eval("test_order") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+
+                                            <!-- Essay Question Display -->
+                                            <asp:Table ID="tblEQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispEQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblEQuestion" runat="server" Text='<%#Eval("essay_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+
+                                            <!-- Matching Question Display -->
+                                            <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
-                                    <SelectParameters>
-                                        <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                                <asp:Table ID="tblMQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispMQuestion" runat="server" Text="Question: " />
-                                        </asp:TableCell><asp:TableCell ColumnSpan="2">
-                                            <asp:Label ID="txtMQuestion" runat="server" Text='<%#Eval("matching_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                                <asp:GridView ID="grdDispMQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMQuestion">
-                                    <Columns>
-                                        <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
-                                        <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
-                                    </Columns>
-                                </asp:GridView>
+                                                <SelectParameters>
+                                                    <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
+                                                </SelectParameters>
+                                            </asp:SqlDataSource>
+                                            <asp:Table ID="tblMQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispMQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableCell><asp:TableCell ColumnSpan="2">
+                                                        <asp:Label ID="txtMQuestion" runat="server" Text='<%#Eval("matching_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                            <asp:GridView ID="grdDispMQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMQuestion">
+                                                <Columns>
+                                                    <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
+                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
+                                                </Columns>
+                                            </asp:GridView>
 
-                                <!-- Multiple Choice Question Display -->
-                                <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                            <!-- Multiple Choice Question Display -->
+                                            <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
   FROM question_multiple_choice mc
                   JOIN question_multiple_choice_body mcb USING (question_id)
@@ -264,219 +299,280 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                LEFT OUTER JOIN question_multiple_choice_body smcb USING (question_id)
                          WHERE smc.choice_id = smcb.choice_id) a ON (a.choice_id = mcb.choice_id)
  WHERE question_id = :p_QuestionID">
-                                    <SelectParameters>
-                                        <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                                <asp:Table ID="tblDispMC" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispMCQuestion" runat="server" Text="Question: " />
-                                        </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="txtMCQuestion" runat="server" Text='<%#Eval("multiple_choice_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                                <asp:GridView ID="grdMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMC">
-                                    <Columns>
-                                        <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
-                                        <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
-                                        <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
-                                    </Columns>
-                                </asp:GridView>
+                                                <SelectParameters>
+                                                    <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
+                                                </SelectParameters>
+                                            </asp:SqlDataSource>
+                                            <asp:Table ID="tblDispMC" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispMCQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="txtMCQuestion" runat="server" Text='<%#Eval("multiple_choice_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                            <asp:GridView ID="grdMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMC">
+                                                <Columns>
+                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
+                                                    <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
+                                                    <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
+                                                </Columns>
+                                            </asp:GridView>
 
-                                <!-- Short Answer Question Display -->
-                                <asp:Table ID="tblSAQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispBeforeText" runat="server" Text="Before Text: " />
-                                        </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblBeforeText" runat="server" Text='<%#Eval("before_text") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispSAAnswer" runat="server" Text="Answer: " />
-                                        </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblSAAnswer" runat="server" Text='<%#Eval("short_answer_answer") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblDispAfterText" runat="server" Text="After Text: " />
-                                        </asp:TableCell>
-                                        <asp:TableCell>
-                                            <asp:Label ID="lblAfterText" runat="server" Text='<%#Eval("after_text") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
+                                            <!-- Short Answer Question Display -->
+                                            <asp:Table ID="tblSAQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispBeforeText" runat="server" Text="Before Text: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblBeforeText" runat="server" Text='<%#Eval("before_text") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispSAAnswer" runat="server" Text="Answer: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblSAAnswer" runat="server" Text='<%#Eval("short_answer_answer") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispAfterText" runat="server" Text="After Text: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblAfterText" runat="server" Text='<%#Eval("after_text") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
 
-                                <!-- True False Question Display -->
-                                <asp:Table ID="tblTFQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("true_false_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("true_false_answer") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text" style="text-align: center">
-                                <asp:HiddenField ID="hdnEditQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
-                                <asp:HiddenField ID="hdnEditQuestionType" runat="server" Value='<%#Bind("type") %>' />
-                                <asp:Table ID="tblQuestion" runat="server">
-                                    <asp:TableHeaderRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:LinkButton ID="btnUpdateQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
-                                        </asp:TableHeaderCell><asp:TableHeaderCell>
-                                            <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
-                                        </asp:TableHeaderCell>
-                                    </asp:TableHeaderRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditWeight" runat="server" Text="Weight: " />
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell>
-                                            <asp:TextBox ID="txtEditWeight" runat="server" Text='<%#Bind("weight") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditTestOrder" runat="server" Text="Test Order: " />
-                                        </asp:TableHeaderCell>
-                                        <asp:TableCell>
-                                            <asp:TextBox ID="txtEditTestOrder" runat="server" Text='<%#Bind("test_order") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
+                                            <!-- True False Question Display -->
+                                            <asp:Table ID="tblTFQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("true_false_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("true_false_answer") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
+                                        <div class="mdl-card__supporting-text" style="text-align: center">
+                                            <asp:HiddenField ID="hdnEditQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
+                                            <asp:HiddenField ID="hdnEditQuestionType" runat="server" Value='<%#Bind("type") %>' />
+                                            <asp:Table ID="tblQuestion" runat="server">
+                                                <asp:TableHeaderRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:LinkButton ID="btnUpdateQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
+                                                    </asp:TableHeaderCell><asp:TableHeaderCell>
+                                                        <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
+                                                    </asp:TableHeaderCell>
+                                                </asp:TableHeaderRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditWeight" runat="server" Text="Weight: " />
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditWeight" runat="server" Text='<%#Bind("weight") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditTestOrder" runat="server" Text="Test Order: " />
+                                                    </asp:TableHeaderCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditTestOrder" runat="server" Text='<%#Bind("test_order") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
 
-                                <!-- Edit Essay -->
-                                <asp:Table ID="tblEditEQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditEQuestion" runat="server" Text="Question: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="txtEditEQuestion" runat="server" Text='<%#Bind("essay_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
+                                            <!-- Edit Essay -->
+                                            <asp:Table ID="tblEditEQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditEQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:TextBox ID="txtEditEQuestion" runat="server" Text='<%#Bind("essay_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
 
-                                <!-- Edit Matching -->
-                                <asp:Table ID="tblEditMQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditMQuestion" runat="server" Text="Question: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="txtEditMQuestion" runat="server" Text='<%#Bind("matching_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell ColumnSpan="2">
-                                            <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                            <!-- Edit Matching -->
+                                            <asp:Table ID="tblEditMQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditMQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:TextBox ID="txtEditMQuestion" runat="server" Text='<%#Bind("matching_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell ColumnSpan="2">
+                                                        <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
 SELECT matching_body_id, question_id, question_text, answer
   FROM question_matching_body
- WHERE question_id = :p_QuestionID"  UpdateCommand="
+ WHERE question_id = :p_QuestionID"
+                                                            UpdateCommand="
 BEGIN
     QUESTIONS_MATCHING_BODY.change(
     p_MatchingBodyID =&gt; :matching_body_id,
     p_QuestionText   =&gt; :question_text,
     P_Answer         =&gt; :answer);
-END;" DeleteCommand="
+END;"
+                                                            DeleteCommand="
 BEGIN
     QUESTIONS_MATCHING_BODY.delete(p_MatchingBodyID =&gt; :matching_body_id);
 END;">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter Name="p_QuestionID" ControlID="hdnEditQuestionID" PropertyName="value" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                        <asp:GridView ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" ShowFooter="true" OnRowCommand="grdEditMQuestion_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField>
+                                                                    <ItemTemplate>
+                                                                        <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="edit">Edit</asp:LinkButton>
+                                                                        <asp:LinkButton ID="lnkBtnDeleteMQuestion" runat="server" CommandName="delete">Delete</asp:LinkButton>
+                                                                    </ItemTemplate>
+                                                                    <EditItemTemplate>
+                                                                        <asp:LinkButton ID="lnkBtnUpdateMQuestion" runat="server" CommandName="update">Update</asp:LinkButton>
+                                                                        <asp:LinkButton ID="lnkBtnCancelMQuestion" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                                                                    </EditItemTemplate>
+                                                                    <FooterTemplate>
+                                                                        <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="Add">Add</asp:LinkButton>
+                                                                    </FooterTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField SortExpression="question_text" HeaderText="Question">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                                    </ItemTemplate>
+                                                                    <EditItemTemplate>
+                                                                        <asp:TextBox ID="txtEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                                    </EditItemTemplate>
+                                                                    <FooterTemplate>
+                                                                        <asp:TextBox ID="txtInsEditMQuestion" runat="server" />
+                                                                    </FooterTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField SortExpression="answer" HeaderText="Answer">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                                                    </ItemTemplate>
+                                                                    <EditItemTemplate>
+                                                                        <asp:TextBox ID="txtEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                                                    </EditItemTemplate>
+                                                                    <FooterTemplate>
+                                                                        <asp:TextBox ID="txtInsEditMAnswer" runat="server" />
+                                                                    </FooterTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+
+                                            <!-- Edit Multiple Choice -->
+                                            <asp:SqlDataSource ID="sqlEditMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
+  FROM question_multiple_choice mc
+                  JOIN question_multiple_choice_body mcb USING (question_id)
+       LEFT OUTER JOIN (SELECT smcb.choice_id, 'Y' AS correct
+                          FROM question_multiple_choice smc
+                               LEFT OUTER JOIN question_multiple_choice_body smcb USING (question_id)
+                         WHERE smc.choice_id = smcb.choice_id) a ON (a.choice_id = mcb.choice_id)
+ WHERE question_id = :p_QuestionID">
                                                 <SelectParameters>
-                                                    <asp:ControlParameter Name="p_QuestionID" ControlID="hdnEditQuestionID" PropertyName="value" />
+                                                    <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
                                                 </SelectParameters>
                                             </asp:SqlDataSource>
-                                            <asp:GridView ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" ShowFooter="true" OnRowCommand="grdEditMQuestion_RowCommand">
+                                            <asp:Table ID="tblDispMC" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblDispMCQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditMCQuestion" runat="server" Text='<%#Eval("multiple_choice_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlEditMC" ShowFooter="true">
                                                 <Columns>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="edit">Edit</asp:LinkButton>
-                                                            <asp:LinkButton ID="lnkBtnDeleteMQuestion" runat="server" CommandName="delete">Delete</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCEdit" runat="server" CommandName="edit">Edit</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCDelete" runat="server" CommandName="delete">Delete</asp:LinkButton>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:LinkButton ID="lnkBtnUpdateMQuestion" runat="server" CommandName="update">Update</asp:LinkButton>
-                                                            <asp:LinkButton ID="lnkBtnCancelMQuestion" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCUpdate" runat="server" CommandName="update">Update</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCDelete" runat="server" CommandName="delete">Delete</asp:LinkButton>
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:LinkButton ID="lnkBtnEditMQuestion" runat="server" CommandName="Add">Add</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCAdd" runat="server" CommandName="add">Add</asp:LinkButton>
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField SortExpression="question_text" HeaderText="Question">
+                                                    <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:Label ID="lblEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                            <asp:Label ID="lblEditMCAnswer" runat="server" Text='<%# Eval("answer") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditMQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+                                                            <asp:CheckBox ID="chkEditMCEditAnswer" runat="server" Checked='<%# (Bind("answer") == "N") ? true : false %>' />
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:TextBox ID="txtInsEditMQuestion" runat="server" />
+                                                            <asp:CheckBox ID="chkEditMCAddAnswer" runat="server" />
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField SortExpression="answer" HeaderText="Answer">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lblEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
-                                                        </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEditMAnswer" runat="server" Text='<%#Bind("answer") %>' />
-                                                        </EditItemTemplate>
-                                                        <FooterTemplate>
-                                                            <asp:TextBox ID="txtInsEditMAnswer" runat="server" />
-                                                        </FooterTemplate>
-                                                    </asp:TemplateField>
+                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
+                                                    <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
+                                                    <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
                                                 </Columns>
                                             </asp:GridView>
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
 
-                                <!-- Edit Multiple Choice -->
+                                            <!-- Edit Short Answer -->
 
-                                <!-- Edit True False -->
-                                <asp:Table ID="tblEditTFQuestion" runat="server">
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditTFQuestion" runat="server" Text="Question: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:TextBox ID="txtEditTFQuestion" runat="server" Text='<%#Bind("true_false_question") %>' />
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableHeaderCell>
-                                            <asp:Label ID="lblEditTFAnswer" runat="server" Text="Answer: " />
-                                        </asp:TableHeaderCell><asp:TableCell>
-                                            <asp:DropDownList ID="ddlEditTFAnswer" runat="server" SelectedValue='<%#Bind("true_false_answer") %>'>
-                                                <asp:ListItem Text="--" Value="" />
-                                                <asp:ListItem Text="True" Value="T" />
-                                                <asp:ListItem Text="False" Value="F" />
-                                            </asp:DropDownList>
-                                        </asp:TableCell>
-                                    </asp:TableRow>
-                                </asp:Table>
-                            </div>
+                                            <!-- Edit True False -->
+                                            <asp:Table ID="tblEditTFQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditTFQuestion" runat="server" Text="Question: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:TextBox ID="txtEditTFQuestion" runat="server" Text='<%#Bind("true_false_question") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableHeaderCell>
+                                                        <asp:Label ID="lblEditTFAnswer" runat="server" Text="Answer: " />
+                                                    </asp:TableHeaderCell><asp:TableCell>
+                                                        <asp:DropDownList ID="ddlEditTFAnswer" runat="server" SelectedValue='<%#Bind("true_false_answer") %>'>
+                                                            <asp:ListItem Text="--" Value="" />
+                                                            <asp:ListItem Text="True" Value="T" />
+                                                            <asp:ListItem Text="False" Value="F" />
+                                                        </asp:DropDownList>
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
+                                        </div>
+                                    </div>
+                                </EditItemTemplate>
+                            </asp:ListView>
                         </div>
-                    </EditItemTemplate>
-                </asp:ListView>
-            </div>
-        </div>
-    </main>
+                    </div>
+                </main>
+            </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>
