@@ -14,10 +14,10 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(IsPostBack)
-            {
-                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
+            //if(IsPostBack)
+            //{
+            //    GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //}
              GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
@@ -26,12 +26,14 @@ namespace QuestWebApp.Pages
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 TableCellCollection cell = e.Row.Cells;
-                cell[0].Attributes.Add("data-title", "E-mail");
-                cell[1].Attributes.Add("data-title", "First Name");
-                cell[2].Attributes.Add("data-title", "Last Name");
-                cell[3].Attributes.Add("data-title", "Password");
-                cell[4].Attributes.Add("data-title", "Classification");
-                cell[5].Attributes.Add("data-title", "Status");
+                cell[0].Attributes.Add("data-title", "Edit User");
+                cell[2].Attributes.Add("data-title", "E-mail");
+                cell[3].Attributes.Add("data-title", "E-mail Password");
+                cell[4].Attributes.Add("data-title", "Username");
+                cell[5].Attributes.Add("data-title", "First Name");
+                cell[6].Attributes.Add("data-title", "Last Name");
+                cell[7].Attributes.Add("data-title", "Password");
+                cell[8].Attributes.Add("data-title", "Classification");
             }
         }
 
@@ -48,6 +50,33 @@ namespace QuestWebApp.Pages
             {
                 btnactive.Text = "Active";
                 btnactive.BackColor = System.Drawing.Color.Green;
+            }
+        }
+
+        protected void GVUser_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "edit":
+                    GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
+                    break;
+            }
+        }
+
+        protected void grdEventsAvailable_PreRender1(object sender, EventArgs e)
+        {
+            GridView grdView = (GridView)sender;
+            if (grdView.Rows.Count > 0)
+            {
+                //This replaces <td> with <th> and adds the scope attribute
+                grdView.UseAccessibleHeader = true;
+
+                //This will add the <thead> and <tbody> elements
+                grdView.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                //This adds the <tfoot> element. 
+                //Remove if you don't have a footer row
+                grdView.FooterRow.TableSection = TableRowSection.TableFooter;
             }
         }
     }
