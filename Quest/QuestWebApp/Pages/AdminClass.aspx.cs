@@ -62,13 +62,13 @@ BEGIN
     p_ClassID   => :p_ClassID);
 END;",
              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-            cmdAddTFQuestion.Parameters.AddWithValue("p_ClassID", GVClass.Sele;
+            cmdDeleteClass.Parameters.
             //CLASS ID -----------------------------------^
 
-            cmdAddTFQuestion.Connection.Open();
-            cmdAddTFQuestion.ExecuteNonQuery();
+            cmdDeleteClass.Connection.Open();
+            cmdDeleteClass.ExecuteNonQuery();
 
-            cmdAddTFQuestion.Connection.Close();*/
+            cmdDeleteClass.Connection.Close(); */
         }
     }
 }
