@@ -39,13 +39,13 @@ namespace QuestWebApp.Pages
             {
                 TableCellCollection cell = e.Row.Cells;
                 cell[0].Attributes.Add("data-title", "Edit User");
-                cell[2].Attributes.Add("data-title", "E-mail");
-                cell[3].Attributes.Add("data-title", "E-mail Password");
-                cell[4].Attributes.Add("data-title", "Username");
-                cell[5].Attributes.Add("data-title", "First Name");
-                cell[6].Attributes.Add("data-title", "Last Name");
-                cell[7].Attributes.Add("data-title", "Password");
-                cell[8].Attributes.Add("data-title", "Classification");
+                cell[1].Attributes.Add("data-title", "E-mail");
+                cell[2].Attributes.Add("data-title", "E-mail Password");
+                cell[3].Attributes.Add("data-title", "Username");
+                cell[4].Attributes.Add("data-title", "First Name");
+                cell[5].Attributes.Add("data-title", "Last Name");
+                cell[6].Attributes.Add("data-title", "Password");
+                cell[7].Attributes.Add("data-title", "Classification");
             }
         }
 
