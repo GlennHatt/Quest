@@ -15,6 +15,8 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["neededClassification"] = 'S';
+
             try
             {
                 if (Session["userClassification"] == null)
@@ -30,7 +32,6 @@ namespace QuestWebApp.Pages
                 Response.Redirect("login.aspx");
             }
 
-            Session["neededClassification"] = 'S';
             displayGreeting();
             testAlertTemplate.Visible = false;
 
