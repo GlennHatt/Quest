@@ -13,15 +13,6 @@ namespace QuestWebApp.Pages {
     public partial class teacherStudentsandClasses {
         
         /// <summary>
-        /// ddlClassSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
-        
-        /// <summary>
         /// sqlTeacherClasses control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacherClasses;
+        
+        /// <summary>
+        /// ddlClassSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
         
         /// <summary>
         /// gvStudents control.
