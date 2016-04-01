@@ -451,16 +451,16 @@ BEGIN
     p_ChoiceID => :p_ChoiceID,
     p_ChoiceText => :p_ChoiceText);
 END;", connectionString);
-                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.EditRow.FindControl("hdnEditMCChoiceID")).Value);
-                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.EditRow.FindControl("txtEditMCAddChoice")).Value);
+                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.Rows[grdSender.EditIndex].FindControl("hdnEditMCChoiceID")).Value);
+                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.Rows[grdSender.EditIndex].FindControl("txtEditMCAddChoice")).Value);
 
                     cmdMCEdit.Connection.Open();
                     cmdMCEdit.ExecuteNonQuery();
                     cmdMCEdit.Connection.Close();
-                    e.cancel = true;
+                    e.Handled = true;
                     break;
          }
-         grdSender.databind();
+         grdSender.DataBind();
       }
    }
 }

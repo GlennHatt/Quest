@@ -229,9 +229,9 @@ SELECT question_id, weight, type, test_order,
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="edit"/>
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandName="delete"/>
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
