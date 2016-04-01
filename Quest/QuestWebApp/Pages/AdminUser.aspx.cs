@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.MaintainScrollPositionOnPostBack = true;
             try
             {
                 if (Session["userClassification"] == null)

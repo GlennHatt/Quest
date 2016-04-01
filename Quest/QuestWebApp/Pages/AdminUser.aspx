@@ -8,6 +8,7 @@
     <%--<script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>--%>
     <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
     <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableUsers.css" rel="stylesheet" />
+    <script src="../Assets/JS/Datepicker_old/jquery-2.1.3.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -80,19 +81,21 @@ END;">
             <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
             <script src="../Assets/JS/ResponsiveTable.js"></script>
 
-    <script type="text/javascript">
-    var xPos, yPos;
-    var prm = Sys.WebForms.PageRequestManager.getInstance();
-    prm.add_beginRequest(BeginRequestHandler);
-    prm.add_endRequest(EndRequestHandler);
-    function BeginRequestHandler(sender, args) {
-        xPos = $get('scrollDiv').scrollLeft;
-        yPos = $get('scrollDiv').scrollTop;
-    }
-    function EndRequestHandler(sender, args) {
-        $get('scrollDiv').scrollLeft = xPos;
-        $get('scrollDiv').scrollTop = yPos;
-    }
+    <asp:HiddenField runat="server" ID="hfPosition" Value="" />
+<script type="text/javascript">
+    $(function () {
+        var f = $("#<%=hfPosition.ClientID%>");
+        window.onload = function () {
+            var position = parseInt(f.val());
+            if (!isNaN(position)) {
+                $(window).scrollTop(position);
+            }
+        };
+        window.onscroll = function () {
+            var position = $(window).scrollTop();
+            f.val(position);
+        };
+    });
 </script>
 
 </asp:Content>

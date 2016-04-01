@@ -27,11 +27,11 @@ namespace QuestWebApp.Pages
                 Response.Redirect("login.aspx");
             }
 
-            if (!this.IsPostBack)
-            {
-                gvStudents.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //if (!this.IsPostBack)
+            //{
+               // gvStudents.HeaderRow.TableSection = TableRowSection.TableHeader;
                 
-            }
+            //}
         }
 
         protected void gvStudents_RowDataBound(object sender, GridViewRowEventArgs e)

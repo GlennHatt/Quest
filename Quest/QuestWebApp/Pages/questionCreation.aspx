@@ -17,14 +17,14 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
                 <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
-            </div>       
-            <br />     
-            <br />    
+            </div>
+            <br />
+            <br />
             <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
         </div>
     </div>
 
-    <div class="demo-card mdl-card mdl-shadow--2dp" ID="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; visibility:hidden;">
+    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; visibility: hidden;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
             <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
             <br />
@@ -87,15 +87,15 @@ SELECT question_id, question_text, answer
     </div>
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMatching" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-    <asp:GridView ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
-        <Columns>
-            <asp:BoundField DataField="question_id" HeaderText="question_id" SortExpression="question_id" />
-            <asp:BoundField DataField="question_text" HeaderText="question_text" SortExpression="question_text" />
-            <asp:BoundField DataField="answer" HeaderText="answer" SortExpression="answer" />
-        </Columns>
-    </asp:GridView>
-            </div>
+            <asp:GridView ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
+                <Columns>
+                    <asp:BoundField DataField="question_id" HeaderText="question_id" SortExpression="question_id" />
+                    <asp:BoundField DataField="question_text" HeaderText="question_text" SortExpression="question_text" />
+                    <asp:BoundField DataField="answer" HeaderText="answer" SortExpression="answer" />
+                </Columns>
+            </asp:GridView>
         </div>
+    </div>
 
     <!-- Multiple Choice -->
     <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -131,14 +131,14 @@ SELECT choice_id, question_id, choice_text, set_order
 
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMultiple" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-    <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
-        <Columns>
-            <asp:BoundField DataField="QUESTION_ID" HeaderText="QUESTION_ID" SortExpression="QUESTION_ID" />
-            <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
-            <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
-        </Columns>
-    </asp:GridView>
-            </div>
+            <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
+                <Columns>
+                    <asp:BoundField DataField="QUESTION_ID" HeaderText="QUESTION_ID" SortExpression="QUESTION_ID" />
+                    <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
+                    <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
+                </Columns>
+            </asp:GridView>
+        </div>
 
     </div>
 
@@ -204,53 +204,57 @@ SELECT question_id, weight, type, question_text, answer
 
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col">
+            
                 <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
                     <ItemTemplate>
+                        <div class="mdl-cell mdl-cell--4-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
-                                <div ID="tblQuestion" runat="server" style="text-align:center;">
-                                            <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
-                                            <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
+                                <div id="tblQuestion" runat="server" style="text-align: center;">
+                                    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
+                                    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
                                     <br />
                                     <br />
-                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
-                                            <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
+                                    <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                    <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
                                 </div>
-                                <div ID="tblTFQuestion" runat="server">
-                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
-                                            <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("question_text") %>' />
-                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
-                                            <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("answer") %>' />
+                                <div id="tblTFQuestion" runat="server">
+                                    <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                    <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("question_text") %>' />
+                                    <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                    <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("answer") %>' />
                                 </div>
                             </div>
                         </div>
+                            </div>
                     </ItemTemplate>
 
 
                     <EditItemTemplate>
-                            <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                                <div class="mdl-card__supporting-text" style="text-align: center">
-                                    <div ID="tblQuestion" runat="server" style="text-align:center">
-                                                <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEditQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
-                                                <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDeleteQuestion" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
-                                        <br />
-                                        <br />
-                                                <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
-                                                <asp:TextBox ID="txtWeight" runat="server" Text='<%#Bind("weight") %>' />
-                                    </div>
-                                    <div ID="tblTFQuestion" runat="server">
-                                                <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
-                                                <asp:TextBox ID="txtQuestion"  runat="server" Text='<%#Bind("question_text") %>' />
-
-                                                <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
-                                                <asp:TextBox ID="txtAnswer"  runat="server" Text='<%#Bind("answer") %>' />
-                                    </div>
+                        <div class="mdl-cell mdl-cell--4-col">
+                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
+                            <div class="mdl-card__supporting-text" style="text-align: center">
+                                <div id="tblQuestion" runat="server" style="text-align: center">
+                                    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEditQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
+                                    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDeleteQuestion" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                    <asp:TextBox ID="txtWeight" runat="server" Text='<%#Bind("weight") %>' />
                                 </div>
+                                <div id="tblTFQuestion" runat="server">
+                                    <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                    <asp:TextBox ID="txtQuestion" runat="server" Text='<%#Bind("question_text") %>' />
+
+                                    <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                    <asp:TextBox ID="txtAnswer" runat="server" Text='<%#Bind("answer") %>' />
+                                </div>
+                            </div>
+                        </div>
                             </div>
                     </EditItemTemplate>
                 </asp:ListView>
-</div>
+            <!-- old cell div -->
         </div>
     </main>
 </asp:Content>
@@ -258,18 +262,17 @@ SELECT question_id, weight, type, question_text, answer
 
     <script>
 
-        
+
         // show the question type card when number is typed into point value
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#<%= txtAddWeight.ClientID %>').on('input', function (e) {
                 var weightInput = $('#<%= txtAddWeight.ClientID %>').val();
-                if ($.isNumeric(weightInput))
-                {
+                if ($.isNumeric(weightInput)) {
                     $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
                 }
-                else 
+                else
                     $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
-  });
-});
+            });
+        });
     </script>
 </asp:Content>
