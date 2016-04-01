@@ -20,11 +20,11 @@
             <!-- Textfield with Floating DropDown for user type -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="title" DataValueField="class_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
-                </asp:DropDownList>
                 <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT title, class_id
   FROM class"></asp:SqlDataSource>
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="title" DataValueField="class_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
+                </asp:DropDownList>
             </div>
         </div>
     </div>
@@ -42,9 +42,15 @@ SELECT title, class_id
             </asp:GridView>
                 </div>
             <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT f_name, l_name, email from end_user
- WHERE permission_level = 'S'
-       AND :p_ClassID">
+SELECT s.f_name first_name, s.l_name last_naem, s.email
+  FROM end_user s
+       JOIN enrollment e  ON (e.student_id = s.user_id)
+       JOIN section    sc ON (e.section_id = sc.section_id)
+       JOIN end_user   t  ON (t.user_id    = sc.teacher_id)
+       JOIN class      c  ON (c.class_id   = sc.class_id)
+ WHERE s.permission_level = 'S'
+       AND c.class_id = :p_ClassID
+       AND t.user_id  = :p_TeacherID">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" />
                 </SelectParameters>
