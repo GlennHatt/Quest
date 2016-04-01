@@ -51,7 +51,7 @@ SELECT s.f_name f_name, s.l_name l_name, s.email email
  WHERE s.permission_level = 'S'
        AND c.class_id = :p_ClassID">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" /><!-- a comment -->
+                    <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
