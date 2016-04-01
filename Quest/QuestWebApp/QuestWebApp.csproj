@@ -180,6 +180,7 @@
     <Content Include="Master-Pages\student.master" />
     <Content Include="Master-Pages\teacher.master" />
     <Content Include="Pages\aboutUsPage.aspx" />
+    <Content Include="Pages\AddStudentToClass.aspx" />
     <Content Include="Pages\adminClass.aspx" />
     <Content Include="Pages\adminSettings.aspx" />
     <Content Include="Pages\adminUser.aspx" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="Pages\aboutUsPage.aspx.designer.cs">
       <DependentUpon>aboutUsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddStudentToClass.aspx.cs">
+      <DependentUpon>AddStudentToClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddStudentToClass.aspx.designer.cs">
+      <DependentUpon>AddStudentToClass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminClass.aspx.cs">
       <DependentUpon>adminClass.aspx</DependentUpon>

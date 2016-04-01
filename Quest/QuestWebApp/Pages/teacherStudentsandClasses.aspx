@@ -27,6 +27,9 @@ SELECT title, class_id
                 </asp:DropDownList>
             </div>
         </div>
+        <div style="text-align: center">
+        <asp:Button ID="btnStudenttoClass" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add Student To Class" />
+    </div>
     </div>
     <br />
     <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="float: none; width: 70%; left: 17%;">
