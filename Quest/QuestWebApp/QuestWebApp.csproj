@@ -127,6 +127,7 @@
     <Content Include="Assets\JS\AboutusJS.js" />
     <Content Include="Assets\JS\Datepicker\datepicker.js" />
     <Content Include="Assets\JS\Datepicker_old\jquery-2.1.3.min.js" />
+    <Content Include="Assets\JS\jquery-2.1.3.min.js" />
     <Content Include="Assets\JS\Datepicker_old\knockout-3.2.0.js" />
     <Content Include="Assets\JS\Datepicker_old\knockout-3.4.0.js" />
     <Content Include="Assets\JS\Datepicker_old\material.datepicker.js" />

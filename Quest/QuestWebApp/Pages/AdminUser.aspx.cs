@@ -48,6 +48,20 @@ namespace QuestWebApp.Pages
                 cell[6].Attributes.Add("data-title", "Password");
                 cell[7].Attributes.Add("data-title", "Classification");
             }
+
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                TableCellCollection cell = e.Row.Cells;
+                cell[0].Attributes.Add("class", "tableHeader");
+                cell[1].Attributes.Add("class", "tableHeader");
+                cell[2].Attributes.Add("class", "tableHeader");
+                cell[3].Attributes.Add("class", "tableHeader");
+                cell[4].Attributes.Add("class", "tableHeader");
+                cell[5].Attributes.Add("class", "tableHeader");
+                cell[6].Attributes.Add("class", "tableHeader");
+                cell[7].Attributes.Add("class", "tableHeader");
+
+            }
         }
 
         protected void active_Click(object sender, EventArgs e)
