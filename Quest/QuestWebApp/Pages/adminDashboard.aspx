@@ -68,7 +68,7 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
 
     
 
-    <main class="mdl-layout__content">
+    <main class="mdl-layout__content" style="width:100%;">
         <div class="content-grid mdl-grid">
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->

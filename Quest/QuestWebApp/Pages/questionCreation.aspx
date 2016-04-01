@@ -5,8 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
-    <script src="../Assets/JS/Datepicker_old/jquery-2.1.3.min.js"></script>
-
+    <script src="../Assets/JS/jquery-2.1.3.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
