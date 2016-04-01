@@ -229,9 +229,9 @@ SELECT question_id, weight, type, test_order,
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="edit"/>
+                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandName="delete"/>
+                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
@@ -486,17 +486,14 @@ END;">
 
                                             <!-- Edit Multiple Choice -->
                                             <asp:SqlDataSource ID="sqlEditMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
-SELECT choice_id, question_id, choice_text, NVL(correct, 'N') AS answer, set_order
+SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
   FROM question_multiple_choice mc
                   JOIN question_multiple_choice_body mcb USING (question_id)
        LEFT OUTER JOIN (SELECT smcb.choice_id, 'Y' AS correct
                           FROM question_multiple_choice smc
                                LEFT OUTER JOIN question_multiple_choice_body smcb USING (question_id)
                          WHERE smc.choice_id = smcb.choice_id) a ON (a.choice_id = mcb.choice_id)
- WHERE question_id = :p_QuestionID" DeleteCommand="
-BEGIN
-  QUESTIONS_MULTIPLE_CHOICE_BODY.delete(p_ChoiceID => :choice_id);
-END;">
+ WHERE question_id = :p_QuestionID">
                                                 <SelectParameters>
                                                     <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
                                                 </SelectParameters>
@@ -511,22 +508,8 @@ END;">
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                             </asp:Table>
-                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="choice_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand">
+                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlEditMC" ShowFooter="true">
                                                 <Columns>
-                                                    <asp:TemplateField>
-                                                        <ItemTemplate>
-                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
-                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
-                                                        </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
-                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
-                                                        </EditItemTemplate>
-                                                        <FooterTemplate>
-                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
-                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
-                                                        </FooterTemplate>
-                                                    </asp:TemplateField>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:LinkButton ID="lnkEditMCEdit" runat="server" CommandName="edit">Edit</asp:LinkButton>
@@ -545,70 +528,19 @@ END;">
                                                             <asp:Label ID="lblEditMCAnswer" runat="server" Text='<%# Eval("answer") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlEditMCEditAnswer" runat="server" SelectedValue='<%#Bind("answer") %>'>
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:DropDownList>
+                                                            <asp:CheckBox ID="chkEditMCEditAnswer" runat="server" Checked='<%# (Bind("answer") == "N") ? true : false %>' />
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:DropDownList ID="ddlEditMCAddAnswer" runat="server">
-                                                                <asp:ListItem Text="Yes" Value="Y" />
-                                                                <asp:ListItem Text="No" Value="N" />
-                                                            </asp:DropDownList>
+                                                            <asp:CheckBox ID="chkEditMCAddAnswer" runat="server" />
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField>
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lblEditMCChoice" runat="server" Text='<%# Eval("choice_text") %>' />
-                                                        </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:TextBox ID="lblEditMCEditChoice" runat="server" Text='<%# Eval("choice_text") %>' />
-                                                        </EditItemTemplate>
-                                                        <FooterTemplate>
-                                                            <asp:TextBox ID="txtEditMCAddChoice" runat="server" />
-                                                        </FooterTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField>
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="lblEditMCSetOrder" runat="server" Text='<%# Eval("set_order") %>' />
-                                                        </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:TextBox ID="lblEditMCEditSetOrder" runat="server" Text='<%# Eval("set_order") %>' />
-                                                        </EditItemTemplate>
-                                                        <FooterTemplate>
-                                                            <asp:TextBox ID="lblEditMCAddSetOrder" runat="server" />
-                                                        </FooterTemplate>
-                                                    </asp:TemplateField>
+                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
+                                                    <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
+                                                    <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
                                                 </Columns>
                                             </asp:GridView>
 
                                             <!-- Edit Short Answer -->
-                                            <asp:Table ID="tblSAQuestion" runat="server">
-                                                <asp:TableRow>
-                                                    <asp:TableCell>
-                                                        <asp:Label ID="lblEditBeforeText" runat="server" Text="Before Text: " />
-                                                    </asp:TableCell>
-                                                    <asp:TableCell>
-                                                        <asp:TextBox ID="txtEditBeforeText" runat="server" Text='<%#Eval("before_text") %>' />
-                                                    </asp:TableCell>
-                                                </asp:TableRow>
-                                                <asp:TableRow>
-                                                    <asp:TableCell>
-                                                        <asp:Label ID="lblEditSAAnswer" runat="server" Text="Answer: " />
-                                                    </asp:TableCell>
-                                                    <asp:TableCell>
-                                                        <asp:TextBox ID="txtEditSAAnswer" runat="server" Text='<%#Eval("short_answer_answer") %>' />
-                                                    </asp:TableCell>
-                                                </asp:TableRow>
-                                                <asp:TableRow>
-                                                    <asp:TableCell>
-                                                        <asp:Label ID="lblEditAfterText" runat="server" Text="After Text: " />
-                                                    </asp:TableCell>
-                                                    <asp:TableCell>
-                                                        <asp:TextBox ID="txtEditAfterText" runat="server" Text='<%#Eval("after_text") %>' />
-                                                    </asp:TableCell>
-                                                </asp:TableRow>
-                                            </asp:Table>
 
                                             <!-- Edit True False -->
                                             <asp:Table ID="tblEditTFQuestion" runat="server">
