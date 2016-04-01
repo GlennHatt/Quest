@@ -362,5 +362,57 @@ END;", connectionString);
                break;
          }
       }
+
+      protected void grdEditMChoice_RowCommand(object sender, GridViewCommandEventArgs e)
+      {
+         OracleCommand cmdMCEdit = new OracleCommand();
+         GridView grdSender = (GridView)sender;
+         
+
+         switch (e.CommandName)
+         {  
+            case "add":
+               cmdMCEdit = new OracleCommand(@"
+BEGIN
+  :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE_BODY.add(
+    p_QuestionID => :p_QuestionID,
+    p_ChoiceText => :p_ChoiceText);", connectionString);
+               cmdMCEdit.Parameters.AddWithValue("p_QuestionID", ((HiddenField)grdSender.FooterRow.FindControl("hdnEditMCQuestionID")).Value);
+               cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.FooterRow.FindControl("txtEditMCAddChoice")).Value);
+               cmdMCEdit.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+               cmdMCEdit.Connection.Open();
+               cmdMCEdit.ExecuteNonQuery();
+
+               string choiceID = cmdMCEdit.Parameters["v_ChoiceID"].Value.ToString();
+
+               cmdMCEdit.Connection.Close();
+
+               if (((DropDownList)grdSender.FooterRow.FindControl("ddlEditMCAddAnswer")).SelectedValue == "Y")
+               {
+
+                  cmdMCEdit = new OracleCommand(@"
+BEGIN
+  :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE_BODY.add(
+    p_QuestionID => :p_QuestionID,
+    p_ChoiceText => :p_ChoiceText);", connectionString);
+                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", ((HiddenField)grdSender.FooterRow.FindControl("hdnEditMCQuestionID")).Value);
+                  cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.FooterRow.FindControl("txtEditMCAddChoice")).Value);
+                  cmdMCEdit.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+                  cmdMCEdit.Connection.Open();
+                  cmdMCEdit.ExecuteNonQuery();
+
+                  string choiceID = cmdMCEdit.Parameters["v_ChoiceID"].Value.ToString();
+
+                  cmdMCEdit.Connection.Close();
+               } 
+               break;
+            case "update":
+               break;
+            case "delete":
+               break;
+         }
+      }
    }
 }

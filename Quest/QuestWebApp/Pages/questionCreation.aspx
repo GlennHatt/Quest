@@ -508,8 +508,19 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                             </asp:Table>
-                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlEditMC" ShowFooter="true">
+                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand">
                                                 <Columns>
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:LinkButton ID="lnkEditMCEdit" runat="server" CommandName="edit">Edit</asp:LinkButton>
@@ -528,15 +539,40 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                             <asp:Label ID="lblEditMCAnswer" runat="server" Text='<%# Eval("answer") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:CheckBox ID="chkEditMCEditAnswer" runat="server" Checked='<%# (Bind("answer") == "N") ? true : false %>' />
+                                                            <asp:DropDownList ID="ddlEditMCEditAnswer" runat="server" SelectedValue='<%#Bind("answer") %>'>
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
+                                                            </asp:DropDownList>
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:CheckBox ID="chkEditMCAddAnswer" runat="server" />
+                                                            <asp:DropDownList ID="ddlEditMCAddAnswer" runat="server">
+                                                                <asp:ListItem Text="Yes" Value="Y" />
+                                                                <asp:ListItem Text="No" Value="N" />
+                                                            </asp:DropDownList>
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
-                                                    <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
-                                                    <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEditMCChoice" runat="server" Text='<%# Eval("choice_text") %>' />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="lblEditMCEditChoice" runat="server" Text='<%# Eval("choice_text") %>' />
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:TextBox ID="txtEditMCAddChoice" runat="server" />
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEditMCSetOrder" runat="server" Text='<%# Eval("set_order") %>' />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="lblEditMCEditSetOrder" runat="server" Text='<%# Eval("set_order") %>' />
+                                                        </EditItemTemplate>
+                                                        <FooterTemplate>
+                                                            <asp:TextBox ID="lblEditMCAddSetOrder" runat="server" />
+                                                        </FooterTemplate>
+                                                    </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
 
