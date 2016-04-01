@@ -49,8 +49,7 @@ SELECT s.f_name first_name, s.l_name last_naem, s.email
        JOIN end_user   t  ON (t.user_id    = sc.teacher_id)
        JOIN class      c  ON (c.class_id   = sc.class_id)
  WHERE s.permission_level = 'S'
-       AND c.class_id = :p_ClassID
-       AND t.user_id  = :p_TeacherID">
+       AND c.class_id = :p_ClassID">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" />
                 </SelectParameters>
