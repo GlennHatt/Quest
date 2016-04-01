@@ -486,14 +486,17 @@ END;">
 
                                             <!-- Edit Multiple Choice -->
                                             <asp:SqlDataSource ID="sqlEditMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
-SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
+SELECT choice_id, question_id, choice_text, NVL(correct, 'N') AS answer, set_order
   FROM question_multiple_choice mc
                   JOIN question_multiple_choice_body mcb USING (question_id)
        LEFT OUTER JOIN (SELECT smcb.choice_id, 'Y' AS correct
                           FROM question_multiple_choice smc
                                LEFT OUTER JOIN question_multiple_choice_body smcb USING (question_id)
                          WHERE smc.choice_id = smcb.choice_id) a ON (a.choice_id = mcb.choice_id)
- WHERE question_id = :p_QuestionID">
+ WHERE question_id = :p_QuestionID" DeleteCommand="
+BEGIN
+  QUESTIONS_MULTIPLE_CHOICE_BODY.delete(p_ChoiceID => :choice_id);
+END;">
                                                 <SelectParameters>
                                                     <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="value" />
                                                 </SelectParameters>
@@ -508,16 +511,19 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                             </asp:Table>
-                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand">
+                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="choice_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand">
                                                 <Columns>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
                                                             <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
                                                             <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
+                                                            <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" value='<%#Bind("choice_id") %>' />
                                                             <asp:HiddenField ID="hdnEditMCQuestionID" runat="server" value='<%#Bind("question_id") %>' />
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
@@ -577,6 +583,32 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             </asp:GridView>
 
                                             <!-- Edit Short Answer -->
+                                            <asp:Table ID="tblSAQuestion" runat="server">
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblEditBeforeText" runat="server" Text="Before Text: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditBeforeText" runat="server" Text='<%#Eval("before_text") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblEditSAAnswer" runat="server" Text="Answer: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditSAAnswer" runat="server" Text='<%#Eval("short_answer_answer") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                                <asp:TableRow>
+                                                    <asp:TableCell>
+                                                        <asp:Label ID="lblEditAfterText" runat="server" Text="After Text: " />
+                                                    </asp:TableCell>
+                                                    <asp:TableCell>
+                                                        <asp:TextBox ID="txtEditAfterText" runat="server" Text='<%#Eval("after_text") %>' />
+                                                    </asp:TableCell>
+                                                </asp:TableRow>
+                                            </asp:Table>
 
                                             <!-- Edit True False -->
                                             <asp:Table ID="tblEditTFQuestion" runat="server">
