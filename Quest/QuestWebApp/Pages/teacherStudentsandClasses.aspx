@@ -42,7 +42,7 @@ SELECT title, class_id
             </asp:GridView>
                 </div>
             <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT s.f_name first_name, s.l_name last_naem, s.email
+SELECT s.f_name f_name, s.l_name l_naem, s.email email
   FROM end_user s
        JOIN enrollment e  ON (e.student_id = s.user_id)
        JOIN section    sc ON (e.section_id = sc.section_id)
