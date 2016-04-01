@@ -528,7 +528,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                             <asp:Label ID="lblEditMCAnswer" runat="server" Text='<%# Eval("answer") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:CheckBox ID="chkEditMCEditAnswer" runat="server" Checked='<%# (Bind("answer") == "N") ? true : false %>' />
+                                                            <asp:DropDownList ID="ddlEditMCEditAnswer" runat="server" SelectedValue='<%# Bind("answer") %>' />
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
                                                             <asp:CheckBox ID="chkEditMCAddAnswer" runat="server" />
