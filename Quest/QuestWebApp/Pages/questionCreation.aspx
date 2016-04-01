@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
+    <script src="../Assets/JS/Datepicker_old/jquery-2.1.3.min.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -14,15 +16,15 @@
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
-                <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" onKeyPress="javascript:showQuestionCard();" />
+                <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
             </div>       
             <br />     
             <br />    
-            <asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />
+            <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
         </div>
     </div>
 
-    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
+    <div class="demo-card mdl-card mdl-shadow--2dp" ID="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; visibility:hidden;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
             <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
             <br />
@@ -253,4 +255,21 @@ SELECT question_id, weight, type, question_text, answer
     </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
+
+    <script>
+
+        
+        // show the question type card when number is typed into point value
+        $(document).ready(function() {
+            $('#<%= txtAddWeight.ClientID %>').on('input', function (e) {
+                var weightInput = $('#<%= txtAddWeight.ClientID %>').val();
+                if ($.isNumeric(weightInput))
+                {
+                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
+                }
+                else 
+                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
+  });
+});
+    </script>
 </asp:Content>

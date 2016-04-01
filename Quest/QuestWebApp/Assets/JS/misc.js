@@ -43,11 +43,3 @@ function pageResetLarge() {
     }
 }
 
-function showQuestionCard() {
-    document.getElementById('cardQuestionType').setAttribute("display", "none");
-
-    //if (document.getElementById("txtAddWeight")) {
-    //div.setAttribute("visibility", "none");
-    //}
-   
-}

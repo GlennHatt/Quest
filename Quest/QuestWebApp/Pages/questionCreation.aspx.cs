@@ -22,7 +22,7 @@ namespace QuestWebApp.Pages
       {
             if (!IsPostBack)
             {
-                cardQuestionType.Visible = false;
+                //cardQuestionType.Visible = false;
             }
 
             if (!IsPostBack)
@@ -327,9 +327,9 @@ END;";
          sqlQuestionDisplay.UpdateParameters.Add(new SessionParameter("p_Answer", "updateAnswer"));
       }
 
-        protected void btnPointValue_Click(object sender, EventArgs e)
-        {
-            cardQuestionType.Visible = true;
-        }
+        //protected void btnPointValue_Click(object sender, EventArgs e)
+        //{
+        //    cardQuestionType.Visible = true;
+        //}
     }
 }
