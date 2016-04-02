@@ -11,7 +11,7 @@
     <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 70%; left: 17%">
         <div class="mdl-card__supporting-text" style="text-align: center">
            <div style="font-size:20pt">Select a Class</div>
-            <!-- Textfield with Floating DropDown for user type -->
+            <!-- Textfield with Floating DropDown for classes -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
                 <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlAllSections" AppendDataBoundItems="true" AutoPostBack="true" DataTextField="CLASS.TITLE||'/'||CLASS.CODE||'-'||SECTION.SECTION_NUMBER" DataValueField="section_id" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged">
@@ -20,7 +20,7 @@
             </div>
 
              <div style="font-size:20pt">Select a Student</div>
-            <!-- Textfield with Floating DropDown for user type -->
+            <!-- Textfield with Floating DropDown for students -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Students:</label>
                 <asp:DropDownList ID="ddlStudentsSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlStudents" DataTextField="FULL_NAME" DataValueField="user_id" Enabled="false">
@@ -33,9 +33,11 @@
         </div>
     </div>
 
-     <div class="demo-card-wide mdl-shadow--3dp mdl-card" ID="cardAlreadyEnrolled" style="width: 70%; left: 17%">
+     <div class="demo-card-wide mdl-shadow--3dp mdl-card" ID="cardAlreadyEnrolled" runat="server" style="width: 70%; left: 17%; margin-top:2%">
         <div class="mdl-card__supporting-text" style="text-align: center">
-            <div style="text-align:center;">
+            <label style="padding-left: 1%; font-size:20pt">Students Enrolled In This Class Currently:</label>
+            <br />
+            <br />
     <asp:GridView ID="gvCurrentStudents" runat="server" DataSourceID="sqlCurrentStudents"></asp:GridView>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select end_user.f_name || ' ' || end_user.l_name as currently_enrolled
@@ -62,7 +64,6 @@ select distinct end_user.f_name || ' ' || end_user.l_name as full_name, end_user
         </SelectParameters>
     </asp:SqlDataSource>
                 </div>
-            </div>
          </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">

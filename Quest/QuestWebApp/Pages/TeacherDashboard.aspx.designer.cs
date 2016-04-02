@@ -31,12 +31,39 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblTestsToGrade;
         
         /// <summary>
-        /// viewTest control.
+        /// lblTestSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton viewTest;
+        protected global::System.Web.UI.WebControls.Label lblTestSubject;
+        
+        /// <summary>
+        /// lblTestDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTestDate;
+        
+        /// <summary>
+        /// lblTestTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTestTime;
+        
+        /// <summary>
+        /// btnTaketest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnTaketest;
     }
 }
