@@ -39,6 +39,10 @@ namespace QuestWebApp.Pages
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 TableCellCollection cell = e.Row.Cells;
+                GridViewRow row = e.Row;
+
+                row.Attributes.Add("class", "header");
+
                 cell[0].Attributes.Add("data-title", "Edit User");
                 cell[1].Attributes.Add("data-title", "E-mail");
                 cell[2].Attributes.Add("data-title", "E-mail Password");
@@ -47,21 +51,23 @@ namespace QuestWebApp.Pages
                 cell[5].Attributes.Add("data-title", "Last Name");
                 cell[6].Attributes.Add("data-title", "Password");
                 cell[7].Attributes.Add("data-title", "Classification");
+
+                
             }
 
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                cell[0].Attributes.Add("class", "header");
-                cell[1].Attributes.Add("class", "header");
-                cell[2].Attributes.Add("class", "header");
-                cell[3].Attributes.Add("class", "header");
-                cell[4].Attributes.Add("class", "header");
-                cell[5].Attributes.Add("class", "header");
-                cell[6].Attributes.Add("class", "header");
-                cell[7].Attributes.Add("class", "header");
+            //if (e.Row.RowType == DataControlRowType.Header)
+            //{
+            //    TableCellCollection cell = e.Row.Cells;
+            //    cell[0].Attributes.Add("class", "header");
+            //    cell[1].Attributes.Add("class", "header");
+            //    cell[2].Attributes.Add("class", "header");
+            //    cell[3].Attributes.Add("class", "header");
+            //    cell[4].Attributes.Add("class", "header");
+            //    cell[5].Attributes.Add("class", "header");
+            //    cell[6].Attributes.Add("class", "header");
+            //    cell[7].Attributes.Add("class", "header");
 
-            }
+            //}
         }
 
         protected void active_Click(object sender, EventArgs e)
