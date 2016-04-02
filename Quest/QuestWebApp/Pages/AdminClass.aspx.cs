@@ -17,7 +17,8 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            // SECURITY DISABLED FOR TESTING -----
+            /*try
             {
                 if (Session["userClassification"] == null)
                     throw new NullReferenceException();
@@ -32,7 +33,7 @@ namespace QuestWebApp.Pages
                 Response.Redirect("login.aspx");
             }
             GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
-                
+            */ 
         }
 
         protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -51,24 +52,24 @@ namespace QuestWebApp.Pages
         protected void btnDone(object sender, EventArgs e)
         {
             //Get the button that raised the event
-            Button btn = (Button)sender;
+            LinkButton btn = (LinkButton)sender;
 
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
-            /*OracleCommand cmdDeleteClass = new OracleCommand(@"
+            OracleCommand cmdDeleteClass = new OracleCommand(@"
 BEGIN
-   classes.delete(
-    p_ClassID   => :p_ClassID);
+   sections.delete(
+    p_SectionID => :p_SectionID);
 END;",
              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-            cmdDeleteClass.Parameters.
-            //CLASS ID -----------------------------------^
+            cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
 
             cmdDeleteClass.Connection.Open();
             cmdDeleteClass.ExecuteNonQuery();
 
-            cmdDeleteClass.Connection.Close(); */
+            cmdDeleteClass.Connection.Close();
+            GVClass.DataBind();
         }
     }
 }

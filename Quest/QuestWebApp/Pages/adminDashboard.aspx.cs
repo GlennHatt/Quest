@@ -65,6 +65,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            /* SECURITY DISABLED FOR TESTING
             Session["neededClassification"] = 'A';
 
             try
@@ -81,6 +82,7 @@ namespace QuestWebApp.Pages
             {
                 Response.Redirect("login.aspx");
             }
+            */
 
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
