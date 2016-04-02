@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlCurrentStudents"></asp:GridView>
+    <asp:GridView ID="gvCurrentStudents" runat="server" DataSourceID="sqlCurrentStudents"></asp:GridView>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select end_user.f_name || ' ' || end_user.l_name as currently_enrolled
   from enrollment, end_user
@@ -49,9 +49,13 @@ select class.title || '/' || class.code || '-' || section.section_number, sectio
  order by class.title asc">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
- select end_user.f_name || ' ' || end_user.l_name as full_name, end_user.user_id
-   from end_user
-  where end_user.permission_level = 'S'">
+select distinct end_user.f_name || ' ' || end_user.l_name as full_name, end_user.user_id
+   from end_user, enrollment
+  where enrollment.section_id != :selected_class
+    and end_user.permission_level = 'S'">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddlClassSelect" Name="selected_class" PropertyName="SelectedValue" />
+        </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
