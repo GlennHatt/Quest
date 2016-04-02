@@ -20,8 +20,8 @@ SELECT receive_email
  WHERE user_id = :p_EndUserID;-->
             <div style="font-size: 200%">Change User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
-                <asp:TextBox ID="TextBox1" class="mdl-textfield__input" type="password" runat="server" />
+                <label id="lblOldPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
+                <asp:TextBox ID="txtbxOldPassword" class="mdl-textfield__input" type="password" runat="server" />
             </div>
 
 

@@ -15,15 +15,22 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            cardAlreadyEnrolled.Visible = false;
         }
 
         protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (ddlClassSelect.SelectedIndex == 0)
+            {
                 ddlStudentsSelect.Enabled = false;
+                cardAlreadyEnrolled.Visible = false;
+            }
             else
+            {
                 ddlStudentsSelect.Enabled = true;
+                cardAlreadyEnrolled.Visible = true;
+            }
         }
 
         protected void btnStudenttoClass_Click(object sender, EventArgs e)
