@@ -13,15 +13,6 @@ namespace QuestWebApp.Pages {
     public partial class AddStudentToClass {
         
         /// <summary>
-        /// ddlStudentsSelect control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudentsSelect;
-        
-        /// <summary>
         /// ddlClassSelect control.
         /// </summary>
         /// <remarks>
@@ -31,6 +22,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
         
         /// <summary>
+        /// ddlStudentsSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStudentsSelect;
+        
+        /// <summary>
         /// btnStudenttoClass control.
         /// </summary>
         /// <remarks>
@@ -38,5 +38,41 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnStudenttoClass;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// sqlCurrentStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlCurrentStudents;
+        
+        /// <summary>
+        /// sqlAllSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAllSections;
+        
+        /// <summary>
+        /// sqlStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlStudents;
     }
 }
