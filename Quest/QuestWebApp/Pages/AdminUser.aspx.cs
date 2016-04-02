@@ -11,7 +11,6 @@ namespace QuestWebApp.Pages
 {
     public partial class AdminUser : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             this.MaintainScrollPositionOnPostBack = true;
@@ -31,7 +30,7 @@ namespace QuestWebApp.Pages
             //}
 
             GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
-            ddlSortDirection.SelectedIndex = 0;
+            //ddlSortDirection.SelectedIndex = 0;
         }
     
 
@@ -43,7 +42,7 @@ namespace QuestWebApp.Pages
                 GridViewRow row = e.Row;
 
                 //row.Attributes.Add("class", "header");
-                cell[0].Attributes.Add("data-title", row.Cells[6].Text);
+                cell[0].Attributes.Add("data-title", row.Cells[3].Text + ", " + row.Cells[2].Text);
                 cell[0].Attributes.Add("class", "header");
                 cell[1].Attributes.Add("data-title", "Edit User");
                 cell[2].Attributes.Add("data-title", "First Name");
@@ -54,8 +53,21 @@ namespace QuestWebApp.Pages
                 cell[7].Attributes.Add("data-title", "Password");
                 cell[8].Attributes.Add("data-title", "Classification");
 
-                
+                // Initially hide rows
+                cell[1].Attributes.Add("style", "display:none;");
+                cell[2].Attributes.Add("style", "display:none;");
+                cell[3].Attributes.Add("style", "display:none;");
+                cell[4].Attributes.Add("style", "display:none;");
+                cell[5].Attributes.Add("style", "display:none;");
+                cell[6].Attributes.Add("style", "display:none;");
+                cell[7].Attributes.Add("style", "display:none;");
+                cell[8].Attributes.Add("style", "display:none;");
+                cell[9].Attributes.Add("style", "display:none;");
+
+
             }
+            
+            
 
             //if (e.Row.RowType == DataControlRowType.Header)
             //{

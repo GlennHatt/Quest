@@ -115,7 +115,7 @@ END;">
         <Columns>
             <asp:TemplateField >
                 <ItemTemplate>
-                    <asp:Label runat="server" ID="lblDispUser" Text='<%#Eval("username") %>'  />
+                    <asp:Label runat="server" ID="lblDispUser" Text='+'  />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:CommandField ShowEditButton="True" />
@@ -154,6 +154,7 @@ END;">
     </asp:GridView>
                 </asp:Panel>
             </ContentTemplate>
+        
         </asp:UpdatePanel>
             </div>
         </div>
@@ -173,6 +174,8 @@ END;">
                     $(this).nextUntil('tr.header').slideToggle(100, function () {
                     });
                 });
+
+
             </script>
 </asp:Content>
 
