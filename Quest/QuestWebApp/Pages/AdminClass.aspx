@@ -17,12 +17,12 @@
 
     <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
-            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="class_id">
+            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id">
                 <Columns>
                     <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
                     <asp:BoundField DataField="TITLE" HeaderText="Class Name" SortExpression="TITLE"></asp:BoundField>
                     <asp:BoundField DataField="SECTION_NUMBER" HeaderText="Section Number" SortExpression="SECTION_NUMBER"></asp:BoundField>
-                    <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME"></asp:BoundField>
+                    <asp:BoundField DataField="FULL_NAME" HeaderText="Full Name" SortExpression="FULL_NAME"></asp:BoundField>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
                             
@@ -30,8 +30,8 @@
 <div class="btn" id="myButton" onclick="setElements(this, event)">
   <div class="btn-back">
     <p>Are you sure you want to do that?</p>
-      <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClientClick="return false" OnClick="btnDone"> <i class="material-icons yes">done</i></asp:LinkButton>
-    <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClientClick="closeBox(this, event)" OnClick="btnDone"> <i class="material-icons no">clear</i></asp:LinkButton>
+      <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClick="btnDone" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' > <i class="material-icons yes">done</i></asp:LinkButton>
+    <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClientClick="closeBox(this, event)"> <i class="material-icons no">clear</i></asp:LinkButton>
   </div>
   <div class="btn-front">Delete</div>
 </div> 
@@ -46,7 +46,7 @@
     </div>
 
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
-select class.class_id, class.code, class.title, section.section_number, end_user.l_name 
+select class.class_id, section.section_id, class.code, class.title, section.section_number, end_user.l_name || ', ' || end_user.f_name as full_name 
 from class, section, end_user 
 where end_user.user_id = section.teacher_id
 and section.class_id = class.class_id"></asp:SqlDataSource>
