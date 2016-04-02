@@ -22,8 +22,10 @@ namespace QuestWebApp.Pages
         {
             if (ddlClassSelect.SelectedIndex == 0)
                 ddlStudentsSelect.Enabled = false;
+            cardAlreadyEnrolled.Visible = false;
             else
                 ddlStudentsSelect.Enabled = true;
+            cardAlreadyEnrolled.Visible = true;
         }
 
         protected void btnStudenttoClass_Click(object sender, EventArgs e)

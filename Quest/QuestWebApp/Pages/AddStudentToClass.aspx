@@ -32,6 +32,10 @@
             </div>
         </div>
     </div>
+
+     <div class="demo-card-wide mdl-shadow--3dp mdl-card" ID="cardAlreadyEnrolled" style="width: 70%; left: 17%">
+        <div class="mdl-card__supporting-text" style="text-align: center">
+            <div style="text-align:center;">
     <asp:GridView ID="gvCurrentStudents" runat="server" DataSourceID="sqlCurrentStudents"></asp:GridView>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select end_user.f_name || ' ' || end_user.l_name as currently_enrolled
@@ -57,6 +61,9 @@ select distinct end_user.f_name || ' ' || end_user.l_name as full_name, end_user
             <asp:ControlParameter ControlID="ddlClassSelect" Name="selected_class" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
+                </div>
+            </div>
+         </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
 </asp:Content>
