@@ -15,22 +15,23 @@ namespace QuestWebApp.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             this.MaintainScrollPositionOnPostBack = true;
-            try
-            {
-                if (Session["userClassification"] == null)
-                    throw new NullReferenceException();
-                if ((char)Session["userClassification"] != 'A')
-                {
-                    utilities util = new utilities();
-                    util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                Response.Redirect("login.aspx");
-            }
+            //try
+            //{
+            //    if (Session["userClassification"] == null)
+            //        throw new NullReferenceException();
+            //    if ((char)Session["userClassification"] != 'A')
+            //    {
+            //        utilities util = new utilities();
+            //        util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
+            //    }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    Response.Redirect("login.aspx");
+            //}
 
             GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
+            ddlSortDirection.SelectedIndex = 0;
         }
     
 
@@ -41,16 +42,17 @@ namespace QuestWebApp.Pages
                 TableCellCollection cell = e.Row.Cells;
                 GridViewRow row = e.Row;
 
-                row.Attributes.Add("class", "header");
-
-                cell[0].Attributes.Add("data-title", "Edit User");
-                cell[1].Attributes.Add("data-title", "E-mail");
-                cell[2].Attributes.Add("data-title", "E-mail Password");
-                cell[3].Attributes.Add("data-title", "Username");
-                cell[4].Attributes.Add("data-title", "First Name");
-                cell[5].Attributes.Add("data-title", "Last Name");
-                cell[6].Attributes.Add("data-title", "Password");
-                cell[7].Attributes.Add("data-title", "Classification");
+                //row.Attributes.Add("class", "header");
+                cell[0].Attributes.Add("data-title", row.Cells[6].Text);
+                cell[0].Attributes.Add("class", "header");
+                cell[1].Attributes.Add("data-title", "Edit User");
+                cell[2].Attributes.Add("data-title", "First Name");
+                cell[3].Attributes.Add("data-title", "Last Name");
+                cell[4].Attributes.Add("data-title", "E-mail");
+                cell[5].Attributes.Add("data-title", "E-mail Password");
+                cell[6].Attributes.Add("data-title", "Username");
+                cell[7].Attributes.Add("data-title", "Password");
+                cell[8].Attributes.Add("data-title", "Classification");
 
                 
             }
@@ -111,6 +113,13 @@ namespace QuestWebApp.Pages
                 //Remove if you don't have a footer row
                 grdView.FooterRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            GVUser.Sort("f_name", SortDirection.Ascending);
+            
+            
         }
     }
 }
