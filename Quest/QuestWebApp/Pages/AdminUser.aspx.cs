@@ -121,5 +121,39 @@ namespace QuestWebApp.Pages
             
             
         }
+
+        protected void btnSortUsers_Click(object sender, EventArgs e)
+        {
+            SortDirection direction;
+            string sortBy = null;
+
+            if (ddlSortDirection.SelectedIndex == 0)
+            {
+                direction = SortDirection.Ascending;
+            }
+            else
+                direction = SortDirection.Descending;
+
+            switch(ddlSortBy.SelectedIndex)
+            {
+                case 0:
+                    sortBy = "f_name";
+                    break;
+                case 1:
+                    sortBy = "l_name";
+                    break;
+                case 2:
+                    sortBy = "email";
+                    break;
+                case 3:
+                    sortBy = "username";
+                    break;
+                case 4:
+                    sortBy = "permission_level";
+                    break;
+            }
+
+            GVUser.Sort(sortBy, direction);
+        }
     }
 }

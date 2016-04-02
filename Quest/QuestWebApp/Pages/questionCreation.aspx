@@ -279,6 +279,12 @@ SELECT question_id, weight, type, question_text, answer
                 else
                     $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
             });
+
+            if($.isNumeric($('#<%= txtAddWeight.ClientID %>').val()))
+                $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
+            else 
+                $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
+
         });
     </script>
 </asp:Content>

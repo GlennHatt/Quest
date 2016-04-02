@@ -46,7 +46,7 @@ tr.header
                                 <asp:ListItem Value="Descending"></asp:ListItem>
                             </asp:DropDownList>
             </div><br />
-            <asp:LinkButton ID="btnSortUsers" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-button--colored" BackColor="#FF6E40" ForeColor="White" runat="server" >
+            <asp:LinkButton ID="btnSortUsers" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-button--colored" BackColor="#FF6E40" ForeColor="White" runat="server" OnClick="btnSortUsers_Click">
            Sort
                             </asp:LinkButton>
             </div>
