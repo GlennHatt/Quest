@@ -53,16 +53,16 @@ namespace QuestWebApp.Pages
                 cell[7].Attributes.Add("data-title", "Password");
                 cell[8].Attributes.Add("data-title", "Classification");
 
-                // Initially hide rows
-                cell[1].Attributes.Add("style", "display:none;");
-                cell[2].Attributes.Add("style", "display:none;");
-                cell[3].Attributes.Add("style", "display:none;");
-                cell[4].Attributes.Add("style", "display:none;");
-                cell[5].Attributes.Add("style", "display:none;");
-                cell[6].Attributes.Add("style", "display:none;");
-                cell[7].Attributes.Add("style", "display:none;");
-                cell[8].Attributes.Add("style", "display:none;");
-                cell[9].Attributes.Add("style", "display:none;");
+                //Initially hide rows
+               //cell[1].Attributes.Add("style", "display:none;");
+               // cell[2].Attributes.Add("style", "display:none;");
+               // cell[3].Attributes.Add("style", "display:none;");
+               // cell[4].Attributes.Add("style", "display:none;");
+               // cell[5].Attributes.Add("style", "display:none;");
+               // cell[6].Attributes.Add("style", "display:none;");
+               // cell[7].Attributes.Add("style", "display:none;");
+               // cell[8].Attributes.Add("style", "display:none;");
+               // cell[9].Attributes.Add("style", "display:none;"); 
 
 
             }
@@ -166,6 +166,16 @@ namespace QuestWebApp.Pages
             }
 
             GVUser.Sort(sortBy, direction);
+        }
+
+        protected void GVUser_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void GVUser_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
