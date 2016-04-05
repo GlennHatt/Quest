@@ -46,6 +46,7 @@ END;",
             cmdAddEnrollee.ExecuteNonQuery();
 
             cmdAddEnrollee.Connection.Close();
+            ddlStudentsSelect.DataBind();
             gvCurrentStudents.DataBind();
         }
     }

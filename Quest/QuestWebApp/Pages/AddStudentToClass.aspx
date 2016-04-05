@@ -40,12 +40,16 @@
             <br />
     <asp:GridView ID="gvCurrentStudents" runat="server" DataSourceID="sqlCurrentStudents"></asp:GridView>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-select end_user.f_name || ' ' || end_user.l_name as currently_enrolled
-  from enrollment, end_user
- where end_user.user_id = enrollment.student_id
-   and enrollment.section_id = :selected_class">
+SELECT end_user.f_name || ' ' || end_user.l_name as currently_enrolled
+        FROM end_user
+       JOIN (SELECT user_id
+               FROM end_user
+                    JOIN enrollment ON (student_id = user_id)
+              WHERE section_id = :p_SectionID) USING (user_id)
+ WHERE permission_level = 'S'
+  ">
         <SelectParameters>
-            <asp:ControlParameter ControlID="ddlClassSelect" Name="selected_class" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlAllSections" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -55,11 +59,13 @@ select class.title || '/' || class.code || '-' || section.section_number, sectio
  order by class.title asc">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-select distinct end_user.f_name || ' ' || end_user.l_name as full_name, end_user.user_id
+SELECT f_name || ' ' || l_name as full_name, user_id
   FROM end_user
-       JOIN enrollment ON (student_id = user_id)
  WHERE permission_level = 'S'
-   AND section_id != :p_SectionID">
+   AND user_id NOT IN (SELECT user_id
+               FROM end_user
+                    JOIN enrollment ON (student_id = user_id)
+              WHERE section_id = :p_SectionID)">
         <SelectParameters>
             <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
         </SelectParameters>
