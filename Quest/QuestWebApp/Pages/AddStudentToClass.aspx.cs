@@ -49,5 +49,10 @@ END;",
             ddlStudentsSelect.DataBind();
             gvCurrentStudents.DataBind();
         }
+
+        protected void gvCurrentStudents_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            ddlStudentsSelect.DataBind();
+        }
     }
 }
