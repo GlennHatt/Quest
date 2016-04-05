@@ -15,22 +15,17 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            cardAlreadyEnrolled.Visible = false;
+
         }
 
         protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (ddlClassSelect.SelectedIndex == 0)
-            {
                 ddlStudentsSelect.Enabled = false;
-                cardAlreadyEnrolled.Visible = false;
-            }
             else
-            {
                 ddlStudentsSelect.Enabled = true;
-                cardAlreadyEnrolled.Visible = true;
-            }
+
+            ddlStudentsSelect.DataBind();
         }
 
         protected void btnStudenttoClass_Click(object sender, EventArgs e)
@@ -51,7 +46,13 @@ END;",
             cmdAddEnrollee.ExecuteNonQuery();
 
             cmdAddEnrollee.Connection.Close();
+            ddlStudentsSelect.DataBind();
             gvCurrentStudents.DataBind();
+        }
+
+        protected void gvCurrentStudents_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            ddlStudentsSelect.DataBind();
         }
     }
 }

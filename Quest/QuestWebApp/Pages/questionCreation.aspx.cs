@@ -20,12 +20,12 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-            if (!IsPostBack)
-            {
-                //cardQuestionType.Visible = false;
-            }
+        if (!IsPostBack)
+        {
+            //cardQuestionType.Visible = false;
+        }
 
-            if (!IsPostBack)
+         if (!IsPostBack)
          {
             if (Session["Test_ID"] == null)
             {
@@ -69,13 +69,11 @@ namespace QuestWebApp.Pages
  BEGIN
    QUESTIONS.change(
      p_QuestionID  => :p_QuestionID,
-     p_TestID      => :p_TestID,
      p_Weight      => :p_Weight,
-     P_Type        => :p_Type);
+     p_Type        => :p_Type);
  END;",
             connectionString);
             cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-            cmdAddQuestion.Parameters.AddWithValue("p_TestID", Session["Test_ID"]);
             cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
             cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
 

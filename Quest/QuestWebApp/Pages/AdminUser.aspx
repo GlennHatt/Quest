@@ -109,8 +109,8 @@ END;">
             <asp:Panel ID="pnlEditQuestions" runat="server" >
                 <!-- End borrowed Code, except the closeing tags... -->
                 
-
-<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True"> 
+                
+<asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True" OnRowUpdated="GVUser_RowUpdated" OnRowCancelingEdit="GVUser_RowCancelingEdit"> 
     <EditRowStyle CssClass="GridViewEditRow" />
         <Columns>
             <asp:TemplateField >
@@ -173,7 +173,16 @@ END;">
                     $(this).find('span').text(function (_, value) { return value == '-' ? '+' : '-' });
                     $(this).nextUntil('tr.header').slideToggle(100, function () {
                     });
-                });
+         });
+
+         //$(function () {
+         //    $(".research tr:not(.header)").hide();
+         //    $(".research tr:first-child").show();
+
+         //    $(".research tr.accordion").click(function () {
+         //        $(this).nextAll("tr").fadeToggle(500);
+         //    }).eq(0).trigger('click');
+         //});
 
 
             </script>
