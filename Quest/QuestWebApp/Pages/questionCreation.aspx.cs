@@ -27,6 +27,7 @@ namespace QuestWebApp.Pages
                Session["Test_ID"] = "1";
             }
 
+            Session["QuestionID"] = null;
             hideInputs();
          } else
          {
@@ -180,6 +181,8 @@ namespace QuestWebApp.Pages
          cmdAddQuestion.ExecuteNonQuery();
          cmdAddQuestion.Connection.Close();
 
+         lstQuestionDisplay.DataBind();
+
          rblAddType.SelectedIndex = -1;
          hideInputs();
          Session["QuestionID"] = null;
@@ -277,7 +280,8 @@ BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
     p_TestOrder  => :p_TestOrder,
-    p_Weight     => :p_Weight);
+    p_Weight     => :p_Weight,
+    p_Type       => :p_Type);
 
   QUESTIONS_ESSAY.change(
     p_QuestionID   => :p_QuestionID,
@@ -286,6 +290,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditEQuestion")).Text);
                break;
             case "M":
@@ -294,7 +299,8 @@ BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
     p_TestOrder  => :p_TestOrder,
-    p_Weight     => :p_Weight);
+    p_Weight     => :p_Weight,
+    p_Type       => :p_Type);
 
   QUESTIONS_MATCHING.change(
     p_QuestionID   => :p_QuestionID,
@@ -303,53 +309,60 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
                break;
-                case "MC":
-                    cmdEditQuestion = new OracleCommand(@"
-BEGIN
-  QUESTIONS.change(
-    p_QuestionID => :p_QuestionID,
-    p_TestOrder  => :p_TestOrder,
-    p_Weight     => :p_Weight);
-
-  QUESTIONS_MULTIPLE_CHOICE.change(
-    p_QuestionID   => :p_QuestionID,
-    p_QuestionText => :p_QuestionText);
-END;", connectionString);
-                    cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                    cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
-                    break;
-                case "SA":
-                    cmdEditQuestion = new OracleCommand(@"
-BEGIN
-  QUESTIONS.change(
-    p_QuestionID => :p_QuestionID,
-    p_TestOrder  => :p_TestOrder,
-    p_Weight     => :p_Weight);
-
-  QUESTIONS_SHORT_ANSWER.change(
-    p_QuestionID   => :p_QuestionID,
-    p_BeforeText   => :p_BeforeText,
-    p_AfterText    => :p_AfterText,
-    p_QuestionText => :p_QuestionText);
-END;", connectionString);
-                    cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                    cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_BeforeText", ((TextBox)lstView.EditItem.FindControl("txtEditBeforeText")).Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_AfterText", ((TextBox)lstView.EditItem.FindControl("txtEditAfterText")).Text);
-                    cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditSAAnswer")).Text);
-                    break;
-                case "TF":
+            case "MC":
                cmdEditQuestion = new OracleCommand(@"
 BEGIN
   QUESTIONS.change(
     p_QuestionID => :p_QuestionID,
     p_TestOrder  => :p_TestOrder,
-    p_Weight     => :p_Weight);
+    p_Weight     => :p_Weight,
+    p_Type       => :p_Type);
+
+  QUESTIONS_MULTIPLE_CHOICE.change(
+    p_QuestionID   => :p_QuestionID,
+    p_QuestionText => :p_QuestionText);
+END;", connectionString);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+               cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
+               break;
+            case "SA":
+               cmdEditQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS.change(
+    p_QuestionID => :p_QuestionID,
+    p_TestOrder  => :p_TestOrder,
+    p_Weight     => :p_Weight,
+    p_Type       => :p_Type);
+
+  QUESTIONS_SHORT_ANSWER.change(
+    p_QuestionID   => :p_QuestionID,
+    p_BeforeText   => :p_BeforeText,
+    p_AfterText    => :p_AfterText,
+    p_Answer       => :p_Answer);
+END;", connectionString); 
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+               cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_BeforeText", ((TextBox)lstView.EditItem.FindControl("txtEditSABeforeText")).Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_AfterText", ((TextBox)lstView.EditItem.FindControl("txtEditSAAfterText")).Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)lstView.EditItem.FindControl("txtEditSAAnswerText")).Text);
+               
+               break;
+            case "TF":
+               cmdEditQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS.change(
+    p_QuestionID => :p_QuestionID,
+    p_TestOrder  => :p_TestOrder,
+    p_Weight     => :p_Weight,
+    p_Type       => :p_Type);
 
   QUESTIONS_TRUE_FALSE.change(
     p_QuestionID   => :p_QuestionID,
@@ -359,6 +372,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditTFQuestion")).Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((DropDownList)lstView.EditItem.FindControl("ddlEditTFAnswer")).SelectedValue);
                break;
@@ -404,11 +418,12 @@ END;", connectionString);
       protected void grdEditMChoice_RowCommand(object sender, GridViewCommandEventArgs e)
       {
          OracleCommand cmdMCEdit = new OracleCommand();
+         ListView lstView = lstQuestionDisplay;
          GridView grdSender = (GridView)sender;
-         
+
 
          switch (e.CommandName)
-         {  
+         {
             case "add":
                cmdMCEdit = new OracleCommand(@"
 BEGIN
@@ -416,8 +431,8 @@ BEGIN
     p_QuestionID => :p_QuestionID,
     p_ChoiceText => :p_ChoiceText);
 END;", connectionString);
-               cmdMCEdit.Parameters.AddWithValue("p_QuestionID", ((HiddenField)grdSender.FooterRow.FindControl("hdnEditMCQuestionID")).Value);
-               cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.FooterRow.FindControl("txtEditMCAddChoice")).Value);
+               cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+               cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((TextBox)grdSender.FooterRow.FindControl("txtEditMCAddChoiceText")).Text);
                cmdMCEdit.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
                cmdMCEdit.Connection.Open();
@@ -436,31 +451,52 @@ BEGIN
     p_QuestionID => :p_QuestionID,
     p_ChoiceID   => :p_ChoiceID);
 END;", connectionString);
-                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", ((HiddenField)grdSender.FooterRow.FindControl("hdnEditMCQuestionID")).Value);
+                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
                   cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", choiceID);
 
                   cmdMCEdit.Connection.Open();
                   cmdMCEdit.ExecuteNonQuery();
                   cmdMCEdit.Connection.Close();
-               } 
+               }
                break;
             case "update":
-                    cmdMCEdit = new OracleCommand(@"
+               cmdMCEdit = new OracleCommand(@"
 BEGIN
   QUESTIONS_MULTIPLE_CHOICE_BODY.change(
-    p_ChoiceID => :p_ChoiceID,
-    p_ChoiceText => :p_ChoiceText);
+    p_ChoiceID   => :p_ChoiceID,
+    p_ChoiceText => :p_ChoiceText,
+    p_SetOrder   => :p_SetOrder);
 END;", connectionString);
-                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.EditRow.FindControl("hdnEditMCChoiceID")).Value);
-                    cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((HiddenField)grdSender.EditRow.FindControl("txtEditMCAddChoice")).Value);
+               cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.Rows[grdSender.EditIndex].FindControl("hdnEditMCChoiceID")).Value);
+               cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((TextBox)grdSender.Rows[grdSender.EditIndex].FindControl("txtEditMCEditChoiceText")).Text);
+               cmdMCEdit.Parameters.AddWithValue("p_SetOrder", ((TextBox)grdSender.Rows[grdSender.EditIndex].FindControl("txtEditMCEditSetOrder")).Text);
 
-                    cmdMCEdit.Connection.Open();
-                    cmdMCEdit.ExecuteNonQuery();
-                    cmdMCEdit.Connection.Close();
-                    e.cancel = true;
-                    break;
+               cmdMCEdit.Connection.Open();
+               cmdMCEdit.ExecuteNonQuery();
+               cmdMCEdit.Connection.Close();
+
+               if (((DropDownList)grdSender.FooterRow.FindControl("ddlEditMCAddAnswer")).SelectedValue == "Y")
+               {
+
+                  cmdMCEdit = new OracleCommand(@"
+BEGIN
+  QUESTIONS_MULTIPLE_CHOICE.change_answer(
+    p_QuestionID => :p_QuestionID,
+    p_ChoiceID   => :p_ChoiceID);
+END;", connectionString);
+                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+                  cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.Rows[grdSender.EditIndex].FindControl("hdnEditMCChoiceID")).Value);
+
+                  cmdMCEdit.Connection.Open();
+                  cmdMCEdit.ExecuteNonQuery();
+                  cmdMCEdit.Connection.Close();
+               }
+
+               grdSender.EditIndex = -1;
+               e.Handled = true;
+               break;
          }
-         grdSender.databind();
+         grdSender.DataBind();
       }
    }
 }
