@@ -56,11 +56,12 @@ select class.title || '/' || class.code || '-' || section.section_number, sectio
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 select distinct end_user.f_name || ' ' || end_user.l_name as full_name, end_user.user_id
-   from end_user, enrollment
-  where enrollment.section_id != :selected_class
-    and end_user.permission_level = 'S'">
+  FROM end_user
+       JOIN enrollment ON (student_id = user_id)
+ WHERE permission_level = 'S'
+   AND section_id != :p_SectionID">
         <SelectParameters>
-            <asp:ControlParameter ControlID="ddlClassSelect" Name="selected_class" PropertyName="SelectedValue" />
+            <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
                 </div>
