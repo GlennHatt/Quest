@@ -102,14 +102,16 @@ namespace QuestWebApp.Pages
    QUESTIONS.change(
      p_QuestionID  => :p_QuestionID,
      p_Weight      => :p_Weight,
-     p_Type        => :p_Type);
+     p_Type        => :p_Type,
+     p_TestOrder   => :p_TestOrder);
  END;",
             connectionString);
             cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
             cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
             cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
+            cmdAddQuestion.Parameters.AddWithValue("p_TestOrder", "1");
 
-            cmdAddQuestion.Connection.Open();
+                cmdAddQuestion.Connection.Open();
             cmdAddQuestion.ExecuteNonQuery();
             cmdAddQuestion.Connection.Close();
          }
