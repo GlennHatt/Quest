@@ -33,7 +33,7 @@
         </asp:TableRow>
     </asp:Table>
     <!-- Matching -->
-    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
@@ -75,7 +75,7 @@ SELECT question_id, question_text, answer
     </asp:GridView>
 
     <!-- Multiple Choice -->
-    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT choice_id, question_id, choice_text, set_order
   FROM question_multiple_choice_body
  WHERE question_id = :p_QuestionID">
@@ -164,7 +164,7 @@ SELECT choice_id, question_id, choice_text, set_order
     <br />
 
     <!-- Question Display Section -->
-    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+    <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, weight, type, test_order,
        e.question_text  AS essay_question, 
        m.question_text  AS matching_question,
@@ -178,7 +178,6 @@ SELECT question_id, weight, type, test_order,
        LEFT OUTER JOIN question_short_answer    sa USING (question_id)
        LEFT OUTER JOIN question_true_false      tf USING (question_id)
  WHERE test_id = :p_TestID
-       AND type = 'MC'
  ORDER BY test_order" DeleteCommand="
 BEGIN
   QUESTIONS.delete(p_QuestionID =&gt; :question_id);
@@ -191,7 +190,7 @@ END;">
     
     <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
     <!-- This fixes the partial post pack not maintaining scroll possition error -->
-<%--    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
     <script type="text/javascript">
         // It is important to place this JavaScript code after ScriptManager1
         var xPos, yPos;
@@ -220,7 +219,7 @@ END;">
 
     <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="pnlEditQuestions" runat="server" Height="300">--%>
+            <asp:Panel ID="pnlEditQuestions" runat="server" Height="300">
                 <!-- End borrowed Code, except the closeing tags... -->
                 <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">
@@ -270,7 +269,7 @@ END;">
                                             </asp:Table>
 
                                             <!-- Matching Question Display -->
-                                            <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                            <asp:SqlDataSource ID="sqlDispMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID">
@@ -295,7 +294,7 @@ SELECT question_id, question_text, answer
                                             </asp:GridView>
 
                                             <!-- Multiple Choice Question Display -->
-                                            <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                            <asp:SqlDataSource ID="sqlDispMC" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
   FROM question_multiple_choice mc
                   JOIN question_multiple_choice_body mcb USING (question_id)
@@ -427,7 +426,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                 </asp:TableRow>
                                                 <asp:TableRow>
                                                     <asp:TableCell ColumnSpan="2">
-                                                        <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                                        <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT matching_body_id, question_id, question_text, answer
   FROM question_matching_body
  WHERE question_id = :p_QuestionID"
@@ -490,7 +489,7 @@ END;">
                                             </asp:Table>
 
                                             <!-- Edit Multiple Choice -->
-                                            <asp:SqlDataSource ID="sqlEditMC" runat="server" ConnectionString="<%$ ConnectionStrings:GlennLocalHost %>" ProviderName="<%$ ConnectionStrings:GlennLocalHost.ProviderName %>" SelectCommand="
+                                            <asp:SqlDataSource ID="sqlEditMC" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, mcb.choice_id AS choice_id, choice_text, NVL(correct, 'N') AS answer, set_order, DECODE(NVL(correct, 'N'), 'Y', 'Yes',
                                                                                                                                'N', 'No') AS disp_answer
   FROM question_multiple_choice mc
@@ -629,9 +628,9 @@ END;">
                         </div>
                     </div>
                 </main>
-<%--            </asp:Panel>
+            </asp:Panel>
         </ContentTemplate>
-    </asp:UpdatePanel>--%>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>

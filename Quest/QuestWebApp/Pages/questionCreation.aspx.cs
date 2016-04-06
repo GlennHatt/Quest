@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
    {
       // Global Veriables
       int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["GlennLocalHost"].ConnectionString); // Connection String.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
       ArrayList choices;
       string questionType;
 
