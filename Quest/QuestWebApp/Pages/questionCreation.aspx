@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Teacher | Question Creation" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="questionCreation.aspx.cs" Inherits="QuestWebApp.Pages.questionCreation" %>
+﻿<%@ Page Title="Teacher | Question Creation" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="questionCreation.aspx.cs" Inherits="QuestWebApp.Pages.questionCreation" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
 </asp:Content>
@@ -17,8 +17,8 @@
                 <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
                 <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
             </div>
-    <br />
-    <br />
+            <br />
+            <br />
             <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
         </div>
     </div>
@@ -30,12 +30,12 @@
             <br />
             <br />
             <asp:RadioButtonList ID="rblAddType" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
-        <asp:ListItem Text="Essay" Value="E" />
-        <asp:ListItem Text="Matching" Value="M" />
-        <asp:ListItem Text="Multiple Choice" Value="MC" />
-        <asp:ListItem Text="Short Answer" Value="SA" />
-        <asp:ListItem Text="True/False" Value="TF" />
-    </asp:RadioButtonList>
+                <asp:ListItem Text="Essay" Value="E" />
+                <asp:ListItem Text="Matching" Value="M" />
+                <asp:ListItem Text="Multiple Choice" Value="MC" />
+                <asp:ListItem Text="Short Answer" Value="SA" />
+                <asp:ListItem Text="True/False" Value="TF" />
+            </asp:RadioButtonList>
         </div>
     </div>
 
@@ -81,18 +81,18 @@ SELECT question_id, question_text, answer
                 <asp:TextBox class="mdl-textfield__input" ID="txtAddMatchingQuestion" runat="server" />
             </div>
             <br />
-            <asp:Button ID="btnAddMatchingQuestion" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add Matching Question" OnClick="btnAddMultipleChoice_Click" />
+            <asp:Button ID="btnAddMatchingQuestion" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add Matching Question" OnClick="btnAddMatchingQuestion_Click" />
         </div>
     </div>
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMatching" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-    <asp:GridView ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
-        <Columns>
+            <asp:GridView ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
+                <Columns>
                     <asp:BoundField DataField="question_id" HeaderText="Question ID" SortExpression="question_id" />
                     <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
                     <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
-        </Columns>
-    </asp:GridView>
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 
@@ -130,13 +130,13 @@ SELECT choice_id, question_id, choice_text, set_order
 
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMultiple" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-    <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
-        <Columns>
+            <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
+                <Columns>
                     <asp:BoundField DataField="QUESTION_ID" HeaderText="Question ID" SortExpression="QUESTION_ID" />
-            <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
-            <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
-        </Columns>
-    </asp:GridView>
+                    <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
+                    <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
+                </Columns>
+            </asp:GridView>
         </div>
 
     </div>
@@ -174,10 +174,10 @@ SELECT choice_id, question_id, choice_text, set_order
 
                 <label id="lblAddTFAnswer" class="mdl-textfield__label" runat="server" style="position: unset; text-align: center; color: black">Answer: </label>
                 <div style="margin-left: 41%">
-                <asp:RadioButtonList ID="rblAddTFAnswer" runat="server" RepeatDirection="Horizontal">
-                    <asp:ListItem Text="True" Value="T" />
-                    <asp:ListItem Text="False" Value="F" />
-                </asp:RadioButtonList>
+                    <asp:RadioButtonList ID="rblAddTFAnswer" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem Text="True" Value="T" />
+                        <asp:ListItem Text="False" Value="F" />
+                    </asp:RadioButtonList>
 
                 </div>
             </div>
@@ -202,7 +202,8 @@ SELECT question_id, weight, type, test_order,
        LEFT OUTER JOIN question_short_answer    sa USING (question_id)
        LEFT OUTER JOIN question_true_false      tf USING (question_id)
  WHERE test_id = :p_TestID
- ORDER BY test_order" DeleteCommand="
+ ORDER BY test_order"
+        DeleteCommand="
 BEGIN
   QUESTIONS.delete(p_QuestionID =&gt; :question_id);
 END;">
@@ -211,7 +212,7 @@ END;">
         </SelectParameters>
     </asp:SqlDataSource>
 
-    
+
     <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
     <!-- This fixes the partial post pack not maintaining scroll possition error -->
     <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
@@ -221,38 +222,38 @@ END;">
         var prm = Sys.WebForms.PageRequestManager.getInstance();
 
         function BeginRequestHandler(sender, args) {
-            if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
-                // Get X and Y positions of scrollbar before the partial postback
-                xPos = $get('<%=pnlEditQuestions.ClientID%>').scrollLeft;
-                yPos = $get('<%=pnlEditQuestions.ClientID%>').scrollTop;
-            }
-        }
-
-        function EndRequestHandler(sender, args) {
-            if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
-            // Set X and Y positions back to the scrollbar
-            // after partial postback
-            $get('<%=pnlEditQuestions.ClientID%>').scrollLeft = xPos;
-            $get('<%=pnlEditQuestions.ClientID%>').scrollTop = yPos;
+            if ($get('<%=Panel1.ClientID%>') != null) {
+              // Get X and Y positions of scrollbar before the partial postback
+              xPos = $get('<%=Panel1.ClientID%>').scrollLeft;
+            yPos = $get('<%=Panel1.ClientID%>').scrollTop;
         }
     }
 
-    prm.add_beginRequest(BeginRequestHandler);
-    prm.add_endRequest(EndRequestHandler);
+    function EndRequestHandler(sender, args) {
+        if ($get('<%=Panel1.ClientID%>') != null) {
+             // Set X and Y positions back to the scrollbar
+             // after partial postback
+             $get('<%=Panel1.ClientID%>').scrollLeft = xPos;
+             $get('<%=Panel1.ClientID%>').scrollTop = yPos;
+         }
+     }
+
+     prm.add_beginRequest(BeginRequestHandler);
+     prm.add_endRequest(EndRequestHandler);
     </script>
 
-    <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="pnlEditQuestions" runat="server" Height="300">
+            <asp:Panel ID="Panel1" runat="server" Height="300">
                 <!-- End borrowed Code, except the closeing tags... -->
-    <main class="mdl-layout__content">
-        <div class="content-grid mdl-grid">
+                <main class="mdl-layout__content">
+                    <div class="content-grid mdl-grid">
 
-                <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
-                    <ItemTemplate>
-                    <div class="mdl-cell mdl-cell--4-col">
-                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text" style="text-align: center">
+                        <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
+                            <ItemTemplate>
+                                <div class="mdl-cell mdl-cell--4-col">
+                                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
+                                        <div class="mdl-card__supporting-text" style="text-align: center">
                                             <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
                                             <asp:HiddenField ID="hdnQuestionType" runat="server" Value='<%#Bind("type") %>' />
                                             <asp:Table ID="tblQuestion" runat="server">
@@ -265,10 +266,10 @@ END;">
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
                                                     <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
+                                                        <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
                                                     </asp:TableHeaderCell>
                                                     <asp:TableCell>
-                                            <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
+                                                        <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                                 <asp:TableRow>
@@ -382,28 +383,28 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             <asp:Table ID="tblTFQuestion" runat="server">
                                                 <asp:TableRow>
                                                     <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
+                                                        <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
                                                     </asp:TableHeaderCell><asp:TableCell>
                                                         <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("true_false_question") %>' />
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                                 <asp:TableRow>
                                                     <asp:TableHeaderCell>
-                                            <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
+                                                        <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
                                                     </asp:TableHeaderCell><asp:TableCell>
                                                         <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("true_false_answer") %>' />
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                             </asp:Table>
-                            </div>
-                        </div>
-                    </ItemTemplate>
+                                        </div>
+                                    </div>
+                            </ItemTemplate>
 
 
-                    <EditItemTemplate>
-                    <div class="mdl-cell mdl-cell--4-col">
-                        <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
-                            <div class="mdl-card__supporting-text" style="text-align: center">
+                            <EditItemTemplate>
+                                <div class="mdl-cell mdl-cell--4-col">
+                                    <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
+                                        <div class="mdl-card__supporting-text" style="text-align: center">
                                             <asp:HiddenField ID="hdnEditQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
                                             <asp:HiddenField ID="hdnEditQuestionType" runat="server" Value='<%#Bind("type") %>' />
                                             <asp:Table ID="tblQuestion" runat="server">
@@ -527,7 +528,8 @@ SELECT question_id, mcb.choice_id AS choice_id, choice_text, NVL(correct, 'N') A
                                LEFT OUTER JOIN question_multiple_choice_body smcb USING (question_id)
                          WHERE smc.choice_id = smcb.choice_id) a ON (a.choice_id = mcb.choice_id)
  WHERE question_id = :p_QuestionID
- ORDER BY set_order" DeleteCommand="
+ ORDER BY set_order"
+                                                DeleteCommand="
 BEGIN
   QUESTIONS_MULTIPLE_CHOICE_BODY.delete(p_ChoiceID =&gt; :choice_id);
 END;">
@@ -567,7 +569,7 @@ END;">
                                                             <asp:Label ID="lblEditMCAnswer" runat="server" Text='<%# Eval("disp_answer") %>' />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlEditMCEditAnswer" runat="server" SelectedValue='<%# Bind("answer") %>' >
+                                                            <asp:DropDownList ID="ddlEditMCEditAnswer" runat="server" SelectedValue='<%# Bind("answer") %>'>
                                                                 <asp:ListItem Text="Yes" Value="Y" />
                                                                 <asp:ListItem Text="No" Value="N" />
                                                             </asp:DropDownList>
@@ -649,13 +651,13 @@ END;">
                                                     </asp:TableCell>
                                                 </asp:TableRow>
                                             </asp:Table>
-                            </div>
-                        </div>
-                    </EditItemTemplate>
-                </asp:ListView>
-            <!-- old cell div -->
-        </div>
-    </main>
+                                        </div>
+                                    </div>
+                            </EditItemTemplate>
+                        </asp:ListView>
+                        <!-- old cell div -->
+                    </div>
+                </main>
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -676,9 +678,9 @@ END;">
                     $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
             });
 
-            if($.isNumeric($('#<%= txtAddWeight.ClientID %>').val()))
+            if ($.isNumeric($('#<%= txtAddWeight.ClientID %>').val()))
                 $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
-            else 
+            else
                 $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
 
         });
