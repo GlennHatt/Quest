@@ -398,6 +398,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             </asp:Table>
                                         </div>
                                     </div>
+                                    </div>
                             </ItemTemplate>
 
 
@@ -653,6 +654,7 @@ END;">
                                             </asp:Table>
                                         </div>
                                     </div>
+                                </div>
                             </EditItemTemplate>
                         </asp:ListView>
                         <!-- old cell div -->
