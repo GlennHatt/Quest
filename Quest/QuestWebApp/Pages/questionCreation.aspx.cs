@@ -527,6 +527,45 @@ END;", connectionString);
          grdSender.DataBind();
       }
 
+        protected void lstQuestionDisplay_ItemEditing(object sender, ListViewEditEventArgs e)
+        {
+            string questionType = ((HiddenField)lstQuestionDisplay.EditItem.FindControl("hdnEditQuestionType")).Value;
+
+            switch (questionType)
+            {
+                case "E":
+                    break;
+                case "M":
+                    break;
+                case "MC":
+                    break;
+                case "SA":
+                    break;
+                case "TF":
+                    break;
+            }
+        }
+
+        protected void lstQuestionDisplay_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+
+            string questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
+
+            switch (questionType)
+            {
+                case "E":
+                    break;
+                case "M":
+                    break;
+                case "MC":
+                    break;
+                case "SA":
+                    break;
+                case "TF":
+                    break;
+            }
+        }
+
         //protected void btnPointValue_Click(object sender, EventArgs e)
         //{
         //    cardQuestionType.Visible = true;
