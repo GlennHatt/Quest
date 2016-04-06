@@ -186,6 +186,7 @@
     <Content Include="Pages\adminSettings.aspx" />
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
+    <Content Include="Pages\forgetPassword.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentHelp.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
@@ -370,6 +371,13 @@
     </Compile>
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\forgetPassword.aspx.cs">
+      <DependentUpon>forgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\forgetPassword.aspx.designer.cs">
+      <DependentUpon>forgetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\pledgePage.aspx.cs">
       <DependentUpon>pledgePage.aspx</DependentUpon>
