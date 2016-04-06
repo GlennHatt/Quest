@@ -105,7 +105,7 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Email Address:</label>
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">User Name: </label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
                             <asp:RegularExpressionValidator ID="valUserEmail" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Invalid email" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserEmailReq" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter email"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
