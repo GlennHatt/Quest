@@ -13,34 +13,64 @@ namespace QuestWebApp.Pages
    public partial class questionCreation : System.Web.UI.Page
    {
       // Global Veriables
-      int QuestionID; // ID of the current question.
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
-      ArrayList choices;
-      string questionType;
+      int    QuestionID;   // ID of the current question.
+      string questionType; // The questions type, should be 'E', 'M', 'MC', 'SA', or 'TF'.
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); 
 
+      /***********************************************************************/
+      /*                              Page Load                              */
+      /***********************************************************************/
       protected void Page_Load(object sender, EventArgs e)
       {
-        if (!IsPostBack)
-        {
-            //cardQuestionType.Visible = false;
-        }
-
          if (!IsPostBack)
          {
             if (Session["Test_ID"] == null)
             {
-               Session["Test_ID"] = "1";
+               Session["Test_ID"] = "1"; // Replace with line below in production.
+               //Response.Redirect("TestCreation.aspx");
             }
 
-            Session["QuestionID"] = null;
+            Session["QuestionID"] = null; // Destroy stale session variables.
             hideInputs();
          } else
          {
             questionType = rblAddType.SelectedValue;
-            Page.MaintainScrollPositionOnPostBack = true;
          }
       }
 
+      /***********************************************************************/
+      /*                              Functionality                          */
+      /***********************************************************************/
+      protected void hideInputs()
+      {
+         tblAddEssay.Visible = false;
+         cardEssay.Visible = false;
+         tblAddMultipleChoice.Visible = false;
+         cardMultipleChoice.Visible = false;
+         tblAddShortAnswer.Visible = false;
+         cardShortAnswer.Visible = false;
+         tblAddTrueFalse.Visible = false;
+         cardTrueFalse.Visible = false;
+         tblMatchingSection.Visible = false;
+         cardMatching.Visible = false;
+         grdAddMatchingQuestion.Visible = false;
+         cardAddedMatching.Visible = false;
+         grdMultipleChoiceBody.Visible = false;
+         cardAddedMultiple.Visible = false;
+         btnAddQuestion.Visible = false;
+
+         // Matching Section
+         tblMatchingSection.Visible = false;
+         grdAddMatchingQuestion.Visible = false;
+      }
+
+      /***********************************************************************/
+      /*                              Events                                 */
+      /***********************************************************************/
+
+      /****************************/
+      /* Question Creation Events */
+      /****************************/
       protected void rblAddType_SelectedIndexChanged(object sender, EventArgs e)
       {
          questionType = rblAddType.SelectedValue.ToString();
@@ -112,6 +142,67 @@ namespace QuestWebApp.Pages
                break;
          }
          btnAddQuestion.Visible = true;
+      }
+
+      protected void btnAddMatchingQuestion_Click(object sender, EventArgs e)
+      {
+            cardAddedMatching.Visible = true;
+            OracleCommand cmdAddQuestion = new OracleCommand(@"
+BEGIN
+  QUESTIONS_MATCHING_BODY.add(
+    p_QuestionID   => :p_QuestionID,
+    p_QuestionText => :p_QuestionText,
+    P_Answer       => :p_Answer);
+END;",
+         connectionString);
+         cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+         cmdAddQuestion.Parameters.AddWithValue("p_QuestionText", txtAddMatchingQuestion.Text);
+         cmdAddQuestion.Parameters.AddWithValue("p_Answer", txtAddMatchingAnswer.Text);
+
+
+         cmdAddQuestion.Connection.Open();
+         cmdAddQuestion.ExecuteNonQuery();
+
+         if (chkMultipleChoiceAnswer.Checked)
+         {
+            Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
+         }
+
+         cmdAddQuestion.Connection.Close();
+
+         grdAddMatchingQuestion.DataBind();
+         txtAddMatchingAnswer.Text = string.Empty;
+         txtAddMatchingQuestion.Text = string.Empty;
+      }
+
+      protected void btnNewMultipleChoice_Click(object sender, EventArgs e)
+      {
+            cardAddedMultiple.Visible = true;
+            OracleCommand cmdAddQuestion = new OracleCommand(@"
+BEGIN
+  :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE_BODY.add(
+    p_QuestionID => :p_QuestionID,
+    p_ChoiceText => :p_ChoiceText);
+END;",
+         connectionString);
+         cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+         cmdAddQuestion.Parameters.AddWithValue("p_ChoiceText", txtMultipleChoiceBody.Text);
+         cmdAddQuestion.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+
+         cmdAddQuestion.Connection.Open();
+         cmdAddQuestion.ExecuteNonQuery();
+
+         if (chkMultipleChoiceAnswer.Checked)
+         {
+            Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
+         }
+
+         cmdAddQuestion.Connection.Close();
+
+         grdMultipleChoiceBody.DataBind();
+         txtMultipleChoiceBody.Text = string.Empty;
+         chkMultipleChoiceAnswer.Checked = false;
       }
 
       protected void btnAddQuestion_Click(object sender, EventArgs e)
@@ -197,90 +288,9 @@ namespace QuestWebApp.Pages
          Session["QuestionID"] = null;
       }
 
-      protected void btnAddMultipleChoice_Click(object sender, EventArgs e)
-      {
-            cardAddedMatching.Visible = true;
-            OracleCommand cmdAddQuestion = new OracleCommand(@"
-BEGIN
-  QUESTIONS_MATCHING_BODY.add(
-    p_QuestionID   => :p_QuestionID,
-    p_QuestionText => :p_QuestionText,
-    P_Answer       => :p_Answer);
-END;",
-         connectionString);
-         cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-         cmdAddQuestion.Parameters.AddWithValue("p_QuestionText", txtAddMatchingQuestion.Text);
-         cmdAddQuestion.Parameters.AddWithValue("p_Answer", txtAddMatchingAnswer.Text);
-
-
-         cmdAddQuestion.Connection.Open();
-         cmdAddQuestion.ExecuteNonQuery();
-
-         if (chkMultipleChoiceAnswer.Checked)
-         {
-            Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
-         }
-
-         cmdAddQuestion.Connection.Close();
-
-         grdAddMatchingQuestion.DataBind();
-         txtAddMatchingAnswer.Text = string.Empty;
-         txtAddMatchingQuestion.Text = string.Empty;
-      }
-
-      protected void btnNewMultipleChoice_Click(object sender, EventArgs e)
-      {
-            cardAddedMultiple.Visible = true;
-            OracleCommand cmdAddQuestion = new OracleCommand(@"
-BEGIN
-  :v_ChoiceID := QUESTIONS_MULTIPLE_CHOICE_BODY.add(
-    p_QuestionID => :p_QuestionID,
-    p_ChoiceText => :p_ChoiceText);
-END;",
-         connectionString);
-         cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-         cmdAddQuestion.Parameters.AddWithValue("p_ChoiceText", txtMultipleChoiceBody.Text);
-         cmdAddQuestion.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
-
-
-         cmdAddQuestion.Connection.Open();
-         cmdAddQuestion.ExecuteNonQuery();
-
-         if (chkMultipleChoiceAnswer.Checked)
-         {
-            Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
-         }
-
-         cmdAddQuestion.Connection.Close();
-
-         grdMultipleChoiceBody.DataBind();
-         txtMultipleChoiceBody.Text = string.Empty;
-         chkMultipleChoiceAnswer.Checked = false;
-      }
-
-      protected void hideInputs()
-      {
-         tblAddEssay.Visible = false;
-            cardEssay.Visible = false;
-         tblAddMultipleChoice.Visible = false;
-            cardMultipleChoice.Visible = false;
-         tblAddShortAnswer.Visible = false;
-            cardShortAnswer.Visible = false;
-         tblAddTrueFalse.Visible = false;
-            cardTrueFalse.Visible = false;
-         tblMatchingSection.Visible = false;
-            cardMatching.Visible = false;
-         grdAddMatchingQuestion.Visible = false;
-            cardAddedMatching.Visible = false;
-         grdMultipleChoiceBody.Visible = false;
-            cardAddedMultiple.Visible = false;
-         btnAddQuestion.Visible = false;
-
-         // Matching Section
-         tblMatchingSection.Visible = false;
-         grdAddMatchingQuestion.Visible = false;
-      }
-
+      /**************************/
+      /* Question Update Events */
+      /**************************/
       protected void lstQuestionDisplay_ItemUpdating(object sender, ListViewUpdateEventArgs e)
       {
          ListView lstView = (ListView)sender;
