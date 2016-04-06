@@ -15,6 +15,7 @@ namespace QuestWebApp.Pages
         bool showAddUserMessage,
              showAddClassMessage,
              showAddSectionMessage;
+        //Label userName;
 
         // Work in progress ------------------------------------
         public enum PasswordScore
@@ -65,7 +66,9 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //Need to change "Welcome User"
+            //userName = (Label)Master.FindControl("txtGreeting");
+            //userName.Text = Session["UserID"].ToString();
 
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
