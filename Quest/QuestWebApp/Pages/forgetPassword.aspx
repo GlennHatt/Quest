@@ -16,21 +16,19 @@
     <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:60%; margin-left:20%;">
 
        <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h3>
-                            <asp:Label ID="lblClass" runat="server" Text="Email"></asp:Label></h3>
-                        <h3>
-                            <asp:Label ID="lblTeacher" runat="server" Text="Contact The Administrator"></asp:Label></h3>
+                        
+                            <asp:Label ID="lblTeacher" runat="server" Text="Please email the administrator requesting a new password."></asp:Label>
 
            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
    <div id="mailButton" class="overbox" runat="server">
       <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
 
-      <div class="title">Email</div><br />
+      <div class="title">Password request</div><br />
 
      <div class="input">
          <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
-         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Subject:</label>
+         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Your login ID:</label>
      </div>
 
        <div class="input">

@@ -13,15 +13,6 @@ namespace QuestWebApp.Pages {
     public partial class forgetPassword {
         
         /// <summary>
-        /// lblClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClass;
-        
-        /// <summary>
         /// lblTeacher control.
         /// </summary>
         /// <remarks>
