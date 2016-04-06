@@ -1,14 +1,14 @@
-﻿<%@ Page Title="Student | Scores " Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="studentScores.aspx.cs" Inherits="QuestWebApp.Pages.StudentScores" %>
+﻿<%@ Page Title="Student | Scores" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentScores.aspx.cs" Inherits="QuestWebApp.Pages.studentScores" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="studentbreadCrumb" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="studenthead" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="studentextraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="studentwithSidebarBodyContent" runat="server">
     <main class="mdl-layout__content">
         <div class="content-grid mdl-grid">
             <div class="mdl-cell mdl-cell--6-col">
@@ -48,5 +48,5 @@
         </div>
     </main>
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="studentpageSpecificJS" runat="server">
 </asp:Content>

@@ -47,14 +47,29 @@
                         <h1>You Have
                             <asp:Label ID="lblTestsToGrade" runat="server" Text="0"></asp:Label>
                             Tests to Grade </h1>
-                        <asp:LinkButton ID="viewTest" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" Text="View Test" Style="background-color: #EE7600; color: white; margin-right: -395px;
-    margin-bottom: -7px;">
                            
-                        </asp:LinkButton>
                     </div>
                 </div>
             </div>
+
+            <div class="mdl-cell mdl-cell--4-col">
+             <div class="mdl-card mdl-shadow--3dp  demo-card-square">
+                    <div class="mdl-card__supporting-text " style="text-align: center">
+                        <i class="material-icons testAlert" style="font-size:300%">assignment_late</i>
+                        <div style="font-size: 180%; margin-bottom: 7%; margin-top: 5%;">Test Ready To Be Graded:</div>
+                        <asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
+                        <asp:Label ID="lblTestDate" runat="server" Text="(Date Placeholder)"></asp:Label><br />
+                        <asp:Label ID="lblTestTime" runat="server" Text="(Time Placeholder)"></asp:Label><br />
+                    </div>
+                    <div style="text-align: right">
+                        <br />
+                        <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                            Grade Test
+                        </asp:LinkButton>
+</div>
+                 </div>
         </div>
+            </div>
     </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">

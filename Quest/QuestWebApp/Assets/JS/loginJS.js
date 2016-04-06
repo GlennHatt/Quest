@@ -38,8 +38,8 @@
 
         $(this).append('<span class="click-efect x-' + oX + ' y-' + oY + '" style="margin-left:' + (pX - oX) + 'px;margin-top:' + (pY - oY) + 'px;"></span>')
         $('.x-' + oX + '.y-' + oY + '').animate({
-            "width": "500px",
-            "height": "500px",
+            "width": "1000px",
+            "height": "1000px",
             "top": "-250px",
             "left": "-250px",
 

@@ -20,9 +20,8 @@
     <h1 class="mdl-card__title-text" style="margin-left: 20%;">If you did not cheat please type your name.</h1>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin-left: 30%;">
-                            <asp:TextBox ID="txtbxUsersName" class="mdl-textfield__input" type="text" runat="server"/>
-                            <label class="mdl-textfield__label" for="sample3">First and Last Name:</label>
-                          
+                            <asp:TextBox ID="txtbxUsersName" class="mdl-textfield__input" type="text" runat="server" style="font-size:27px"/>
+                            <label class="mdl-textfield__label" for="sample3" style="bottom: 0;">First and Last Name:</label>                
     <asp:linkbutton runat="server"  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 50%; margin-bottom:-60px" ForeColor="#FF3300">
       I Cheated
     </asp:linkbutton>
