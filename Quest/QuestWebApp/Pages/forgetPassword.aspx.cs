@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,36 +40,30 @@ namespace QuestWebApp.Pages
 
         protected void sendEmail()
         {
-            //SmtpClient smtpClient = new SmtpClient("students.pcci.edu", 25);
-            //int number;
+            SmtpClient smtpClient = new SmtpClient("students.pcci.edu", 25);
 
-            //if(!int.TryParse(txtbxStudentID.Text, out number)
-            //{
-            //    //throw new ar
-            //}
+            smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\" + txtbxStudentID.Text, "password");
+            smtpClient.UseDefaultCredentials = true;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
 
-            //smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\" + studentEmailUsername, studentEmailPassword);
-            //smtpClient.UseDefaultCredentials = true;
-            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            //smtpClient.EnableSsl = true;
+            MailMessage mail = new MailMessage();
 
-            //MailMessage mail = new MailMessage();
-
-            ////Setting From , To and CC
-            //mail.From = new MailAddress(studentEmailAddress, studentName);
+            //Setting From , To and CC
+            mail.From = new MailAddress(txtbxStudentEmail.Text, txtbxStudentID.Text);
             //mail.To.Add(new MailAddress("ryan8440@gmail.com"));
-            //mail.Subject = txtbxMessageSubject.Text;
-            //mail.Body = txtbxMessageBody.Value;
+            mail.Subject = txtbxStudentLogin.Text + "password reset";
+            mail.Body = txtbxMessageBody.Value;
 
 
-            //// Accepts all certificates
-            //ServicePointManager.ServerCertificateValidationCallback =
-            //delegate (object s, X509Certificate certificate,
-            // X509Chain chain, SslPolicyErrors sslPolicyErrors)
-            //{ return true; };
+            // Accepts all certificates
+            ServicePointManager.ServerCertificateValidationCallback =
+            delegate (object s, X509Certificate certificate,
+             X509Chain chain, SslPolicyErrors sslPolicyErrors)
+            { return true; };
 
 
-            //smtpClient.Send(mail);
+            smtpClient.Send(mail);
         }
     }
 }
