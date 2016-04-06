@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuestWebApp.App_Code;
+using System.Web.UI.HtmlControls;
 
 namespace QuestWebApp.Pages
 {
@@ -22,8 +23,6 @@ namespace QuestWebApp.Pages
             if (Session["TestID"] == null)
                Session["TestID"] = 1;
          }
-
-
       }
 
       /*protected void OnLayoutCreated(object sender, EventArgs e)
@@ -40,7 +39,8 @@ namespace QuestWebApp.Pages
          string TFAnswer;
          string SAAnswer;
 
-         foreach (ListViewItem question in lvTFQuestions.Items)
+
+         foreach (ListViewItem question in lstQuestions.Items)
          {
             if (((RadioButton)question.FindControl("rdbTrue")).Checked == true)
             {
@@ -144,6 +144,27 @@ where  question.test_id = 1", connectionString);
          }
 
          cmdAddTFQuestion.Connection.Close();
+      }
+
+      protected void lstQuestions_ItemDataBound(object sender, ListViewItemEventArgs e)
+      {
+         switch (((HiddenField)e.Item.FindControl("hdnQuestionType")).Value)
+         {
+            case "E":
+               e.Item.FindControl("divTF").Visible = false;
+               break;
+            case "M":
+               e.Item.FindControl("divTF").Visible = false;
+               break;
+            case "MC":
+               e.Item.FindControl("divTF").Visible = false;
+               break;
+            case "SA":
+               e.Item.FindControl("divTF").Visible = false;
+               break;
+            case "TF":
+               break;
+         }
       }
    }
 }
