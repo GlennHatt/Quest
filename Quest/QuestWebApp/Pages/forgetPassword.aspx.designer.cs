@@ -31,13 +31,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mailButton;
         
         /// <summary>
-        /// txtbxMessageSubject control.
+        /// txtbxStudentLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbxMessageSubject;
+        protected global::System.Web.UI.WebControls.TextBox txtbxStudentLogin;
+        
+        /// <summary>
+        /// txtbxStudentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbxStudentID;
         
         /// <summary>
         /// txtbxMessageBody control.
