@@ -102,14 +102,16 @@ namespace QuestWebApp.Pages
    QUESTIONS.change(
      p_QuestionID  => :p_QuestionID,
      p_Weight      => :p_Weight,
-     p_Type        => :p_Type);
+     p_Type        => :p_Type,
+     p_TestOrder   => :p_TestOrder);
  END;",
             connectionString);
             cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
             cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
             cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
+            cmdAddQuestion.Parameters.AddWithValue("p_TestOrder", "1");
 
-            cmdAddQuestion.Connection.Open();
+                cmdAddQuestion.Connection.Open();
             cmdAddQuestion.ExecuteNonQuery();
             cmdAddQuestion.Connection.Close();
          }
@@ -526,6 +528,45 @@ END;", connectionString);
          }
          grdSender.DataBind();
       }
+
+        protected void lstQuestionDisplay_ItemEditing(object sender, ListViewEditEventArgs e)
+        {
+            string questionType = ((HiddenField)lstQuestionDisplay.EditItem.FindControl("hdnEditQuestionType")).Value;
+
+            switch (questionType)
+            {
+                case "E":
+                    break;
+                case "M":
+                    break;
+                case "MC":
+                    break;
+                case "SA":
+                    break;
+                case "TF":
+                    break;
+            }
+        }
+
+        protected void lstQuestionDisplay_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+
+            string questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
+
+            switch (questionType)
+            {
+                case "E":
+                    break;
+                case "M":
+                    break;
+                case "MC":
+                    break;
+                case "SA":
+                    break;
+                case "TF":
+                    break;
+            }
+        }
 
         //protected void btnPointValue_Click(object sender, EventArgs e)
         //{

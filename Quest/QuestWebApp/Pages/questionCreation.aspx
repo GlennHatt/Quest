@@ -249,7 +249,7 @@ END;">
                 <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">
 
-                        <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating">
+                        <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating" OnItemDataBound="lstQuestionDisplay_ItemDataBound" OnItemEditing="lstQuestionDisplay_ItemEditing">
                             <ItemTemplate>
                                 <div class="mdl-cell mdl-cell--4-col">
                                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
@@ -397,6 +397,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                 </asp:TableRow>
                                             </asp:Table>
                                         </div>
+                                    </div>
                                     </div>
                             </ItemTemplate>
 
@@ -653,6 +654,7 @@ END;">
                                             </asp:Table>
                                         </div>
                                     </div>
+                                </div>
                             </EditItemTemplate>
                         </asp:ListView>
                         <!-- old cell div -->
