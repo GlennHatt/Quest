@@ -259,9 +259,9 @@ END;">
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" />
+                                                        <asp:LinkButton ID="LinkButton1" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Edit" CommandName="Edit" />
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandName="Delete" />
+                                                        <asp:LinkButton ID="LinkButton2" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete" />
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
@@ -411,9 +411,9 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="btnUpdateQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="btnUpdateQuestion" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
