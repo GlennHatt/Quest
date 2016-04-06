@@ -40,5 +40,9 @@ namespace QuestWebApp.Pages
             cdEnable.Visible = true;
         }
 
+        protected void clickUpdatePassword(object sender, EventArgs e)
+        {
+
+        }
     }
 }
