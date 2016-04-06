@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
 
-    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
+    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:60%; margin-left:20%;">
 
        <div class="mdl-card__supporting-text" style="text-align: center">
                         <h3>
