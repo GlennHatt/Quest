@@ -531,42 +531,59 @@ END;", connectionString);
 
         protected void lstQuestionDisplay_ItemEditing(object sender, ListViewEditEventArgs e)
         {
-            string questionType = ((HiddenField)lstQuestionDisplay.EditItem.FindControl("hdnEditQuestionType")).Value;
+            //string questionType = ((HiddenField)lstQuestionDisplay.Items[e.NewEditIndex].FindControl("hdnEditQuestionType")).Value;
 
-            switch (questionType)
-            {
-                case "E":
-                    break;
-                case "M":
-                    break;
-                case "MC":
-                    break;
-                case "SA":
-                    break;
-                case "TF":
-                    break;
-            }
+            //switch (questionType)
+            //{
+            //    case "E":
+            //        ((Label)lstQuestionDisplay.EditItem.FindControl("lblDispSAAnswer")).Visible = false;
+            //        ((Label)lstQuestionDisplay.EditItem.FindControl("lblSAAnswer")).Visible = false;
+            //        break;
+            //    case "M":
+            //        break;
+            //    case "MC":
+            //        break;
+            //    case "SA":
+            //        break;
+            //    case "TF":
+            //        break;
+            //}
         }
 
         protected void lstQuestionDisplay_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            // the 3 questions
+            //essay 
+            // matching 
+            // multiple choice 
+            
 
             string questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
 
             switch (questionType)
             {
                 case "E":
+                    //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
+                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "M":
+                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "MC":
+                    //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
+                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "SA":
+                    //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
                     break;
                 case "TF":
+                    //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
+                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
             }
         }
+
+        
 
         //protected void btnPointValue_Click(object sender, EventArgs e)
         //{
