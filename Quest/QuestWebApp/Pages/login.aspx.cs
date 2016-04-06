@@ -59,7 +59,7 @@ SELECT permission_level
             {
                 while (reader.Read())
                 {
-                    cmdGetPermission = reader.GetValue(0).ToString();
+                    //cmdGetPermission = reader.GetValue(0).ToString();
                 }
             }
             finally

@@ -472,22 +472,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// updPnlEditQuestions control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updPnlEditQuestions;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// pnlEditQuestions control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlEditQuestions;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
         /// lstQuestionDisplay control.
