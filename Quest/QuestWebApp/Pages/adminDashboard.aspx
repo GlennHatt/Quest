@@ -18,7 +18,7 @@ DECLARE
   v_dummy pls_integer;
 BEGIN
  v_dummy := END_USERS.add(
-    p_Email           =&gt; :p_Email,
+    p_Username        =&gt; :p_Username,
     p_Password        =&gt; :p_Password,
     p_FName           =&gt; :p_FName,
     p_LName           =&gt; :p_LName,
@@ -27,7 +27,7 @@ END;"
         ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER">
         <InsertParameters>
             <asp:Parameter />
-            <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Email" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Username" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherConfirmPassword" Name="p_Password" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherLastName" Name="p_LName" PropertyName="Text" />
@@ -105,10 +105,9 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Email Address:</label>
-                            <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server" TextMode="Email" />
-                            <asp:RegularExpressionValidator ID="valUserEmail" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Invalid email" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserEmailReq" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter email"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
+                            <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Username:</label>
+                            <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server"/>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             
                         </div>
 
@@ -153,7 +152,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                     </div>
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click">
+                        <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click" ForeColor="White">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
                     </div>
