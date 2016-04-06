@@ -10,9 +10,20 @@
 <main class="mdl-layout__content">
     <br /><br />
     <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT question_true_false.question_text tf_question, question.question_id quest_id
-  FROM QUESTION, QUESTION_TRUE_FALSE
- WHERE question.TEST_ID = 1 and question.question_id = question_true_false.question_id" InsertCommand="BEGIN
+SELECT question_id, weight, type,
+       e.question_text AS essay_question,
+       m.question_text AS matching_question,
+       mc.question_text AS multiple_choice_question, mc.choice_id AS multiple_choice_answer,
+       tf.question_text AS true_false_question,      tf.answer    AS true_false_answer,
+       before_text, after_text, sa.answer AS short_answer_answer
+  FROM question q
+       LEFT OUTER JOIN question_essay           e  USING (question_id)
+       LEFT OUTER JOIN question_matching        m  USING (question_id)
+       LEFT OUTER JOIN question_multiple_choice mc USING (question_id)
+       LEFT OUTER JOIN question_short_answer    sa USING (question_id)
+       LEFT OUTER JOIN question_true_false      tf USING (question_id)
+ WHERE test_id = :p_TestID
+ ORDER BY test_order" InsertCommand="BEGIN
    questions_true_false.grade_question(
     p_TestTakenID   =&gt; :p_TestTakenID,
     p_QuestionID    =&gt; :p_QuestionID,
