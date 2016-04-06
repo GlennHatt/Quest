@@ -50,7 +50,7 @@ END;",
             OracleCommand cmdGetPermission = new OracleCommand(@"
 SELECT permission_level
   FROM end_user
- WHERE user_id = :p_UserID", connectionString);
+ WHERE user_id = :p_UserID", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdGetPermission.Parameters.AddWithValue("p_UserID", Session["UserID"]);
 
             cmdGetPermission.Connection.Open();
