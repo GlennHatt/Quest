@@ -20,9 +20,13 @@
             <!-- Textfield with Floating DropDown for user type -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT title, class_id
-  FROM class"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select *
+  from section
+ where teacher_id = :session_id">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="session_id" SessionField="UserID" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="title" DataValueField="class_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
                 </asp:DropDownList>
             </div>
