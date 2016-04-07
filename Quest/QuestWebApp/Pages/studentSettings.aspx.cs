@@ -14,19 +14,22 @@ namespace QuestWebApp.Pages
     {
         OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
         string studentEmailEnabled = "false";
+        string currentUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //currentUser = Session["p_StudentID"].ToString();
+            currentUser = "17"; // comment this out when we use login functionality
             cdDisable.Visible = false;
             cdEnable.Visible = false;
             OracleCommand cmdEmailActive = new OracleCommand(@"
 SELECT receive_email
   FROM end_user
  WHERE user_id = :p_UserID", connectionString);
-            cmdEmailActive.Parameters.AddWithValue("p_UserID", "17"/*Session["p_StudentID"]*/);
+            cmdEmailActive.Parameters.AddWithValue("p_UserID", currentUser);
 
             cmdEmailActive.Connection.Open();
-            OracleDataReader reader = cmdEmailActive.ExecuteReader(); // replace reader with execute non-query
+            OracleDataReader reader = cmdEmailActive.ExecuteReader();
             try
             {
                 while (reader.Read())
@@ -52,19 +55,66 @@ SELECT receive_email
         protected void btnEnable_Click(object sender, EventArgs e)
         {
 
-            cdEnable.Visible = false;
-            cdDisable.Visible = true;
+            enableEmail();
         }
 
         protected void btnDisable_Click(object sender, EventArgs e)
         {
-            cdDisable.Visible = false;
-            cdEnable.Visible = true;
+            disableEmail();
         }
 
         protected void clickUpdatePassword(object sender, EventArgs e)
         {
 
         }
+
+        protected void disableEmail()
+        {
+            OracleCommand cmdEmailDisable = new OracleCommand(@"
+BEGIN
+    END_USERS.deactivateEmail(
+    p_EndUserID => :p_EndUserID);
+END;", connectionString);
+            cmdEmailDisable.Parameters.AddWithValue("p_EndUserID", currentUser);
+            cmdEmailDisable.Connection.Open();
+            cmdEmailDisable.ExecuteNonQuery(); 
+            cmdEmailDisable.Connection.Close();
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void enableEmail()
+        {
+            OracleCommand cmdEmailEnable = new OracleCommand(@"
+BEGIN
+    END_USERS.activateEmail(
+    p_EndUserID => :p_EndUserID);
+END;", connectionString);
+            cmdEmailEnable.Parameters.AddWithValue("p_EndUserID", currentUser);
+            cmdEmailEnable.Connection.Open();
+            cmdEmailEnable.ExecuteNonQuery();
+            cmdEmailEnable.Connection.Close();
+            Response.Redirect(Request.RawUrl);
+        }
+
+
+        protected void insertEmail()
+        {
+//            // This has to be finished later
+//            OracleCommand cmdEmailInsert = new OracleCommand(@"
+//BEGIN
+//    END_USERS.addEmail(
+//    p_EndUserID     => :p_EndUserID,
+//    p_Email         => :p_Email,
+//    p_EmailPassword => :p_EmailPassword);
+//END;", connectionString);
+//            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
+//            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
+//            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
+//            cmdEmailInsert.Connection.Open();
+//            cmdEmailInsert.ExecuteNonQuery();
+//            cmdEmailInsert.Connection.Close();
+//            Response.Redirect(Request.RawUrl);
+        }
+
     }
 }
