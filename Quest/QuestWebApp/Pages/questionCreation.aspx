@@ -566,7 +566,7 @@ END;">
                                                     </div>
                                                         <br />
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditSAAnswerText" class="mdl-textfield__label" runat="server" style="bottom:0px" />Answer:
+                                                        <asp:Label ID="lblEditSAAnswerText" class="mdl-textfield__label" runat="server" style="bottom:0px"> Answer: </asp:Label>
                                                         <asp:TextBox ID="txtEditSAAnswerText" class="mdl-textfield__input" runat="server" Text='<%#Bind("short_answer_answer") %>' />
                                                     </div>
                                                         <br />   
@@ -579,16 +579,17 @@ END;">
                                             <!-- Edit True False -->
                                             <div ID="tblEditTFQuestion" runat="server">
                                                 <div style="text-align:center">
-                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditTFQuestion" class="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
-                                                        <asp:TextBox ID="txtEditTFQuestion" class="mdl-textfield__input" runat="server" Text='<%#Bind("true_false_question") %>' />
-                                                        </div>
+                                                    
+                                                        <asp:Label ID="lblEditTFQuestion" runat="server"> Question: </asp:Label>
+                                                        <asp:TextBox ID="txtEditTFQuestion" runat="server" Text='<%#Bind("true_false_question") %>' />
+                                                        
                                                         <asp:Label ID="lblEditTFAnswer" runat="server" Text="Answer: " />
                                                         <asp:DropDownList ID="ddlEditTFAnswer" runat="server" SelectedValue='<%#Bind("true_false_answer") %>'>
                                                             <asp:ListItem Text="--" Value="" />
                                                             <asp:ListItem Text="True" Value="T" />
                                                             <asp:ListItem Text="False" Value="F" />
                                                         </asp:DropDownList>
+                                                    </div>
                                             </div>
                                             </div>
                                         </div>
