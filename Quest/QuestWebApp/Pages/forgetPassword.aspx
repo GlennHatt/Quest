@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
 
-    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width: 60%; margin-left: 20%;">
+    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width: 60%; margin-left: 20%; height: 550px;">
 
         <div class="mdl-card__supporting-text" style="text-align: center">
             <h3>
@@ -50,7 +50,12 @@
             </div>
 
             <div class="input">
-                <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color: white;"></textarea>
+                <asp:TextBox ID="txtbxStudentEmail" class="mdl-textfield__input" type="text" runat="server" />
+                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student E-Mail:</label>
+            </div>
+
+            <div class="input">
+                <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color: white;" >I have forgotten my password, could you please assign me a new one?</textarea>
             </div>
 
 

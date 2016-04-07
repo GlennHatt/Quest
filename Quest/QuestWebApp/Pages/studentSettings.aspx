@@ -18,7 +18,7 @@
 SELECT receive_email
   FROM end_user
  WHERE user_id = :p_EndUserID;-->
-            <div style="font-size: 200%">Change User Password</div>
+            <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="lblOldPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
                 <asp:TextBox ID="txtbxOldPassword" class="mdl-textfield__input" type="password" runat="server" />
@@ -55,7 +55,16 @@ SELECT receive_email
                 <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                 <asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error"></asp:CompareValidator>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password" SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
+
+               
+
             </div>
+            <br />
+            <br />
+
+             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" OnClick="clickUpdatePassword">
+                            Update
+                </asp:LinkButton>
         </div>
     </div>
     <br />
@@ -84,7 +93,7 @@ SELECT receive_email
 
             </div>
             <br />
-            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" OnClick="btnEnable_Click">
+            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server">
                             Enable
             </asp:LinkButton>
         </div>

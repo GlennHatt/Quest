@@ -213,7 +213,7 @@ END;">
     </asp:SqlDataSource>
 
 
-    <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
+  <%--  <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
     <!-- This fixes the partial post pack not maintaining scroll possition error -->
     <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
     <script type="text/javascript">
@@ -245,7 +245,7 @@ END;">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server" Height="300">
-                <!-- End borrowed Code, except the closeing tags... -->
+                <!-- End borrowed Code, except the closeing tags... -->--%>
                 <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">
 
@@ -259,9 +259,9 @@ END;">
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton1" runat="server" Text="Edit" CommandName="Edit" />
+                                                        <asp:LinkButton ID="LinkButton1" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Edit" CommandName="Edit" />
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="LinkButton2" runat="server" Text="Delete" CommandName="Delete" />
+                                                        <asp:LinkButton ID="LinkButton2" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete" />
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
@@ -411,9 +411,9 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             <asp:Table ID="tblQuestion" runat="server">
                                                 <asp:TableHeaderRow>
                                                     <asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="btnUpdateQuestion" runat="server" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="btnUpdateQuestion" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" Text="Update" CommandName="Update" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell><asp:TableHeaderCell>
-                                                        <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
+                                                        <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
                                                     </asp:TableHeaderCell>
                                                 </asp:TableHeaderRow>
                                                 <asp:TableRow>
@@ -660,9 +660,9 @@ END;">
                         <!-- old cell div -->
                     </div>
                 </main>
-            </asp:Panel>
+           <%-- </asp:Panel>
         </ContentTemplate>
-    </asp:UpdatePanel>
+    </asp:UpdatePanel>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 
