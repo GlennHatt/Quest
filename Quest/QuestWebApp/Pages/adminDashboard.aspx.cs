@@ -65,9 +65,9 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* SECURITY DISABLED FOR TESTING
+            
             Session["neededClassification"] = 'A';
-
+            /* SECURITY DISABLED FOR TESTING
             try
             {
                 if (Session["userClassification"] == null)
