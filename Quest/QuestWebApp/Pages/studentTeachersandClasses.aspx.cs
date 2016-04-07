@@ -27,20 +27,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (Session["userClassification"] == null)
-                    throw new NullReferenceException();
-                if ((char)Session["userClassification"] != 'S')
-                {
-                    utilities util = new utilities();
-                    util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                Response.Redirect("login.aspx");
-            }
+            
 
             mailButton.Visible = false;
             var teachersEmailEnabled = new MultiDimList<int, string>();
@@ -92,7 +79,7 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
        JOIN class    c  USING (class_id)
        JOIN end_user eu ON    (teacher_id = user_id)
  WHERE student_id = :p_StudentID", connectionString);
-            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "17"/*Session["p_StudentID"]*/);
+            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "17" /*Session["UserID"]*/);
 
             cmdEmailActive.Connection.Open();
             reader = cmdEmailActive.ExecuteReader();

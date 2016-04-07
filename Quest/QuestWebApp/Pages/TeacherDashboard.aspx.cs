@@ -12,8 +12,7 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if ((char)Session["neededClassification"] != 'A')
-                Session["neededClassification"] = 'T';
+            Session["neededClassification"] = 'T';
 
             try
             {

@@ -164,12 +164,6 @@ END;",
 
          cmdAddQuestion.Connection.Open();
          cmdAddQuestion.ExecuteNonQuery();
-
-         if (chkMultipleChoiceAnswer.Checked)
-         {
-            Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
-         }
-
          cmdAddQuestion.Connection.Close();
 
          grdAddMatchingQuestion.DataBind();
