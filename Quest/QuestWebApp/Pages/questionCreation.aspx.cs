@@ -556,29 +556,31 @@ END;", connectionString);
             //essay 
             // matching 
             // multiple choice 
-            
+            string questionType = "NA";
 
-            string questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
+
+            if (lstQuestionDisplay.EditIndex != e.Item.DataItemIndex)
+            questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
 
             switch (questionType)
             {
                 case "E":
                     //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
+                    (e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "M":
-                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
+                    (e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "MC":
                     //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
+                    (e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
                 case "SA":
                     //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
                     break;
                 case "TF":
                     //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-                    ((Table)e.Item.FindControl("tblSAQuestion")).Visible = false;
+                    (e.Item.FindControl("tblSAQuestion")).Visible = false;
                     break;
             }
         }
