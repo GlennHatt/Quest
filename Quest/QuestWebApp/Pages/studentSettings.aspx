@@ -93,7 +93,7 @@ SELECT receive_email
 
             </div>
             <br />
-            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server">
+            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" OnClick="btnEnable_Click">
                             Enable
             </asp:LinkButton>
         </div>
