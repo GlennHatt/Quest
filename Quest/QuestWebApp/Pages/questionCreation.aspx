@@ -215,7 +215,7 @@ END;">
 
     <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
     <!-- This fixes the partial post pack not maintaining scroll possition error -->
-    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+    <a<%--sp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
     <script type="text/javascript">
         // It is important to place this JavaScript code after ScriptManager1
         var xPos, yPos;
@@ -244,7 +244,7 @@ END;">
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="Panel1" runat="server" Height="300">
+            <asp:Panel ID="Panel1" runat="server" Height="300">--%>
                 <!-- End borrowed Code, except the closeing tags... -->
                 <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">
@@ -660,9 +660,9 @@ END;">
                         <!-- old cell div -->
                     </div>
                 </main>
-            </asp:Panel>
+          <%--  </asp:Panel>
         </ContentTemplate>
-    </asp:UpdatePanel>
+    </asp:UpdatePanel>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 
