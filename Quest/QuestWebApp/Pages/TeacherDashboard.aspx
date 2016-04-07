@@ -31,7 +31,7 @@
                         <h1>Create a Test </h1>
                     </div>
                     <div style="text-align: right">
-                        <asp:LinkButton ID="btnCreateTest"  runat="server" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                        <asp:LinkButton ID="btnCreateTest" PostBackUrl="~/Pages/testCreation.aspx" runat="server" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
                             <i class="material-icons">create</i>
                         </asp:LinkButton>
                     </div>

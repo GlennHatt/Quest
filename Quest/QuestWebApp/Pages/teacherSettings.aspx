@@ -56,7 +56,7 @@
             <br />
             <br />
 
-             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" OnClick="clickUpdatePassword">
+             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" OnClick="clickUpdatePassword" ForeColor="White">
                             Update
                 </asp:LinkButton>
         </div>
@@ -87,7 +87,7 @@
 
             </div>
             <br />
-            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" OnClick="btnEnable_Click">
+            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" OnClick="btnEnable_Click" ForeColor="White">
                             Enable
             </asp:LinkButton>
         </div>
@@ -106,7 +106,7 @@
             
             </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="bottom: 30px; left: 41%;">
-                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDisable" runat="server" OnClick="btnDisable_Click">
+                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDisable" runat="server" OnClick="btnDisable_Click" ForeColor="White">
                             Disable
                 </asp:LinkButton>
         </div>

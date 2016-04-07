@@ -25,7 +25,13 @@
     <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
-       JOIN class c USING (class_id)" />
+       JOIN class c USING (class_id)"></asp:SqlDataSource>
+ <!-- Commented out for test (it selects only sections that pertain to that teacher)
+     WHERE teacher_id = :session_id">
+        <SelectParameters>
+            <asp:SessionParameter Name="enter_id" SessionField="UserID" />
+        </SelectParameters>
+    </asp:SqlDataSource> -->
     <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width:70%; right:-16%; height:1200px;">
         <div style="text-align:center">
             <h1>Create A Test</h1>
@@ -106,7 +112,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
             </div>
             </div>
-    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" /></div>
+    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" /></div>
     </div> 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
