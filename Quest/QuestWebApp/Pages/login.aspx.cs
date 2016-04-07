@@ -7,11 +7,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.OracleClient;
+using System.Configuration;
+using System.Data.OleDb;
 
 namespace QuestWebApp.Pages
 {
     public partial class loginTest : System.Web.UI.Page
     {
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        string userPermissionLevel;
+
         utilities util = new utilities();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,39 +25,73 @@ namespace QuestWebApp.Pages
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            // All passwords are placholders that should be replaces with the passwords stored in the database
-            switch (username.Text)
+            // Database connection with login function
+            // Returning a user_id and get a user_type ATS
+
+            try
             {
-                case "admin": // Placeholder for admin username
-                    if (password.Text == "password")
+                OracleCommand cmdLogin = new OracleCommand(@"
+BEGIN
+   :v_UserID := end_users.logon(
+    p_Username => :p_Username,
+    p_Password => :p_Password);
+END;",
+                             new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdLogin.Parameters.AddWithValue("p_Username", username.Text);
+                cmdLogin.Parameters.AddWithValue("p_Password", password.Text);
+                cmdLogin.Parameters.AddWithValue("v_UserID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
+
+
+                cmdLogin.Connection.Open();
+                cmdLogin.ExecuteNonQuery();
+
+                Session["UserID"] = Convert.ToString(cmdLogin.Parameters["v_UserID"].Value);
+
+                cmdLogin.Connection.Close();
+
+                OracleCommand cmdGetPermission = new OracleCommand(@"
+SELECT permission_level
+  FROM end_user
+ WHERE user_id = :p_UserID", connectionString);
+                cmdGetPermission.Parameters.AddWithValue("p_UserID", Session["UserID"]);
+
+                cmdGetPermission.Connection.Open();
+                OracleDataReader reader = cmdGetPermission.ExecuteReader();
+                try
+                {
+                    while (reader.Read())
                     {
-                        Session["userClassification"] = 'A';
-                        Response.Redirect("adminDashboard.aspx");
+                        userPermissionLevel = reader.GetValue(0).ToString();
                     }
-                    else
-                        answer.Text = "Incorrect username and/or password";
+                }
+                finally
+                {
+                    reader.Close();
+                }
+                cmdGetPermission.Connection.Close();
+            }
+            catch
+            {
+                answer.Text = "Incorrect username and/or password";
+            }
+            //All passwords are placholders that should be replaces with the passwords stored in the database
+            switch (userPermissionLevel)
+            {
+                case "A":
+                        Session["userClassification"] = 'A';
+                        Response.Redirect("AdminDashboard.aspx");
                     break;
-                case "teacher": // Placeholder for teacher username
-                    if (password.Text == "password")
-                    {
+                case "T":
                         Session["userClassification"] = 'T';
                         Response.Redirect("TeacherDashboard.aspx");
-                    }
-                    else
-                        answer.Text = "Incorrect username and/or password";
                     break;
-                case "student": // Placeholder for student username
-                    if (password.Text == "password")
-                    {
+                case "S": // Placeholder for student username
                         Session["userClassification"] = 'S';
                         Response.Redirect("StudentDashboard.aspx");
-                    }
-                    else
-                        answer.Text = "Incorrect username and/or password";
                     break;
-                default:
-                    answer.Text = "Incorrect username and/or password";
-                    break;
+                //default:
+                //        answer.Text = "Incorrect username and/or password";
+                //    break;
             }
         }
 

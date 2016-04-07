@@ -29,7 +29,7 @@
 
 <div class="btn" id="myButton" onclick="setElements(this, event)">
   <div class="btn-back">
-    <p>Are you sure you want to do that?</p>
+    <p>Are you sure you want to delete?</p>
       <asp:LinkButton class="mdl-navigation__link" id="btnDone" runat="server" Text="Settings" OnClick="btnDone" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' > <i class="material-icons yes">done</i></asp:LinkButton>
     <asp:LinkButton class="mdl-navigation__link" id="btnClear" runat="server" Text="Settings" OnClientClick="closeBox(this, event)"> <i class="material-icons no">clear</i></asp:LinkButton>
   </div>

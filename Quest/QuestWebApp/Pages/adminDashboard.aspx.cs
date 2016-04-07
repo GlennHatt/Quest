@@ -15,6 +15,7 @@ namespace QuestWebApp.Pages
         bool showAddUserMessage,
              showAddClassMessage,
              showAddSectionMessage;
+        //Label userName;
 
         // Work in progress ------------------------------------
         public enum PasswordScore
@@ -65,24 +66,9 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            Session["neededClassification"] = 'A';
-            /* SECURITY DISABLED FOR TESTING
-            try
-            {
-                if (Session["userClassification"] == null)
-                    throw new NullReferenceException();
-                if ((char)Session["userClassification"] != 'A')
-                {
-                    utilities util = new utilities();
-                    util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                Response.Redirect("login.aspx");
-            }
-            */
+            //Need to change "Welcome User"
+            //userName = (Label)Master.FindControl("txtGreeting");
+            //userName.Text = Session["UserID"].ToString();
 
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;

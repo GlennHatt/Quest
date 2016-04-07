@@ -182,13 +182,17 @@
     <Content Include="Pages\aboutUsPage.aspx" />
     <Content Include="Pages\addStudentToClass.aspx" />
     <Content Include="Pages\adminClass.aspx" />
+    <Content Include="Pages\adminHelp.aspx" />
     <Content Include="Pages\adminSettings.aspx" />
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
+    <Content Include="Pages\forgetPassword.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
+    <Content Include="Pages\studentHelp.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
     <Content Include="Pages\studentSettings.aspx" />
+    <Content Include="Pages\teacherHelp.aspx" />
     <Content Include="Pages\teacherSettings.aspx" />
     <Content Include="Pages\teacherStudentsandClasses.aspx" />
     <Content Include="test pond\admin.master" />
@@ -269,6 +273,13 @@
     </Compile>
     <Compile Include="Pages\adminClass.aspx.designer.cs">
       <DependentUpon>adminClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminHelp.aspx.cs">
+      <DependentUpon>adminHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminHelp.aspx.designer.cs">
+      <DependentUpon>adminHelp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminSettings.aspx.cs">
       <DependentUpon>adminSettings.aspx</DependentUpon>
@@ -361,6 +372,13 @@
     <Compile Include="Pages\adminDashboard.aspx.designer.cs">
       <DependentUpon>adminDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\forgetPassword.aspx.cs">
+      <DependentUpon>forgetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\forgetPassword.aspx.designer.cs">
+      <DependentUpon>forgetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\pledgePage.aspx.cs">
       <DependentUpon>pledgePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,6 +413,13 @@
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\studentHelp.aspx.cs">
+      <DependentUpon>studentHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentHelp.aspx.designer.cs">
+      <DependentUpon>studentHelp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentScores.aspx.cs">
       <DependentUpon>studentScores.aspx</DependentUpon>
@@ -437,6 +462,13 @@
     </Compile>
     <Compile Include="Pages\takingTestTest.aspx.designer.cs">
       <DependentUpon>takingTestTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\teacherHelp.aspx.cs">
+      <DependentUpon>teacherHelp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\teacherHelp.aspx.designer.cs">
+      <DependentUpon>teacherHelp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\teacherSettings.aspx.cs">
       <DependentUpon>teacherSettings.aspx</DependentUpon>

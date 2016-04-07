@@ -10,78 +10,69 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class AddStudentToClass {
+    public partial class forgetPassword {
         
         /// <summary>
-        /// ddlClassSelect control.
+        /// lblTeacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
+        protected global::System.Web.UI.WebControls.Label lblTeacher;
         
         /// <summary>
-        /// ddlStudentsSelect control.
+        /// mailButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudentsSelect;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mailButton;
         
         /// <summary>
-        /// btnStudenttoClass control.
+        /// txtbxStudentLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStudenttoClass;
+        protected global::System.Web.UI.WebControls.TextBox txtbxStudentLogin;
         
         /// <summary>
-        /// cardAlreadyEnrolled control.
+        /// txtbxStudentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardAlreadyEnrolled;
+        protected global::System.Web.UI.WebControls.TextBox txtbxStudentID;
         
         /// <summary>
-        /// gvCurrentStudents control.
+        /// txtbxStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCurrentStudents;
+        protected global::System.Web.UI.WebControls.TextBox txtbxStudentEmail;
         
         /// <summary>
-        /// sqlCurrentStudents control.
+        /// txtbxMessageBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlCurrentStudents;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtbxMessageBody;
         
         /// <summary>
-        /// sqlAllSections control.
+        /// btnSendMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlAllSections;
-        
-        /// <summary>
-        /// sqlStudents control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlStudents;
+        protected global::System.Web.UI.WebControls.LinkButton btnSendMessage;
     }
 }

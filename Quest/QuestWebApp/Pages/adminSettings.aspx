@@ -14,7 +14,7 @@
         <div class="mdl-card__supporting-text" style="text-align: center">
             <br />
 
-            <div style="font-size: 200%">Change User Password</div>
+            <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
                 <asp:TextBox ID="TextBox1" class="mdl-textfield__input" type="password" runat="server" />
@@ -52,6 +52,12 @@
                 <asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error"></asp:CompareValidator>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password" SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
             </div>
+             <br />
+            <br />
+
+             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" OnClick="clickUpdatePassword">
+                            Update
+                </asp:LinkButton>
         </div>
     </div>
     <br />

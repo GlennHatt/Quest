@@ -13,22 +13,22 @@ namespace QuestWebApp.Pages {
     public partial class studentSettings {
         
         /// <summary>
-        /// Label1 control.
+        /// lblOldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblOldPassword;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtbxOldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtbxOldPassword;
         
         /// <summary>
         /// lblPassword control.
@@ -92,6 +92,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valCinfirmPassReq;
+        
+        /// <summary>
+        /// updatePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton updatePassword;
         
         /// <summary>
         /// cdEnable control.
