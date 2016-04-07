@@ -198,6 +198,9 @@ SELECT choice_id, question_id, choice_text, set_order
         <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
     </div>
 
+    <div style="position: fixed; right: 31px; margin-top: 214px; z-index: 2;">
+        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Test Finished" />
+    </div>
     <!-- Question Display Section -->
     <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT question_id, weight, type, test_order,
@@ -305,7 +308,7 @@ SELECT question_id, question_text, answer
                                                         <asp:Label ID="txtMQuestion" runat="server" Text='<%#Eval("matching_question") %>' />
                                                     </div>
                                             </div>
-                                            <div style="margin-left:38%">
+                                            <div>
                                             <asp:GridView ID="grdDispMQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMQuestion">
                                                 <Columns>
                                                     <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
@@ -579,10 +582,10 @@ END;">
                                             <!-- Edit True False -->
                                             <div ID="tblEditTFQuestion" runat="server">
                                                 <div style="text-align:center">
-                                                    
-                                                        <asp:Label ID="lblEditTFQuestion" runat="server"> Question: </asp:Label>
-                                                        <asp:TextBox ID="txtEditTFQuestion" runat="server" Text='<%#Bind("true_false_question") %>' />
-                                                        
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                        <asp:Label ID="lblEditTFQuestion" class="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
+                                                        <asp:TextBox ID="txtEditTFQuestion" class="mdl-textfield__input" runat="server" Text='<%#Bind("true_false_question") %>' />
+                                                        </div>
                                                         <asp:Label ID="lblEditTFAnswer" runat="server" Text="Answer: " />
                                                         <asp:DropDownList ID="ddlEditTFAnswer" runat="server" SelectedValue='<%#Bind("true_false_answer") %>'>
                                                             <asp:ListItem Text="--" Value="" />
