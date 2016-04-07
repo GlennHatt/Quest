@@ -107,7 +107,7 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Username:</label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server"/>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
+                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>-->
                             
                         </div>
 
