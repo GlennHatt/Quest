@@ -79,7 +79,7 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
        JOIN class    c  USING (class_id)
        JOIN end_user eu ON    (teacher_id = user_id)
  WHERE student_id = :p_StudentID", connectionString);
-            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "17"/*Session["p_StudentID"]*/);
+            cmdEmailActive.Parameters.AddWithValue("p_StudentID", "17" /*Session["UserID"]*/);
 
             cmdEmailActive.Connection.Open();
             reader = cmdEmailActive.ExecuteReader();
