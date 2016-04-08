@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/takingTest.master" AutoEventWireup="true" CodeBehind="takingTestTest.aspx.cs" Inherits="QuestWebApp.Pages.takingTestTest" %>
+﻿<%@ Page Title="Student | Taking Test" Language="C#" MasterPageFile="~/Master-Pages/takingTest.master" AutoEventWireup="true" CodeBehind="takingTestTest.aspx.cs" Inherits="QuestWebApp.Pages.takingTestTest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="takingTestBreadCrumb" runat="server">
 </asp:Content>
@@ -7,8 +7,21 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="takingTestExtraReferances" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
+    <style>
 
-    <main class="mdl-layout__content">
+        .mc {
+            margin-left: 34%;
+            text-align: left;
+        }
+
+        .tf {
+            margin-left: 30%;
+        }
+
+    </style>
+
+    <main class="mdl-layout__content" style="width:100%;">
+        <div class="content-grid mdl-grid">
         <br />
         <br />
         <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -47,7 +60,7 @@ SELECT question_id, weight, type,
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
                                 <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>' runat="server" />
-                                <asp:Label ID="lblDispWeight" runat="server" Text="Question Weight: "></asp:Label>
+                                <asp:Label ID="lblDispWeight" runat="server" Text="Point Value: "></asp:Label>
                                 <asp:Label ID="lblWeight" Text='<%# Eval("weight") %>' runat="server" />
                             </div>
                         </div>
@@ -55,7 +68,7 @@ SELECT question_id, weight, type,
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divE">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" />
+                                <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input"/>
                             </div>
                         </div>
                         <!-- Matching -->
@@ -73,7 +86,7 @@ SELECT choice_id, choice_text
                                     </SelectParameters>
                                 </asp:SqlDataSource>
                                 <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
-                                <asp:RadioButtonList ID="rblMCAnswer" runat="server" DataSourceID="sqlMCChoices" DataTextField="choice_text" DataValueFeild="choice_id" />
+                                <asp:RadioButtonList ID="rblMCAnswer" runat="server" DataSourceID="sqlMCChoices" DataTextField="choice_text" DataValueFeild="choice_id" CssClass="mc"/>
                             </div>
                         </div>
                         <!-- Short Answer -->
@@ -81,7 +94,10 @@ SELECT choice_id, choice_text
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:HiddenField ID="hdnSAAnswer" runat="server" Value='<%#Bind("short_answer_answer") %>' />
                                 <asp:Label ID="lblBeforeText" class="mdl-textfield" Text='<%# Eval("before_text") %>' runat="server" />
-                                <asp:TextBox ID="txtSAAnswer" runat="server" />
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <asp:TextBox ID="txtSAAnswer" runat="server" class="mdl-textfield__input"/>
+                                    <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Answer:</label>
+                                    </div>
                                 <asp:Label ID="lblAfterText" class="mdl-textfield" Text='<%# Eval("after_text") %>' runat="server" />
                             </div>
                         </div>
@@ -90,7 +106,7 @@ SELECT choice_id, choice_text
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:HiddenField ID="hdnTFAnswer" Value='<%# Eval("true_false_answer") %>' runat="server" />
                                 <asp:Label ID="lblTFQuestion" class="mdl-textfield" Text='<%# Eval("true_false_question") %>' runat="server" />
-                                <asp:RadioButtonList ID="rblTFAnswer" runat="server" CssClass="mdl-radio__button" RepeatDirection="Horizontal">
+                                <asp:RadioButtonList ID="rblTFAnswer" runat="server" CssClass="mdl-radio__button tf" RepeatDirection="Horizontal" >
                                     <asp:ListItem Text="True" Value="T" />
                                     <asp:ListItem Text="False" Value="F" />
                                 </asp:RadioButtonList>
@@ -101,8 +117,11 @@ SELECT choice_id, choice_text
             </ItemTemplate>
         </asp:ListView>
 
-        
-        <asp:Button ID="btnSubmitTest" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" />
+        <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
+        <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click"/>
+    </div>
+       
+            </div>
     </main>
 
     <!-- This the code construction zone. Code may or may not be needed in this section-->
