@@ -20,19 +20,21 @@
             <!-- Textfield with Floating DropDown for user type -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select *
-  from section
- where teacher_id = :session_id">
+                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT section_id, c.code || '-' || section_number AS section_title
+  FROM section s
+       JOIN class c USING (class_id)"></asp:SqlDataSource>
+    <!-- Disabled for sessionIDs
+ WHERE teacher_id = :session_id">
                     <SelectParameters>
                         <asp:SessionParameter Name="session_id" SessionField="UserID" />
                     </SelectParameters>
-                </asp:SqlDataSource>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="title" DataValueField="class_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
+                </asp:SqlDataSource> -->
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="section_title" AutoPostBack="true" DataValueField="section_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
                 </asp:DropDownList>
             </div>
         </div>
         <div style="text-align: center">
-        <asp:Button ID="btnStudenttoClass" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add Student To Class" />
     </div>
     </div>
     <br />
@@ -40,25 +42,24 @@
         <div class="mdl-card__supporting-text" style="text-align: center; width:100%;">
             <h1>Students</h1>
             <div class="table-responsive-vertical shadow-z-1">
-            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="gvStudents" runat="server" AutoGenerateColumns="False" DataSourceID="sqlTeacherStudents" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="gvStudents_RowDataBound">
+            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="gvStudents" runat="server" AutoGenerateColumns="False" DataSourceID="sqlTeacherStudents" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" >
                 <Columns>
-                    <asp:BoundField DataField="F_NAME" HeaderText="First Name" SortExpression="F_NAME" />
-                    <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME" />
+                    <asp:BoundField DataField="FULL_NAME" HeaderText="Name" SortExpression="FULL_NAME" />
                     <asp:BoundField DataField="EMAIL" HeaderText="E-mail" SortExpression="EMAIL" />
                 </Columns>
             </asp:GridView>
                 </div>
             <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT s.f_name f_name, s.l_name l_name, s.email email
+SELECT s.f_name || ' ' || s.l_name full_name, s.email email
   FROM end_user s
        JOIN enrollment e  ON (e.student_id = s.user_id)
        JOIN section    sc ON (e.section_id = sc.section_id)
        JOIN end_user   t  ON (t.user_id    = sc.teacher_id)
        JOIN class      c  ON (c.class_id   = sc.class_id)
  WHERE s.permission_level = 'S'
-       AND c.class_id = :p_ClassID">
+       AND sc.section_id = :p_SectionID">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlClassSelect" Name="p_ClassID" PropertyName="SelectedValue" />
+                    <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

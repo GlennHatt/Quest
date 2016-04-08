@@ -34,16 +34,15 @@ namespace QuestWebApp.Pages
             //}
         }
 
-        protected void gvStudents_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                cell[0].Attributes.Add("data-title", "First Name");
-                cell[1].Attributes.Add("data-title", "Last Name");
-                cell[2].Attributes.Add("data-title", "E-mail");
-            }
-        }
+        //protected void gvStudents_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        TableCellCollection cell = e.Row.Cells;
+        //        cell[0].Attributes.Add("data-title", "Full Name");
+        //        cell[1].Attributes.Add("data-title", "E-mail");
+        //    }
+        //}
 
         protected void ddlUserSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
