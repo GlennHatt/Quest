@@ -216,26 +216,26 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
-            Regex r = new Regex(valCourseNumRegex.ValidationExpression);
+            //Regex r = new Regex(valCourseNumRegex.ValidationExpression);
 
 
-            if (txtbxClassTitle.Text == String.Empty)
-            {
-                txtbxClassTitle.BorderColor = Color.Red;
-                errorCount++;
-            }
+            //if (txtbxClassTitle.Text == String.Empty)
+            //{
+            //    txtbxClassTitle.BorderColor = Color.Red;
+            //    errorCount++;
+            //}
 
-            // TODO: Validate course number
+            //// TODO: Validate course number
 
-            Match m = r.Match(txtbxCourseNumber.Text);
-            if(!m.Success)
-            {
-                txtbxCourseNumber.BorderColor = Color.Red;
-                errorCount++;
-            }
+            //Match m = r.Match(txtbxCourseNumber.Text);
+            //if (!m.Success)
+            //{
+            //    txtbxCourseNumber.BorderColor = Color.Red;
+            //    errorCount++;
+            //}
 
-            if (errorCount == 0)
-            {
+            //if (errorCount == 0)
+            //{
                 sqlClass.Insert();
                 clearClassFields();
                 ddlCourses.DataBind();
@@ -243,7 +243,7 @@ namespace QuestWebApp.Pages
                 showAddUserMessage = true;
                 Session["showAddClassMessage"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
+            //}
         }
 
         protected void btnAddSection_Click(object sender, EventArgs e)
