@@ -216,6 +216,7 @@ namespace QuestWebApp.Pages
         protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
+            // RUNNING INTO ISSUES
             //Regex r = new Regex(valCourseNumRegex.ValidationExpression);
 
 
