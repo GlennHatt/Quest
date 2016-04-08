@@ -1050,7 +1050,7 @@
                     '<table class="dp_monthpicker"></table>' +
                     '<table class="dp_yearpicker"></table>' +
                     '<table class="dp_footer" style="text-align:center; width: 100% !important;"><tr>' +
-                        '<td class="dp_today"' + (plugin.settings.show_clear_date !== false ? ' style="width:50%"' : '') + '>' + '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Today</button>' + '</td>' +
+                        '<td class="dp_today"' + (plugin.settings.show_clear_date !== false ? ' style="width:50%;"' : '') + '>' + '<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white;">Today</button>' + '</td>' +
                     '</tr></table></div>' +
                 '</div>';
             // create a jQuery object out of the HTML above and create a reference to it
