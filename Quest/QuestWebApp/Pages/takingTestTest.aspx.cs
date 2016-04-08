@@ -14,6 +14,7 @@ namespace QuestWebApp.Pages
 {
    public partial class takingTestTest : System.Web.UI.Page
    {
+        bool cardsLarge;
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +26,9 @@ namespace QuestWebApp.Pages
                Session["TestID"] = 1;
                Session["UserID"] = 1;
             }
+
+           if (Session["cardsLarge"] == null)
+               Session["cardsLarge"] = false;
 
             OracleCommand cmdGetTime = new OracleCommand(@"
 SELECT time_limit
@@ -47,6 +51,7 @@ SELECT time_limit
             }
             cmdGetTime.Connection.Close();
          }
+
 
       }
 
@@ -196,6 +201,18 @@ END;", connectionString);
                e.Item.FindControl("divSA").Visible = false;
                break;
          }
+            if (Session["cardsLarge"].ToString() == "true")
+            {
+                ((HtmlContainerControl)e.Item.FindControl("questionCard")).Attributes["class"] = "mdl-cell mdl-cell--12-col";
+                //Session["cardsLarge"] = "false";
+            }
       }
-   }
+
+        protected void myTest_Click(object sender, EventArgs e)
+        {
+            Session["cardsLarge"] = "true";
+            Response.Redirect(Request.RawUrl);
+            cardsLarge = true;
+        }
+    }
 }

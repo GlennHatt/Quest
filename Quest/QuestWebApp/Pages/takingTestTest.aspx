@@ -50,11 +50,17 @@ SELECT question_id, weight, type,
             </InsertParameters>
         </asp:SqlDataSource>
         <asp:Label ID="lblTimeLimit" runat="server" />
+             <div class="mdl-cell mdl-cell--12-col">
+                 <button style="background-color: #FF6E40; color: white;"  ID="btnResizeSm" disabled="disabled" onclick="changeUserCardSize('questionCard', 'btnResizeSm', 'btnResizeLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
+                 <button style="background-color: #FF6E40; color: white;"  ID="btnResizeLrg"  onclick="changeUserCardSize('questionCard', 'btnResizeUserSm', 'btnResizeLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
+                 <asp:LinkButton ID="myTest" runat="server" OnClick="myTest_Click">Test</asp:LinkButton>
+
+                 </div>
 
         <!-- TRUE/FALSE QUESTIONS -->
         <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound">
             <ItemTemplate>
-                <div class="mdl-cell mdl-cell--12-col">
+                <div id="questionCard" class="mdl-cell mdl-cell--6-col" runat="server">
                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                         <div class="mdl-card__supporting-text" style="text-align: center" ID="divQuestion">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
