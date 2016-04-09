@@ -65,7 +65,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
        JOIN section s USING (section_id)
        JOIN enrollment e USING (section_id)
        JOIN class c      USING (class_id)
- WHERE student_id = 1">
+ WHERE student_id = :p_StudentID">
                     <SelectParameters>
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID" />
                     </SelectParameters>
