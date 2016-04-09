@@ -153,3 +153,18 @@ function returnFormattedToSeconds(time){
 
     return minutes + ":" + seconds;
 }
+
+
+// for when the user tries to leave the page
+//window.onbeforeunload = function () {
+
+//    '<%Session["timerTime"] = "' + timerTime + '"; %>';
+//    console.log(timerTime);
+//    return "Are you sure you want to end the test?";
+//}
+
+window.onload = function () {
+    //if ('<%=Session["UserName"] %>' != null)
+        //setTime('<%=Session["UserName"] %>');
+}
+

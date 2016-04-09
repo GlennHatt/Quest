@@ -141,6 +141,7 @@
     <Content Include="Assets\JS\misc.js" />
     <Content Include="Assets\JS\modernizerResponsiveTable.js" />
     <Content Include="Assets\JS\ResponsiveTable.js" />
+    <Content Include="Assets\JS\testTaking.js" />
     <Content Include="Assets\JS\timer\alarm.js" />
     <Content Include="Assets\JS\timer\hammer.js" />
     <Content Include="Assets\JS\timer\jquery.timepicker.min.js" />
@@ -168,7 +169,8 @@
     <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableUsers.css" />
     <Content Include="Assets\Styles\Responsive-Tables\responsiveTableNormalize.css" />
     <Content Include="Assets\Styles\styles.css" />
-    <Content Include="Assets\Styles\timer\materialize.min.css" />
+    <Content Include="Assets\Styles\timer\materialize.css" />
+    <None Include="Assets\Styles\timer\materialize.min.css.bak" />
     <Content Include="Assets\Styles\timer\timerstyles.css" />
     <Content Include="Assets\Styles\toastr.css" />
     <Content Include="Content\mdl-v1.0.5\material.css" />
