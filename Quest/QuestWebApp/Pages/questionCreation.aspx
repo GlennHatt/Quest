@@ -269,9 +269,15 @@ END;">
                                         <div class="mdl-card__supporting-text" style="text-align: center">
                                             <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
                                             <asp:HiddenField ID="hdnQuestionType" runat="server" Value='<%#Bind("type") %>' />
+                                            <div style="font-size:17pt">
+                                                        <asp:Label ID="lblDispTestOrder" runat="server" Text="Question" />
+                                                        <asp:Label ID="lblTestOrder" runat="server" Text='<%#Eval("test_order") %>' />
+                                                </div>
+                                            <br />
                                             <div ID="tblQuestion" runat="server">
-                                                
+                                                                                                        
                                                     <div style="text-align:center">
+
                                                         <asp:LinkButton ID="LinkButton1" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Edit" CommandName="Edit" />
                                                         <asp:LinkButton ID="LinkButton2" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete" />
                                                 </div>
@@ -280,10 +286,7 @@ END;">
                                                         <asp:Label ID="lblDispWeight" runat="server" Text="Weight: " />
                                                         <asp:Label ID="lblWeight" runat="server" Text='<%#Eval("weight") %>' />
                                                 </div>
-                                                <div>
-                                                        <asp:Label ID="lblDispTestOrder" runat="server" Text="Test Order: " />
-                                                        <asp:Label ID="lblTestOrder" runat="server" Text='<%#Eval("test_order") %>' />
-                                                </div>
+
                                             </div>
 
                                             <!-- Essay Question Display -->

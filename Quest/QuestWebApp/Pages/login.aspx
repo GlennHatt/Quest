@@ -35,7 +35,8 @@
                 <div style="text-align: center; font-size:13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
             </div>
-            <div style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</div>
+            <br />
+            <a href="forgetPassword.aspx" style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</a>
         </div>
     </div>
     <div style="position: absolute; bottom: 38px; width: 320px; right: 0px; color: white; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">
