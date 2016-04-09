@@ -59,22 +59,37 @@
                         margin-bottom: -7%;
                     }
                 </style>
-
-                <div class="mdl-card mdl-shadow--3dp  demo-card-square">
-                    <div class="mdl-card__supporting-text " style="text-align: center">
-                        <i class="material-icons testAlert">assignment_late</i>
-                        <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Test Due:</div>
-                        <asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
-                        <asp:Label ID="lblTestDate" runat="server" Text="(Date Placeholder)"></asp:Label><br />
-                        <asp:Label ID="lblTestTime" runat="server" Text="(Time Placeholder)"></asp:Label><br />
-                    </div>
-                    <div style="text-align: right">
-                        <br />
-                        <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
-                            Take Test
-                        </asp:LinkButton>
-                    </div>
-                </div>
+                <asp:SqlDataSource ID="sqlStudentTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_limit
+  FROM test t
+       JOIN section s USING (section_id)
+       JOIN enrollment e USING (section_id)
+       JOIN class c      USING (class_id)
+ WHERE student_id = 1">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="p_StudentID" SessionField="UserID" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" >
+                    <ItemTemplate>
+                        <div class="mdl-card mdl-shadow--3dp  demo-card-square">
+                            <div class="mdl-card__supporting-text " style="text-align: center">
+                                <i class="material-icons testAlert">assignment_late</i>
+                                <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Test Due:</div>
+                                <asp:Label ID="lblTestSubject" runat="server" Text='<%#Eval("class_title") %>'></asp:Label><br />
+                                <asp:Label ID="lblTestTitle" runat="server" Text='<%#Eval("test_title") %>'></asp:Label><br />
+                                <asp:Label ID="lblTestDate" runat="server" Text='<%#Eval("due_date") %>'></asp:Label><br />
+                                <asp:Label ID="lblTestTime" runat="server" Text='<%#Eval("time_limit") %>'></asp:Label><br />
+                            </div>
+                            <div style="text-align: right">
+                                <br />
+                                <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                                    Take Test
+                                </asp:LinkButton>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
             </div>
 
 
