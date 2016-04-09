@@ -110,18 +110,18 @@
         <br />
         <br />
         <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT question_id, weight, type,
+SELECT q.question_id, weight, type,
        e.question_text AS essay_question,
        m.question_text AS matching_question,
        mc.question_text AS multiple_choice_question, mc.choice_id AS multiple_choice_answer,
        tf.question_text AS true_false_question,      tf.answer    AS true_false_answer,
        before_text, after_text, sa.answer AS short_answer_answer
   FROM question q
-       LEFT OUTER JOIN question_essay           e  USING (question_id)
-       LEFT OUTER JOIN question_matching        m  USING (question_id)
-       LEFT OUTER JOIN question_multiple_choice mc USING (question_id)
-       LEFT OUTER JOIN question_short_answer    sa USING (question_id)
-       LEFT OUTER JOIN question_true_false      tf USING (question_id)
+       LEFT OUTER JOIN question_essay           e  ON (q.question_id = e.question_id  AND q.type = 'E')
+       LEFT OUTER JOIN question_matching        m  ON (q.question_id = m.question_id  AND q.type = 'M')
+       LEFT OUTER JOIN question_multiple_choice mc ON (q.question_id = mc.question_id AND q.type = 'MC')
+       LEFT OUTER JOIN question_short_answer    sa ON (q.question_id = sa.question_id AND q.type = 'SA')
+       LEFT OUTER JOIN question_true_false      tf ON (q.question_id = tf.question_id AND q.type = 'TF')
  WHERE test_id = :p_TestID
        AND type != 'M'
  ORDER BY test_order">
