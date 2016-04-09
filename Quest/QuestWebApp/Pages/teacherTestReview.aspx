@@ -13,19 +13,40 @@
         <br />
         <br />
         <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT question_taken_id, points_earned,
-       e.essay AS essay_text,
-       --m.question_text AS matching_question,
-       mc.student_choice AS multiple_choice_choice, 
-       --tf.answer    AS true_false_answer,
-       sa.answer AS short_answer_answer
-  FROM question_taken q
-       LEFT OUTER JOIN question_taken_essay           e  USING (question_taken_id)
-       LEFT OUTER JOIN question_taken_matching        m  USING (question_taken_id)
-       LEFT OUTER JOIN question_taken_multiple_choice mc USING (question_taken_id)
-       LEFT OUTER JOIN question_taken_short_answer    sa USING (question_taken_id)
-       --LEFT OUTER JOIN question_taken                 tf USING (question_taken_id)
- WHERE test_taken_id = :p_TestID">
+SELECT q.test_order, q.question_id, q.weight, q.type,
+       question_taken_id, points_earned,
+       
+       e.question_text AS essay_question,
+       et.essay        AS essay_text,
+       
+     --m.question_text  AS matching_question,
+     --mt.question_text AS matching_question_taken,
+     
+       mc.question_text   AS multiple_choice_question,
+       mct.student_choice AS multiple_choice_choice,
+       
+       tf.question_text AS true_false_question,
+    --tft.answer       AS true_false_answer,
+       
+       sa.before_text AS short_answer_before_text,
+       sat.answer     AS short_answer_answer,
+       sa.after_text  AS short_answer_after_text
+       
+  FROM question_taken qt
+       LEFT OUTER JOIN question q                         ON    (q.question_id = qt.question_id)
+       LEFT OUTER JOIN question_taken_essay           et  USING (question_taken_id)
+       LEFT OUTER JOIN question_taken_matching        mt  USING (question_taken_id)
+       LEFT OUTER JOIN question_taken_multiple_choice mct USING (question_taken_id)
+       LEFT OUTER JOIN question_taken_short_answer    sat USING (question_taken_id)
+     --LEFT OUTER JOIN question_taken                 tft USING (question_taken_id)
+       LEFT OUTER JOIN question_essay                 e   ON    (q.question_id = e.question_id  AND q.type = 'E')
+       LEFT OUTER JOIN question_matching              m   ON    (q.question_id = m.question_id  AND q.type = 'M')
+       LEFT OUTER JOIN question_multiple_choice       mc  ON    (q.question_id = mc.question_id AND q.type = 'MC')
+       LEFT OUTER JOIN question_short_answer          sa  ON    (q.question_id = sa.question_id AND q.type = 'SA')
+       LEFT OUTER JOIN question_true_false            tf  ON    (q.question_id = tf.question_id AND q.type = 'TF')
+ WHERE test_taken_id = :p_TestID
+    AND q.type != 'M'
+ ORDER BY q.test_order">
             <SelectParameters>
                 <asp:SessionParameter SessionField="TestID" Name="p_TestID" />
             </SelectParameters>
@@ -60,25 +81,17 @@ SELECT question_taken_id, points_earned,
                         <!-- Essay -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divE">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_text") %>' runat="server" />
-                                <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input"/>
+                                <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
+                                <asp:Label ID="txtEAnswer" class="mdl-textfield__input" Text='<%# Eval("essay_text") %>' runat="server"/>
                             </div>
                         </div>
                         <!-- Matching -->
                         <!-- Multiple Choice -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divMC">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:SqlDataSource ID="sqlMCChoices" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT choice_id, choice_text
-  FROM question_multiple_choice_body
- WHERE question_id = :p_QuestionID
- ORDER BY set_order">
-                                    <SelectParameters>
-                                        <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="Text" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                                <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
-                                </div>
+                                <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
+                                <asp:Label ID="lblMCAnswer" class="mdl-textfield" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
+                            </div>
                         </div>
                         <!-- Short Answer -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divSA">

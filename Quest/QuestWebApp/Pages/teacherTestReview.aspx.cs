@@ -23,7 +23,7 @@ namespace QuestWebApp.Pages
             {
                 if (Session["TestID"] == null)
                 {
-                    Session["TestID"] = 1;
+                    Session["TestID"] = 104;
                     Session["UserID"] = 1;
                 }
 
@@ -65,108 +65,108 @@ SELECT time_limit
 
         protected void btnSubmitTest_Click(object sender, EventArgs e)
         {
-            int noAnswerCounter = 0;
-            string TFAnswer;
-            string SAAnswer;
-            string questionID;
-            string questionType;
-            int TestTakenID;
-            OracleCommand cmdGradeQuestion;
+//            int noAnswerCounter = 0;
+//            string TFAnswer;
+//            string SAAnswer;
+//            string questionID;
+//            string questionType;
+//            int TestTakenID;
+//            OracleCommand cmdGradeQuestion;
 
-            cmdGradeQuestion = new OracleCommand(@"
-BEGIN
-    :v_TestTakenID := TESTS_TAKEN.add(
-    p_StudentID => :p_StudentID,
-    p_TestID    => :p_TestID);
-END;", connectionString);
-            cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
-            cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
+//            cmdGradeQuestion = new OracleCommand(@"
+//BEGIN
+//    :v_TestTakenID := TESTS_TAKEN.add(
+//    p_StudentID => :p_StudentID,
+//    p_TestID    => :p_TestID);
+//END;", connectionString);
+//            cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+//            cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
+//            cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-            cmdGradeQuestion.Connection.Open();
-            cmdGradeQuestion.ExecuteNonQuery();
+//            cmdGradeQuestion.Connection.Open();
+//            cmdGradeQuestion.ExecuteNonQuery();
 
-            TestTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
+//            TestTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
-            cmdGradeQuestion.Connection.Close();
+//            cmdGradeQuestion.Connection.Close();
 
-            foreach (ListViewItem item in lstQuestions.Items)
-            {
-                questionID = ((Label)item.FindControl("hdnQuestionID")).Text;
-                questionType = ((Label)item.FindControl("hdnQuestionType")).Text;
+//            foreach (ListViewItem item in lstQuestions.Items)
+//            {
+//                questionID = ((Label)item.FindControl("hdnQuestionID")).Text;
+//                questionType = ((Label)item.FindControl("hdnQuestionType")).Text;
 
-                switch (questionType)
-                {
-                    case "E":
-                        cmdGradeQuestion = new OracleCommand(@"
-BEGIN
-    QUESTIONS_ESSAY.grade_question(
-    p_TestTakenID => :p_TestTakenID,
-    p_QuestionID  => :p_QuestionID,
-    p_Essay       => :p_Essay);
-END;", connectionString);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
+//                switch (questionType)
+//                {
+//                    case "E":
+//                        cmdGradeQuestion = new OracleCommand(@"
+//BEGIN
+//    QUESTIONS_ESSAY.grade_question(
+//    p_TestTakenID => :p_TestTakenID,
+//    p_QuestionID  => :p_QuestionID,
+//    p_Essay       => :p_Essay);
+//END;", connectionString);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
-                        cmdGradeQuestion.Connection.Open();
-                        cmdGradeQuestion.ExecuteNonQuery();
-                        cmdGradeQuestion.Connection.Close();
-                        break;
-                    case "M":
-                        break;
-                    case "MC":
-                        cmdGradeQuestion = new OracleCommand(@"
-BEGIN
-    QUESTIONS_MULTIPLE_CHOICE.grade_question(
-    p_TestTakenID   => :p_TestTakenID,
-    p_QuestionID    => :p_QuestionID,
-    p_StudentAnswer => :p_ChoiceID);
-END;", connectionString);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
+//                        cmdGradeQuestion.Connection.Open();
+//                        cmdGradeQuestion.ExecuteNonQuery();
+//                        cmdGradeQuestion.Connection.Close();
+//                        break;
+//                    case "M":
+//                        break;
+//                    case "MC":
+//                        cmdGradeQuestion = new OracleCommand(@"
+//BEGIN
+//    QUESTIONS_MULTIPLE_CHOICE.grade_question(
+//    p_TestTakenID   => :p_TestTakenID,
+//    p_QuestionID    => :p_QuestionID,
+//    p_StudentAnswer => :p_ChoiceID);
+//END;", connectionString);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
 
-                        cmdGradeQuestion.Connection.Open();
-                        cmdGradeQuestion.ExecuteNonQuery();
-                        cmdGradeQuestion.Connection.Close();
-                        break;
-                    case "SA":
-                        cmdGradeQuestion = new OracleCommand(@"
-BEGIN
-    QUESTIONS_SHORT_ANSWER.grade_question(
-    p_TestTakenID   => :p_TestTakenID,
-    p_QuestionID    => :p_QuestionID,
-    p_StudentAnswer => :p_Answer);
-END;", connectionString);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
+//                        cmdGradeQuestion.Connection.Open();
+//                        cmdGradeQuestion.ExecuteNonQuery();
+//                        cmdGradeQuestion.Connection.Close();
+//                        break;
+//                    case "SA":
+//                        cmdGradeQuestion = new OracleCommand(@"
+//BEGIN
+//    QUESTIONS_SHORT_ANSWER.grade_question(
+//    p_TestTakenID   => :p_TestTakenID,
+//    p_QuestionID    => :p_QuestionID,
+//    p_StudentAnswer => :p_Answer);
+//END;", connectionString);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
-                        cmdGradeQuestion.Connection.Open();
-                        cmdGradeQuestion.ExecuteNonQuery();
-                        cmdGradeQuestion.Connection.Close();
-                        break;
-                    case "TF":
-                        cmdGradeQuestion = new OracleCommand(@"
-BEGIN
-    QUESTIONS_TRUE_FALSE.grade_question(
-    p_TestTakenID => :p_TestTakenID,
-    p_QuestionID  => :p_QuestionID,
-    p_StudentAnswer => :p_Answer);
-END;", connectionString);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                        cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
+//                        cmdGradeQuestion.Connection.Open();
+//                        cmdGradeQuestion.ExecuteNonQuery();
+//                        cmdGradeQuestion.Connection.Close();
+//                        break;
+//                    case "TF":
+//                        cmdGradeQuestion = new OracleCommand(@"
+//BEGIN
+//    QUESTIONS_TRUE_FALSE.grade_question(
+//    p_TestTakenID => :p_TestTakenID,
+//    p_QuestionID  => :p_QuestionID,
+//    p_StudentAnswer => :p_Answer);
+//END;", connectionString);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
+//                        cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
-                        cmdGradeQuestion.Connection.Open();
-                        cmdGradeQuestion.ExecuteNonQuery();
-                        cmdGradeQuestion.Connection.Close();
-                        break;
-                }
-            }
+//                        cmdGradeQuestion.Connection.Open();
+//                        cmdGradeQuestion.ExecuteNonQuery();
+//                        cmdGradeQuestion.Connection.Close();
+//                        break;
+//                }
+        //    }
 
-            Response.Redirect("pledgePage.aspx");
+        //    Response.Redirect("pledgePage.aspx");
 
         }
 
