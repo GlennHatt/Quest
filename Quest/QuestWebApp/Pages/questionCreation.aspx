@@ -6,7 +6,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
     <script src="../Assets/JS/jquery-2.1.3.min.js"></script>
-    <link href="../Assets/Styles/timer/materialize.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
