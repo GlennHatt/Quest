@@ -19,6 +19,7 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
+            int timerTime = 0;
          if (!IsPostBack)
          {
             if (Session["TestID"] == null)
@@ -42,6 +43,7 @@ SELECT time_limit
             {
                while (reader.Read())
                {
+                        timerTime = Convert.ToInt32(reader.GetValue(0));
                   lblTimeLimit.Text = reader.GetValue(0).ToString();
                }
             }
