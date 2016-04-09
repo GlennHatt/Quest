@@ -57,7 +57,7 @@
 		<div class="container timer " style="color:white;">
 			<div class="controlform">
 				<div class="control input-field">
-					<input id="timer-input" type="number">
+					<input id="timer-input" type="number" onclick="setTime(document.getElementById('timer-input').value)">
 					<label for="timer-input">Minutes</label>
 				</div>
 
@@ -103,8 +103,27 @@
             margin-left: 30%;
         }
 
-    </style>
+        .hide {
+            display:none;
+        }
 
+        .mdl-card-sizing {
+                top: 35px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 42px;
+    min-height:0px;
+    margin-left:25%;
+    width: 50%;
+        }
+
+    </style>
+    <div class="mdl-card mdl-card-sizing" >
+                      <div class="mdl-card__supporting-text" style="text-align: center; width:100%;">Question Card Sizing:<br />
+                 <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
+                 <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
+                     </div>
+                     </div>
     <main class="mdl-layout__content" style="width:100%;">
         <div class="content-grid mdl-grid">
         <br />
@@ -134,16 +153,15 @@ SELECT q.question_id, weight, type,
                 <asp:Parameter Name="p_Answer" />
             </InsertParameters>
         </asp:SqlDataSource>
-        <asp:Label ID="lblTimeLimit" runat="server" />
-             <div class="mdl-cell mdl-cell--12-col">
-                 <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
-                 <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
+        <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide"/>
+        <button ID="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
+             
+                 
 
                  
 
 
 
-                 </div>
 
         <!-- TRUE/FALSE QUESTIONS -->
         <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound">
@@ -255,11 +273,11 @@ SELECT choice_id, choice_text
     <script>
         //document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
         document.getElementById('btnResetTimer').click();
-        document.getElementById('timer-input').value = 0;
-        document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
-        document.getElementById('testButton').click();
+        //document.getElementById('timer-input').value = 0;
+        //document.getElementById('timer-input').value = document.getElementById("<%=lblTimeLimit.ClientID%>").innerText;
+        //document.getElementById('timer-input').click();
         //document.getElementById('timer-input').onchange();
-        //document.getElementById('<%=lblTimeLimit.ClientID%>').click();
+        document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
     </script>
 </asp:Content>
