@@ -5,8 +5,93 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="takingTestHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="takingTestExtraReferances" runat="server">
+
+    <link href="../Assets/Styles/timer/materialize.min.css" rel="stylesheet" />
+    <link href="../Assets/Styles/timer/timerstyles.css" rel="stylesheet" />
+
+
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
+
+    <!-- begin timer -->
+    
+                 <div class="wrapper">
+
+	
+
+	<div class="app">
+
+		<div class="container alarm hidden">
+			
+
+				<div class="control input-field">
+					<input id="alarm-input" type="text" class="validate">
+					<label for="alarm-input">Set Time</label>
+				</div>
+
+				<div class="control switch">
+					<label>
+						Off
+						<input type="checkbox" disabled id="alarm-btn">
+						<span class="lever"></span>
+						On
+					</label>
+				</div>
+
+				<div class="control checkbox">
+					<input type="checkbox" id="alarm-sounds" />
+					<label for="alarm-sounds">Sounds</label>
+				</div>
+
+			
+
+			<div class="clock z-depth-1 inactive">
+				<span>Not Set</span>
+				<div class="overlay waves-effect"></div>
+			</div>
+		</div>
+
+		
+
+		<div class="container timer " style="color:white;">
+			<div class="controlform">
+				<div class="control input-field">
+					<input id="timer-input" type="number">
+					<label for="timer-input">Minutes</label>
+				</div>
+
+				<a id="btnStartTimer" class="timer-btn start waves-effect"><i class="material-icons">add</i></a>
+				<a class="timer-btn pause waves-effect"><i class="mdi-av-pause"></i></a>
+				<a id="btnResetTimer" class="timer-btn reset waves-effect"><i class="mdi-av-replay"></i></a>
+
+				<div class="control checkbox">
+					<input type="checkbox" id="timer-sounds" />
+					<label for="timer-sounds">Sounds</label>
+				</div>
+
+			</div>
+
+			<div class="clock inactive z-depth-1 waves-effect">0:00</div>
+		</div>
+
+
+	</div>
+
+	<div id="times-up-modal" class="modal">
+		<div class="modal-content">
+			<h3>Time's Up!</h3>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="dismiss-alarm-sounds modal-action waves-effect waves-red btn-flat">Dismiss Alarm</a>
+		</div>
+	</div>
+
+</div>
+
+    
+
+                 <!-- end timer -->
     <style>
 
         .mc {
@@ -53,6 +138,11 @@ SELECT question_id, weight, type,
              <div class="mdl-cell mdl-cell--12-col">
                  <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
                  <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
+
+                 
+
+
+
                  </div>
 
         <!-- TRUE/FALSE QUESTIONS -->
@@ -150,8 +240,27 @@ SELECT choice_id, choice_text
                                 <br />
         
         -->
-
+    <button style="display:none" id="testButton" onclick="return false"></button>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../Assets/JS/timer/materialize.min.js"></script>
+    <script src="../Assets/JS/timer/jquery.timepicker.min.js"></script>
+    <script src="../Assets/JS/timer/hammer.js"></script>
+    <script src="../Assets/JS/timer/timerjs.js"></script>
+    <script src="../Assets/JS/timer/alarm.js"></script>
+    <script src="../Assets/JS/timer/timerjs2.js"></script>
+
+    <script>
+        //document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
+        document.getElementById('btnResetTimer').click();
+        document.getElementById('timer-input').value = 0;
+        document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
+        document.getElementById('testButton').click();
+        //document.getElementById('timer-input').onchange();
+        //document.getElementById('<%=lblTimeLimit.ClientID%>').click();
+        document.getElementById('btnStartTimer').click();
+    </script>
 </asp:Content>
 
