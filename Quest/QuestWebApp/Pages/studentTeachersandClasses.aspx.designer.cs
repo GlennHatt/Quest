@@ -13,13 +13,13 @@ namespace QuestWebApp.Pages {
     public partial class studentTeachersandClasses {
         
         /// <summary>
-        /// sqlStudentsClasses control.
+        /// cardPoints control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlStudentsClasses;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardPoints;
         
         /// <summary>
         /// GridView1 control.
@@ -29,6 +29,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// sqlStudentsClasses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlStudentsClasses;
         
         /// <summary>
         /// lblClass control.

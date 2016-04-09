@@ -13,8 +13,6 @@
 
     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
         <div class="content-grid mdl-grid" style="width: 100%;">
-
-
             <div class="mdl-cell mdl-cell--4-col">
 
 
@@ -35,11 +33,13 @@
 
 
             </div>
+</div>
+        </main>
+
+
+
 
             
-
-
-            <div class="mdl-cell mdl-cell--6-col" id="testAlertTemplate" runat="server">
                 
                 <!-- Card for When a Test is Due -->
 
@@ -70,16 +70,21 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+         <main class="mdl-layout__content">
+                    <div class="content-grid mdl-grid">      
                 <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" >
                     <ItemTemplate>
+                        <div class="mdl-cell mdl-cell--4-col" id="testAlertTemplate" runat="server">
                         <div class="mdl-card mdl-shadow--3dp  demo-card-square">
                             <div class="mdl-card__supporting-text " style="text-align: center">
                                 <i class="material-icons testAlert">assignment_late</i>
                                 <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Test Due:</div>
-                                <asp:Label ID="lblTestSubject" runat="server" Text='<%#Eval("class_title") %>'></asp:Label><br />
-                                <asp:Label ID="lblTestTitle" runat="server" Text='<%#Eval("test_title") %>'></asp:Label><br />
-                                <asp:Label ID="lblTestDate" runat="server" Text='<%#Eval("due_date") %>'></asp:Label><br />
-                                <asp:Label ID="lblTestTime" runat="server" Text='<%#Eval("time_limit") %>'></asp:Label><br />
+                                <div style="font-size: 150%;">
+                                <asp:Label ID="lblTestSubject" runat="server" Text='<%# "Class: " + Eval("class_title") %>'></asp:Label> <br /> <br />
+                                <asp:Label ID="lblTestTitle" runat="server" Text='<%# "Test Name: " + Eval("test_title") %>'></asp:Label><br /> <br />
+                                <asp:Label ID="lblTestDate" runat="server" Text='<%# " Due Date: " + Eval("due_date") %>'></asp:Label><br /> <br />
+                                <asp:Label ID="lblTestTime" runat="server" Text='<%# " Time Limit: " + Eval("time_limit") + " Minutes" %>'></asp:Label><br /> <br />
+                                </div>
                             </div>
                             <div style="text-align: right">
                                 <br />
@@ -88,10 +93,11 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                                 </asp:LinkButton>
                             </div>
                         </div>
+                            </div>
                     </ItemTemplate>
                 </asp:ListView>
             </div>
-
+    </main>
 
             <div class="mdl-cell mdl-cell--4-col" id="noTestMessage" runat="server">
                 
@@ -123,8 +129,6 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                 </div>
             </div>
 
-        </div>
-    </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
 </asp:Content>
