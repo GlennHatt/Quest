@@ -31,13 +31,22 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblTimeLimit;
         
         /// <summary>
-        /// myTest control.
+        /// btnSmall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton myTest;
+        protected global::System.Web.UI.WebControls.LinkButton btnSmall;
+        
+        /// <summary>
+        /// btnLarge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLarge;
         
         /// <summary>
         /// lstQuestions control.

@@ -205,14 +205,44 @@ END;", connectionString);
             {
                 ((HtmlContainerControl)e.Item.FindControl("questionCard")).Attributes["class"] = "mdl-cell mdl-cell--12-col";
                 //Session["cardsLarge"] = "false";
+                btnLarge.Enabled = false;
+                btnLarge.Attributes.Add("disabled", "true");
+            }
+            else
+            {
+                ((HtmlContainerControl)e.Item.FindControl("questionCard")).Attributes["class"] = "mdl-cell mdl-cell--6-col";
+                //Session["cardsLarge"] = "true";
+                btnSmall.Enabled = false;
+                btnSmall.Attributes.Add("disabled", "true");
             }
       }
 
         protected void myTest_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void btnSmall_Click(object sender, EventArgs e)
+        {
+            Session["cardsLarge"] = "false";
+            Response.Redirect(Request.RawUrl);
+            cardsLarge = false;
+            btnLarge.Enabled = true;
+            btnSmall.Enabled = false;
+
+            btnLarge.Attributes.Add("disabled", "false");
+            btnSmall.Attributes.Add("disabled", "true");
+        }
+
+        protected void btnLarge_Click(object sender, EventArgs e)
+        {
             Session["cardsLarge"] = "true";
             Response.Redirect(Request.RawUrl);
             cardsLarge = true;
+            btnLarge.Enabled = false;
+            btnSmall.Enabled = true;
+            btnLarge.Attributes.Add("disabled", "true");
+            btnSmall.Attributes.Add("disabled", "false");
         }
     }
 }

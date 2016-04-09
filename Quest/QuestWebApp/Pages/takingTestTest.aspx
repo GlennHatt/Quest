@@ -51,10 +51,8 @@ SELECT question_id, weight, type,
         </asp:SqlDataSource>
         <asp:Label ID="lblTimeLimit" runat="server" />
              <div class="mdl-cell mdl-cell--12-col">
-                 <button style="background-color: #FF6E40; color: white;"  ID="btnResizeSm" disabled="disabled" onclick="changeUserCardSize('questionCard', 'btnResizeSm', 'btnResizeLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Small</button>
-                 <button style="background-color: #FF6E40; color: white;"  ID="btnResizeLrg"  onclick="changeUserCardSize('questionCard', 'btnResizeUserSm', 'btnResizeLrg'); return false" Class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Large</button>
-                 <asp:LinkButton ID="myTest" runat="server" OnClick="myTest_Click">Test</asp:LinkButton>
-
+                 <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
+                 <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
                  </div>
 
         <!-- TRUE/FALSE QUESTIONS -->
