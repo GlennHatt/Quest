@@ -19,6 +19,15 @@
         <div class="table-responsive-vertical shadow-z-1">
             <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id">
                 <Columns>
+                    <asp:TemplateField HeaderText="Edit">
+                    <ItemTemplate>
+                     <asp:LinkButton ID="lnkEdit" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Edit">Edit</asp:LinkButton>
+                    </ItemTemplate>
+                        <EditItemTemplate>
+                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update">Update</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
+                         </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
                     <asp:BoundField DataField="TITLE" HeaderText="Class Name" SortExpression="TITLE"></asp:BoundField>
                     <asp:BoundField DataField="SECTION_NUMBER" HeaderText="Section Number" SortExpression="SECTION_NUMBER"></asp:BoundField>
@@ -35,7 +44,7 @@
   </div>
   <div class="btn-front">Delete</div>
 </div> 
-                            <%--<asp:LinkButton ID="deleteButton" runat="server" OnClick="btnDeleteClick"><i class="material-icons testAlert">clear</i></asp:LinkButton>--%>
+                           
                         </ItemTemplate>
                         
                     </asp:TemplateField>

@@ -13,22 +13,13 @@ namespace QuestWebApp.Pages {
     public partial class takingTestTest {
         
         /// <summary>
-        /// sqlTestQuestions control.
+        /// timerClock control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlTestQuestions;
-        
-        /// <summary>
-        /// lblTimeLimit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTimeLimit;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl timerClock;
         
         /// <summary>
         /// btnSmall control.
@@ -49,6 +40,24 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.LinkButton btnLarge;
         
         /// <summary>
+        /// sqlTestQuestions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTestQuestions;
+        
+        /// <summary>
+        /// lblTimeLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTimeLimit;
+        
+        /// <summary>
         /// lstQuestions control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lstQuestions;
+        
+        /// <summary>
+        /// btnSaveTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveTest;
         
         /// <summary>
         /// btnSubmitTest control.

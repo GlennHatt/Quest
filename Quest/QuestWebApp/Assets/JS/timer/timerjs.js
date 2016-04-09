@@ -24,17 +24,34 @@ var timerClock = $(".container.timer").find(".clock"),
 //}
 
 // When entering new time, the app will trim it and turn it into seconds (*60).
-timerInput.on('change', function () {
+//timerInput.on('change', function () {
 
-    var newTime = timerInput.val().trim();
+//    var newTime = timerInput.val().trim();
 
-    if(newTime && newTime>=0) {
-        timerTime = newTime * 60;
-        localStorage.lastTimerTime = newTime;
-        timerClock.text(returnFormattedToSeconds(timerTime));
-    }
+//    if(newTime && newTime>=0) {
+//        timerTime = newTime * 60;
+//        localStorage.lastTimerTime = newTime;
+//        timerClock.text(returnFormattedToSeconds(timerTime));
+//    }
     
-});
+//});
+
+function setTime (time)
+{
+    
+
+        var newTime = time;
+
+        if (newTime && newTime >= 0) {
+            timerTime = newTime * 60;
+            localStorage.lastTimerTime = newTime;
+            timerClock.text(returnFormattedToSeconds(timerTime));
+        }
+
+        console.log("test");
+        
+    
+}
 
 $('.timer-btn.start').on('click',function(){
     if(timerTime>0) {
@@ -111,10 +128,10 @@ function pauseTimer(){
 function resetTimer(){
     pauseTimer();
 
-    if(Number(localStorage.lastTimerTime)){
-        timerTime = Number(localStorage.lastTimerTime) * 60;
-        timerClock.text(returnFormattedToSeconds(timerTime));
-    }
+    //if(Number(localStorage.lastTimerTime)){
+    //    timerTime = Number(localStorage.lastTimerTime) * 60;
+    //    timerClock.text(returnFormattedToSeconds(timerTime));
+    //}
 }
 
 
@@ -136,3 +153,18 @@ function returnFormattedToSeconds(time){
 
     return minutes + ":" + seconds;
 }
+
+
+// for when the user tries to leave the page
+//window.onbeforeunload = function () {
+
+//    '<%Session["timerTime"] = "' + timerTime + '"; %>';
+//    console.log(timerTime);
+//    return "Are you sure you want to end the test?";
+//}
+
+window.onload = function () {
+    //if ('<%=Session["UserName"] %>' != null)
+        //setTime('<%=Session["UserName"] %>');
+}
+
