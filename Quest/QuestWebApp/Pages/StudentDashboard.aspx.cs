@@ -17,7 +17,7 @@ namespace QuestWebApp.Pages
         {
          Session["UserID"] = 1;
             displayGreeting();
-            testAlertTemplate.Visible = false;
+            //testAlertTemplate.Visible = true;
 
             if (isTest == false)
                 noTestMessage.Visible = true;

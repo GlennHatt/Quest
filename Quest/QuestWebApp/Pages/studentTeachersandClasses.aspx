@@ -37,7 +37,9 @@
 }
 
     </style>
-
+    <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
+        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
+            <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlStudentsClasses"></asp:GridView>
     <asp:SqlDataSource ID="sqlStudentsClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT t.f_name || ' ' || t.l_name as full_name, title
   FROM end_user eu
@@ -50,9 +52,10 @@ SELECT t.f_name || ' ' || t.l_name as full_name, title
             <asp:SessionParameter Name="enter_id" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource>
-
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlStudentsClasses"></asp:GridView>
     
+    </div>
+        </div>
+
     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
 
             <div class="content-grid mdl-grid" style="width: 100%;">
@@ -71,8 +74,9 @@ SELECT t.f_name || ' ' || t.l_name as full_name, title
                                 <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
                                 <div class="title">Email</div><br />
                             <div class="input">
-                                <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
-                            </div>
+                            <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
+                            <label class="mdl-lblMessageSubject" style="bottom: 0px" color:"white" for="sample3">Subject:</label>
+                        </div>
                             <div class="input">
                                 <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
                             </div>
