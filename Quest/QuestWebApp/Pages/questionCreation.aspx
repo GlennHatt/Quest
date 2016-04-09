@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server"> 
 
     <style>
         .sizeButton
