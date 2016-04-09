@@ -13,7 +13,7 @@
         <br />
         <br />
         <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT q.test_order, q.question_id, q.weight, q.type,
+SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as type,
        question_taken_id, points_earned,
        
        e.question_text AS essay_question,
@@ -26,7 +26,7 @@ SELECT q.test_order, q.question_id, q.weight, q.type,
        mct.student_choice AS multiple_choice_choice,
        
        tf.question_text AS true_false_question,
-    --tft.answer       AS true_false_answer,
+       tf.answer        AS true_false_answer,
        
        sa.before_text AS short_answer_before_text,
        sat.answer     AS short_answer_answer,
@@ -60,22 +60,23 @@ SELECT q.test_order, q.question_id, q.weight, q.type,
              <div class="mdl-cell mdl-cell--12-col">
                  <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
                  <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
-
-                 
-
-
-
-                 </div>
+             </div>
 
         <!-- TRUE/FALSE QUESTIONS -->
-        <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound">
+        <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnItemCommand="lstQuestions_ItemCommand">
             <ItemTemplate>
                 <div id="questionCard" class="mdl-cell mdl-cell--6-col" runat="server">
                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                         <div class="mdl-card__supporting-text" style="text-align: center" ID="divQuestion">
+                            <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
+                            <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="hdnQuestionID" Text='<%# Eval("question_taken_id") %>' runat="server" />
-                                <asp:Label ID="hdnQuestionType" Text='<%# Eval("points_earned") %>' runat="server" />
+                                <asp:Label ID="hdnQuestionID" Text='<%# Eval("question_id") %>' runat="server" />
+                                <asp:Label ID="hdnQuestionTakenID" Text='<%# Eval("question_taken_id") %>' runat="server" />
+                                <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>'  runat="server" />
+                                <asp:Label ID="lblPointsEarned" Text="Points Earned: " runat="server" />
+                                <asp:TextBox ID="txtPointsEarned" Width="25px" Text='<%# Eval("points_earned") %>' runat="server" />
+                                <asp:Label ID="lblPossiblePoints" Text='<%# Eval("weight") %>' runat="server" />
                             </div>
                         </div>
                         <!-- Essay -->
@@ -90,27 +91,38 @@ SELECT q.test_order, q.question_id, q.weight, q.type,
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divMC">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
-                                <asp:Label ID="lblMCAnswer" class="mdl-textfield" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
+                                <asp:Label ID="lblMCAnswer" class="mdl-textfield__input" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
                             </div>
                         </div>
                         <!-- Short Answer -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divSA">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblBeforeText" class="mdl-textfield" Text='<%# Eval("short_answer_answer") %>' runat="server" />
+                                <asp:Label ID="lblBeforeText" class="mdl-textfield" Text='<%# Eval("short_answer_before_text") %>' runat="server" />
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:TextBox ID="txtSAAnswer" runat="server" class="mdl-textfield__input"/>
-                                    <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Answer:</label>
-                                    </div>
+                                    <asp:Label ID="txtSAAnswer" runat="server" Text='<%# Eval("short_answer_answer") %>' class="mdl-textfield__input"/>
+                                    <asp:Label ID="lblAfterText" class="mdl-textfield" Text='<%# Eval("short_answer_after_text") %>' runat="server"/>
+                                </div>
                             </div>
                         </div>
                         <!-- True False -->
+                        <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divTF">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <asp:HiddenField ID="hdnTFPointsEarned" Value='<%# Eval("points_earned") %>' runat="server"  />
+                                <asp:HiddenField ID="hdnTFAnswer" Value='<%# Eval("true_false_answer") %>' runat="server"  />
+                                <asp:Label ID="lblTFQuestion" Text='<%# Eval("true_false_question") %>' runat="server" />
+                                <asp:RadioButtonList ID="rblTFAnswer" runat="server" RepeatDirection="Horizontal" Enabled="false">
+                                    <asp:ListItem Text="True" Value="T" />
+                                    <asp:ListItem Text="False" Value="F" />
+                                </asp:RadioButtonList>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ItemTemplate>
         </asp:ListView>
 
         <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
-        <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click"/>
+        <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Save Changes" OnClick="btnSubmitTest_Click"/>
     </div>
        
             </div>

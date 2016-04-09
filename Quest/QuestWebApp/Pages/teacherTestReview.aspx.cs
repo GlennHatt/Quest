@@ -172,7 +172,7 @@ SELECT time_limit
 
         protected void lstQuestions_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            switch (((Label)e.Item.FindControl("hdnQuestionType")).Text)
+            switch (((HiddenField)e.Item.FindControl("hdnQuestionType")).Value)
             {
                 case "E":
                     e.Item.FindControl("divMC").Visible = false;
@@ -199,6 +199,18 @@ SELECT time_limit
                     e.Item.FindControl("divE").Visible = false;
                     e.Item.FindControl("divMC").Visible = false;
                     e.Item.FindControl("divSA").Visible = false;
+
+                    string answer = ((HiddenField)e.Item.FindControl("hdnTFAnswer")).Value;
+
+                    if (int.Parse(((HiddenField)e.Item.FindControl("hdnTFPointsEarned")).Value) == 0)
+                    {
+                        if (answer == "T")
+                            answer = "F";
+                        else
+                            answer = "T";
+                    }
+
+                    ((RadioButtonList)e.Item.FindControl("rblTFAnswer")).SelectedValue = answer;
                     break;
             }
             if (Session["cardsLarge"].ToString() == "true")
@@ -243,6 +255,27 @@ SELECT time_limit
             btnSmall.Enabled = true;
             btnLarge.Attributes.Add("disabled", "true");
             btnSmall.Attributes.Add("disabled", "false");
+        }
+
+        protected void lstQuestions_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "cmdThrow":
+                    
+                    break;
+                case "cmdUpdate":
+                    OracleCommand cmdThrow = new OracleCommand(@"
+BEGIN
+  questions_taken.changePointsEarned(:p_QuestionTakenID, :p_PointsEarned);
+END;", connectionString);
+                    cmdThrow.Parameters.AddWithValue("p_QuestionTakenID", ((Label)e.Item.FindControl("hdnQuestionTakenID")).Text);
+                    cmdThrow.Parameters.AddWithValue("p_PointsEarned", int.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
+                    cmdThrow.Connection.Open();
+                    cmdThrow.Connection.Close();
+                    break;
+            }
+            
         }
     }
 }
