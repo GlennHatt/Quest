@@ -183,6 +183,7 @@
     <Content Include="Pages\addStudentToClass.aspx" />
     <Content Include="Pages\adminClass.aspx" />
     <Content Include="Pages\adminHelp.aspx" />
+    <Content Include="Pages\adminPasswordReset.aspx" />
     <Content Include="Pages\adminSettings.aspx" />
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
@@ -281,6 +282,13 @@
     </Compile>
     <Compile Include="Pages\adminHelp.aspx.designer.cs">
       <DependentUpon>adminHelp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\adminPasswordReset.aspx.cs">
+      <DependentUpon>adminPasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\adminPasswordReset.aspx.designer.cs">
+      <DependentUpon>adminPasswordReset.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\adminSettings.aspx.cs">
       <DependentUpon>adminSettings.aspx</DependentUpon>

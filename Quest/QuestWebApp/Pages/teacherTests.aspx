@@ -16,13 +16,15 @@
             <!-- Textfield with Floating DropDown for classes -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: center;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server"> </asp:DropDownList>
-                </div>
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server"> 
+                </asp:DropDownList>
+                </div> 
             <asp:RadioButtonList ID="rblTypeTest" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
                 <asp:ListItem Text="Live Test" Value="L" />
                 <asp:ListItem Text="Past Test" Value="P" />
                 <asp:ListItem Text="Draft Test" Value="D" />
             </asp:RadioButtonList>
+
             </div>
             </div>
 
