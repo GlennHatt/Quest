@@ -33,7 +33,7 @@ namespace QuestWebApp.Pages
             }
 
             displayGreeting();
-            testAlertTemplate.Visible = false;
+            testAlertTemplate.Visible = true;
 
             if (isTest == false)
                 noTestMessage.Visible = true;
