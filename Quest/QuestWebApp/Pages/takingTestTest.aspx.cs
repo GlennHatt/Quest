@@ -44,7 +44,7 @@ SELECT time_limit
                while (reader.Read())
                {
                         timerTime = Convert.ToInt32(reader.GetValue(0)); 
-                  lblTimeLimit.Text = reader.GetValue(0).ToString(); 
+                        lblTimeLimit.Text = timerTime.ToString();
                }
             }
             finally
@@ -255,6 +255,16 @@ END;", connectionString);
             btnSmall.Enabled = true;
             btnLarge.Attributes.Add("disabled", "true");
             btnSmall.Attributes.Add("disabled", "false");
+        }
+
+        public void saveTest()
+        {
+            btnSubmitTest.Text = "it's working";
+        }
+
+        protected void btnSaveTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
