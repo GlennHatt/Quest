@@ -24,7 +24,7 @@ namespace QuestWebApp.Pages
          {
             if (Session["TestID"] == null)
             {
-               Session["TestID"] = 1;
+               Session["TestID"] = 23;
                Session["UserID"] = 1;
             }
 
@@ -127,7 +127,7 @@ BEGIN
 END;", connectionString);
                   cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedItem.Value);
 
                   cmdGradeQuestion.Connection.Open();
                   cmdGradeQuestion.ExecuteNonQuery();
@@ -167,6 +167,16 @@ END;", connectionString);
                   break;
             }
          }
+
+         cmdGradeQuestion = new OracleCommand(@"
+BEGIN
+    TESTS_TAKEN.updateGrade(p_TestTakenID => :p_TestTakenID);
+END;", connectionString);
+         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+
+         cmdGradeQuestion.Connection.Open();
+         cmdGradeQuestion.ExecuteNonQuery();
+         cmdGradeQuestion.Connection.Close();
 
          Response.Redirect("pledgePage.aspx");
 

@@ -7,117 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuestWebApp.Master_Pages {
+namespace QuestWebApp.Pages {
     
     
-    public partial class admin {
+    public partial class teacherTestReview {
         
         /// <summary>
-        /// adminBreadcrumbs control.
+        /// sqlTestQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminBreadcrumbs;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTestQuestions;
         
         /// <summary>
-        /// adminHead control.
+        /// lblTimeLimit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminHead;
+        protected global::System.Web.UI.WebControls.Label lblTimeLimit;
         
         /// <summary>
-        /// adminExtraReferances control.
+        /// btnSmall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminExtraReferances;
+        protected global::System.Web.UI.WebControls.LinkButton btnSmall;
         
         /// <summary>
-        /// adminWithSidebarSidebar control.
+        /// btnLarge control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminWithSidebarSidebar;
+        protected global::System.Web.UI.WebControls.LinkButton btnLarge;
         
         /// <summary>
-        /// users control.
+        /// lstQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink users;
+        protected global::System.Web.UI.WebControls.ListView lstQuestions;
         
         /// <summary>
-        /// class control.
+        /// btnSubmitTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink @class;
+        protected global::System.Web.UI.WebControls.Button btnSubmitTest;
         
         /// <summary>
-        /// add control.
+        /// itemPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink add;
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell itemPlaceholder;
         
         /// <summary>
-        /// passwordReset control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink passwordReset;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// help control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink help;
-        
-        /// <summary>
-        /// settings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink settings;
-        
-        /// <summary>
-        /// adminWithSidebarBodyContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminWithSidebarBodyContent;
-        
-        /// <summary>
-        /// adminPageSpecificJS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder adminPageSpecificJS;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

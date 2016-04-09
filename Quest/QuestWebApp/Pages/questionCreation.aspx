@@ -122,18 +122,17 @@ SELECT choice_id, question_id, choice_text, set_order
             <div id="tblAddMultipleChoice" runat="server">
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMutipleChoiceQuestion" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px" />
+                    <asp:Label ID="lblAddMutipleChoiceQuestion" class="mdl-textfield__label" runat="server" Text="Header Text: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtAddMultipleChoiceQuestion" class="mdl-textfield__input" runat="server" />
                 </div>
-
+                <br />
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Answer: " Style="bottom: 0px"></asp:Label>
+                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
                     <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
                 </div>
-                <br />
+                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
-                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black">is Answer </label>
-
+                <br />
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
             </div>
         </div>

@@ -274,15 +274,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtMultipleChoiceBody;
         
         /// <summary>
-        /// chkMultipleChoiceAnswer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMultipleChoiceAnswer;
-        
-        /// <summary>
         /// lblAddMultipleChoiceAnswer control.
         /// </summary>
         /// <remarks>
@@ -290,6 +281,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddMultipleChoiceAnswer;
+        
+        /// <summary>
+        /// chkMultipleChoiceAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkMultipleChoiceAnswer;
         
         /// <summary>
         /// btnNewMultipleChoice control.

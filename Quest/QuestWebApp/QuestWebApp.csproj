@@ -204,6 +204,7 @@
     <Content Include="Pages\teacherHelp.aspx" />
     <Content Include="Pages\teacherSettings.aspx" />
     <Content Include="Pages\teacherStudentsandClasses.aspx" />
+    <Content Include="Pages\teacherTestReview.aspx" />
     <Content Include="Pages\teacherTests.aspx" />
     <Content Include="test pond\admin.master" />
     <Content Include="Master-Pages\takingTest.master" />
@@ -500,6 +501,13 @@
     </Compile>
     <Compile Include="Pages\teacherStudentsandClasses.aspx.designer.cs">
       <DependentUpon>teacherStudentsandClasses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\teacherTestReview.aspx.cs">
+      <DependentUpon>teacherTestReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\teacherTestReview.aspx.designer.cs">
+      <DependentUpon>teacherTestReview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\teacherTests.aspx.cs">
       <DependentUpon>teacherTests.aspx</DependentUpon>
