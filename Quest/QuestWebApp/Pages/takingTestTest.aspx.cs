@@ -43,8 +43,8 @@ SELECT time_limit
             {
                while (reader.Read())
                {
-                        timerTime = Convert.ToInt32(reader.GetValue(0));
-                  lblTimeLimit.Text = reader.GetValue(0).ToString();
+                        timerTime = Convert.ToInt32(reader.GetValue(0)); 
+                  lblTimeLimit.Text = reader.GetValue(0).ToString(); 
                }
             }
             finally
