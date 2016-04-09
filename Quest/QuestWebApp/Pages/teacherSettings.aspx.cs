@@ -98,22 +98,24 @@ END;", connectionString);
 
         protected void insertEmail()
         {
-            //            // This has to be finished later
-            //            OracleCommand cmdEmailInsert = new OracleCommand(@"
-            //BEGIN
-            //    END_USERS.addEmail(
-            //    p_EndUserID     => :p_EndUserID,
-            //    p_Email         => :p_Email,
-            //    p_EmailPassword => :p_EmailPassword);
-            //END;", connectionString);
-            //            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
-            //            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
-            //            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
-            //            cmdEmailInsert.Connection.Open();
-            //            cmdEmailInsert.ExecuteNonQuery();
-            //            cmdEmailInsert.Connection.Close();
-            //            Response.Redirect(Request.RawUrl);
-        }
+         //            // This has to be finished later
+         //            OracleCommand cmdEmailInsert = new OracleCommand(@"
+         //BEGIN
+         //    END_USERS.addEmail(
+         //    p_EndUserID     => :p_EndUserID,
+         //    p_Email         => :p_Email,
+         //    p_EmailUsername => :p_EmailUsername,
+         //    p_EmailPassword => :p_EmailPassword);
+         //END;", connectionString);
+         //            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
+         //            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
+         //            cmdEmailInsert.Parameters.AddWithValue("p_EmailUsername", /*TextBox*/);
+         //            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
+         //            cmdEmailInsert.Connection.Open();
+         //            cmdEmailInsert.ExecuteNonQuery();
+         //            cmdEmailInsert.Connection.Close();
+         //            Response.Redirect(Request.RawUrl);
+      }
 
-    }
+   }
 }
