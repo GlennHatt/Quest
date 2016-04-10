@@ -13,24 +13,6 @@ namespace QuestWebApp.Pages {
     public partial class studentTeachersandClasses {
         
         /// <summary>
-        /// cardPoints control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardPoints;
-        
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
         /// sqlStudentsClasses control.
         /// </summary>
         /// <remarks>
@@ -85,6 +67,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mailButton;
         
         /// <summary>
+        /// lblMessageSubject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageSubject;
+        
+        /// <summary>
         /// txtbxMessageSubject control.
         /// </summary>
         /// <remarks>
@@ -110,5 +101,14 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSendMessage;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
