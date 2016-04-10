@@ -262,17 +262,28 @@ SELECT time_limit
             switch (e.CommandName)
             {
                 case "cmdThrow":
-                    
-                    break;
-                case "cmdUpdate":
                     OracleCommand cmdThrow = new OracleCommand(@"
+BEGIN
+  questions_taken.dropQuestion(:p_QuestionID);
+END;", connectionString);
+                    cmdThrow.Parameters.AddWithValue("p_QuestionID", int.Parse(((Label)e.Item.FindControl("hdnQuestionID")).Text));
+                    cmdThrow.Connection.Open();
+                    cmdThrow.ExecuteNonQuery();
+                    cmdThrow.Connection.Close();
+                    ((TextBox)e.Item.FindControl("txtPointsEarned")).Text = string.Empty;
+                    break;
+
+                case "cmdUpdate":
+                    OracleCommand cmdUpdate = new OracleCommand(@"
 BEGIN
   questions_taken.changePointsEarned(:p_QuestionTakenID, :p_PointsEarned);
 END;", connectionString);
-                    cmdThrow.Parameters.AddWithValue("p_QuestionTakenID", ((Label)e.Item.FindControl("hdnQuestionTakenID")).Text);
-                    cmdThrow.Parameters.AddWithValue("p_PointsEarned", int.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
-                    cmdThrow.Connection.Open();
-                    cmdThrow.Connection.Close();
+                    cmdUpdate.Parameters.AddWithValue("p_QuestionTakenID", int.Parse(((Label)e.Item.FindControl("hdnQuestionTakenID")).Text));
+                    cmdUpdate.Parameters.AddWithValue("p_PointsEarned", int.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
+                    cmdUpdate.Connection.Open();
+                    cmdUpdate.ExecuteNonQuery();
+                    cmdUpdate.Connection.Close();
+
                     break;
             }
             
