@@ -27,7 +27,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     <!-- Disabled for sessionIDs
  WHERE teacher_id = :session_id">
                     <SelectParameters>
-                        <asp:SessionParameter Name="session_id" SessionField="UserID" />
+                        <asp:SessionParameter Name="session_id" SessionField="UserID"/>
                     </SelectParameters>
                 </asp:SqlDataSource> -->
                 <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="True" DataSourceID="sqlTeacherClasses" DataTextField="section_title" AutoPostBack="true" DataValueField="section_id" OnSelectedIndexChanged="ddlUserSelect_SelectedIndexChanged">
