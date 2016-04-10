@@ -31,9 +31,9 @@ namespace QuestWebApp.Pages
             catch (NullReferenceException)
             {
                 Response.Redirect("login.aspx");
-            }
+            } */
             GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
-            */ 
+
         }
 
         protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -41,11 +41,12 @@ namespace QuestWebApp.Pages
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 TableCellCollection cell = e.Row.Cells;
-                cell[0].Attributes.Add("data-title", "Code");
-                cell[1].Attributes.Add("data-title", "Title");
-                cell[2].Attributes.Add("data-title", "Section Number");
-                cell[3].Attributes.Add("data-title", "Last Name");
-                cell[4].Attributes.Add("data-title", "Delete");
+                cell[0].Attributes.Add("data-title", "Edit");
+                cell[1].Attributes.Add("data-title", "Code");
+                cell[2].Attributes.Add("data-title", "Title");
+                cell[3].Attributes.Add("data-title", "Section Number");
+                cell[4].Attributes.Add("data-title", "Last Name");
+                cell[5].Attributes.Add("data-title", "Delete");
             }
         }
 
@@ -70,6 +71,36 @@ END;",
 
             cmdDeleteClass.Connection.Close();
             GVClass.DataBind();
+        }
+
+        protected void btnSortUsers_Click(object sender, EventArgs e)
+        {
+            {
+                SortDirection direction;
+                string sortBy = null;
+
+                if (ddlSortDirection.SelectedIndex == 0)
+                {
+                    direction = SortDirection.Ascending;
+                }
+                else
+                    direction = SortDirection.Descending;
+
+                switch (ddlSortBy.SelectedIndex)
+                {
+                    case 0:
+                        sortBy = "code";
+                        break;
+                    case 1:
+                        sortBy = "title";
+                        break;
+                    case 2:
+                        sortBy = "full_name";
+                        break;
+                }
+
+                GVClass.Sort(sortBy, direction);
+            }
         }
     }
 }

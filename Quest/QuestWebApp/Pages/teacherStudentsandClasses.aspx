@@ -38,6 +38,31 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     </div>
     </div>
     <br />
+
+     <div class="mdl-card mdl-shadow--3dp demo-card-wide sortButton" style="width: 70%; left: 17%">
+        <div class="mdl-card__supporting-text" style="text-align: center; width: 100%;">
+            <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
+                <label style="padding-left: 1%;">Sort By:</label>
+                <asp:DropDownList ID="ddlSortBy" runat="server" class="mdl-textfield__input" DataTextField="Sort By">
+                    <asp:ListItem Value="Email"></asp:ListItem>
+                    <asp:ListItem Value="Full Name"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
+                <asp:DropDownList ID="ddlSortDirection" runat="server" class="mdl-textfield__input">
+                    <asp:ListItem Value="Ascending"></asp:ListItem>
+                    <asp:ListItem Value="Descending"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <br />
+            <asp:LinkButton ID="btnSortUsers" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-button--colored" BackColor="#FF6E40" ForeColor="White" runat="server" OnClick="btnSortUsers_Click">
+           Sort
+            </asp:LinkButton>
+        </div>
+        <%--Link http://ngenioussolutions.com/blog/responsive-gridview-for-mobile-phone-tablet-and-desktop-display-in-asp-net/--%>
+    </div>
+
+    <br />
     <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="float: none; width: 70%; left: 17%;">
         <div class="mdl-card__supporting-text" style="text-align: center; width:100%;">
             <h1>Students</h1>
