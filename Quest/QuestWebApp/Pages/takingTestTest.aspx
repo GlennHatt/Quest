@@ -73,6 +73,14 @@
                 </div>
 
                 <div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect">0:00</div>
+
+                <!-- Simple MDL Progress Bar -->
+<div id="p1" class="mdl-progress mdl-js-progress" style="top: -57px;" ></div>
+<script>
+  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(44);
+  });
+</script>
             </div>
 
 
