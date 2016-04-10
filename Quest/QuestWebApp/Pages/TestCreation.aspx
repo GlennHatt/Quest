@@ -26,7 +26,7 @@
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
        JOIN class c USING (class_id)"></asp:SqlDataSource>
- <!-- Commented out for test (it selects only sections that pertain to that teacher)
+ <!--Commented out for test (it selects only sections that pertain to that teacher)
      WHERE teacher_id = :session_id">
         <SelectParameters>
             <asp:SessionParameter Name="enter_id" SessionField="UserID" />
