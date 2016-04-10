@@ -59,7 +59,9 @@
 
                 .demo-card-wide > .mdl-card__titleQuest {
                     height: 400px;
-                    background: url('../Assets/Images/quest.png') center / cover;
+                    background: url('../Assets/Images/quest.png') center / cover  no-repeat;
+                    background-size:contain;
+                    
                 }
 
                 .demo-card-wide > .mdl-card__RPG {

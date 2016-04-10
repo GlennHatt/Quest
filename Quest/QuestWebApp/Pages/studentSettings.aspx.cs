@@ -113,7 +113,7 @@ END;", connectionString);
             cmdEmailInsert.Parameters.AddWithValue("p_EmailUsername", tbStudentLogin.Text);
             cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
             cmdEmailInsert.Connection.Open();
-            cmdEmailInsert.ExecuteNonQuery();
+            cmdEmailInsert.ExecuteNonQuery(); ;
             cmdEmailInsert.Connection.Close();
             Response.Redirect(Request.RawUrl);
         }
