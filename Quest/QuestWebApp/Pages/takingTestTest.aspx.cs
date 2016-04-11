@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuestWebApp.App_Code;
 using System.Web.UI.HtmlControls;
+using System.Web.Services;
 
 namespace QuestWebApp.Pages
 {
@@ -266,5 +267,15 @@ END;", connectionString);
         {
 
         }
-    }
+
+      [WebMethod] // WebMethod is requiered for any thing being called by AJAX
+      public static void TestTimeOut() // The static will cause issues if you arn't carful. It has to be static.
+      {
+         // ToDo. When the test times out, call the btnSubmitTest_Click function.
+         // Call it with an empty object, and EventArgs
+         // btnSubmitTest_Click(new object, new EventArgs);
+         // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
+         // if that's the case... we are going to duplicate the code.
+      }
+   }
 }

@@ -271,6 +271,24 @@ SELECT choice_id, choice_text
         window.onbeforeunload = function () {
             return "Are you sure you want to end the test?";
         }
+
+        // Found this code here http://stackoverflow.com/questions/18441194/how-to-call-a-c-sharp-function-from-javascript
+        // I have a general idea of what is happening though.
+        /*function EndTest() { // Can be changed.    
+           $.ajax({ // This is an AJAX call because it's the only good way to call C# with out a post back. All this stuff is just set up, don't change it.
+               type: "POST",
+               url: 'takingTestTest.aspx/TestTimeOut',
+               data: "",
+               contentType: "application/json; charset=utf-8",
+               dataType: "json",
+               success: function (msg) {
+                   $("#divResult").html("success");
+               },
+               error: function (e) {
+                   $("#divResult").html("Something Wrong.");
+               }
+           });*/
+       }
     </script>
 </asp:Content>
 
