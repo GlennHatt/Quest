@@ -72,7 +72,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                 </asp:SqlDataSource>
          <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">      
-                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" >
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand" >
                     <ItemTemplate>
                         <div class="mdl-cell mdl-cell--4-col" id="testAlertTemplate" runat="server">
                         <div class="mdl-card mdl-shadow--3dp  demo-card-square">
@@ -88,7 +88,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                             </div>
                             <div style="text-align: right">
                                 <br />
-                                <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                                <asp:LinkButton ID="btnTaketest" CommandName="lstStudentTestsLnkBtnClick" CommandArgument='<%#Bind("test_id") %>' runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
                                     Take Test
                                 </asp:LinkButton>
                             </div>

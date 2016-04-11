@@ -41,6 +41,17 @@ namespace QuestWebApp.Pages
                 lblStudentGreeting.Text = "Good Evening";
             }
         }
+
+      private void lstStudentTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+      {
+         switch (e.CommandName)
+         {
+            case "lstStudentTestsLnkBtnClick":
+               Session["TestID"] = e.CommandArgument;
+               Response.Redirect("takingTestTest");
+               break;
+         }
+      }
     }
 
 
