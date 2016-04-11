@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuestWebApp.App_Code;
 using System.Web.UI.HtmlControls;
+using System.Drawing;
 
 namespace QuestWebApp.Pages
 {
@@ -50,6 +51,7 @@ SELECT time_limit
                     reader.Close();
                 }
                 cmdGetTime.Connection.Close();
+
             }
 
 
@@ -172,6 +174,13 @@ SELECT time_limit
 
         protected void lstQuestions_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+
+            // Bring to attention questions with no points (i.e. Essay)
+            if (((TextBox)e.Item.FindControl("txtPointsEarned")).Text == String.Empty)
+            {
+                ((Button)e.Item.FindControl("btnUpdatePoints")).BackColor = Color.Red;
+            }
+
             switch (((HiddenField)e.Item.FindControl("hdnQuestionType")).Value)
             {
                 case "E":
@@ -212,6 +221,7 @@ SELECT time_limit
 
                     ((RadioButtonList)e.Item.FindControl("rblTFAnswer")).SelectedValue = answer;
                     break;
+
             }
             if (Session["cardsLarge"].ToString() == "true")
             {
@@ -266,7 +276,7 @@ SELECT time_limit
 BEGIN
   questions_taken.dropQuestion(:p_QuestionID);
 END;", connectionString);
-                    cmdThrow.Parameters.AddWithValue("p_QuestionID", int.Parse(((Label)e.Item.FindControl("hdnQuestionID")).Text));
+                    cmdThrow.Parameters.AddWithValue("p_QuestionID", int.Parse(((HiddenField)e.Item.FindControl("hdnQuestionID")).Value));
                     cmdThrow.Connection.Open();
                     cmdThrow.ExecuteNonQuery();
                     cmdThrow.Connection.Close();
@@ -278,7 +288,7 @@ END;", connectionString);
 BEGIN
   questions_taken.changePointsEarned(:p_QuestionTakenID, :p_PointsEarned);
 END;", connectionString);
-                    cmdUpdate.Parameters.AddWithValue("p_QuestionTakenID", int.Parse(((Label)e.Item.FindControl("hdnQuestionTakenID")).Text));
+                    cmdUpdate.Parameters.AddWithValue("p_QuestionTakenID", int.Parse(((HiddenField)e.Item.FindControl("hdnQuestionTakenID")).Value));
                     cmdUpdate.Parameters.AddWithValue("p_PointsEarned", int.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
                     cmdUpdate.Connection.Open();
                     cmdUpdate.ExecuteNonQuery();

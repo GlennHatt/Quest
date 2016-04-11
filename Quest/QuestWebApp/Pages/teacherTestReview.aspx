@@ -71,8 +71,8 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                             <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
                             <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="hdnQuestionID" Text='<%# Eval("question_id") %>' runat="server" />
-                                <asp:Label ID="hdnQuestionTakenID" Text='<%# Eval("question_taken_id") %>' runat="server" />
+                                <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
+                                <asp:HiddenField ID="hdnQuestionTakenID" Value='<%# Eval("question_taken_id") %>' runat="server" />
                                 <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>'  runat="server" />
                                 <asp:Label ID="lblPointsEarned" Text="Points Earned: " runat="server" />
                                 <asp:TextBox ID="txtPointsEarned" Width="25px" Text='<%# Eval("points_earned") %>' runat="server" />
