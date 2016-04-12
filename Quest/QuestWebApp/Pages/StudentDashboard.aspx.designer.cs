@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class StudentDashboard {
+    public partial class studentDash {
         
         /// <summary>
         /// lblStudentGreeting control.

@@ -199,6 +199,7 @@
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\forgotPassword.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
+    <Content Include="Pages\studentDashboard.aspx" />
     <Content Include="Pages\studentHelp.aspx" />
     <Content Include="Pages\studentPreTest.aspx" />
     <Content Include="Pages\studentScores.aspx" />
@@ -219,7 +220,6 @@
     <Content Include="Pages\classesList.aspx" />
     <Content Include="Pages\endUserList.aspx" />
     <Content Include="Pages\pledgePage.aspx" />
-    <Content Include="Pages\studentDashboard.aspx" />
     <Content Include="Pages\studentTeachersandClasses.aspx" />
     <Content Include="Pages\teacherDashboard.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -420,19 +420,19 @@
     <Compile Include="Pages\questionCreation.aspx.designer.cs">
       <DependentUpon>questionCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\studentDashboard.aspx.cs">
-      <DependentUpon>StudentDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\studentDashboard.aspx.designer.cs">
-      <DependentUpon>studentDashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\studentDashboard.aspx.cs">
+      <DependentUpon>studentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\studentDashboard.aspx.designer.cs">
+      <DependentUpon>studentDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\studentHelp.aspx.cs">
       <DependentUpon>studentHelp.aspx</DependentUpon>

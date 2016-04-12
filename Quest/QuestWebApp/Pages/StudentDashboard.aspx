@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentDashboard.aspx.cs" Inherits="QuestWebApp.Pages.StudentDashboard" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentDashboard.aspx.cs" Inherits="QuestWebApp.Pages.studentDash" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="studentBreadCrumb" runat="server">
 </asp:Content>
@@ -60,7 +60,8 @@
                     }
                 </style>
                 <asp:SqlDataSource ID="sqlStudentTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_limit
+SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
+       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date, 'Time Limit: ' || time_limit || ' Minutes' AS time_limit
   FROM test t
        JOIN section s USING (section_id)
        JOIN enrollment e USING (section_id)
@@ -72,7 +73,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                 </asp:SqlDataSource>
          <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">      
-                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand">
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand1">
                     <ItemTemplate>
                         <div class="mdl-cell mdl-cell--4-col" id="testAlertTemplate" runat="server">
                         <div class="mdl-card mdl-shadow--3dp  demo-card-square">
@@ -80,10 +81,10 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                                 <i class="material-icons testAlert">assignment_late</i>
                                 <div style="font-size: 300%; margin-bottom: 7%; margin-top: 5%;">Test Due:</div>
                                 <div style="font-size: 150%;">
-                                <asp:Label ID="lblTestSubject" runat="server" Text='<%# "Class: " + Eval("class_title") %>'></asp:Label> <br /> <br />
-                                <asp:Label ID="lblTestTitle" runat="server" Text='<%# "Test Name: " + Eval("test_title") %>'></asp:Label><br /> <br />
-                                <asp:Label ID="lblTestDate" runat="server" Text='<%# " Due Date: " + Eval("due_date") %>'></asp:Label><br /> <br />
-                                <asp:Label ID="lblTestTime" runat="server" Text='<%# " Time Limit: " + Eval("time_limit") + " Minutes" %>'></asp:Label><br /> <br />
+                                <asp:Label ID="lblTestSubject" runat="server" Text='<%# Eval("class_title") %>'></asp:Label> <br /> <br />
+                                <asp:Label ID="lblTestTitle" runat="server" Text='<%# Eval("test_title") %>'></asp:Label><br /> <br />
+                                <asp:Label ID="lblTestDate" runat="server" Text='<%# Eval("due_date") %>'></asp:Label><br /> <br />
+                                <asp:Label ID="lblTestTime" runat="server" Text='<%# Eval("time_limit") %>'></asp:Label><br /> <br />
                                 </div>
                             </div>
                             <div style="text-align: right">
