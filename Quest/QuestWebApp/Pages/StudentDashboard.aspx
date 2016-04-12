@@ -67,7 +67,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
        JOIN class c      USING (class_id)
  WHERE student_id = :p_StudentID">
                     <SelectParameters>
-                        <asp:SessionParameter Name="p_StudentID" SessionField="UserID" />
+                        <asp:SessionParameter Name="p_StudentID" SessionField="UserID"/>
                     </SelectParameters>
                 </asp:SqlDataSource>
          <main class="mdl-layout__content">
