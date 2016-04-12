@@ -30,13 +30,14 @@
             </div>
 
             <div class="button login" style="text-align: center;">
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" style="color:white" OnClick="loginButton_Click" />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" ForeColor="White" OnClick="loginButton_Click" />
                 <br />
                 <div style="text-align: center; font-size:13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
             </div>
             <br />
-            <a href="forgetPassword.aspx" style="text-align: right; margin-top: 104px; font-size: 13px;">Forget Your Password?</a>
+            <asp:LinkButton runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; bottom: 18px; width: 157px;" Text="Forget Password?" Onclick="btnbackToLogin_Click">
+    </asp:LinkButton>
         </div>
     </div>
     <div style="position: absolute; bottom: 38px; width: 320px; right: 0px; color: white; font-size: 34px; font-family: 'Quicksand', sans-serif; font-weight: bold">

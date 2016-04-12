@@ -1,18 +1,19 @@
-﻿<%@ Page Title=" Forget Password" Language="C#" MasterPageFile="~/Master-Pages/withSidebar.master" AutoEventWireup="true" CodeBehind="forgetPassword.aspx.cs" Inherits="QuestWebApp.Pages.forgetPassword" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="breadCrumb" runat="server">
+﻿<%@ Page Title="Forgotten Password" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="forgotPassword.aspx.cs" Inherits="QuestWebApp.Pages.forgotPassword" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="extraReferances" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="withoutSidebarExtraReferances" runat="server">
 
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link href="../Assets/Styles/dialog.css" rel="stylesheet" />
 
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
+    <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; bottom: 18px; width: 157px;" Text="Back To Login" Onclick="btnbackToLogin_Click">
+    </asp:Button>
 
     <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width: 60%; margin-left: 20%; height: 550px;">
 
@@ -67,14 +68,14 @@
                 <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="background-color: rgb(76,175,80); color: white;" runat="server" OnClick="btnSendMessage_Click">
                             <i class="material-icons">done</i>
                 </asp:LinkButton>
+                </div>
             </div>
         </div>
-    </div>
 
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="pageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
 
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/modernizr.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/dialog.js"></script>

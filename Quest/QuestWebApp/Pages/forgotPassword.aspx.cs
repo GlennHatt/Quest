@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
 {
-    public partial class forgetPassword : System.Web.UI.Page
+    public partial class forgotPassword : System.Web.UI.Page
     {
         bool showMessage;
         protected void Page_Load(object sender, EventArgs e)
@@ -64,6 +64,11 @@ namespace QuestWebApp.Pages
 
 
             smtpClient.Send(mail);
+        }
+
+        protected void btnbackToLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:52416/Pages/login.aspx");
         }
     }
 }

@@ -72,7 +72,7 @@ SELECT test_id, t.title AS test_title, c.title AS class_title, due_date, time_li
                 </asp:SqlDataSource>
          <main class="mdl-layout__content">
                     <div class="content-grid mdl-grid">      
-                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand" >
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand">
                     <ItemTemplate>
                         <div class="mdl-cell mdl-cell--4-col" id="testAlertTemplate" runat="server">
                         <div class="mdl-card mdl-shadow--3dp  demo-card-square">

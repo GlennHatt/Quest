@@ -18,9 +18,11 @@
 
 </head>
 <body>
+    <form runat="server">
     <!-- Accent-colored raised button with ripple -->
-    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnbackToLogin" href="http://localhost:52416/Pages/login.aspx" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px">Back to Login
-    </a>
+    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; top: 1px; width: 157px;" Text="Back To Login" OnClick="btnbackToLogin_Click">
+    </asp:LinkButton>
+
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
             <a href="#starks-panel" class="mdl-tabs__tab is-active">Quest Testing Center</a>
@@ -402,6 +404,8 @@
             </div></section>
             </div>
         </div>
+
+    </form>
 </body>
       <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../Assets/JS/AboutusJS.js"></script>

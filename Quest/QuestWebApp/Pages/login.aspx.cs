@@ -115,5 +115,10 @@ SELECT permission_level
         {
             Response.Redirect("AboutUsPage.aspx");
         }
+
+        protected void btnbackToLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("http://localhost:52416/Pages/forgotPassword.aspx");
+        }
     }
 }

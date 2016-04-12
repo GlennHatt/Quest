@@ -49,6 +49,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label answer;
         
         /// <summary>
+        /// btnbackToLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnbackToLogin;
+        
+        /// <summary>
         /// Discover control.
         /// </summary>
         /// <remarks>
