@@ -111,13 +111,13 @@
         <div class="content-grid mdl-grid">
             <br />
             <br />
-            <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT q.question_id, weight, type,
-       e.question_text AS essay_question,
+            <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="        
+SELECT q.question_id, weight, type, test_order,
+       e.question_text AS essay_question, 
        m.question_text AS matching_question,
        mc.question_text AS multiple_choice_question, mc.choice_id AS multiple_choice_answer,
        tf.question_text AS true_false_question,      tf.answer    AS true_false_answer,
-       before_text, after_text, sa.answer AS short_answer_answer
+       before_text, after_text, sa.answer AS short_answer_answer, row_number() over(order by test_order) seq 
   FROM question q
        LEFT OUTER JOIN question_essay           e  ON (q.question_id = e.question_id  AND q.type = 'E')
        LEFT OUTER JOIN question_matching        m  ON (q.question_id = m.question_id  AND q.type = 'M')
@@ -126,7 +126,8 @@ SELECT q.question_id, weight, type,
        LEFT OUTER JOIN question_true_false      tf ON (q.question_id = tf.question_id AND q.type = 'TF')
  WHERE test_id = :p_TestID
        AND type != 'M'
- ORDER BY test_order">
+ ORDER BY test_order
+ ">
                 <SelectParameters>
                     <asp:SessionParameter SessionField="TestID" Name="p_TestID" />
                 </SelectParameters>
@@ -153,8 +154,12 @@ SELECT q.question_id, weight, type,
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center" id="divQuestion">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    
                                     <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
                                     <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>' runat="server" />
+                                    <asp:Label ID="Label1" runat="server" Text='Question Number:' />
+                                    <asp:Label ID="lblQuestionNum" Value='<%# Eval("seq") %>' runat="server" Text='<%#Eval("seq") %>' />
+                                    <br />
                                     <asp:Label ID="lblDispWeight" runat="server" Text="Point Value: "></asp:Label>
                                     <asp:Label ID="lblWeight" Text='<%# Eval("weight") %>' runat="server" />
                                 </div>
@@ -163,7 +168,7 @@ SELECT q.question_id, weight, type,
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divE">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input" />
+                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input" OnTextChanged="questionChanged" />
                                 </div>
                             </div>
                             <!-- Matching -->
