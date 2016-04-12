@@ -29,11 +29,15 @@
             </asp:RadioButtonList>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: center;">
                 <label style="padding-left: 1%;">Users:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="true"> 
-                    <asp:ListItem Text="cat"> </asp:ListItem>
-                    <asp:ListItem Text="dog"> </asp:ListItem>
-
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="True" DataSourceID="sqlUsers" DataTextField="FULL_NAME" DataValueField="USER_ID"> 
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="sqlUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT F_NAME || ' ' || L_NAME as FULL_NAME, user_id
+  FROM end_user
+ WHERE permission_level = :permission">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="rblTypeUser" Name="permission" PropertyName="SelectedValue" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 </div> 
             </div>
     </div>
