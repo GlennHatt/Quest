@@ -184,21 +184,6 @@
 
                     </div>
                 </div>
-                <!-- A/V card -->
-                <div class="mdl-card mdl-shadow--3dp  featureCard">
-                    <div class="mdl-card__title">
-                    </div>
-                    <div class=" " style="text-align: center">
-                        <i class="material-icons noTest" style="font-size: 800%;">volume_up</i>
-                        <i class="material-icons noTest" style="font-size: 800%;">photo</i>
-                        <div style="font-size: 100%; margin-top: 5%">All-new audio and visual based questions.</div>
-
-                    </div>
-                    <div style="text-align: right">
-                        <br />
-
-                    </div>
-                </div>
             </div>
 
             <!-- end feature cards -->
