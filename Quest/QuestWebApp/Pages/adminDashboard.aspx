@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Home" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
+﻿  <%@ Page Title="Admin | Home" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -24,7 +24,9 @@ BEGIN
     p_LName           =&gt; :p_LName,
     p_PermissionLevel =&gt; :p_PermissionLevel);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER">
+        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
+  FROM END_USER">
         <InsertParameters>
             <asp:Parameter />
             <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Username" PropertyName="Text" />
@@ -91,7 +93,6 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtbxTeacherFirstName" ErrorMessage="Please enter first name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
-                            
                         </div>
                                 
                                

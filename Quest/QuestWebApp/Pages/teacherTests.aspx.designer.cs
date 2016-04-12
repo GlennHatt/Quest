@@ -22,6 +22,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
         
         /// <summary>
+        /// sqlTeacherClasses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacherClasses;
+        
+        /// <summary>
         /// rblTypeTest control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlStudentsSelect;
+        
+        /// <summary>
+        /// sqlSectionStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlSectionStudents;
         
         /// <summary>
         /// btnViewTest control.

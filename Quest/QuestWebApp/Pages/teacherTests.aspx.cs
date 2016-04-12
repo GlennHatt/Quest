@@ -11,7 +11,18 @@ namespace QuestWebApp.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["UserID"] == null)
+                {
+                    Session["UserID"] = 1;
+                }
+            }
+        }
 
+        protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlStudentsSelect.DataBind();
         }
     }
 }

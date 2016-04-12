@@ -16,8 +16,17 @@
             <!-- Textfield with Floating DropDown for classes -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: center;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server"> 
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlTeacherClasses" DataTextField="FULL_NAME" DataValueField="SECTION_ID" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged" AutoPostBack="true"> 
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT code || '-' || section_number || '/' || title as FULL_NAME, section_id
+  FROM section
+  JOIN class USING (class_id)
+ WHERE teacher_id = :teacherID">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="teacherID" SessionField="UserID" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
                 </div> 
             <asp:RadioButtonList ID="rblTypeTest" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
                 <asp:ListItem Text="Live Test" Value="L" />
@@ -45,8 +54,18 @@
             <!-- Textfield with Floating DropDown for students -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Students:</label>
-                <asp:DropDownList ID="ddlStudentsSelect" class="mdl-textfield__input" runat="server">
+                <asp:DropDownList ID="ddlStudentsSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlSectionStudents" DataTextField="FULL_NAME" DataValueField="USER_ID">
                 </asp:DropDownList>
+                <asp:SqlDataSource ID="sqlSectionStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT f_name || ' ' || l_name as full_name, user_id
+  FROM section
+  JOIN enrollment USING (section_id)
+  JOIN end_user   ON (student_id = user_id)
+ WHERE section_id = :section_id">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="ddlClassSelect" Name="section_id" PropertyName="SelectedValue" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
             <br />
             <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test"/>
