@@ -158,10 +158,9 @@ select *
                     </div>
                     <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click" ForeColor="White">
-                            <i class="material-icons">add</i>
-                        </asp:LinkButton>
-                        <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_Click" />
+                        <%--<asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click" ForeColor="White">
+                        </asp:LinkButton>--%>
+                        <asp:Button ID="Button3" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ForeColor="White" runat="server" Text="add" OnClick="Button3_Click"></asp:Button>
                     </div>
                 </div>
 

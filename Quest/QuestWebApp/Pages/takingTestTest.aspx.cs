@@ -230,7 +230,7 @@ END;", connectionString);
                 btnSmall.Attributes.Add("disabled", "true");
             }
             questionCount++;
-            btnSaveTest.Text = questionCount.ToString();
+            //btnSaveTest.Text = questionCount.ToString();
       }
 
         protected void myTest_Click(object sender, EventArgs e)
@@ -272,14 +272,15 @@ END;", connectionString);
         }
 
       [WebMethod] // WebMethod is requiered for any thing being called by AJAX
-      public static void TestTimeOut() // The static will cause issues if you arn't carful. It has to be static.
+      public static string TestTimeOut() // The static will cause issues if you arn't carful. It has to be static.
       {
-         // ToDo. When the test times out, call the btnSubmitTest_Click function.
-         // Call it with an empty object, and EventArgs
-         // btnSubmitTest_Click(new object, new EventArgs);
-         // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
-         // if that's the case... we are going to duplicate the code.
-      }
+            // ToDo. When the test times out, call the btnSubmitTest_Click function.
+            // Call it with an empty object, and EventArgs
+            // btnSubmitTest_Click(new object, new EventArgs);
+            // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
+            // if that's the case... we are going to duplicate the code.
+            return "Called!";
+        }
 
         protected void questionChanged(object sender, EventArgs e)
         {
