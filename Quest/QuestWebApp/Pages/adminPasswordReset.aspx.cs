@@ -21,6 +21,7 @@ namespace QuestWebApp.Pages
         protected void ddlClassSelect_SelectedIndexChanged1(object sender, EventArgs e)
         {
             cardUpdatePassword.Visible = true;
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
         }
 
         protected void updatePassword_Click(object sender, EventArgs e)
@@ -28,8 +29,7 @@ namespace QuestWebApp.Pages
             OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
   end_users.changePassword
-    (p_EndUserID =&gt; :p_EndUserID, 
-     p_Password  =&gt; :p_Password);
+    (:p_EndUserID, :p_Password);
 END;",
                              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdChangePassword.Parameters.AddWithValue("p_EndUserID", ddlClassSelect.SelectedValue);
@@ -39,6 +39,7 @@ END;",
             cmdChangePassword.Connection.Open();
             cmdChangePassword.ExecuteNonQuery();
             cmdChangePassword.Connection.Close();
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
         }
     }
 }
