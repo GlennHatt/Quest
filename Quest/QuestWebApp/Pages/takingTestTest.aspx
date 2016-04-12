@@ -13,7 +13,8 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
-
+    <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true">
+                </asp:ScriptManager>
     <!-- begin timer -->
 
     <div class="wrapper">
@@ -101,14 +102,14 @@
 
     <!-- end timer -->
     <div class="mdl-card mdl-card-sizing">
-        <div class="mdl-card__supporting-text" style="text-align: center; width: 100%;">
+        <div class="mdl-card__supporting-text" style="text-align: center;">
             Question Card Sizing:<br />
             <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
             <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
         </div>
     </div>
     <main class="mdl-layout__content" style="width: 100%;">
-        <div class="content-grid mdl-grid">
+        <div class="content-grid mdl-grid" style="width: 99.4%;">
             <br />
             <br />
             <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="        
@@ -225,6 +226,7 @@ SELECT choice_id, choice_text
             </div>
 
         </div>
+        <label id="myLabel"></label>
     </main>
 
     <!-- This the code construction zone. Code may or may not be needed in this section-->
@@ -261,7 +263,6 @@ SELECT choice_id, choice_text
     <script src="../Assets/JS/timer/alarm.js"></script>
     <script src="../Assets/JS/timer/timerjs2.js"></script>
     <script src="../Assets/JS/testTaking.js"></script>
-
     <script>
         //document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
         document.getElementById('btnResetTimer').click();
@@ -277,23 +278,36 @@ SELECT choice_id, choice_text
             return "Are you sure you want to end the test?";
         }
 
+        EndTest();
+
         // Found this code here http://stackoverflow.com/questions/18441194/how-to-call-a-c-sharp-function-from-javascript
         // I have a general idea of what is happening though.
-        /*function EndTest() { // Can be changed.    
-           $.ajax({ // This is an AJAX call because it's the only good way to call C# with out a post back. All this stuff is just set up, don't change it.
-               type: "POST",
-               url: 'takingTestTest.aspx/TestTimeOut',
-               data: "",
-               contentType: "application/json; charset=utf-8",
-               dataType: "json",
-               success: function (msg) {
-                   $("#divResult").html("success");
-               },
-               error: function (e) {
-                   $("#divResult").html("Something Wrong.");
-               }
-           });*/
-       //}
+       // function EndTest() { // Can be changed.    
+       //    $.ajax({ // This is an AJAX call because it's the only good way to call C# with out a post back. All this stuff is just set up, don't change it.
+       //        type: "POST",
+       //        url: 'takingTestTest.aspx/TestTimeOut',
+       //        data: "",
+       //        contentType: "application/json; charset=utf-8",
+       //        dataType: "json",
+       //        success: function (msg) {
+       //            $("#myLabel").html("success");
+       //        },
+       //        error: function (e) {
+       //            $("#myLabel").html("Something Wrong.");
+       //        }
+       //    });
+        //}
+
+      //var myString = PageMethods.TestTimeOut(succeed(), fail());
+
+      //  function succeed() {
+      //      myLabel.innerHTML = "success";
+      //  }
+
+      //  function fail()
+      //  {
+      //      myLabel.innerHTML = "fail";
+      //  }
     </script>
 </asp:Content>
 
