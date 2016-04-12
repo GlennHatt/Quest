@@ -33,28 +33,27 @@ var timerClock = $(".container.timer").find(".clock"),
 //        localStorage.lastTimerTime = newTime;
 //        timerClock.text(returnFormattedToSeconds(timerTime));
 //    }
-    
+
 //});
 
-function setTime (time)
-{
-    
+function setTime(time) {
 
-        var newTime = time;
 
-        if (newTime && newTime >= 0) {
-            timerTime = newTime * 60;
-            localStorage.lastTimerTime = newTime;
-            timerClock.text(returnFormattedToSeconds(timerTime));
-        }
+    var newTime = time;
 
-        console.log("test");
-        
-    
+    if (newTime && newTime >= 0) {
+        timerTime = newTime * 60;
+        localStorage.lastTimerTime = newTime;
+        timerClock.text(returnFormattedToSeconds(timerTime));
+    }
+
+    console.log("test");
+
+
 }
 
-$('.timer-btn.start').on('click',function(){
-    if(timerTime>0) {
+$('.timer-btn.start').on('click', function () {
+    if (timerTime > 0) {
         startTimer();
     }
 });
@@ -75,14 +74,14 @@ timerSoundsButton.on('change', function () {
 
 // Clicking on the clock.
 
-timerClock.on('click',function(e){
+timerClock.on('click', function (e) {
 
-    if(timerClock.hasClass('inactive')){
-        if(timerTime>0) {
+    if (timerClock.hasClass('inactive')) {
+        if (timerTime > 0) {
             startTimer();
         }
     }
-    else{
+    else {
         pauseTimer();
     }
 
@@ -99,7 +98,7 @@ function startTimer() {
         timerClock.text(returnFormattedToSeconds(timerTime));
 
         if (timerTime <= 0) {
-            if(localStorage.timerSounds == 'true'){
+            if (localStorage.timerSounds == 'true') {
                 alarmSound.play();
             }
 
@@ -116,7 +115,7 @@ function startTimer() {
 }
 
 
-function pauseTimer(){
+function pauseTimer() {
     clearInterval(timerInterval);
 
     timerInput.prop('disabled', false);
@@ -125,7 +124,7 @@ function pauseTimer(){
 
 // Reset the clock with the previous valid time.
 // Useful for setting the same alarm over and over.
-function resetTimer(){
+function resetTimer() {
     pauseTimer();
 
     //if(Number(localStorage.lastTimerTime)){
@@ -137,7 +136,7 @@ function resetTimer(){
 
 // Dismissing alarm sounds from the modal.
 
-$('.dismiss-alarm-sounds').on('click', function(){
+$('.dismiss-alarm-sounds').on('click', function () {
     alarmSound.pause();
     alarmSound.currentTime = 0;
 
@@ -145,7 +144,7 @@ $('.dismiss-alarm-sounds').on('click', function(){
 });
 
 
-function returnFormattedToSeconds(time){
+function returnFormattedToSeconds(time) {
     var minutes = Math.floor(time / 60),
         seconds = Math.round(time - minutes * 60);
 
@@ -165,6 +164,6 @@ function returnFormattedToSeconds(time){
 
 window.onload = function () {
     //if ('<%=Session["UserName"] %>' != null)
-        //setTime('<%=Session["UserName"] %>');
+    //setTime('<%=Session["UserName"] %>');
 }
 

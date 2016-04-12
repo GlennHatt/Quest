@@ -288,7 +288,7 @@ SELECT choice_id, choice_text
                    $("#divResult").html("Something Wrong.");
                }
            });*/
-       }
+       //}
     </script>
 </asp:Content>
 
