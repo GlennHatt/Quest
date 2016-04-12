@@ -16,6 +16,7 @@ namespace QuestWebApp.Pages
    public partial class takingTestTest : System.Web.UI.Page
    {
         bool cardsLarge;
+        int questionCount = 0;
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -228,6 +229,8 @@ END;", connectionString);
                 btnSmall.Enabled = false;
                 btnSmall.Attributes.Add("disabled", "true");
             }
+            questionCount++;
+            btnSaveTest.Text = questionCount.ToString();
       }
 
         protected void myTest_Click(object sender, EventArgs e)
@@ -277,5 +280,10 @@ END;", connectionString);
          // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
          // if that's the case... we are going to duplicate the code.
       }
-   }
+
+        protected void questionChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }

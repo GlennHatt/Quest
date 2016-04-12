@@ -31,6 +31,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlClassSelect;
         
         /// <summary>
+        /// sqlUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlUsers;
+        
+        /// <summary>
         /// cardUpdatePassword control.
         /// </summary>
         /// <remarks>

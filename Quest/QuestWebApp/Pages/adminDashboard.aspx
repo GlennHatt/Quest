@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Home" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
+﻿  <%@ Page Title="Admin | Home" Language="C#"  MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -24,11 +24,13 @@ BEGIN
     p_LName           =&gt; :p_LName,
     p_PermissionLevel =&gt; :p_PermissionLevel);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER">
+        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
+  FROM END_USER">
         <InsertParameters>
             <asp:Parameter />
             <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Username" PropertyName="Text" />
-            <asp:ControlParameter ControlID="txtbxTeacherConfirmPassword" Name="p_Password" PropertyName="Text" />
+            <asp:ControlParameter ControlID="txtbxTeacherPassword" Name="p_Password" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherLastName" Name="p_LName" PropertyName="Text" />
             <asp:ControlParameter ControlID="ddlUserSelect" Name="p_PermissionLevel" PropertyName="SelectedValue" />
@@ -50,14 +52,16 @@ END;"
     </asp:SqlDataSource> 
     <asp:SqlDataSource ID="sqlSection" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" InsertCommand="
 declare
-v_dummy pls_integer;
+    v_dummy pls_integer;
 begin
-v_dummy := sections.add(
-    p_TeacherID =&gt; :p_TeacherID,
-    p_ClassID =&gt; :p_ClassID,
-    p_Semester =&gt; :p_Semester,
-    p_SectionNumber =&gt; :p_SectionNumber);
-end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="select * from section">
+    v_dummy := sections.add(
+        p_TeacherID =&gt; :p_TeacherID,
+        p_ClassID =&gt; :p_ClassID,
+        p_Semester =&gt; :p_Semester,
+        p_SectionNumber =&gt; :p_SectionNumber);
+end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+select * 
+  from section">
         <InsertParameters>
             <asp:ControlParameter ControlID="ddlTeacher" Name="p_TeacherID" PropertyName="SelectedValue" />
             <asp:ControlParameter ControlID="ddlCourses" Name="p_ClassID" PropertyName="SelectedValue" />
@@ -91,7 +95,6 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                             <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtbxTeacherFirstName" ErrorMessage="Please enter first name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
-                            
                         </div>
                                 
                                
@@ -116,9 +119,12 @@ end;" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCo
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Password:</label>
                             <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
                                                             <!-- Multiline Tooltip -->
- <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
-<div class="mdl-tooltip" for="helpIconPass">
-Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upper-case letter, <br /> and 1 lower-case letter
+                        <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
+                        <div class="mdl-tooltip" for="helpIconPass">
+                            Password must be 8-15 characters long,
+                                <br>contain at least 1 number, 
+                                <br />1 upper-case letter, 
+                                <br /> and 1 lower-case letter
                         </div>
 
 
@@ -155,6 +161,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         <asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click" ForeColor="White">
                             <i class="material-icons">add</i>
                         </asp:LinkButton>
+                        <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_Click" />
                     </div>
                 </div>
 
@@ -175,17 +182,17 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Code: (AA ###)</label>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
+                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="valCourseNumRegex" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxCourseNumber" ErrorMessage="Invalid course number" ValidationExpression="[A-Z]{2} [1-9]{3}"></asp:RegularExpressionValidator>
-                            <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>
+                            <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>-->
                         </div>
 
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Name:</label>
-                           <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
-                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>
+                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
+                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>-->
                         </div>
 
                         <div style="text-align: right">
@@ -193,6 +200,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                             <asp:LinkButton ID="btnAddClass" ValidationGroup="grpAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click" ForeColor="White">
                                 <i id="myTest" class="material-icons">add</i>
                             </asp:LinkButton>
+                            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
                         </div>
                     </div>
                 </div>
@@ -255,6 +263,7 @@ Password must be 8-15 characters long,<br>contain at least 1 number, <br />1 upp
                             <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -15px" runat="server" OnClick="btnAddSection_Click" ForeColor="White">
            <i class="material-icons">add</i>
                             </asp:LinkButton>
+                            <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
                         </div>
 
                     </div>
