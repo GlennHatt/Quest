@@ -31,12 +31,21 @@
                 <label style="padding-left: 1%;">Users:</label>
                 <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="True" DataSourceID="sqlUsers" DataTextField="FULL_NAME" DataValueField="USER_ID"> 
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="sqlUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT F_NAME || ' ' || L_NAME as FULL_NAME, user_id
+                <asp:SqlDataSource ID="sqlUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT F_NAME || ' ' || L_NAME as FULL_NAME, user_id
   FROM end_user
- WHERE permission_level = :permission">
+ WHERE permission_level = :permission" UpdateCommand="BEGIN
+  end_users.changePassword
+           (p_EndUserID =&gt; :p_EndUserID, 
+             p_Password  =&gt; :p_Password);
+END;">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="rblTypeUser" Name="permission" PropertyName="SelectedValue" />
                     </SelectParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="p_EndUserID" />
+                        <asp:Parameter Name="p_Password" />
+                    </UpdateParameters>
                 </asp:SqlDataSource>
                 </div> 
             </div>
@@ -68,7 +77,7 @@
             <br />
             <br />
 
-             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" ForeColor="White">
+             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" ForeColor="White" OnClick="updatePassword_Click">
                             Update
                 </asp:LinkButton>
         </div>
