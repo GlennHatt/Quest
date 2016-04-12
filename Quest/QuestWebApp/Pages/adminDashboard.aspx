@@ -28,7 +28,6 @@ END;"
 SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
   FROM END_USER">
         <InsertParameters>
-            <asp:Parameter />
             <asp:ControlParameter ControlID="txtbxTeacherEmail" Name="p_Username" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherPassword" Name="p_Password" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxTeacherFirstName" Name="p_FName" PropertyName="Text" />
