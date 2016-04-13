@@ -12,17 +12,23 @@ namespace QuestWebApp.Pages
        bool isTest = false; // If there is a pending test, change to true
 
         protected void Page_Load(object sender, EventArgs e)
-      {
-         Session["UserID"] = 1;
-         displayGreeting();
-         //testAlertTemplate.Visible = true;
+        {
+            Session["UserID"] = 1;
+            displayGreeting();
+            //testAlertTemplate.Visible = true;
 
-         if (isTest == false)
-            noTestMessage.Visible = true;
-         else
-            noTestMessage.Visible = false;
+            if (isTest == false)
+            {
+                noTestMessage.Visible = true;
+                cardAllCaughtUp.Visible = false;
+            }
+            else
+            {
+                noTestMessage.Visible = false;
+                cardAllCaughtUp.Visible = true;
+            }
 
-      }
+        }
 
       private void displayGreeting()
       {
@@ -51,6 +57,7 @@ namespace QuestWebApp.Pages
                break;
          }
       }
+
    }
 
 
