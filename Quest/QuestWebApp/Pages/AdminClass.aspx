@@ -54,30 +54,30 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Semester" SortExpression="SEMESTER">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList4" runat="server">
-                                <asp:ListItem>Spring 2016</asp:ListItem>
-                                <asp:ListItem>Fall 2016</asp:ListItem>
-                                <asp:ListItem>Spring 2017</asp:ListItem>
-                                <asp:ListItem>Fall 2017</asp:ListItem>
-                                <asp:ListItem>Spring 2018</asp:ListItem>
+                            <asp:DropDownList ID="DropDownList4" runat="server" SelectedValue='<%# Bind("semester") %>'>
+                                <asp:ListItem Text="Spring 2016" Value="Spring 2016" />                                
+                                <asp:ListItem Text="Fall 2016" Value="Fall 2016" />
+                                <asp:ListItem Text="Spring 2017" Value="Spring 2017"></asp:ListItem>
+                                <asp:ListItem Text="Fall 2017" Value="Fall 2017"></asp:ListItem>
+                                <asp:ListItem Text="Spring 2018" Value="Spring 2018"></asp:ListItem>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("SEMESTER") %>'></asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("semester") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Class Code" SortExpression="CODE_TITLE">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="sqlClasses" DataTextField="CODE_TITLE" DataValueField="CLASS_ID">
+                            <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="sqlClasses" DataTextField="CODE_TITLE" DataValueField="class_id" SelectedValue='<%# Bind("class_id") %>'>
                                         </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("CODE_TITLE") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("CODE_TITLE") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Section Number" SortExpression="SECTION_NUMBER">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("section_number") %>'>
                                 <asp:ListItem>1</asp:ListItem>
                                 <asp:ListItem>2</asp:ListItem>
                                 <asp:ListItem>3</asp:ListItem>
@@ -91,16 +91,16 @@
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("SECTION_NUMBER") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("section_number") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Teacher Name" SortExpression="FULL_NAME">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="sqlTeachers" DataTextField="FULL_NAME" DataValueField="USER_ID">
+                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="sqlTeachers" DataTextField="FULL_NAME" DataValueField="user_id" SelectedValue='<%# Bind("user_id") %>'>
                                         </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("FULL_NAME") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("FULL_NAME") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Delete">
@@ -128,17 +128,17 @@
     </div>
 
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
-select semester, class.class_id, section.section_id, class.code || '/' || class.title as CODE_TITLE, section_number, end_user.l_name || ', ' || end_user.f_name as full_name, end_user.user_id 
-from class, section, end_user 
-where end_user.user_id = section.teacher_id
-and section.class_id = class.class_id" UpdateCommand="
+select semester, class_id, section_id, code || '/' || c.title as CODE_TITLE, section_number, l_name || ', ' || f_name as full_name, user_id 
+ from class c
+      JOIN section s USING (class_id)
+      JOIN end_user e ON (s.teacher_id = e.user_id)" UpdateCommand="
 BEGIN
     sections.change(
-    :section.section_id,
-    :end_user.user_id,
-    :class.class_id,
-    :semester,
-    :section_number);
+        p_SectionID     => :section_id,
+        p_TeacherID     => :user_id,
+        p_ClassID       => :class_id,
+        p_Semester      => :semester,
+        p_SectionNumber => :section_number);
 END;">
 
     </asp:SqlDataSource>
