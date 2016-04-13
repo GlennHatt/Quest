@@ -29,7 +29,8 @@ namespace QuestWebApp.Pages
             OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
   end_users.changePassword
-    (:p_EndUserID, :p_Password);
+    (p_EndUserID => :p_EndUserID, 
+     p_Password  => :p_Password);
 END;",
                              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdChangePassword.Parameters.AddWithValue("p_EndUserID", ddlClassSelect.SelectedValue);

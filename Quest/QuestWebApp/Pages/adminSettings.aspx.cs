@@ -15,6 +15,7 @@ namespace QuestWebApp.Pages
         OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
         string studentEmailEnabled = "false";
         string currentUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //currentUser = Session["p_StudentID"].ToString();
@@ -64,7 +65,55 @@ SELECT receive_email
 
         protected void clickUpdatePassword(object sender, EventArgs e)
         {
+            string oldPassword = "";
+            currentUser = "17";
 
+            OracleCommand cmdGetOldPassword = new OracleCommand(@"
+SELECT password
+    FROM end_user
+   WHERE user_id = :p_UserID", connectionString);
+            cmdGetOldPassword.Parameters.AddWithValue("p_UserID", currentUser);
+
+            cmdGetOldPassword.Connection.Open();
+            OracleDataReader reader = cmdGetOldPassword.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    oldPassword = reader.GetValue(0).ToString();
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+            cmdGetOldPassword.Connection.Close();
+
+            // ^--- needs to be changed to session when login is up
+            if (oldPassword == txtOldPassword.Text)
+            {
+                OracleCommand cmdChangePassword = new OracleCommand(@"
+BEGIN
+    end_users.changePassword
+      (p_EndUserID => :p_EndUserID, 
+       p_Password  => :p_Password);
+END;",
+                             connectionString);
+                cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
+                // ^--- needs to be changed to session when login is up
+                cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
+
+
+                cmdChangePassword.Connection.Open();
+                cmdChangePassword.ExecuteNonQuery();
+                cmdChangePassword.Connection.Close();
+                txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = txtOldPassword.Text = string.Empty;
+            }
+            else
+            {
+                txtOldPassword.Text = oldPassword;
+                txtbxTeacherPassword.Text = "hello";
+            }
         }
 
         protected void disableEmail()
