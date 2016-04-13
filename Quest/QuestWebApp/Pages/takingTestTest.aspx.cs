@@ -192,6 +192,7 @@ END;", connectionString);
                e.Item.FindControl("divMC").Visible = false;
                e.Item.FindControl("divSA").Visible = false;
                e.Item.FindControl("divTF").Visible = false;
+                    ((TextBox)e.Item.FindControl("txtEAnswer")).Attributes.Add("onchange", "questionChanged(" + ((Label)e.Item.FindControl("lblQuestionNum")).Text + ")");
                break;
             case "M":
                e.Item.FindControl("divE").Visible = false;
@@ -278,7 +279,7 @@ END;", connectionString);
             //testProgress[(Convert.ToInt32(questionNumLabel.Text)) - 1] = true;
 
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "setProgress", "setProgress()", true);
-            btnSaveTest.Text = "reached";
+            //btnSaveTest.Text = "reached";
         }
     }
 }
