@@ -74,7 +74,6 @@ SELECT time_limit
          string SAAnswer;
          string questionID;
          string questionType;
-         int TestTakenID;
          OracleCommand cmdGradeQuestion;
 
          cmdGradeQuestion = new OracleCommand(@"
@@ -90,7 +89,7 @@ END;", connectionString);
          cmdGradeQuestion.Connection.Open();
          cmdGradeQuestion.ExecuteNonQuery();
 
-         TestTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
+         Session["TestTakenID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
          cmdGradeQuestion.Connection.Close();
 
@@ -109,7 +108,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_Essay       => :p_Essay);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
@@ -127,7 +126,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_ChoiceID);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedItem.Value);
 
@@ -143,7 +142,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
@@ -159,7 +158,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
@@ -174,7 +173,7 @@ END;", connectionString);
 BEGIN
     TESTS_TAKEN.updateGrade(p_TestTakenID => :p_TestTakenID);
 END;", connectionString);
-         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
 
          cmdGradeQuestion.Connection.Open();
          cmdGradeQuestion.ExecuteNonQuery();
