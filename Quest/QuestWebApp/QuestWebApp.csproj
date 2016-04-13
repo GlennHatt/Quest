@@ -198,6 +198,7 @@
     <Content Include="Pages\adminUser.aspx" />
     <Content Include="Pages\error.aspx" />
     <Content Include="Pages\forgotPassword.aspx" />
+    <Content Include="Pages\gradeOverview.aspx" />
     <Content Include="Pages\questionCreation.aspx" />
     <Content Include="Pages\studentDashboard.aspx" />
     <Content Include="Pages\studentHelp.aspx" />
@@ -398,6 +399,13 @@
     </Compile>
     <Compile Include="Pages\forgotPassword.aspx.designer.cs">
       <DependentUpon>forgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\gradeOverview.aspx.cs">
+      <DependentUpon>gradeOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\gradeOverview.aspx.designer.cs">
+      <DependentUpon>gradeOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\pledgePage.aspx.cs">
       <DependentUpon>pledgePage.aspx</DependentUpon>

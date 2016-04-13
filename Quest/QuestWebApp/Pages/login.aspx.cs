@@ -21,6 +21,7 @@ namespace QuestWebApp.Pages
         utilities util = new utilities();
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
