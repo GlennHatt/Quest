@@ -24,5 +24,10 @@ namespace QuestWebApp.Pages
         {
             ddlStudentsSelect.DataBind();
         }
+
+        protected void rblTypeTest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

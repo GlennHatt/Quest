@@ -229,15 +229,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valClassTitle;
         
         /// <summary>
-        /// btnAddClass control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddClass;
-        
-        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>
@@ -254,6 +245,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
+        
+        /// <summary>
+        /// dropDownValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator dropDownValidator;
         
         /// <summary>
         /// ddlSection control.
@@ -274,6 +274,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlCourses;
         
         /// <summary>
+        /// ddlCourseValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlCourseValidator;
+        
+        /// <summary>
         /// ddlTeacher control.
         /// </summary>
         /// <remarks>
@@ -292,13 +301,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlTeacherSelect;
         
         /// <summary>
-        /// btnAddSection control.
+        /// ddlTeacherValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddSection;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlTeacherValidator;
         
         /// <summary>
         /// Button2 control.

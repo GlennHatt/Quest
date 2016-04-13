@@ -109,7 +109,7 @@ select *
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Username:</label>
                             <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server"/>
-                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>-->
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                             
                         </div>
 
@@ -140,7 +140,7 @@ select *
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>
                             <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
                             <asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error"></asp:CompareValidator>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password" SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
                         </div>
 
                         <!-- Textfield with Floating DropDown for user type -->
@@ -153,14 +153,16 @@ select *
                             </asp:DropDownList>
                             
                         </div>
-
-                    </div>
-                    <div style="text-align: right">
                         <!-- Colored FAB button with ripple -->
-                        <%--<asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="btnAddTeacher_Click" ForeColor="White">
+                        <%--<asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="Button3_Click" ForeColor="White">
                         </asp:LinkButton>--%>
-                        <asp:Button ID="Button3" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ForeColor="White" runat="server" Text="add" OnClick="Button3_Click"></asp:Button>
+                        <br />
+                        <asp:Button ID="Button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="Button3_Click" ValidationGroup="grpAddUser"></asp:Button>
                     </div>
+                    <br />
+                        
+                        
+
                 </div>
 
 
@@ -180,26 +182,26 @@ select *
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Code: (AA ###)</label>
-                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="valCourseNumRegex" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxCourseNumber" ErrorMessage="Invalid course number" ValidationExpression="[A-Z]{2} [1-9]{3}"></asp:RegularExpressionValidator>
-                            <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>-->
+                            <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>
                         </div>
 
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Name:</label>
-                            <!--<asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
-                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>-->
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valClassTitle" ControlToValidate="txtbxClassTitle" ErrorMessage="Please enter class name"  SetFocusOnError="True" ValidationGroup="grpAddClass"></asp:RequiredFieldValidator>
+                           <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>
                         </div>
 
-                        <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddClass" ValidationGroup="grpAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click" ForeColor="White">
+                            <%--<asp:LinkButton ID="btnAddClass" ValidationGroup="grpAddClass" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -7px" runat="server" OnClick="btnAddClass_Click" ForeColor="White">
                                 <i id="myTest" class="material-icons">add</i>
-                            </asp:LinkButton>
-                            <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-                        </div>
+                            </asp:LinkButton>--%>
+                        <br />
+                            <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button1_Click" ValidationGroup="grpAddClass" />
+
                     </div>
                 </div>
             </div>
@@ -219,6 +221,7 @@ select *
                             <Label style="padding-left:1%; " >Semester:</Label>
                             <asp:DropDownList ID="ddlSemester" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="dropDownValidator" ControlToValidate="ddlSemester" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection"></asp:RequiredFieldValidator>
                             <%-- <span id="lblSemesterError" runat="server" class="mdl-textfield__error">Select a semester</span>--%>
                         </div>
 
@@ -243,6 +246,7 @@ select *
                             <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
                                 <asp:ListItem>-- Select a Course --</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlCourseValidator" ControlToValidate="ddlCourses" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection"></asp:RequiredFieldValidator>
                             <%--<span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>--%>
                         </div>
 
@@ -253,16 +257,17 @@ select *
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER where permission_level = 'T'"
                             ></asp:SqlDataSource>
+                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlTeacherValidator" ControlToValidate="ddlTeacher" ErrorMessage="Please Select a Teacher"  SetFocusOnError="True" ValidationGroup="grpAddSection"></asp:RequiredFieldValidator>
                             <%--<span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>--%>
                         </div>
 
-                        <div style="text-align: right">
                             <!-- Colored FAB button with ripple -->
-                            <asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -15px" runat="server" OnClick="btnAddSection_Click" ForeColor="White">
+                            <%--<asp:LinkButton ID="btnAddSection" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="bottom: -15px" runat="server" OnClick="btnAddSection_Click" ForeColor="White">
            <i class="material-icons">add</i>
-                            </asp:LinkButton>
-                            <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
-                        </div>
+                            </asp:LinkButton>--%>
+                        <br />
+                            <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
+
 
                     </div>
                 </div>

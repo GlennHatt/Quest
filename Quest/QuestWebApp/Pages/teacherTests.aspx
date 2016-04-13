@@ -28,7 +28,7 @@ SELECT code || '-' || section_number || '/' || title as FULL_NAME, section_id
                     </SelectParameters>
                 </asp:SqlDataSource>
                 </div> 
-            <asp:RadioButtonList ID="rblTypeTest" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" AutoPostBack="true">
+            <asp:RadioButtonList ID="rblTypeTest" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblTypeTest_SelectedIndexChanged">
                 <asp:ListItem Text="Live Test" Value="L" />
                 <asp:ListItem Text="Past Test" Value="P" />
                 <asp:ListItem Text="Draft Test" Value="D" />
@@ -41,7 +41,7 @@ SELECT code || '-' || section_number || '/' || title as FULL_NAME, section_id
     <main class="mdl-layout__content" style="width:100%;">
         <div class="content-grid mdl-grid">
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
-    <div class="demo-card-wide mdl-shadow--3dp mdl-card">
+    <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardPastTest" runat="server">
         <div class="mdl-card__supporting-text" style="text-align: center;">
             <div style ="font-size:17pt">
             <asp:Label ID="lblTestName" runat="server" Text="(Test Name)"> </asp:Label>
@@ -78,8 +78,8 @@ SELECT f_name || ' ' || l_name as full_name, user_id
     <%--live card--%>
     <main class="mdl-layout__content" style="width:100%;">
         <div class="content-grid mdl-grid">
-            <div id="cardLiveTest" class="mdl-cell mdl-cell--4-col">
-              <div class="demo-card-wide mdl-shadow--3dp mdl-card">
+            <div class="mdl-cell mdl-cell--4-col">
+              <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardLiveTest" runat="server">
         <div class="mdl-card__supporting-text" style="text-align: center;">
             <div style ="font-size:17pt">
             <asp:Label ID="lblTestName2" runat="server" Text="(Test Name)"> </asp:Label>
@@ -102,8 +102,8 @@ SELECT f_name || ' ' || l_name as full_name, user_id
      <%--pending card--%>
     <main class="mdl-layout__content" style="width:100%;">
         <div class="content-grid mdl-grid">
-            <div id="cardPendingTest" class="mdl-cell mdl-cell--4-col">
-              <div class="demo-card-wide mdl-shadow--3dp mdl-card">
+            <div class="mdl-cell mdl-cell--4-col">
+              <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardPendingTest" runat="server">
         <div class="mdl-card__supporting-text" style="text-align: center;">
             <div style ="font-size:17pt">
                 <br />
