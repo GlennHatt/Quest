@@ -17,6 +17,7 @@ namespace QuestWebApp.Pages
    {
         bool cardsLarge;
         int questionCount = 0;
+        List<bool> testProgress = new List<bool>();
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -229,7 +230,6 @@ END;", connectionString);
                 btnSmall.Attributes.Add("disabled", "true");
             }
             questionCount++;
-            //btnSaveTest.Text = questionCount.ToString();
       }
 
         protected void myTest_Click(object sender, EventArgs e)
@@ -270,20 +270,15 @@ END;", connectionString);
 
         }
 
-      [WebMethod] // WebMethod is requiered for any thing being called by AJAX
-      public static string TestTimeOut() // The static will cause issues if you arn't carful. It has to be static.
-      {
-            // ToDo. When the test times out, call the btnSubmitTest_Click function.
-            // Call it with an empty object, and EventArgs
-            // btnSubmitTest_Click(new object, new EventArgs);
-            // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
-            // if that's the case... we are going to duplicate the code.
-            return "Called!";
-        }
-
         protected void questionChanged(object sender, EventArgs e)
         {
-            
+            //ListViewItemEventArgs viewItems = (ListViewItemEventArgs)e;
+
+            //Label questionNumLabel = (Label)viewItems.Item.FindControl("lblQuestionNum");
+            //testProgress[(Convert.ToInt32(questionNumLabel.Text)) - 1] = true;
+
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "setProgress", "setProgress()", true);
+            btnSaveTest.Text = "reached";
         }
     }
 }
