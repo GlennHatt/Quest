@@ -52,10 +52,57 @@
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
                          </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="CODE" HeaderText="Class Code" SortExpression="CODE"></asp:BoundField>
-                    <asp:BoundField DataField="TITLE" HeaderText="Class Name" SortExpression="TITLE"></asp:BoundField>
-                    <asp:BoundField DataField="SECTION_NUMBER" HeaderText="Section Number" SortExpression="SECTION_NUMBER"></asp:BoundField>
-                    <asp:BoundField DataField="FULL_NAME" HeaderText="Full Name" SortExpression="FULL_NAME" ReadOnly="true"></asp:BoundField>
+                    <asp:TemplateField HeaderText="Semester" SortExpression="SEMESTER">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList4" runat="server">
+                                <asp:ListItem>Spring 2016</asp:ListItem>
+                                <asp:ListItem>Fall 2016</asp:ListItem>
+                                <asp:ListItem>Spring 2017</asp:ListItem>
+                                <asp:ListItem>Fall 2017</asp:ListItem>
+                                <asp:ListItem>Spring 2018</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("SEMESTER") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Class Code" SortExpression="CODE_TITLE">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="sqlClasses" DataTextField="CODE_TITLE" DataValueField="CLASS_ID">
+                                        </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("CODE_TITLE") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Section Number" SortExpression="SECTION_NUMBER">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList1" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("SECTION_NUMBER") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Teacher Name" SortExpression="FULL_NAME">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="sqlTeachers" DataTextField="FULL_NAME" DataValueField="USER_ID">
+                                        </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("FULL_NAME") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Delete">
                         <ItemTemplate>
                             
@@ -73,24 +120,35 @@
                         
                     </asp:TemplateField>
                 </Columns>
+
+<RowStyle Wrap="False"></RowStyle>
             </asp:GridView>
         </div>
         <br />
     </div>
 
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
-select class.class_id, section.section_id, class.code, class.title, section.section_number, end_user.l_name || ', ' || end_user.f_name as full_name 
+select semester, class.class_id, section.section_id, class.code || '/' || class.title as CODE_TITLE, section_number, end_user.l_name || ', ' || end_user.f_name as full_name, end_user.user_id 
 from class, section, end_user 
 where end_user.user_id = section.teacher_id
 and section.class_id = class.class_id" UpdateCommand="
-        BEGIN
-    classes.change(
+BEGIN
+    sections.change(
+    :section.section_id,
+    :end_user.user_id,
     :class.class_id,
-    :class.code,
-    :class.title );
+    :semester,
+    :section_number);
 END;">
 
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT user_id, f_name || ' ' || l_name as FULL_NAME
+  FROM end_user
+ WHERE permission_level = 'T'"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT class_id, code || '/' || title as CODE_TITLE
+  FROM class
+ "></asp:SqlDataSource>
     <%--</div>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">

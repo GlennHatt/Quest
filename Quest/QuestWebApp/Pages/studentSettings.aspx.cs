@@ -65,7 +65,20 @@ SELECT receive_email
 
         protected void clickUpdatePassword(object sender, EventArgs e)
         {
+            OracleCommand cmdChangePassword = new OracleCommand(@"
+BEGIN
+  end_users.changePassword
+    (:p_EndUserID, :p_Password);
+END;",
+                             new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+            cmdChangePassword.Parameters.AddWithValue("p_EndUserID", Session["UserID"]);
+            cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
 
+
+            cmdChangePassword.Connection.Open();
+            cmdChangePassword.ExecuteNonQuery();
+            cmdChangePassword.Connection.Close();
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
         }
 
         protected void disableEmail()

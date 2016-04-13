@@ -17,6 +17,7 @@ namespace QuestWebApp.Pages
    {
         bool cardsLarge;
         int questionCount = 0;
+        List<bool> testProgress = new List<bool>();
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -74,7 +75,6 @@ SELECT time_limit
          string SAAnswer;
          string questionID;
          string questionType;
-         int TestTakenID;
          OracleCommand cmdGradeQuestion;
 
          cmdGradeQuestion = new OracleCommand(@"
@@ -90,7 +90,7 @@ END;", connectionString);
          cmdGradeQuestion.Connection.Open();
          cmdGradeQuestion.ExecuteNonQuery();
 
-         TestTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
+         Session["TestTakenID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
          cmdGradeQuestion.Connection.Close();
 
@@ -109,7 +109,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_Essay       => :p_Essay);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
@@ -127,7 +127,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_ChoiceID);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedItem.Value);
 
@@ -143,7 +143,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
@@ -159,7 +159,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
@@ -174,7 +174,7 @@ END;", connectionString);
 BEGIN
     TESTS_TAKEN.updateGrade(p_TestTakenID => :p_TestTakenID);
 END;", connectionString);
-         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", TestTakenID);
+         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
 
          cmdGradeQuestion.Connection.Open();
          cmdGradeQuestion.ExecuteNonQuery();
@@ -230,7 +230,6 @@ END;", connectionString);
                 btnSmall.Attributes.Add("disabled", "true");
             }
             questionCount++;
-            //btnSaveTest.Text = questionCount.ToString();
       }
 
         protected void myTest_Click(object sender, EventArgs e)
@@ -271,20 +270,15 @@ END;", connectionString);
 
         }
 
-      [WebMethod] // WebMethod is requiered for any thing being called by AJAX
-      public static string TestTimeOut() // The static will cause issues if you arn't carful. It has to be static.
-      {
-            // ToDo. When the test times out, call the btnSubmitTest_Click function.
-            // Call it with an empty object, and EventArgs
-            // btnSubmitTest_Click(new object, new EventArgs);
-            // Final note, this very likly might case an error because of the function being static and the calling on being dynamic.
-            // if that's the case... we are going to duplicate the code.
-            return "Called!";
-        }
-
         protected void questionChanged(object sender, EventArgs e)
         {
-            
+            //ListViewItemEventArgs viewItems = (ListViewItemEventArgs)e;
+
+            //Label questionNumLabel = (Label)viewItems.Item.FindControl("lblQuestionNum");
+            //testProgress[(Convert.ToInt32(questionNumLabel.Text)) - 1] = true;
+
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "setProgress", "setProgress()", true);
+            btnSaveTest.Text = "reached";
         }
     }
 }

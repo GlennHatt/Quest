@@ -22,12 +22,12 @@
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin-left: 30%;">
                             <asp:TextBox ID="txtbxUsersName" class="mdl-textfield__input" type="text" runat="server" style="font-size:27px"/>
                             <label class="mdl-textfield__label" for="sample3" style="bottom: 0;">First and Last Name:</label>                
-    <asp:linkbutton runat="server"  class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 50%; margin-bottom:-60px" ForeColor="#FF3300">
-      I Cheated
-    </asp:linkbutton>
-      <asp:linkbutton runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px">
-      I Did NOT Cheat
-    </asp:linkbutton>
+    <asp:Button ID="btnCheat" runat="server" Text="I Cheated" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 50%; margin-bottom:-60px" ForeColor="#FF3300">
+      
+    </asp:Button>
+      <asp:Button ID="btnNoCheat" runat="server" Text="I Did NOT Cheat" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px" OnClick="btnNoCheat_Click">
+      
+    </asp:Button>
   </div>
 
 </div>

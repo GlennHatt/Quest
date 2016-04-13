@@ -10,33 +10,42 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class PledgePage {
+    public partial class gradeOverview {
         
         /// <summary>
-        /// txtbxUsersName control.
+        /// sqlTestGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbxUsersName;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlTestGrade;
         
         /// <summary>
-        /// btnCheat control.
+        /// lblYourGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCheat;
+        protected global::System.Web.UI.WebControls.Label lblYourGrade;
         
         /// <summary>
-        /// btnNoCheat control.
+        /// lblGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNoCheat;
+        protected global::System.Web.UI.WebControls.Label lblGrade;
+        
+        /// <summary>
+        /// btnRedirect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRedirect;
     }
 }

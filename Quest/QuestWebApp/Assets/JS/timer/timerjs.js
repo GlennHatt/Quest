@@ -3,7 +3,7 @@
 var alarmSound = new Audio('assets/06_Urban_Beat.mp3');
 alarmSound.volume = 0.3;
 
-
+var finishButton;           // button to redirect when test is over
 var timerTime = 0,          // Time set on the interval.
     timerInterval = 0;      // The interval for our loop.
 
@@ -47,9 +47,14 @@ function setTime(time) {
         timerClock.text(returnFormattedToSeconds(timerTime));
     }
 
-    console.log("test");
+    
 
 
+}
+
+function setFinishButton(button)
+{
+    finishButton = button;
 }
 
 $('.timer-btn.start').on('click', function () {
@@ -98,6 +103,7 @@ function startTimer() {
         timerClock.text(returnFormattedToSeconds(timerTime));
 
         if (timerTime <= 0) {
+            finishButton.click();
             if (localStorage.timerSounds == 'true') {
                 alarmSound.play();
             }
