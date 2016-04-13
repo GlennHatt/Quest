@@ -29,7 +29,7 @@ namespace QuestWebApp.Pages
         {
             
 
-            mailButton.Visible = false;
+            //mailButton.Visible = false;
             var teachersEmailEnabled = new MultiDimList<int, string>();
             
 
@@ -98,7 +98,7 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
             
             if (Convert.ToBoolean(studentEmailEnabled) == true)
             {
-                mailButton.Visible = true;
+                //mailButton.Visible = true;
             }
 
         }
@@ -125,8 +125,8 @@ SELECT class_id, title, receive_email, eu.f_name || ' ' || eu.l_name AS teacher_
             //Setting From , To and CC
             mail.From = new MailAddress(studentEmailAddress, studentName);
             mail.To.Add(new MailAddress("ryan8440@gmail.com"));
-            mail.Subject = txtbxMessageSubject.Text;
-            mail.Body = txtbxMessageBody.Value;
+            //mail.Subject = txtbxMessageSubject.Text;
+            //mail.Body = txtbxMessageBody.Value;
 
 
             // Accepts all certificates

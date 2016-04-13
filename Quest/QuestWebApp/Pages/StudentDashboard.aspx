@@ -121,7 +121,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                     }
                 </style>
 
-                <div class="mdl-card mdl-shadow--3dp  demo-card-square">
+                <div class="mdl-card mdl-shadow--3dp  demo-card-square" id="cardAllCaughtUp" runat="server">
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons noTest">check_circle</i>
                         <div style="font-size: 250%; margin-bottom: 7%; margin-top: 5%;">Congratulations!</div>

@@ -12,7 +12,7 @@ namespace QuestWebApp.Pages
 {
    public partial class questionCreation : System.Web.UI.Page
    {
-      // Global Veriables
+      // Global Variables
       int    QuestionID;   // ID of the current question.
       string questionType; // The questions type, should be 'E', 'M', 'MC', 'SA', or 'TF'.
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); 

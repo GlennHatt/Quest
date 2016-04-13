@@ -156,10 +156,10 @@ SELECT q.question_id, weight, type, test_order,
                             <div class="mdl-card__supporting-text" style="text-align: center" id="divQuestion">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     
-                                    <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
-                                    <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>' runat="server" />
+                                    <asp:HiddenField ID="hdnQuestionID" Value='<%# Bind("question_id") %>' runat="server" />
+                                    <asp:HiddenField ID="hdnQuestionType" Value='<%# Bind("type") %>' runat="server" />
                                     <asp:Label ID="Label1" runat="server" Text='Question Number:' />
-                                    <asp:Label ID="lblQuestionNum" Value='<%# Eval("seq") %>' runat="server" Text='<%#Eval("seq") %>' />
+                                    <asp:Label ID="lblQuestionNum" runat="server" Text='<%#Bind("seq") %>' />
                                     <br />
                                     <asp:Label ID="lblDispWeight" runat="server" Text="Point Value: "></asp:Label>
                                     <asp:Label ID="lblWeight" Text='<%# Eval("weight") %>' runat="server" />
@@ -264,6 +264,8 @@ SELECT choice_id, choice_text
     <script src="../Assets/JS/timer/timerjs2.js"></script>
     <script src="../Assets/JS/testTaking.js"></script>
     <script>
+        var progressBar = document.querySelector('#p1');
+        var newThis = this;
 
         var isPostingBack; // is the page posting back?
         document.getElementById('btnResetTimer').click();
@@ -271,8 +273,9 @@ SELECT choice_id, choice_text
         document.getElementById('btnStartTimer').click();
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
         
-
-
+        console.log("test");
+        
+     
 
         window.onbeforeunload = function () {
 
@@ -289,16 +292,19 @@ SELECT choice_id, choice_text
             isPostingBack = true;
         }
 
-        function setProgress()
+        function setProgress(progress)
         {
             document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-                this.MaterialProgress.setProgress(50);
+                progressBar.MaterialProgress.setProgress(progress);
             });
         }
 
         function questionChanged()
         {
             console.log("test");
+            document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
+                progressBar.MaterialProgress.setProgress(50);
+            });
         }
 
         
