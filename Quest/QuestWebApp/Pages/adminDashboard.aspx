@@ -120,7 +120,7 @@ select *
                                                             <!-- Multiline Tooltip -->
                         <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
                         <div class="mdl-tooltip" for="helpIconPass">
-                            Password must be 8-15 characters long,
+                            Password SHOULD be 8-15 characters long,
                                 <br>contain at least 1 number, 
                                 <br />1 upper-case letter, 
                                 <br /> and 1 lower-case letter

@@ -13,22 +13,40 @@ namespace QuestWebApp.Pages {
     public partial class teacherSettings {
         
         /// <summary>
-        /// Label1 control.
+        /// lblOldPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblOldPass;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txbxOldPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txbxOldPass;
+        
+        /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// lblPassword control.
@@ -121,6 +139,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox tbemail;
         
         /// <summary>
+        /// valEnableEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEnableEmail;
+        
+        /// <summary>
         /// tbpassword control.
         /// </summary>
         /// <remarks>
@@ -130,6 +157,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox tbpassword;
         
         /// <summary>
+        /// valEnableEmailPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEnableEmailPassword;
+        
+        /// <summary>
         /// tbStudentLogin control.
         /// </summary>
         /// <remarks>
@@ -137,6 +173,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbStudentLogin;
+        
+        /// <summary>
+        /// valEnableEmailID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valEnableEmailID;
         
         /// <summary>
         /// cdDisable control.
