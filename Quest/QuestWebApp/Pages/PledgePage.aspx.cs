@@ -48,6 +48,7 @@ END;",
             if(int.Parse(Convert.ToString(cmdPledgeCheck.Parameters["approval"].Value)) == 1)
             {
                 btnNoCheat.Text = "SUCCESS";
+                Session["TestTakenID"] = 115;
                 Response.Redirect("gradeOverview.aspx");
             }
 
