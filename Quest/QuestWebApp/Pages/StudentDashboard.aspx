@@ -17,7 +17,7 @@
 
                 <!-- Square card! -->
 
-                <div class="demo-card-square mdl-card mdl-shadow--2dp" style="text-align: center; height: 250px;">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp" style="text-align: center; height: 390px;">
                     <div class="mdl-card__title mdl-card--expand" style="text-align: center">
                         <img src="../Assets/Images/greek.png" style="height: 122px; width: 25%; padding-left: 38%;" />
                     </div>
@@ -32,8 +32,6 @@
 
 
             </div>
-</div>
-        </main>
 
 
 
@@ -69,9 +67,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                     <SelectParameters>
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID"/>
                     </SelectParameters>
-                </asp:SqlDataSource>
-         <main class="mdl-layout__content">
-                    <div class="content-grid mdl-grid">      
+                </asp:SqlDataSource>  
                 <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentTests" OnItemCommand="lstStudentTests_ItemCommand1">
                     <ItemTemplate>
                         <div class="mdl-cell mdl-cell--4-col" id="testAlertTemplate" runat="server">
