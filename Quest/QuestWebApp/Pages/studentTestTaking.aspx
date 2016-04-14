@@ -101,8 +101,8 @@
 
 
     <!-- end timer -->
-    <div class="mdl-card mdl-card-sizing">
-        <div class="mdl-card__supporting-text" style="text-align: center;">
+    <div class="mdl-card mdl-card-sizing" style="min-height:0px;height:98px;top:52px;margin-bottom:54px;width:80%;margin-left:10%;">
+        <div class="mdl-card__supporting-text" style="text-align: center;width:100%;">
             Question Card Sizing:<br />
             <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" OnClientClick="postingBack()" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
             <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" OnClientClick="postingBack()" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
@@ -267,13 +267,13 @@ SELECT choice_id, choice_text
         var progressBar = document.querySelector('#p1');
         var newThis = this;
 
-        var isPostingBack; // is the page posting back?
+        var isPostingBack; // is the page posting back? flag value
         document.getElementById('btnResetTimer').click();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
         
-        console.log("test");
+        //console.log("test");
         
      
 
