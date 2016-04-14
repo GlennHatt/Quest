@@ -70,7 +70,7 @@
                  </div>
         </div>
 </ItemTemplate>
-                <//asp:ListView>
+                </asp:ListView>
             </div>
         <asp:SqlDataSource ID="sqlTestAmount" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT Count(*) as test_count
