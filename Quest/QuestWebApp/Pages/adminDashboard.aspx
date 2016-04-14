@@ -76,7 +76,7 @@ select *
             <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                 <!-- Card for adding a user -->
 
-                <asp:Label ID="lblWarning" runat="server" Text="test" ForeColor="Red"></asp:Label>
+               <%-- <asp:Label ID="lblWarning" runat="server" Text="test" ForeColor="Red"></asp:Label>--%>
                 <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         Card Size:<br />
@@ -157,12 +157,7 @@ select *
                         <asp:Button ID="Button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="Button3_Click" ValidationGroup="grpAddUser"></asp:Button>
                     </div>
                     <br />
-                        
-                        
-
                 </div>
-
-
             </div>
 
 
@@ -265,14 +260,9 @@ select *
                             </asp:LinkButton>--%>
                         <br />
                             <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
-
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 
     </main>

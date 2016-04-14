@@ -44,13 +44,14 @@
                 <div class="demo-card-wide mdl-cardGradeTest mdl-shadow--3dp mdl-card demo-card-square">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>You Have
-                            <asp:Label ID="lblTestsToGrade" runat="server" Text="0"></asp:Label>
+                            <asp:Label ID="lblTestsToGrade" runat="server"></asp:Label>
                             Tests to Grade </h1>
                            
                     </div>
                 </div>
             </div>
-
+            <asp:ListView ID="teachersTests" runat="server">
+                    <ItemTemplate>
             <div class="mdl-cell mdl-cell--4-col">
              <div class="mdl-card mdl-shadow--3dp  demo-card-square">
                     <div class="mdl-card__supporting-text " style="text-align: center">
@@ -68,7 +69,32 @@
 </div>
                  </div>
         </div>
+</ItemTemplate>
+                <//asp:ListView>
             </div>
+        <asp:SqlDataSource ID="sqlTestAmount" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT Count(*) as test_count
+  FROM test_taken t
+       JOIN enrollment e USING (enrollment_id)
+       JOIN section    s USING (section_id)
+ WHERE s.teacher_id = :teacher_id">
+            <SelectParameters>
+                <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
+            </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
+ 'Student: ' || eu.f_name || ' ' || eu.l_name AS student_name
+  FROM test_taken tt
+       JOIN test       t  USING (test_id)
+       JOIN enrollment e  USING (enrollment_id)
+       JOIN end_user   eu ON    (eu.user_id  = e.student_id)
+       JOIN section    s  ON    (s.section_id = e.section_id)
+       JOIN class      c  USING (class_id)
+ WHERE s.teacher_id = :teacher_id">
+        <SelectParameters>
+            <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
