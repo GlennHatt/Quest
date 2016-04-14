@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,9 +11,88 @@ namespace QuestWebApp.Pages
 {
    public partial class studentSettings : System.Web.UI.Page
    {
-      protected void Page_Load(object sender, EventArgs e)
-      {
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        string studentEmailEnabled = "false";
+        string currentUser;
 
-      }
-   }
+        protected void Page_Load(object sender, EventArgs e)
+      {
+            //currentUser = Session["p_StudentID"].ToString();
+            currentUser = "17"; // comment this out when we use login functionality
+            cdDisable.Visible = false;
+            cdEnable.Visible = false;
+            OracleCommand cmdEmailActive = new OracleCommand(@"
+SELECT receive_email
+  FROM end_user
+ WHERE user_id = :p_UserID", connectionString);
+            cmdEmailActive.Parameters.AddWithValue("p_UserID", currentUser);
+
+            cmdEmailActive.Connection.Open();
+            OracleDataReader reader = cmdEmailActive.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    studentEmailEnabled = reader.GetValue(0).ToString();
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+            cmdEmailActive.Connection.Close();
+
+            // show or hide the activate email box
+            if (studentEmailEnabled == "true")
+            {
+                cdDisable.Visible = true;
+            }
+            else
+                cdEnable.Visible = true;
+        }
+
+        protected void btnEnable_Click(object sender, EventArgs e)
+        {
+
+            //enableEmail();
+        }
+
+        protected void btnDisable_Click(object sender, EventArgs e)
+        {
+            //disableEmail();
+        }
+
+        protected void clickUpdatePassword(object sender, EventArgs e)
+        {
+            currentUser = "36";
+            // ^--- needs to be changed to session when login is up
+
+            OracleCommand cmdChangePassword = new OracleCommand(@"
+DECLARE
+  currentPassword varchar2 (100);
+BEGIN
+  SELECT password INTO currentPassword
+    FROM end_user
+   WHERE user_id = :currentUser;
+  IF currentPassword = :typed_password THEN
+    end_users.changePassword
+      (p_EndUserID => :p_EndUserID, 
+       p_Password  => :p_Password);
+  END IF;
+END;",
+                            connectionString);
+            cmdChangePassword.Parameters.AddWithValue("currentUser", currentUser);
+            // ^--- needs to be changed to session when login is up
+            cmdChangePassword.Parameters.AddWithValue("typed_password", txtOldPassword.Text);
+            cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
+            // ^--- needs to be changed to session when login is up
+            cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
+
+
+            cmdChangePassword.Connection.Open();
+            cmdChangePassword.ExecuteNonQuery();
+            cmdChangePassword.Connection.Close();
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = txtOldPassword.Text = string.Empty;
+        }
+    }
 }
