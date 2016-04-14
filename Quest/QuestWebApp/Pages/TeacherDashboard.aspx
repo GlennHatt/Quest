@@ -57,9 +57,9 @@
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons testAlert" style="font-size:300%">assignment_late</i>
                         <div style="font-size: 180%; margin-bottom: 7%; margin-top: 5%;">Test Ready To Be Graded:</div>
-                        <asp:Label ID="lblTestSubject" runat="server" Text="(Subject Placeholder)"></asp:Label><br />
-                        <asp:Label ID="lblTestDate" runat="server" Text="(Date Placeholder)"></asp:Label><br />
-                        <asp:Label ID="lblTestTime" runat="server" Text="(Time Placeholder)"></asp:Label><br />
+                        <asp:Label ID="lblTestSubject" runat="server" Text='<%# Eval("class_title") %>'></asp:Label><br />
+                        <asp:Label ID="lblTestDate" runat="server" Text='<%# Eval("test_title") %>'></asp:Label><br />
+                        <asp:Label ID="lblTestTime" runat="server" Text='<%# Eval("student_name") %>'></asp:Label><br />
                     </div>
                     <div style="text-align: right">
                         <br />
@@ -70,7 +70,7 @@
                  </div>
         </div>
 </ItemTemplate>
-                <//asp:ListView>
+                </asp:ListView>
             </div>
         <asp:SqlDataSource ID="sqlTestAmount" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT Count(*) as test_count
@@ -82,7 +82,8 @@ SELECT Count(*) as test_count
                 <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
             </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
+    <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
  'Student: ' || eu.f_name || ' ' || eu.l_name AS student_name
   FROM test_taken tt
        JOIN test       t  USING (test_id)
