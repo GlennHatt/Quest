@@ -45,5 +45,16 @@ SELECT Count(*) as test_count
 
             lblTestsToGrade.Text = testNumber;
         }
-   }
+
+        protected void lvTeacherTests_ItemCommand1(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "lvGradeTestLnkBtnClick":
+                    Session["TestID"] = e.CommandArgument;
+                    Response.Redirect("teacherTestReview.aspx");
+                    break;
+            }
+        }
+    }
 }
