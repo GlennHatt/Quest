@@ -68,7 +68,7 @@ namespace QuestWebApp.Pages
 
       protected void btnbackToLogin_Click(object sender, EventArgs e)
       {
-         Response.Redirect("http://localhost:52416/Pages/login.aspx");
+         Response.Redirect("login.aspx");
       }
    }
 }
