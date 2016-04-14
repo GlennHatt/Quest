@@ -1,7 +1,52 @@
 ﻿<%@ Page Title="Student | Taking Test" Language="C#" MasterPageFile="~/Master-Pages/takingTest.master" AutoEventWireup="true" CodeBehind="studentTestTaking.aspx.cs" Inherits="QuestWebApp.Pages.studentTestTaking" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="takingTestBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="takingTestHead" runat="server">
+
+    <script src="../Assets/JS/timer/materialize.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../Assets/JS/timer/materialize.min.js"></script>
+    <script src="../Assets/JS/timer/jquery.timepicker.min.js"></script>
+    <script src="../Assets/JS/timer/hammer.js"></script>
+    <script src="../Assets/JS/timer/timerjs.js"></script>
+    <script src="../Assets/JS/timer/alarm.js"></script>
+    <script src="../Assets/JS/timer/timerjs2.js"></script>
+    <script src="../Assets/JS/testTaking.js"></script>
+
+    <script>
+        //document.getElementById('timer-input').value = document.getElementById('<%=lblTimeLimit.ClientID%>').innerText;
+        document.getElementById('btnResetTimer').click();
+        //document.getElementById('timer-input').value = 0;
+        //document.getElementById('timer-input').value = document.getElementById("<%=lblTimeLimit.ClientID%>").innerText;
+        //document.getElementById('timer-input').click();
+        //document.getElementById('timer-input').onchange();
+        document.getElementById('btnTimeLimit').click();
+        document.getElementById('btnStartTimer').click();
+        <%saveTest();%>
+
+        window.onbeforeunload = function () {
+            return "Are you sure you want to end the test?";
+        }
+
+        // Found this code here http://stackoverflow.com/questions/18441194/how-to-call-a-c-sharp-function-from-javascript
+        // I have a general idea of what is happening though.
+        /*function EndTest() { // Can be changed.    
+           $.ajax({ // This is an AJAX call because it's the only good way to call C# with out a post back. All this stuff is just set up, don't change it.
+               type: "POST",
+               url: 'takingTestTest.aspx/TestTimeOut',
+               data: "",
+               contentType: "application/json; charset=utf-8",
+               dataType: "json",
+               success: function (msg) {
+                   $("#divResult").html("success");
+               },
+               error: function (e) {
+                   $("#divResult").html("Something Wrong.");
+               }
+           });*/
+       //}
+    </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="takingTestExtraReferances" runat="server">
     <link href="../Assets/Styles/timer/materialize.css" rel="stylesheet" />
@@ -12,8 +57,7 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="takingTestBodyContent" runat="server">
-    <asp:ScriptManager ID="ScriptMgr" runat="server" EnablePageMethods="true">
-                </asp:ScriptManager>
+
     <!-- begin timer -->
 
     <div class="wrapper">
@@ -78,7 +122,7 @@
 <div id="p1" class="mdl-progress mdl-js-progress" style="top: -57px;" ></div>
 <script>
   document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
-    this.MaterialProgress.setProgress(10);
+    this.MaterialProgress.setProgress(44);
   });
 </script>
             </div>
@@ -101,14 +145,14 @@
 
     <!-- end timer -->
     <div class="mdl-card mdl-card-sizing">
-        <div class="mdl-card__supporting-text" style="text-align: center;">
+        <div class="mdl-card__supporting-text" style="text-align: center; width: 100%;">
             Question Card Sizing:<br />
-            <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" OnClientClick="postingBack()" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
-            <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" OnClientClick="postingBack()" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
+            <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
+            <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
         </div>
     </div>
     <main class="mdl-layout__content" style="width: 100%;">
-        <div class="content-grid mdl-grid" style="width: 99.4%;">
+        <div class="content-grid mdl-grid">
             <br />
             <br />
             <asp:SqlDataSource ID="sqlTestQuestions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="        
@@ -155,10 +199,10 @@ SELECT q.question_id, weight, type, test_order,
                             <div class="mdl-card__supporting-text" style="text-align: center" id="divQuestion">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     
-                                    <asp:HiddenField ID="hdnQuestionID" Value='<%# Bind("question_id") %>' runat="server" />
-                                    <asp:HiddenField ID="hdnQuestionType" Value='<%# Bind("type") %>' runat="server" />
+                                    <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
+                                    <asp:HiddenField ID="hdnQuestionType" Value='<%# Eval("type") %>' runat="server" />
                                     <asp:Label ID="Label1" runat="server" Text='Question Number:' />
-                                    <asp:Label ID="lblQuestionNum" runat="server" Text='<%#Bind("seq") %>' />
+                                    <asp:Label ID="lblQuestionNum" Value='<%# Eval("seq") %>' runat="server" Text='<%#Eval("seq") %>' />
                                     <br />
                                     <asp:Label ID="lblDispWeight" runat="server" Text="Point Value: "></asp:Label>
                                     <asp:Label ID="lblWeight" Text='<%# Eval("weight") %>' runat="server" />
@@ -168,7 +212,7 @@ SELECT q.question_id, weight, type, test_order,
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divE">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input" OnTextChanged="questionChanged"/>
+                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input" OnTextChanged="questionChanged" />
                                 </div>
                             </div>
                             <!-- Matching -->
@@ -206,7 +250,7 @@ SELECT choice_id, choice_text
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:HiddenField ID="hdnTFAnswer" Value='<%# Eval("true_false_answer") %>' runat="server" />
                                     <asp:Label ID="lblTFQuestion" class="mdl-textfield" Text='<%# Eval("true_false_question") %>' runat="server" />
-                                    <asp:RadioButtonList ID="rblTFAnswer" runat="server" CssClass="mdl-radio__button tf" RepeatDirection="Horizontal" OnSelectedIndexChanged="questionChanged">
+                                    <asp:RadioButtonList ID="rblTFAnswer" runat="server" CssClass="mdl-radio__button tf" RepeatDirection="Horizontal">
                                         <asp:ListItem Text="True" Value="T" />
                                         <asp:ListItem Text="False" Value="F" />
                                     </asp:RadioButtonList>
@@ -221,11 +265,10 @@ SELECT choice_id, choice_text
                 <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click"/>
             </div>
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
-                <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
+                <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" />
             </div>
 
         </div>
-        <label id="myLabel"></label>
     </main>
 
     <!-- This the code construction zone. Code may or may not be needed in this section-->
@@ -253,59 +296,5 @@ SELECT choice_id, choice_text
     <button style="display: none" id="testButton" onclick="return false"></button>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="takingTestPageSpecificJS" runat="server">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../Assets/JS/timer/materialize.min.js"></script>
-    <script src="../Assets/JS/timer/jquery.timepicker.min.js"></script>
-    <script src="../Assets/JS/timer/hammer.js"></script>
-    <script src="../Assets/JS/timer/timerjs.js"></script>
-    <script src="../Assets/JS/timer/alarm.js"></script>
-    <script src="../Assets/JS/timer/timerjs2.js"></script>
-    <script src="../Assets/JS/testTaking.js"></script>
-    <script>
-        var progressBar = document.querySelector('#p1');
-        var newThis = this;
-
-        var isPostingBack; // is the page posting back?
-        document.getElementById('btnResetTimer').click();
-        document.getElementById('btnTimeLimit').click();
-        document.getElementById('btnStartTimer').click();
-        setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
-        
-        console.log("test");
-        
-     
-
-        window.onbeforeunload = function () {
-
-            if (!isPostingBack)
-            {
-                isPostingBack = false;
-                return "Are you sure you want to end the test?";
-            }
-            
-        }
-
-        function postingBack()
-        {
-            isPostingBack = true;
-        }
-
-        function setProgress(progress)
-        {
-            document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-                progressBar.MaterialProgress.setProgress(progress);
-            });
-        }
-
-        function questionChanged()
-        {
-            console.log("test");
-            document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-                progressBar.MaterialProgress.setProgress(50);
-            });
-        }
-
-        
-    </script>
 </asp:Content>
+
