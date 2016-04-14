@@ -23,7 +23,7 @@
     <meta name="mobile-web-app-capable" content="yes"/>
 
     <!-- Material Design Packages -->
-    <link href="../Assets/mdl/material.min.css" rel="stylesheet" />
+    <link href="../assets/mdl/material.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
     <!-- Fonts and icons -->
