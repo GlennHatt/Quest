@@ -79,7 +79,19 @@ SELECT Count(*) as test_count
                 <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
             </SelectParameters>
     </asp:SqlDataSource>
-
+    <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
+ 'Student: ' || eu.f_name || ' ' || eu.l_name AS student_name
+  FROM test_taken tt
+       JOIN test       t  USING (test_id)
+       JOIN enrollment e  USING (enrollment_id)
+       JOIN end_user   eu ON    (eu.user_id  = e.student_id)
+       JOIN section    s  ON    (s.section_id = e.section_id)
+       JOIN class      c  USING (class_id)
+ WHERE s.teacher_id = :teacher_id">
+        <SelectParameters>
+            <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     </main>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
