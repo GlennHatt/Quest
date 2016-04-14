@@ -62,10 +62,38 @@ SELECT receive_email
 
       protected void clickUpdatePassword(object sender, EventArgs e)
       {
+            currentUser = "16";
+            // ^--- needs to be changed to session when login is up
 
+            OracleCommand cmdChangePassword = new OracleCommand(@"
+DECLARE
+  currentPassword varchar2 (100);
+BEGIN
+  SELECT password INTO currentPassword
+    FROM end_user
+   WHERE user_id = :currentUser;
+  IF currentPassword = :typed_password THEN
+    end_users.changePassword
+      (p_EndUserID => :p_EndUserID, 
+       p_Password  => :p_Password);
+  END IF;
+END;",
+                            connectionString);
+        cmdChangePassword.Parameters.AddWithValue("currentUser", currentUser);
+        // ^--- needs to be changed to session when login is up
+        cmdChangePassword.Parameters.AddWithValue("typed_password", txtOldPassword.Text);
+        cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
+        // ^--- needs to be changed to session when login is up
+        cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
+
+
+        cmdChangePassword.Connection.Open();
+        cmdChangePassword.ExecuteNonQuery();
+        cmdChangePassword.Connection.Close();
+        txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = txtOldPassword.Text = string.Empty;
       }
 
-      protected void disableEmail()
+        protected void disableEmail()
       {
          OracleCommand cmdEmailDisable = new OracleCommand(@"
 BEGIN
