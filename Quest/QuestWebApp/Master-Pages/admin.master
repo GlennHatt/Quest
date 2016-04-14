@@ -14,7 +14,7 @@
     <a class="mdl-navigation__link" href="../Pages/endUserList.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i> Users</a> -->
     <asp:HyperLink class="mdl-navigation__link" runat="server" ID="users" Text="User" NavigateUrl="~/Pages/adminUser.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i> Users </asp:HyperLink>
     <asp:HyperLink class="mdl-navigation__link" runat="server" ID="class" Text="Class" NavigateUrl="~/Pages/adminClass.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">class</i> Classes </asp:HyperLink>
-    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="add" Text="Class" NavigateUrl="~/Pages/addStudentToClass.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group_add</i> Assign Students</asp:HyperLink>
+    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="add" Text="Class" NavigateUrl="~/Pages/adminAddStudentToClass.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group_add</i> Assign Students</asp:HyperLink>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
     <asp:ContentPlaceHolder ID="adminWithSidebarBodyContent" runat="server" />
