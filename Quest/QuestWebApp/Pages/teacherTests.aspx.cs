@@ -19,7 +19,7 @@ namespace QuestWebApp.Pages
          {
             if (Session["UserID"] == null)
             {
-               Session["UserID"] = 1;
+               Session["UserID"] = 20;
             }
          }
       }
