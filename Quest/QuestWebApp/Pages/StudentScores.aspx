@@ -18,10 +18,16 @@
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="ENROLLMENT_ID"></asp:DropDownList>
                             <asp:SqlDataSource ID="classesDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT e.enrollment_id, c.code || '-' || s.section_number as students_classes
+SELECT e.enrollment_id, c.code || '-' || s.section_number || '/' || c.title as students_classes
   FROM enrollment e
        JOIN section s USING (section_id)
-       JOIN class c   USING (class_id)"></asp:SqlDataSource>
+       JOIN class c   USING (class_id)
+ WHERE e.student_id = :UserID
+ORDER BY c.code asc">
+                                <SelectParameters>
+                                    <asp:SessionParameter DefaultValue="5" Name="UserID" SessionField="UserID" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
  <!-- Commented out until pages are connected with session IDs
      WHERE e.student_id = :session_id">
                                 <SelectParameters>
