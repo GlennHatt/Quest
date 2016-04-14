@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Student | Teachers & Classes" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentTeachersandClasses.aspx.cs" Inherits="QuestWebApp.Pages.studentTeachersandClasses" %>
-
+﻿<%@ Page Title="Student | Teachers & Classes" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentTeachersAndClasses.aspx.cs" Inherits="QuestWebApp.Pages.studentTeachersAndClasses" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="studentBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="studentHead" runat="server">
@@ -39,7 +38,7 @@
     </style>
 
     <asp:SqlDataSource ID="sqlStudentsClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT t.f_name || ' ' || t.l_name as full_name, title
+SELECT t.l_name as name, title
   FROM end_user eu
        JOIN enrollment ON (student_id = user_id)
        JOIN section USING (section_id)
@@ -54,42 +53,46 @@ SELECT t.f_name || ' ' || t.l_name as full_name, title
 
     
     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
-
             <div class="content-grid mdl-grid" style="width: 100%;">
-                <div class="mdl-cell mdl-cell--4-col ">
-                    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
-                        <div class="mdl-card__supporting-text" style="text-align: center">
-                            <h3>
-                                <asp:Label ID="lblClass" runat="server" Text="Class"></asp:Label></h3>
-                                <asp:Label ID="lblTeacherId" runat="server" Text="" Enabled="false"></asp:Label>
-                            <h3>
-                                <asp:Label ID="lblTeacher" runat="server" Text="Teacher"></asp:Label></h3>
-                                <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
-                            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                        </div>
-                        <div id="mailButton" class="overbox" runat="server">
-                                <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
-                                <div class="title">Email</div><br />
-                            <div class="input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblMessageSubject" class="mdl-textfield__label" runat="server" style="bottom:0px; "> Subject: </asp:Label>
-                                <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
-                            </div>
-                            <div class="input">
-                                <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
-                            </div>
-                            <div class="button" style="text-align:right; ">
-                                <button ID="btnCancelMessage" type="button" onclick="myClosure()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;margin-right:5%;"  >
-                                <i class="material-icons">clear</i>
-                                </button>
-                                <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;" runat="server" OnClick="btnSendMessage_Click">
-                                    <i class="material-icons">done</i>
-                                </asp:LinkButton>
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentsClasses">
+                  <ItemTemplate>  
+                        <div class="mdl-cell mdl-cell--4-col ">
+                            <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
+                                <div class="mdl-card__supporting-text" style="text-align: center">
+                                    <h3>
+                                        <asp:Label ID="lblClass" runat="server" Text='<%# Eval("title") %>'></asp:Label></h3>
+                                        <asp:Label ID="lblTeacherId" runat="server" Text="" Enabled="false"></asp:Label>
+                                    <h3>
+                                        <asp:Label ID="lblTeacher" runat="server" Text='<%# Eval("name") %>'></asp:Label></h3>
+                                        <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+                                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                                </div>
+                                <div id="mailButton" class="overbox" runat="server">
+                                        <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
+                                        <div class="title">Email</div><br />
+                                    <div class="input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <asp:Label ID="lblMessageSubject" class="mdl-textfield__label" runat="server" style="bottom:0px; "> Subject: </asp:Label>
+                                        <asp:TextBox ID="txtbxMessageSubject" class="mdl-textfield__input" type="text" runat="server" />
+                                    </div>
+                                    <div class="input">
+                                        <textarea id="txtbxMessageBody" runat="server" class="mdl-textfield__input" rows="3" placeholder="Message:" style="color:white;"></textarea>
+                                    </div>
+                                    <div class="button" style="text-align:right; ">
+                                        <button ID="btnCancelMessage" type="button" onclick="myClosure()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;margin-right:5%;"  >
+                                        <i class="material-icons">clear</i>
+                                        </button>
+                                        <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;" runat="server" OnClick="btnSendMessage_Click">
+                                            <i class="material-icons">done</i>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                  </ItemTemplate>
+</asp:ListView>
                 </div>
-            </div>
-   
     </main>
     <br />
         <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlStudentsClasses"></asp:GridView>

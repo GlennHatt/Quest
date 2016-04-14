@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Student | Pre-Test" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="studentPreTest.aspx.cs" Inherits="QuestWebApp.Pages.studentPreTest" %>
-
+﻿<%@ Page Title="Student | Pre-Test" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentPreTest.aspx.cs" Inherits="QuestWebApp.Pages.studentPreTest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">

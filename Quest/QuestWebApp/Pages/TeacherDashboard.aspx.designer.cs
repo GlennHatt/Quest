@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class TeacherDashboard {
+    public partial class teacherDashboard {
         
         /// <summary>
         /// btnCreateTest control.

@@ -10,7 +10,7 @@
 namespace QuestWebApp.Master_Pages {
     
     
-    public partial class student1 {
+    public partial class student {
         
         /// <summary>
         /// studentBreadCrumb control.
@@ -65,24 +65,6 @@ namespace QuestWebApp.Master_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink scores;
-        
-        /// <summary>
-        /// help control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink help;
-        
-        /// <summary>
-        /// settings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink settings;
         
         /// <summary>
         /// studentWithSidebarBodyContent control.

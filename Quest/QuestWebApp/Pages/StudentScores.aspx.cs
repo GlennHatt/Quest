@@ -8,24 +8,23 @@ using QuestWebApp.App_Code;
 
 namespace QuestWebApp.Pages
 {
-    public partial class studentScores : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
+   public partial class studentScores : System.Web.UI.Page
+   {
+      protected void Page_Load(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Session["userClassification"] == null)
+               throw new NullReferenceException();
+            if ((char)Session["userClassification"] != 'S')
             {
-                if (Session["userClassification"] == null)
-                    throw new NullReferenceException();
-                if ((char)Session["userClassification"] != 'S')
-                {
-                    utilities util = new utilities();
-                    util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-                }
+               utilities util = new utilities();
+               util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
             }
-            catch (NullReferenceException)
-            {
-                Response.Redirect("login.aspx");
-            }
-        }
-    }
+         } catch (NullReferenceException)
+         {
+            Response.Redirect("login.aspx");
+         }
+      }
+   }
 }

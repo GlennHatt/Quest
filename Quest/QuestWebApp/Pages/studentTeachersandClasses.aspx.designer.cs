@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class studentTeachersandClasses {
+    public partial class studentTeachersAndClasses {
         
         /// <summary>
         /// sqlStudentsClasses control.
@@ -22,85 +22,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlStudentsClasses;
         
         /// <summary>
-        /// lblClass control.
+        /// lstStudentTests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClass;
-        
-        /// <summary>
-        /// lblTeacherId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeacherId;
-        
-        /// <summary>
-        /// lblTeacher control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTeacher;
-        
-        /// <summary>
-        /// lblcurGrade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcurGrade;
-        
-        /// <summary>
-        /// mailButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mailButton;
-        
-        /// <summary>
-        /// lblMessageSubject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessageSubject;
-        
-        /// <summary>
-        /// txtbxMessageSubject control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbxMessageSubject;
-        
-        /// <summary>
-        /// txtbxMessageBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtbxMessageBody;
-        
-        /// <summary>
-        /// btnSendMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSendMessage;
+        protected global::System.Web.UI.WebControls.ListView lstStudentTests;
         
         /// <summary>
         /// GridView1 control.

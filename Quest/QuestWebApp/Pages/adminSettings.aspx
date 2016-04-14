@@ -17,7 +17,7 @@
             <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
-                <asp:TextBox ID="TextBox1" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtOldPassword" class="mdl-textfield__input" runat="server" />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpUpdatePass"></asp:RequiredFieldValidator>
             </div>
@@ -30,7 +30,7 @@
                 <!-- Multiline Tooltip -->
                 <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
                 <div class="mdl-tooltip" for="helpIconPass">
-                    Password must be 8-15 characters long,<br>
+                    Password SHOULD be 8-15 characters long,<br>
                     contain at least 1 number,
                     <br />
                     1 upper-case letter,
@@ -57,7 +57,7 @@
              <br />
             <br />
 
-             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="updatePassword" runat="server" ValidationGroup="grpUpdatePass" OnClick="clickUpdatePassword">
+             <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="updatePassword" runat="server" ValidationGroup="grpUpdatePass" OnClick="clickUpdatePassword">
                             Update
                 </asp:LinkButton>
         </div>
@@ -87,11 +87,11 @@
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:TextBox ID="tbStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label>
-                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailID" ControlToValidate="tbStudentLogin" ErrorMessage="Please enter student ID"  SetFocusOnError="True" ValidationGroup="grpEnableEmail"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailID" ControlToValidate="tbStudentLogin" ErrorMessage="Please enter Student ID"  SetFocusOnError="True" ValidationGroup="grpEnableEmail"></asp:RequiredFieldValidator>
 
             </div>
             <br />
-            <asp:LinkButton ValidationGroup="grpEnableEmail" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEnable" runat="server" OnClick="btnEnable_Click">
+            <asp:LinkButton ValidationGroup="grpEnableEmail" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnEnable" runat="server" ForeColor="White" OnClick="btnEnable_Click">
                             Enable
             </asp:LinkButton>
         </div>
@@ -110,7 +110,7 @@
             
             </div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="bottom: 30px; left: 41%;">
-                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnDisable" runat="server" OnClick="btnDisable_Click">
+                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnDisable" runat="server" OnClick="btnDisable_Click">
                             Disable
                 </asp:LinkButton>
         </div>

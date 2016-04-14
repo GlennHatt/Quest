@@ -1,4 +1,4 @@
-﻿<%@ Page Title=" Teacher | Help" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherHelp.aspx.cs" Inherits="QuestWebApp.Pages.teacherHelp" %>
+﻿<%@ Page Title="Teacher | Help" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherHelp.aspx.cs" Inherits="QuestWebApp.Pages.teacherHelp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">

@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class teacherStudentsandClasses {
+    public partial class teacherStudentsAndClasses {
         
         /// <summary>
         /// sqlTeacherClasses control.

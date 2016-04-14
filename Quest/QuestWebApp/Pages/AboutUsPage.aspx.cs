@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
 {
-    public partial class aboutUsPage : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+   public partial class aboutUsPage : System.Web.UI.Page
+   {
+      protected void Page_Load(object sender, EventArgs e)
+      {
 
-        }
+      }
 
-        protected void btnbackToLogin_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("http://localhost:52416/Pages/login.aspx");
-        }
-    }
+      protected void btnbackToLogin_Click(object sender, EventArgs e)
+      {
+         Response.Redirect("http://localhost:52416/Pages/login.aspx");
+      }
+   }
 }

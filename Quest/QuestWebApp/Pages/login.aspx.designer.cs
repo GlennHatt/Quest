@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class loginTest {
+    public partial class login {
         
         /// <summary>
         /// username control.

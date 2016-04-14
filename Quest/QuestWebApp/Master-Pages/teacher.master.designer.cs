@@ -67,24 +67,6 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.HyperLink tests;
         
         /// <summary>
-        /// help control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink help;
-        
-        /// <summary>
-        /// settings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink settings;
-        
-        /// <summary>
         /// teacherWithSidebarSidebar control.
         /// </summary>
         /// <remarks>

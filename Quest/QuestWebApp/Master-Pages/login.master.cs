@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Master_Pages
 {
-    public partial class login : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+   public partial class login : System.Web.UI.MasterPage
+   {
+      protected void Page_Load(object sender, EventArgs e)
+      {
 
-        }
-    }
+      }
+   }
 }

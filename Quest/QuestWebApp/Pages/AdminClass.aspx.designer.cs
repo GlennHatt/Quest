@@ -10,7 +10,7 @@
 namespace QuestWebApp.Pages {
     
     
-    public partial class AdminClass {
+    public partial class adminClass {
         
         /// <summary>
         /// ddlSortBy control.
