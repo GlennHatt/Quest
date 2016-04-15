@@ -39,6 +39,9 @@ ORDER BY c.code asc">
                     </div>
                 </div>
             </div>
+             <asp:SqlDataSource ID="testInfo" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                  select Title, grade, due_date from test
+                  join test_taken using (test_id)" />
              <div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
@@ -47,12 +50,14 @@ ORDER BY c.code asc">
                     </div>
                 </div>
                  </div>
+                <%--<asp:ListView ID="lstTestInfo" runat="server" DataSourceID="testInfo">--%>
+                 <%--<ItemTemplate>--%>
                          <div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-TestScore mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
-                        <asp:Label runat="server" ID="lbltestName"> <h3>(Test Name)</h3>  </asp:Label>
-                        <asp:Label runat="server" ID="lbScore"> <h3>(Test Score)</h3> </asp:Label>
-                        <asp:Label runat="server" ID="lblDateSub"> <h3>(Date Submitted)</h3> </asp:Label>
+                       <%-- <asp:Label runat="server" ID="lbltestName" Text='<%# Eval("Title") %>'> </asp:Label>
+                        <asp:Label runat="server" ID="lbScore" Text='<%# Eval("grade") %>'> </asp:Label>
+                        <asp:Label runat="server" ID="lblDateSub" Text='<%# Eval("due_date") %>'> </asp:Label>--%>
                         <div style="margin-right: -430px; margin-top: -21px;">
                         <asp:LinkButton ID="btnContactTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" runat="server">
                             <i class="material-icons" style="color:white">mail</i>
@@ -61,6 +66,8 @@ ORDER BY c.code asc">
                     </div>
                 </div>
                  </div>
+                  <%-- </ItemTemplate>--%>
+                     <%--</asp:ListView>--%>
         </div>
     </main>
 </asp:Content>
