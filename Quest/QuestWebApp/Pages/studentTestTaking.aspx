@@ -76,10 +76,10 @@
                 <div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect">0:00</div>
 
                 <!-- Simple MDL Progress Bar -->
-<div id="p1" class="mdl-progress mdl-js-progress" style="top: -57px;" ></div>
+<div id="p1" class="mdl-progress mdl-js-progress" style="top: -42px;height:21px;z-index:2;width:70%;margin-left:15%;" ></div>
 <script>
   document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
-    this.MaterialProgress.setProgress(10);
+    this.MaterialProgress.setProgress(0);
   });
 </script>
             </div>
@@ -101,7 +101,7 @@
 
 
     <!-- end timer -->
-    <div class="mdl-card mdl-card-sizing" style="min-height:0px;height:98px;top:52px;margin-bottom:54px;width:80%;margin-left:10%;">
+    <div class="mdl-card mdl-card-sizing" style="min-height:0px;height:98px;top:103px;margin-bottom:100px;width:80%;margin-left:10%;">
         <div class="mdl-card__supporting-text" style="text-align: center;width:100%;">
             Question Card Sizing:<br />
             <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" OnClientClick="postingBack()" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
@@ -224,9 +224,9 @@ SELECT choice_id, choice_text
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
                 <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
             </div>
-
+            <asp:HiddenField ID="hdnQuestionTotal" runat="server" />
         </div>
-        <label id="myLabel"></label>
+        
     </main>
 
     <!-- This the code construction zone. Code may or may not be needed in this section-->
@@ -264,14 +264,15 @@ SELECT choice_id, choice_text
     <script src="../Assets/JS/timer/timerjs2.js"></script>
     <script src="../Assets/JS/testTaking.js"></script>
     <script>
-        var progressBar = document.querySelector('#p1');
-        var newThis = this;
 
+        var testProgress = [];
         var isPostingBack; // is the page posting back? flag value
+        var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").value;
         document.getElementById('btnResetTimer').click();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
+
         
         //console.log("test");
         
@@ -284,6 +285,7 @@ SELECT choice_id, choice_text
                 isPostingBack = false;
                 return "Are you sure you want to end the test?";
             }
+
             
         }
 
@@ -299,12 +301,20 @@ SELECT choice_id, choice_text
             });
         }
 
-        function questionChanged()
+        function questionChanged(questionNum)
         {
-            console.log("test");
-            document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-                progressBar.MaterialProgress.setProgress(50);
-            });
+            var progressNum = 0;
+          
+            testProgress[questionNum] = true;
+
+            for (var question in testProgress)
+            {
+                if (testProgress[question] == true)
+                    progressNum++;
+            }
+
+            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressNum / totalQuestions * 100);
+            
         }
 
         
