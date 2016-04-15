@@ -22,7 +22,7 @@ SELECT grade
 
             <div style="font-size: 200%">Grade Overview </div>
             <br />
- <asp:Label ID="lblYourGrade" runat="server" Text="Your approximate grade is: "></asp:Label>
+ <asp:Label ID="lblYourGrade" runat="server" Text="Your approximate grade: "></asp:Label>
             <br />
             <br />
     <asp:Label ID="lblGrade" runat="server" Text="" ></asp:Label>
