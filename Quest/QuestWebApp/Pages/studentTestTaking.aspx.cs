@@ -203,16 +203,19 @@ END;", connectionString);
                e.Item.FindControl("divE").Visible = false;
                e.Item.FindControl("divSA").Visible = false;
                e.Item.FindControl("divTF").Visible = false;
+               ((RadioButtonList)e.Item.FindControl("rblMCAnswer")).Attributes.Add("onchange", "questionChanged(" + ((Label)e.Item.FindControl("lblQuestionNum")).Text + ")");
                break;
             case "SA":
                e.Item.FindControl("divE").Visible = false;
                e.Item.FindControl("divMC").Visible = false;
                e.Item.FindControl("divTF").Visible = false;
+               ((TextBox)e.Item.FindControl("txtSAAnswer")).Attributes.Add("onchange", "questionChanged(" + ((Label)e.Item.FindControl("lblQuestionNum")).Text + ")");
                break;
             case "TF":
                e.Item.FindControl("divE").Visible = false;
                e.Item.FindControl("divMC").Visible = false;
                e.Item.FindControl("divSA").Visible = false;
+               ((RadioButtonList)e.Item.FindControl("rblTFAnswer")).Attributes.Add("onchange", "questionChanged(" + ((Label)e.Item.FindControl("lblQuestionNum")).Text + ")");
                break;
          }
          if (Session["cardsLarge"].ToString() == "true")
@@ -229,6 +232,7 @@ END;", connectionString);
             btnSmall.Attributes.Add("disabled", "true");
          }
          questionCount++;
+            hdnQuestionTotal.Value = questionCount.ToString();
       }
 
       protected void myTest_Click(object sender, EventArgs e)
