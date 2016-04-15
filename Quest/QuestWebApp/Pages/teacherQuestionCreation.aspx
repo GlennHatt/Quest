@@ -200,6 +200,7 @@ SELECT choice_id, question_id, choice_text, set_order
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
                 <br />
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Save Choices Body" OnClick="btnSaveMCBody_Click" />
             </div>
         </div>
     </div>   

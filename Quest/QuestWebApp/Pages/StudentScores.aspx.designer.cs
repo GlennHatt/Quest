@@ -49,12 +49,12 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lbltestAverage;
         
         /// <summary>
-        /// btnContactTeacher control.
+        /// lstTestInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnContactTeacher;
+        protected global::System.Web.UI.WebControls.ListView lstTestInfo;
     }
 }
