@@ -11,7 +11,7 @@
     <asp:SqlDataSource ID="sqlTestGrade" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT grade
   FROM test_taken
- WHERE test_taken_id = :sessionTestTakenID">
+ WHERE test_taken_id = :sessionTestTakenID">//~/Pages/aboutUsPage.aspx
         <SelectParameters>
             <asp:SessionParameter Name="sessionTestTakenID" SessionField="TestTakenID" />
         </SelectParameters>
@@ -22,7 +22,7 @@ SELECT grade
 
             <div style="font-size: 200%">Grade Overview </div>
             <br />
- <asp:Label ID="lblYourGrade" runat="server" Text="Your approximate grade is: "></asp:Label>
+ <asp:Label ID="lblYourGrade" runat="server" Text="Your approximate grade: "></asp:Label>
             <br />
             <br />
     <asp:Label ID="lblGrade" runat="server" Text="" ></asp:Label>

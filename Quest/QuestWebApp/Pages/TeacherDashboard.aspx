@@ -50,20 +50,20 @@
                     </div>
                 </div>
             </div>
-            <asp:ListView ID="teachersTests" runat="server" DataSourceID="sqlGradeTests">
+            <asp:ListView ID="lvTeacherTests" runat="server" DataSourceID="sqlGradeTests" OnItemCommand="lvTeacherTests_ItemCommand1">
                     <ItemTemplate>
-            <div class="mdl-cell mdl-cell--4-col">
+            <div class="mdl-cell mdl-cell--4-col" id="gradeTestTemplate" runat="server">
              <div class="mdl-card mdl-shadow--3dp  demo-card-square">
                     <div class="mdl-card__supporting-text " style="text-align: center">
                         <i class="material-icons testAlert" style="font-size:300%">assignment_late</i>
                         <div style="font-size: 180%; margin-bottom: 7%; margin-top: 5%;">Test Ready To Be Graded:</div>
-                        <asp:Label ID="lblTestSubject" runat="server" Text='<%# Eval("class_title") %>'></asp:Label><br />
-                        <asp:Label ID="lblTestDate" runat="server" Text='<%# Eval("test_title") %>'></asp:Label><br />
-                        <asp:Label ID="lblTestTime" runat="server" Text='<%# Eval("student_name") %>'></asp:Label><br />
+                        <asp:Label ID="lblClassTitle" runat="server" Text='<%# Eval("class_title") %>'></asp:Label><br />
+                        <asp:Label ID="lblTestTitle" runat="server" Text='<%# Eval("test_title") %>'></asp:Label><br />
+                        <asp:Label ID="lblTStudentName" runat="server" Text='<%# Eval("student_name") %>'></asp:Label><br />
                     </div>
                     <div style="text-align: right">
                         <br />
-                        <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                        <asp:LinkButton ID="btnGradeTest" CommandName="lvGradeTestLnkBtnClick" CommandArgument='<%#Bind("test_taken_id") %>' runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
                             Grade Test
                         </asp:LinkButton>
 </div>
@@ -77,13 +77,13 @@ SELECT Count(*) as test_count
   FROM test_taken t
        JOIN enrollment e USING (enrollment_id)
        JOIN section    s USING (section_id)
- WHERE s.teacher_id = :teacher_id">
+ WHERE s.teacher_id = :p_TeacherID">
             <SelectParameters>
-                <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
+                <asp:SessionParameter DefaultValue="1" Name="p_TeacherID" SessionField="UserID" />
             </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
+SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
  'Student: ' || eu.f_name || ' ' || eu.l_name AS student_name
   FROM test_taken tt
        JOIN test       t  USING (test_id)
@@ -91,9 +91,9 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        JOIN end_user   eu ON    (eu.user_id  = e.student_id)
        JOIN section    s  ON    (s.section_id = e.section_id)
        JOIN class      c  USING (class_id)
- WHERE s.teacher_id = :teacher_id">
+ WHERE s.teacher_id = :p_TeacherID">
         <SelectParameters>
-            <asp:SessionParameter DefaultValue="1" Name="teacher_id" SessionField="UserID" />
+            <asp:SessionParameter DefaultValue="1" Name="p_TeacherID" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource>
     </main>

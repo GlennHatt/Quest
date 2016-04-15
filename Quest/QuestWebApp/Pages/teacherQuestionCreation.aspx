@@ -19,7 +19,23 @@
         }
     </style>
 
-    <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
+    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; ">
+        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
+            <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
+            <br />
+            <br />
+            <br />
+            <asp:RadioButtonList ID="rblAddType" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
+                <asp:ListItem Text="Essay" Value="E" />
+                <asp:ListItem Text="Multiple Choice" Value="MC" />
+                <asp:ListItem Text="Short Answer" Value="SA" />
+                <asp:ListItem Text="True/False" Value="TF" />
+            </asp:RadioButtonList>
+        </div>
+    </div>
+
+    
+    <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px; ">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
@@ -30,23 +46,6 @@
             <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
         </div>
     </div>
-
-    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; visibility: hidden;">
-        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
-            <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
-            <br />
-            <br />
-            <br />
-            <asp:RadioButtonList ID="rblAddType" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
-                <asp:ListItem Text="Essay" Value="E" />
-                <asp:ListItem Text="Matching" Value="M" />
-                <asp:ListItem Text="Multiple Choice" Value="MC" />
-                <asp:ListItem Text="Short Answer" Value="SA" />
-                <asp:ListItem Text="True/False" Value="TF" />
-            </asp:RadioButtonList>
-        </div>
-    </div>
-
 
     <!-- Essay -->
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardEssay" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
@@ -126,17 +125,9 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:TextBox ID="txtAddMultipleChoiceQuestion" class="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
-                    <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
-                </div>
-                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
-                <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
-                <br />
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
             </div>
         </div>
-    </div>
+    </div> 
 
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMultiple" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
@@ -196,6 +187,22 @@ SELECT choice_id, question_id, choice_text, set_order
     <div style="text-align: center;">
         <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
     </div>
+
+    <!-- Multiple Choice Choices -->
+    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMultipleChoiceChoice" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
+        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
+            <div id="Div2" runat="server">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
+                    <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
+                </div>
+                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
+                <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
+                <br />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
+            </div>
+        </div>
+    </div>   
 
     <div style="position: fixed; right: 31px; margin-top: 214px; z-index: 2;">
         <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Test Finished" />
@@ -615,14 +622,14 @@ END;">
 
 
         // show the question type card when number is typed into point value
-        $(document).ready(function () {
-            $('#<%= txtAddWeight.ClientID %>').on('input', function (e) {
-                var weightInput = $('#<%= txtAddWeight.ClientID %>').val();
+<%--        $(document).ready(function () {
+            $('#<%= cardQuestionType.ClientID %>').on('input', function (e) {
+                var weightInput = $('#<%= cardQuestionType.ClientID %>').val();
                 if ($.isNumeric(weightInput)) {
-                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
+                    $('#<%= txtAddWeight.ClientID %>').css("visibility", "visible");
                 }
                 else
-                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
+                    $('#<%= txtAddWeight.ClientID %>').css("visibility", "hidden");
             });
 
             if ($.isNumeric($('#<%= txtAddWeight.ClientID %>').val()))
@@ -630,6 +637,6 @@ END;">
             else
                 $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
 
-        });
+        });--%>
     </script>
 </asp:Content>
