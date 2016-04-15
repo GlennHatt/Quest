@@ -60,7 +60,7 @@ SELECT Count(*) as test_count
             {
                 case "lvGradeTestLnkBtnClick":
                     Session["TestID"] = e.CommandArgument;
-                    Response.Redirect("teacherTestReview.aspx");
+                    Response.Redirect("~/Pages/teacherTestReview.aspx");
                     break;
             }
         }

@@ -63,7 +63,7 @@ END;",
 
          cmdAddTest.Connection.Close();
 
-         Response.Redirect("teacherQuestionCreation.aspx");
+         Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
       }
    }
 }

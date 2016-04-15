@@ -23,7 +23,7 @@ namespace QuestWebApp.Pages
             }
          } catch (NullReferenceException)
          {
-            Response.Redirect("login.aspx");
+            Response.Redirect("~/Pages/login.aspx");
          }
 
          //if (!this.IsPostBack)

@@ -11,7 +11,7 @@
     <asp:SqlDataSource ID="sqlTestGrade" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT grade
   FROM test_taken
- WHERE test_taken_id = :sessionTestTakenID">//~/Pages/aboutUsPage.aspx
+ WHERE test_taken_id = :sessionTestTakenID">
         <SelectParameters>
             <asp:SessionParameter Name="sessionTestTakenID" SessionField="TestTakenID" />
         </SelectParameters>
