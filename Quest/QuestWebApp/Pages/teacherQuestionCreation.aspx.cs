@@ -154,10 +154,22 @@ END;",
          if (chkMultipleChoiceAnswer.Checked)
          {
             Session["ChoiceID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_ChoiceID"].Value);
-         }
+            OracleCommand cmdChangeChoice = new OracleCommand(@"
+ BEGIN
+   QUESTIONS_MULTIPLE_CHOICE.change_answer(
+    p_QuestionID => :p_QuestionID,
+    p_ChoiceID   => :p_ChoiceID);
+ END;",
+               connectionString);
+                cmdChangeChoice.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                cmdChangeChoice.Parameters.AddWithValue("p_ChoiceID", Session["ChoiceID"]);
+                cmdChangeChoice.ExecuteNonQuery();
+                cmdChangeChoice.Connection.Close();
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            }
 
-         cmdAddQuestion.Connection.Close();
-
+            cmdAddQuestion.Connection.Close();
+            grdMultipleChoiceBody.Visible = true;
          grdMultipleChoiceBody.DataBind();
          txtMultipleChoiceBody.Text = string.Empty;
          chkMultipleChoiceAnswer.Checked = false;
@@ -250,6 +262,7 @@ END;",
                     cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
                     //cmdAddQuestionType.Parameters.AddWithValue("P_ChoiceID", Session["ChoiceID"]);
                     cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddMultipleChoiceQuestion.Text);
+                    cardMultipleChoiceChoice.Visible = true;
                     // This is where multiple choice questions pop up
                break;
             case "SA":
@@ -289,8 +302,11 @@ END;",
          lstQuestionDisplay.DataBind();
 
          rblAddType.SelectedIndex = -1;
-         hideInputs();
-         Session["QuestionID"] = null;
+        if (questionType != "MC")
+        {
+            hideInputs();
+            Session["QuestionID"] = null;
+        }
       }
 
       /**************************/
@@ -588,11 +604,17 @@ END;", connectionString);
          }
       }
 
+        protected void btnSaveMCBody_Click(object sender, EventArgs e)
+        {
+            hideInputs();
+            Session["QuestionID"] = null;
+        }
 
 
-      //protected void btnPointValue_Click(object sender, EventArgs e)
-      //{
-      //    cardQuestionType.Visible = true;
-      //}
-   }
+
+        //protected void btnPointValue_Click(object sender, EventArgs e)
+        //{
+        //    cardQuestionType.Visible = true;
+        //}
+    }
 }
