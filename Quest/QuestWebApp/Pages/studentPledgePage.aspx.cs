@@ -49,7 +49,7 @@ END;",
          {
             btnNoCheat.Text = "SUCCESS";
             Session["TestTakenID"] = 115;
-            Response.Redirect("gradeOverview.aspx");
+            Response.Redirect("~/Pages/gradeOverview.aspx");
          }
 
          cmdPledgeCheck.Connection.Close();

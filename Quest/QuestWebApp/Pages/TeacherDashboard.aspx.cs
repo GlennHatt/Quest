@@ -17,33 +17,41 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string testNumber = "0";
-            string currentUser = "1";
+            if (!IsPostBack)
+            {
+                Session["UserID"] = 1;
 
-            OracleCommand cmdGradeTests = new OracleCommand(@"
+                if (Session["UserID"] == null)
+                    Session["UserID"] = 1;
+
+                string testNumber = "0";
+                string currentUser = "1";
+
+                OracleCommand cmdGradeTests = new OracleCommand(@"
 SELECT Count(*) as test_count
   FROM test_taken t
        JOIN enrollment e USING (enrollment_id)
        JOIN section    s USING (section_id)
  WHERE s.teacher_id = :p_UserID", connectionString);
-            cmdGradeTests.Parameters.AddWithValue("p_UserID", currentUser);
+                cmdGradeTests.Parameters.AddWithValue("p_UserID", currentUser);
 
-            cmdGradeTests.Connection.Open();
-            OracleDataReader reader = cmdGradeTests.ExecuteReader();
-            try
-            {
-                while (reader.Read())
+                cmdGradeTests.Connection.Open();
+                OracleDataReader reader = cmdGradeTests.ExecuteReader();
+                try
                 {
-                    testNumber = reader.GetValue(0).ToString();
+                    while (reader.Read())
+                    {
+                        testNumber = reader.GetValue(0).ToString();
+                    }
                 }
-            }
-            finally
-            {
-                reader.Close();
-            }
-            cmdGradeTests.Connection.Close();
+                finally
+                {
+                    reader.Close();
+                }
+                cmdGradeTests.Connection.Close();
 
-            lblTestsToGrade.Text = testNumber;
+                lblTestsToGrade.Text = testNumber;
+            }
         }
 
         protected void lvTeacherTests_ItemCommand1(object sender, ListViewCommandEventArgs e)
