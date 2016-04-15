@@ -47,7 +47,7 @@ SELECT title, grade, due_date
  WHERE student_id   = :UserID
    AND e.section_id = :SectonID" >
                                 <SelectParameters>
-                                    <asp:SessionParameter DefaultValue="1" Name="UserID" SessionField="UserID" />
+                                    <asp:SessionParameter DefaultValue="1" Name="UserID" SessionField="UserID" />  
                                     <asp:ControlParameter ControlID="ddlStudentClasses" Name="SectonID" PropertyName="SelectedValue" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
