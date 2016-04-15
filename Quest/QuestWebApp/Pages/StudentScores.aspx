@@ -51,11 +51,15 @@ SELECT title, grade, due_date
                                     <asp:ControlParameter ControlID="ddlStudentClasses" Name="SectonID" PropertyName="SelectedValue" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
+             <asp:SqlDataSource ID="sqlAverageGrade" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                 SELECT average_grade from enrollment where enrollemt_id = 4" >
+
+                 </asp:SqlDataSource>
              <div class="mdl-cell mdl-cell--6-col">
             <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
                         <h1>Class Average</h1>
-                        <asp:Label runat="server" ID="lbltestAverage"> (Class Average) </asp:Label>
+                        <asp:Label runat="server" ID="lbltestAverage" Text='<%# Eval("average_grade") %>'> </asp:Label>
                     </div>
                 </div>
                  </div>
