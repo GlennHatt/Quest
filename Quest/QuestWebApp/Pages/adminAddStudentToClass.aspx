@@ -4,6 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="adminHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="adminExtraReferances" runat="server">
+    <script src="../Assets/JS/modernizerResponsiveTable.js"></script>
+    <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
+    <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableClass.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="adminWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -38,15 +41,29 @@
             <label style="padding-left: 1%; font-size:20pt">Students Enrolled In This Class Currently:</label>
             <br />
             <br />
-    <asp:GridView ID="gvCurrentStudents" runat="server" DataSourceID="sqlCurrentStudents" DataKeyNames="enrollment_id" OnRowDeleted="gvCurrentStudents_RowDeleted">
+            </div>
+            <div class="table-responsive-vertical shadow-z-1">
+    <asp:GridView ID="gvCurrentStudents" CssClass="table table-hover table-mc-light-blue" runat="server" DataSourceID="sqlCurrentStudents"  DataKeyNames="enrollment_id" OnRowDeleted="gvCurrentStudents_RowDeleted">
     <Columns>
         <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
                      <asp:LinkButton ID="lnkdelete" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="delete">Delete</asp:LinkButton>
                     </ItemTemplate>
             </asp:TemplateField>
+        <asp:TemplateField HeaderText="Enrollment ID" >
+                        <ItemTemplate>
+                            <asp:Label ID="lblEnrollmentID" runat="server" Text='<%# Eval("enrollment_id") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+        <asp:TemplateField HeaderText="Students Enrolled" >
+                        <ItemTemplate>
+                            <asp:Label ID="lblEnrollmentID" runat="server" Text='<%# Eval("currently_enrolled") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
     </Columns>
     </asp:GridView>
+                </div>
+         </div>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT end_user.f_name || ' ' || end_user.l_name as currently_enrolled, enrollment_id
         FROM end_user
@@ -81,8 +98,9 @@ SELECT f_name || ' ' || l_name as full_name, user_id
             <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
-                </div>
-         </div>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../Assets/JS/ResponsiveTable.js"></script>
 </asp:Content>
