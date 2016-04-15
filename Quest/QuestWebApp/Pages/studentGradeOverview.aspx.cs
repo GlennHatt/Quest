@@ -45,7 +45,7 @@ SELECT grade
 
       protected void btnRedirect_Click(object sender, EventArgs e)
       {
-         Response.Redirect("studentDashboard.aspx");
+         Response.Redirect("~/Page/studentDashboard.aspx");
       }
    }
 }
