@@ -12,19 +12,26 @@ namespace QuestWebApp.Pages
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-         try
-         {
-            if (Session["userClassification"] == null)
-               throw new NullReferenceException();
-            if ((char)Session["userClassification"] != 'S')
-            {
-               utilities util = new utilities();
-               util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-            }
-         } catch (NullReferenceException)
-         {
-            Response.Redirect("~/Pages/login.aspx");
-         }
+            Session["UserID"] = "1";
+         //try
+         //{
+         //   if (Session["userClassification"] == null)
+         //      throw new NullReferenceException();
+         //   if ((char)Session["userClassification"] != 'S')
+         //   {
+         //      utilities util = new utilities();
+         //      util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
+         //   }
+         //} catch (NullReferenceException)
+         //{
+         //   Response.Redirect("~/Pages/login.aspx");
+         //}
       }
-   }
+
+        protected void ddlStudentClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView1.DataBind();
+            lstTestInfo.DataBind();
+        }
+    }
 }
