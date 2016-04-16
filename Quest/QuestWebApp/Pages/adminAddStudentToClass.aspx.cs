@@ -19,12 +19,18 @@ namespace QuestWebApp.Pages
       {
             // toast notifications 
             if (Session["showAddStudent"] != null)
+            {
                 showAddStudent = (bool)Session["showAddStudent"];
+                ddlClassSelect.SelectedIndex = (int)Session["selectedClass"];
+            }
             else
                 showAddStudent = false;
 
             if (Session["showdeleteStudent"] != null)
+            {
                 showdeleteStudent = (bool)Session["showdeleteStudent"];
+                ddlClassSelect.SelectedIndex = (int)Session["selectedClass"];
+            }
             else
                 showdeleteStudent = false;
 
@@ -34,6 +40,7 @@ namespace QuestWebApp.Pages
                 "toastr_message",
                 "toastr.success('A Student Has Been Added To a Class', 'Success!')", true);
                 Session["showAddStudent"] = null;
+                Session["selectedClass"] = null;
                 showAddStudent = false;
             }
 
@@ -43,6 +50,7 @@ namespace QuestWebApp.Pages
                 "toastr_message",
                 "toastr.success('A Student Has Been Deleted From a Class', 'Success!')", true);
                 Session["showdeleteStudent"] = null;
+                Session["selectedClass"] = null;
                 showdeleteStudent = false;
             }
 
@@ -82,6 +90,7 @@ END;",
 
             showAddStudent = true;
             Session["showAddStudent"] = true;
+            Session["selectedClass"] = ddlClassSelect.SelectedIndex;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
         }
 
@@ -90,6 +99,7 @@ END;",
          ddlStudentsSelect.DataBind();
             showdeleteStudent = true;
             Session["showdeleteStudent"] = true;
+            Session["selectedClass"] = ddlClassSelect.SelectedIndex;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
         }
 
