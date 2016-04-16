@@ -17,7 +17,7 @@
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="ENROLLMENT_ID" OnSelectedIndexChanged="ddlStudentClasses_SelectedIndexChanged" AppendDataBoundItems="true">
-                                <%--   Checks for whether there is data or not--%>  <asp:ListItem Text="Test Case" Value="1" />  
+                                <%--   Checks for whether there is data or not--%>  <asp:ListItem Text="Test Case" Value="4" />  
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="classesDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
                                  SELECT e.enrollment_id, c.code || '-' || s.section_number || '/' || c.title as students_classes
