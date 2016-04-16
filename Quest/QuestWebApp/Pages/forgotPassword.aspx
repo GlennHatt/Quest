@@ -47,7 +47,13 @@
 
             <div class="input">
                 <asp:TextBox ID="txtbxStudentID" class="mdl-textfield__input" type="text" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label>
+                <asp:DropDownList ID="ddlAdmins" class="mdl-textfield__input" runat="server" DataSourceID="sqlAdmins" DataTextField="full_name" DataValueField="email"></asp:DropDownList>
+                <label class="mdl-textfield" style="bottom: 0px" for="sample3">Choose Admin:</label>
+                <asp:SqlDataSource ID="sqlAdmins" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT user_id, f_name || ' ' || l_name as full_name, email
+  FROM end_user
+ WHERE permission_level = 'A'
+   AND email IS NOT NULL"></asp:SqlDataSource>
             </div>
 
             <div class="input">

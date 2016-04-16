@@ -58,6 +58,24 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtbxStudentID;
         
         /// <summary>
+        /// ddlAdmins control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAdmins;
+        
+        /// <summary>
+        /// sqlAdmins control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAdmins;
+        
+        /// <summary>
         /// txtbxStudentEmail control.
         /// </summary>
         /// <remarks>
