@@ -73,17 +73,20 @@
                 </asp:ListView>
             </div>
         <asp:SqlDataSource ID="sqlTestAmount" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT Count(*) as test_count
+SELECT Count(DISTINCT test_taken_id) as test_count
   FROM test_taken t
        JOIN enrollment e USING (enrollment_id)
        JOIN section    s USING (section_id)
- WHERE s.teacher_id = :p_TeacherID">
+       JOIN question_taken qt USING (test_taken_id)
+       JOIN question_taken_essay tte USING (question_taken_id)
+ WHERE s.teacher_id = :p_TeacherID
+   --AND graded = 'N'">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="1" Name="p_TeacherID" SessionField="UserID" />
             </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlGradeTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
+SELECT DISTINCT test_taken_id, test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title,
  'Student: ' || eu.f_name || ' ' || eu.l_name AS student_name
   FROM test_taken tt
        JOIN test       t  USING (test_id)
@@ -91,7 +94,10 @@ SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: '
        JOIN end_user   eu ON    (eu.user_id  = e.student_id)
        JOIN section    s  ON    (s.section_id = e.section_id)
        JOIN class      c  USING (class_id)
- WHERE s.teacher_id = :p_TeacherID">
+       JOIN question_taken qt USING (test_taken_id)
+       JOIN question_taken_essay tte USING (question_taken_id)
+ WHERE s.teacher_id = :p_TeacherID
+   --AND graded = 'N'">
         <SelectParameters>
             <asp:SessionParameter DefaultValue="1" Name="p_TeacherID" SessionField="UserID" />
         </SelectParameters>

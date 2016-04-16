@@ -19,7 +19,8 @@ namespace QuestWebApp.Pages
         {
             if (!IsPostBack)
             {
-                Session["UserID"] = 1;
+                Session["UserID"] =
+                    1;
 
                 if (Session["UserID"] == null)
                     Session["UserID"] = 1;
@@ -28,12 +29,15 @@ namespace QuestWebApp.Pages
                 string currentUser = "1";
 
                 OracleCommand cmdGradeTests = new OracleCommand(@"
-SELECT Count(*) as test_count
+SELECT Count(DISTINCT test_taken_id) as test_count
   FROM test_taken t
        JOIN enrollment e USING (enrollment_id)
        JOIN section    s USING (section_id)
- WHERE s.teacher_id = :p_UserID", connectionString);
-                cmdGradeTests.Parameters.AddWithValue("p_UserID", currentUser);
+       JOIN question_taken qt USING (test_taken_id)
+       JOIN question_taken_essay tte USING (question_taken_id)
+ WHERE s.teacher_id = :p_TeacherID
+   --AND graded = 'N'", connectionString);
+                cmdGradeTests.Parameters.AddWithValue("p_TeacherID", currentUser);
 
                 cmdGradeTests.Connection.Open();
                 OracleDataReader reader = cmdGradeTests.ExecuteReader();

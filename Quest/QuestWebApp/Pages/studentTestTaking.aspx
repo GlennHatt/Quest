@@ -265,13 +265,29 @@ SELECT choice_id, choice_text
     <script src="../Assets/JS/testTaking.js"></script>
     <script>
 
+        var progressPercent;
         var testProgress = [];
         var isPostingBack; // is the page posting back? flag value
         var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").value;
         document.getElementById('btnResetTimer').click();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
+        document.getElementById("alarm-sounds").checked = true;
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
+
+        window.onload = function () {
+            if (localStorage.getItem("testProgress")) {
+                testProgress = JSON.parse(localStorage.getItem("testProgress"));
+                progressPercent = localStorage.getItem("progressPercent");
+
+                // wait for progress bar to load before incrementing
+                setTimeout(function () {
+                    
+                    document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
+                }, 500);
+                
+        }
+        }
 
         
         //console.log("test");
@@ -280,13 +296,18 @@ SELECT choice_id, choice_text
 
         window.onbeforeunload = function () {
 
+            <%--'<%Session["testProgress"] = "' + testProgress + '"; %>';--%>
+            localStorage.setItem("testProgress", JSON.stringify(testProgress));
+            localStorage.setItem("progressPercent", progressPercent);
+            console.log("test");
+            <%--console.log('<%= Session["testProgress"] %>');--%>
+            //console.log(localStorage.getItem("testProgress").toString());
+
             if (!isPostingBack)
             {
                 isPostingBack = false;
                 return "Are you sure you want to end the test?";
             }
-
-            
         }
 
         function postingBack()
@@ -294,12 +315,10 @@ SELECT choice_id, choice_text
             isPostingBack = true;
         }
 
-        function setProgress(progress)
-        {
-            document.querySelector('#p1').addEventListener('mdl-componentupgraded', function () {
-                progressBar.MaterialProgress.setProgress(progress);
-            });
-        }
+        //function setProgress(progress)
+        //{
+        //    document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progress);
+        //}
 
         function questionChanged(questionNum)
         {
@@ -313,7 +332,8 @@ SELECT choice_id, choice_text
                     progressNum++;
             }
 
-            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressNum / totalQuestions * 100);
+            progressPercent = progressNum / totalQuestions * 100;
+            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
             
         }
 
