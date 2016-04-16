@@ -126,7 +126,7 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
         </asp:ListView>
 
         <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
-        <asp:Button ID="btnBackToLogin" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Login" OnClick="btnBackToLogin_Click"/>
+        <asp:Button ID="btnFinishGrading" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Finished Grading" OnClick="btnFinishGrading_Click"/>
     </div>
        
             </div>

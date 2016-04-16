@@ -64,7 +64,7 @@ SELECT time_limit
           }
       }*/
 
-      protected void btnBackToLogin_Click(object sender, EventArgs e)
+      protected void btnFinishGrading_Click(object sender, EventArgs e)
       {
          //            int noAnswerCounter = 0;
          //            string TFAnswer;
