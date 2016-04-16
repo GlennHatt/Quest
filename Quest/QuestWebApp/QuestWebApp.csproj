@@ -192,6 +192,7 @@
     <Content Include="Assets\Styles\Misc.css" />
     <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableClass.css" />
     <Content Include="Assets\Styles\Responsive-Tables\responsiveTableNormalize.css" />
+    <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableQuestions.css" />
     <Content Include="Assets\Styles\Responsive-Tables\ResponsiveTableUsers.css" />
     <Content Include="Assets\Styles\styles.css" />
     <Content Include="Assets\Styles\timer\materialize.css" />
