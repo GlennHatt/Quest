@@ -57,10 +57,14 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
             </InsertParameters>
         </asp:SqlDataSource>
         <asp:Label ID="lblTimeLimit" runat="server" />
-             <div class="mdl-cell mdl-cell--12-col">
+             <div class="mdl-card mdl-card-sizing" style="min-height:0px;height:98px;top:-21px;margin-bottom:-10px;width:80%;margin-left:10%;">
+        <div class="mdl-card__supporting-text" style="text-align: center;width:100%;">
+            Card Sizing:<br />
                  <asp:LinkButton ID="btnSmall" runat="server" OnClick="btnSmall_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Small</asp:LinkButton>
                  <asp:LinkButton ID="btnLarge" runat="server" OnClick="btnLarge_Click" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ForeColor="White" BackColor="#FF6E40">Large</asp:LinkButton>
              </div>
+                 </div>
+    
 
         <!-- TRUE/FALSE QUESTIONS -->
         <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnItemCommand="lstQuestions_ItemCommand">
