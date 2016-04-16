@@ -13,6 +13,7 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
+         
          Session["UserID"] = 1;
          displayGreeting();
          //testAlertTemplate.Visible = true;
@@ -46,7 +47,7 @@ namespace QuestWebApp.Pages
 
       protected void lstStudentTests_ItemCommand1(object sender, ListViewCommandEventArgs e)
       {
-         switch (e.CommandName)
+            switch (e.CommandName)
          {
             case "lstStudentTestsLnkBtnClick":
                Session["TestID"] = e.CommandArgument;

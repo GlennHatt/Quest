@@ -17,9 +17,7 @@ namespace QuestWebApp.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["TestTakenID"] = "114";
-
             string testGrade = "";
-
             OracleCommand cmdTestGrade = new OracleCommand(@"
 SELECT grade
   FROM test_taken
@@ -40,7 +38,15 @@ SELECT grade
                 reader.Close();
             }
             cmdTestGrade.Connection.Close();
-            lblYourGrade.Text += testGrade;
+
+            if (Session["cheated_status"] != null)
+            {
+                lblYourGrade.Text += "'F' for Cheating";
+            }
+            else
+            {
+                lblYourGrade.Text += testGrade;
+            }
         }
 
       protected void btnRedirect_Click(object sender, EventArgs e)
