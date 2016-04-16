@@ -73,7 +73,7 @@
 
                 </div>
 
-                <div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect">0:00</div>
+                <div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect"></div>
 
                 <!-- Simple MDL Progress Bar -->
 <div id="p1" class="mdl-progress mdl-js-progress" style="top: -42px;height:21px;z-index:2;width:70%;margin-left:15%;" ></div>
@@ -218,8 +218,9 @@ SELECT choice_id, choice_text
                 </ItemTemplate>
             </asp:ListView>
 
+            <asp:Label ID="lblASP" runat="server" Text="Label"></asp:Label>
             <div style="position: fixed; right: 41px; bottom: 80px; z-index: 2;">
-                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click"/>
+                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="moveValue();"/>
             </div>
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
                 <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
@@ -299,7 +300,7 @@ SELECT choice_id, choice_text
             <%--'<%Session["testProgress"] = "' + testProgress + '"; %>';--%>
             localStorage.setItem("testProgress", JSON.stringify(testProgress));
             localStorage.setItem("progressPercent", progressPercent);
-            console.log("test");
+            
             <%--console.log('<%= Session["testProgress"] %>');--%>
             //console.log(localStorage.getItem("testProgress").toString());
 
@@ -337,6 +338,13 @@ SELECT choice_id, choice_text
             
         }
 
-        
+        function moveValue()
+        {
+            // wait for progress bar to load before incrementing
+
+            
+
+            
+        }
     </script>
 </asp:Content>

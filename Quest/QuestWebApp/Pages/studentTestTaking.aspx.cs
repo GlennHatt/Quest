@@ -16,6 +16,7 @@ namespace QuestWebApp.Pages
    public partial class studentTestTaking : System.Web.UI.Page
    {
       bool cardsLarge;
+      public string time;
       int questionCount = 0;
       List<bool> testProgress = new List<bool>();
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
@@ -23,11 +24,13 @@ namespace QuestWebApp.Pages
       protected void Page_Load(object sender, EventArgs e)
       {
          int timerTime = 0;
+         Session["TestID"] = 31;
+         Session["UserID"] = 1;
          if (!IsPostBack)
          {
             if (Session["TestID"] == null)
             {
-               Session["TestID"] = 23;
+               Session["TestID"] = 31;
                Session["UserID"] = 1;
             }
 
@@ -86,7 +89,7 @@ END;", connectionString);
          cmdGradeQuestion.ExecuteNonQuery();
          cmdGradeQuestion.Connection.Close();
 
-         Response.Redirect("pledgePage.aspx");
+         Response.Redirect("~/Pages/pledgePage.aspx");
 
       }
 
@@ -176,33 +179,27 @@ END;", connectionString);
       {
          string questionID;
          string questionType;
-         int testTakenID;
-         OracleCommand cmdGradeQuestion;
-
-         try
-         {
-            cmdGradeQuestion = new OracleCommand(@"
-DECLARE
-  v_TestTakenID TESTS_TAKEN.t_TestTakenID;
-BEGIN
-  SELECT test_taken_id INTO v_TestTakenID
+         int testTakenID = -1;
+         OracleCommand cmdGradeQuestion = new OracleCommand();
+         
+         cmdGradeQuestion = new OracleCommand(@"
+  SELECT test_taken_id 
     FROM test_taken
          JOIN enrollment USING (enrollment_id)
    WHERE test_id    = :p_TestID
-     AND student_id = :p_StudentID
-     AND rownum = 1;
-END;", connectionString);
-            cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+     AND student_id = :p_StudentID", connectionString);
+         cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
+         cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-            cmdGradeQuestion.Connection.Open();
-            cmdGradeQuestion.ExecuteNonQuery();
-            testTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
-            cmdGradeQuestion.Connection.Close();
-         }
-         catch
+         cmdGradeQuestion.Connection.Open();
+         OracleDataReader reader =  cmdGradeQuestion.ExecuteReader();
+
+         if (reader.Read())
          {
-            testTakenID = -1;
+            testTakenID = int.Parse(reader.GetValue(0).ToString());
          }
+         cmdGradeQuestion.Connection.Close();
+         
 
          if (testTakenID == -1)
          {
@@ -213,10 +210,10 @@ BEGIN
     p_TestID    => :p_TestID,
     p_TimeLeft  => :p_TimeLeft);
 END;", connectionString);
-            cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
             cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
             cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", timerClock.InnerText);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", String.Empty);
+            cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
             cmdGradeQuestion.Connection.Open();
             cmdGradeQuestion.ExecuteNonQuery();
@@ -241,7 +238,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_Essay       => :p_Essay);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
@@ -259,9 +256,9 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_ChoiceID);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedItem.Value);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
 
                   cmdGradeQuestion.Connection.Open();
                   cmdGradeQuestion.ExecuteNonQuery();
@@ -275,7 +272,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
@@ -291,7 +288,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
@@ -305,7 +302,8 @@ END;", connectionString);
 
       protected void btnSaveTest_Click(object sender, EventArgs e)
       {
-
+         saveTest();
+         Response.Redirect("~/Pages/StudentDashboard.aspx");
       }
 
       protected void questionChanged(object sender, EventArgs e)
