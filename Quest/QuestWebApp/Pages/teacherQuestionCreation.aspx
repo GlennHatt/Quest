@@ -21,7 +21,7 @@
             width:30%;
         }
     </style>
-
+   
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; ">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
             <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
@@ -36,6 +36,7 @@
             </asp:RadioButtonList>
         </div>
     </div>
+        
 
     
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px; ">
@@ -54,8 +55,10 @@
             <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
         </div>
     </div>
+        
 
     <!-- Essay -->
+    
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardEssay" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddEssay" runat="server">
@@ -68,7 +71,7 @@
             </div>
         </div>
     </div>
-
+        
 
     <!-- Matching -->
     <asp:SqlDataSource ID="sqlAddMatchingQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -80,6 +83,7 @@ SELECT question_id, question_text, answer
         </SelectParameters>
     </asp:SqlDataSource>
 
+    
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMatching" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -105,6 +109,9 @@ SELECT question_id, question_text, answer
 
         </div>
     </div>
+    
+
+   
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMatching" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="table-responsive-vertical shadow-z-1">
@@ -118,6 +125,7 @@ SELECT question_id, question_text, answer
                 </div>
         </div>
     </div>
+        
 
     <!-- Multiple Choice -->
     <asp:SqlDataSource ID="sqlMultipleChoiceBody" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -129,6 +137,7 @@ SELECT choice_id, question_id, choice_text, set_order
         </SelectParameters>
     </asp:SqlDataSource>
 
+   
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMultipleChoice" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddMultipleChoice" runat="server">
@@ -143,7 +152,9 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div> 
+        
 
+  
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMultiple" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="table-responsive-vertical shadow-z-1">
@@ -158,8 +169,11 @@ SELECT choice_id, question_id, choice_text, set_order
         </div>
 
     </div>
+        
+
 
     <!-- Short Answer -->
+    
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardShortAnswer" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddShortAnswer" runat="server">
@@ -188,8 +202,10 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>
+        
 
     <!-- True False -->
+    
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardTrueFalse" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddTrueFalse" runat="server">
@@ -212,11 +228,13 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>
+    
     <div style="text-align: center;">
         <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" ValidationGroup="testQuestions" OnClick="btnAddQuestion_Click" />
     </div>
 
     <!-- Multiple Choice Choices -->
+   
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMultipleChoiceChoice" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="Div2" runat="server">
@@ -235,6 +253,7 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>   
+        
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
         <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" />
@@ -298,7 +317,7 @@ END;">
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server" Height="300">
                 <!-- End borrowed Code, except the closeing tags... -->--%>
-                <main class="mdl-layout__content">
+                <main class="mdl-layout__content" style="width:100%;">
                     <div class="content-grid mdl-grid">
 
                         <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating" OnItemDataBound="lstQuestionDisplay_ItemDataBound" OnItemEditing="lstQuestionDisplay_ItemEditing">
