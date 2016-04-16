@@ -11,6 +11,8 @@ namespace QuestWebApp.Pages
 {
    public partial class adminClass : System.Web.UI.Page
    {
+        bool showdeleteStudent,
+            showUpdate;
       protected void Page_Load(object sender, EventArgs e)
       {
          // SECURITY DISABLED FOR TESTING -----
@@ -29,8 +31,33 @@ namespace QuestWebApp.Pages
              Response.Redirect("login.aspx");
          } */
          GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
+            if (Session["showdeleteStudent"] != null)
+                showdeleteStudent = (bool)Session["showdeleteStudent"];
+            else
+                showdeleteStudent = false;
 
-      }
+            if (Session["showUpdate"] != null)
+                showUpdate = (bool)Session["showUpdate"];
+            else
+                showUpdate = false;
+
+            if (showdeleteStudent == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('A Student Has Been Deleted From a Class', 'Success!')", true);
+                Session["showdeleteStudent"] = null;
+                showdeleteStudent = false;
+            }
+            if (showUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('The Class Information Has Been Updated', 'Success!')", true);
+                Session["showUpdate"] = null;
+                showUpdate = false;
+            }
+        }
 
       protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
       {
@@ -67,7 +94,11 @@ END;",
 
          cmdDeleteClass.Connection.Close();
          GVClass.DataBind();
-      }
+
+            showdeleteStudent = true;
+            Session["showdeleteStudent"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
       protected void btnSortUsers_Click(object sender, EventArgs e)
       {
@@ -97,5 +128,12 @@ END;",
             GVClass.Sort(sortBy, direction);
          }
       }
-   }
+
+        protected void lnkUpdate_Click(object sender, EventArgs e)
+        {
+            showUpdate = true;
+            Session["showUpdate"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
+    }
 }

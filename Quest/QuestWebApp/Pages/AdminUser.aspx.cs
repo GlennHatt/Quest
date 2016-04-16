@@ -9,25 +9,38 @@ namespace QuestWebApp.Pages
 {
    public partial class adminUser : System.Web.UI.Page
    {
-      protected void Page_Load(object sender, EventArgs e)
+        bool showUpdate;
+        protected void Page_Load(object sender, EventArgs e)
       {
          this.MaintainScrollPositionOnPostBack = true;
-         //try
-         //{
-         //    if (Session["userClassification"] == null)
-         //        throw new NullReferenceException();
-         //    if ((char)Session["userClassification"] != 'A')
-         //    {
-         //        utilities util = new utilities();
-         //        util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-         //    }
-         //}
-         //catch (NullReferenceException)
-         //{
-         //    Response.Redirect("login.aspx");
-         //}
+            //try
+            //{
+            //    if (Session["userClassification"] == null)
+            //        throw new NullReferenceException();
+            //    if ((char)Session["userClassification"] != 'A')
+            //    {
+            //        utilities util = new utilities();
+            //        util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
+            //    }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    Response.Redirect("login.aspx");
+            //}
+            if (Session["showUpdate"] != null)
+                showUpdate = (bool)Session["showUpdate"];
+            else
+                showUpdate = false;
 
-         GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
+            if (showUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('The Student's Information Has Been Updated', 'Success!')", true);
+                Session["showUpdate"] = null;
+                showUpdate = false;
+            }
+            GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
          //ddlSortDirection.SelectedIndex = 0;
       }
 
@@ -172,5 +185,12 @@ namespace QuestWebApp.Pages
       {
          Response.Redirect(Request.RawUrl);
       }
-   }
+
+        protected void lnkUpdate_Click(object sender, EventArgs e)
+        {
+            showUpdate = true;
+            Session["showUpdate"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
+    }
 }

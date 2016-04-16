@@ -18,7 +18,7 @@
             <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
-                <asp:TextBox ID="txtOldPassword" class="mdl-textfield__input" runat="server" />
+                <asp:TextBox ID="txtOldPassword" class="mdl-textfield__input" runat="server" type="password" />
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password" SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -90,7 +90,7 @@
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address" SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" runat="server" type="password" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
             </div>
             <div>

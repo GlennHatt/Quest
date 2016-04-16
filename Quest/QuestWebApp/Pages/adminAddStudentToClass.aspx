@@ -57,7 +57,7 @@
                     </asp:TemplateField>
         <asp:TemplateField HeaderText="Students Enrolled" >
                         <ItemTemplate>
-                            <asp:Label ID="lblEnrollmentID" runat="server" Text='<%# Eval("currently_enrolled") %>'></asp:Label>
+                            <asp:Label ID="lblStudentsEnrolled" runat="server" Text='<%# Eval("currently_enrolled") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
     </Columns>

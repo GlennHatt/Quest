@@ -48,7 +48,7 @@
                      <asp:LinkButton ID="lnkEdit" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Edit">Edit</asp:LinkButton>
                     </ItemTemplate>
                         <EditItemTemplate>
-                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update">Update</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" OnClick="lnkUpdate_Click">Update</asp:LinkButton>
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
                          </EditItemTemplate>
                     </asp:TemplateField>
@@ -144,7 +144,8 @@ END;">
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT user_id, f_name || ' ' || l_name as FULL_NAME
   FROM end_user
- WHERE permission_level = 'T'"></asp:SqlDataSource>
+ WHERE permission_level = 'T'
+       OR permission_level = 'A'"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT class_id, code || '/' || title as CODE_TITLE
   FROM class
@@ -152,7 +153,7 @@ SELECT class_id, code || '/' || title as CODE_TITLE
     <%--</div>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
-
+    <script src="../Assets/JS/deleteButton.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/ResponsiveTable.js"></script>
 </asp:Content>

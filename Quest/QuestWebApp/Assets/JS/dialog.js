@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿    $(function () {
 
     $(".input input").focus(function () {
         console.log("test1");
@@ -46,6 +46,40 @@
     //    }, 600);
     //    $("button", this).addClass('active');
     //})
+
+    function altClick ()
+    {
+        
+            if (!$(this).hasClass('material-button')) {
+                $(".shape").css({
+                    "width": "100%",
+                    "height": "100%",
+                    "transform": "rotate(0deg)"
+                })
+                setTimeout(function () {
+                    $(".overbox").css({
+                        "overflow": "initial"
+                    })
+                }, 600)
+
+                $(this).animate({
+                    "width": "140px",
+                    "height": "140px"
+                }, 500, function () {
+                    $(".box").removeClass("back");
+
+                    $(this).removeClass('active')
+                });
+
+                $(".overbox .title").fadeOut(300);
+                $(".overbox .input").fadeOut(300);
+                $(".overbox .button").fadeOut(300);
+
+                $(".alt-2").addClass('material-buton');
+            }
+
+        
+    }
 
     $(".alt-2").click(function () {
         if (!$(this).hasClass('material-button')) {

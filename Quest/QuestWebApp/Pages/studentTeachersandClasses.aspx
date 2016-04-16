@@ -54,8 +54,8 @@ SELECT t.l_name as name, title
     
     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
             <div class="content-grid mdl-grid" style="width: 100%;">
-                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentsClasses">
-                  <ItemTemplate>  
+                <asp:ListView ID="lstStudentTests" runat="server" DataSourceID="sqlStudentsClasses" >
+                  <ItemTemplate >  
                         <div class="mdl-cell mdl-cell--4-col ">
                             <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
                                 <div class="mdl-card__supporting-text" style="text-align: center">

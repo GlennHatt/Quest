@@ -11,10 +11,41 @@ namespace QuestWebApp.Pages
 {
    public partial class adminAddStudentToClass : System.Web.UI.Page
    {
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        bool showAddStudent,
+           showdeleteStudent;
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
       {
+            // toast notifications 
+            if (Session["showAddStudent"] != null)
+                showAddStudent = (bool)Session["showAddStudent"];
+            else
+                showAddStudent = false;
+
+            if (Session["showdeleteStudent"] != null)
+                showdeleteStudent = (bool)Session["showdeleteStudent"];
+            else
+                showdeleteStudent = false;
+
+            if (showAddStudent == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('A Student Has Been Added To a Class', 'Success!')", true);
+                Session["showAddStudent"] = null;
+                showAddStudent = false;
+            }
+
+            if (showdeleteStudent == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('A Student Has Been Deleted From a Class', 'Success!')", true);
+                Session["showdeleteStudent"] = null;
+                showdeleteStudent = false;
+            }
+
             //gvCurrentStudents.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
@@ -48,12 +79,19 @@ END;",
          cmdAddEnrollee.Connection.Close();
          ddlStudentsSelect.DataBind();
          gvCurrentStudents.DataBind();
-      }
+
+            showAddStudent = true;
+            Session["showAddStudent"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
       protected void gvCurrentStudents_RowDeleted(object sender, GridViewDeletedEventArgs e)
       {
          ddlStudentsSelect.DataBind();
-      }
+            showdeleteStudent = true;
+            Session["showdeleteStudent"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
         protected void gvCurrentStudents_PreRender(object sender, EventArgs e)
         {
