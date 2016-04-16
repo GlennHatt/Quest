@@ -12,8 +12,10 @@ namespace QuestWebApp.Pages
 {
    public partial class teacherQuestionCreation : System.Web.UI.Page
    {
-      // Global Variables
-      int QuestionID;   // ID of the current question.
+        // Global Variables
+        bool showAddedQuestion;
+
+        int QuestionID;   // ID of the current question.
       string questionType; // The questions type, should be 'E', 'M', 'MC', 'SA', or 'TF'.
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
 
@@ -36,7 +38,20 @@ namespace QuestWebApp.Pages
          {
             questionType = rblAddType.SelectedValue;
          }
-      }
+            if (Session["showAddedQuestion"] != null)
+                showAddedQuestion = (bool)Session["showAddedQuestion"];
+            else
+                showAddedQuestion = false;
+
+            if (showAddedQuestion == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('A Question Has Been Added', 'Success!')", true);
+                Session["showAddedQuestion"] = null;
+                showAddedQuestion = false;
+            }
+        }
 
       /***********************************************************************/
       /*                              Functionality                          */
@@ -177,6 +192,10 @@ END;",
 
       protected void btnAddQuestion_Click(object sender, EventArgs e)
       {
+            //showAddedQuestion = true;
+            //Session["showAddedQuestion"] = true;
+            //Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
             questionType = rblAddType.SelectedValue.ToString();
             OracleCommand cmdAddQuestion;
             if (Session["QuestionID"] == null)
