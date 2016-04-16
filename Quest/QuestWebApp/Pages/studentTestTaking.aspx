@@ -23,7 +23,7 @@
         //document.getElementById('timer-input').onchange();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
-        <%saveTest();%>
+        <%--<%saveTest();%>--%>
 
         window.onbeforeunload = function () {
             return "Are you sure you want to end the test?";
