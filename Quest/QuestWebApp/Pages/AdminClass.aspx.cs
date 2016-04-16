@@ -129,7 +129,7 @@ END;",
          }
       }
 
-        protected void lnkUpdate_Click(object sender, EventArgs e)
+        protected void GVClass_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
             showUpdate = true;
             Session["showUpdate"] = true;
