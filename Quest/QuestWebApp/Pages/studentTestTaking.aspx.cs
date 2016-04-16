@@ -78,7 +78,8 @@ SELECT time_limit
          OracleCommand cmdGradeQuestion;
 
          saveTest();
-
+         
+         // There is no TestTakenID session
          cmdGradeQuestion = new OracleCommand(@"
 BEGIN
     TESTS_TAKEN.updateGrade(p_TestTakenID => :p_TestTakenID);
@@ -89,7 +90,7 @@ END;", connectionString);
          cmdGradeQuestion.ExecuteNonQuery();
          cmdGradeQuestion.Connection.Close();
 
-         Response.Redirect("~/Pages/pledgePage.aspx");
+         Response.Redirect("~/Pages/studentPledgePage.aspx");
 
       }
 
@@ -197,7 +198,9 @@ END;", connectionString);
          if (reader.Read())
          {
             testTakenID = int.Parse(reader.GetValue(0).ToString());
-         }
+                
+            Session["testTakenID"] = testTakenID.ToString(); // NOT SURE IF THIS IS RIGHT< BUT PAGE DOESNT CRASH
+            }
          cmdGradeQuestion.Connection.Close();
          
 

@@ -19,8 +19,28 @@ namespace QuestWebApp.Pages
 
       }
 
-      protected void btnNoCheat_Click(object sender, EventArgs e)
+        protected void btnCheat_Click(object sender, EventArgs e)
+        {
+            Session["cheated_status"] = "1";
+            OracleCommand cmdCheated = new OracleCommand(@"
+BEGIN
+  tests_taken.cheated(p_TestTakenID => :p_TestTakenID);
+END;",
+                             new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+            cmdCheated.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]); 
+
+
+            cmdCheated.Connection.Open();
+            cmdCheated.ExecuteNonQuery();
+
+            Response.Redirect("~/Pages/studentGradeOverview.aspx");
+
+            cmdCheated.Connection.Close();
+        }
+
+        protected void btnNoCheat_Click(object sender, EventArgs e)
       {
+        Session["cheated_status"] = null;
          OracleCommand cmdPledgeCheck = new OracleCommand(@"
 DECLARE
   pledge_signature varchar(300);
@@ -38,7 +58,7 @@ BEGIN
 END;",
                           new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
          cmdPledgeCheck.Parameters.AddWithValue("pledge_signature", txtbxUsersName.Text);
-         cmdPledgeCheck.Parameters.AddWithValue("session_id", 18);
+         cmdPledgeCheck.Parameters.AddWithValue("session_id", Session["UserID"]);
          cmdPledgeCheck.Parameters.AddWithValue("approval", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
 
@@ -49,7 +69,7 @@ END;",
          {
             btnNoCheat.Text = "SUCCESS";
             Session["TestTakenID"] = 115;
-            Response.Redirect("~/Pages/gradeOverview.aspx");
+            Response.Redirect("~/Pages/studentGradeOverview.aspx");
          }
 
          cmdPledgeCheck.Connection.Close();
