@@ -31,6 +31,24 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource classesDropDown;
         
         /// <summary>
+        /// testInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource testInfo;
+        
+        /// <summary>
+        /// sqlAverageGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlAverageGrade;
+        
+        /// <summary>
         /// lbltestAverage control.
         /// </summary>
         /// <remarks>
@@ -40,39 +58,12 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lbltestAverage;
         
         /// <summary>
-        /// lbltestName control.
+        /// lstTestInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltestName;
-        
-        /// <summary>
-        /// lbScore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbScore;
-        
-        /// <summary>
-        /// lblDateSub control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateSub;
-        
-        /// <summary>
-        /// btnContactTeacher control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnContactTeacher;
+        protected global::System.Web.UI.WebControls.ListView lstTestInfo;
     }
 }

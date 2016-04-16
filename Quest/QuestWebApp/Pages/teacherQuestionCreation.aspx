@@ -6,6 +6,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="teacherExtraReferances" runat="server">
     <script src="../Assets/JS/jquery-2.1.3.min.js"></script>
+        <script src="../Assets/JS/modernizerResponsiveTable.js"></script>
+    <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
+    <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableClass.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
@@ -19,19 +22,7 @@
         }
     </style>
 
-    <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
-        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
-                <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
-            </div>
-            <br />
-            <br />
-            <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
-        </div>
-    </div>
-
-    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; visibility: hidden;">
+    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; ">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
             <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
             <br />
@@ -39,14 +30,30 @@
             <br />
             <asp:RadioButtonList ID="rblAddType" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rblAddType_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem Text="Essay" Value="E" />
-                <asp:ListItem Text="Matching" Value="M" />
-                <asp:ListItem Text="Multiple Choice" Value="MC" />
-                <asp:ListItem Text="Short Answer" Value="SA" />
-                <asp:ListItem Text="True/False" Value="TF" />
+                <asp:ListItem Text="Multiple Choice " Value="MC" />
+                <asp:ListItem Text="Short Answer " Value="SA" />
+                <asp:ListItem Text="True/False " Value="TF" />
             </asp:RadioButtonList>
         </div>
     </div>
 
+    
+    <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px; ">
+        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
+                <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
+            </div>
+            <br />
+            
+           <asp:RegularExpressionValidator ID="numbersOnlyValidator" runat="server" ForeColor="Red" ControlToValidate="txtAddWeight" SetFocusOnError="True" ValidationGroup="testQuestions" ErrorMessage="Please Enter Numbers Only" ValidationExpression="[0-9]*"></asp:RegularExpressionValidator>
+            <br />
+            <asp:RequiredFieldValidator ID="ValidatorWeight" runat="server" ErrorMessage="Please Enter a Question Weight" ForeColor="Red" ControlToValidate="txtAddWeight" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+            <br />
+            <br />
+            <%--<asp:Button ID="btnPointValue" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Pick Question Type" OnClick="btnPointValue_Click" />--%>
+        </div>
+    </div>
 
     <!-- Essay -->
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardEssay" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
@@ -56,6 +63,8 @@
                     <asp:Label class="mdl-textfield__label" ID="lblAddEssayText" runat="server" Text=" Essay Question: " Style="bottom: 0px" />
                     <asp:TextBox class="mdl-textfield__input" ID="txtAddEssayText" runat="server" />
                 </div>
+                <br />
+                <asp:RequiredFieldValidator ID="ValidatorEssay" runat="server" ErrorMessage="Please an Essay Question" ForeColor="Red" ControlToValidate="txtAddEssayText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
             </div>
         </div>
     </div>
@@ -78,6 +87,7 @@ SELECT question_id, question_text, answer
                     <asp:Label class="mdl-textfield__label" ID="lblAddMatchingText" runat="server" Text="Header Text: " Style="bottom: 0px" />
                     <asp:TextBox class="mdl-textfield__input" ID="txtAddMatchingText" runat="server" />
                 </div>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter a Question Weight" ForeColor="Red" ControlToValidate="txtAddWeight" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
             </div>
             <br />
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -97,13 +107,15 @@ SELECT question_id, question_text, answer
     </div>
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMatching" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-            <asp:GridView ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
+            <div class="table-responsive-vertical shadow-z-1">
+            <asp:GridView CssClass="table table-hover table-mc-light-blue" CellSpacing="-1" GridLines="None" ID="grdAddMatchingQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlAddMatchingQuestion">
                 <Columns>
                     <asp:BoundField DataField="question_id" HeaderText="Question ID" SortExpression="question_id" />
                     <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
                     <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
                 </Columns>
             </asp:GridView>
+                </div>
         </div>
     </div>
 
@@ -126,27 +138,23 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:TextBox ID="txtAddMultipleChoiceQuestion" class="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
-                    <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
-                </div>
-                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
-                <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
+                <asp:RequiredFieldValidator ID="MCValidator" runat="server" ErrorMessage="Please Enter Header Text" ForeColor="Red" ControlToValidate="txtAddMultipleChoiceQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
             </div>
         </div>
-    </div>
+    </div> 
 
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardAddedMultiple" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
-            <asp:GridView ID="grdMultipleChoiceBody" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
+            <div class="table-responsive-vertical shadow-z-1">
+            <asp:GridView ID="grdMultipleChoiceBody" CssClass="table table-hover table-mc-light-blue" CellSpacing="-1" GridLines="None" OnRowDataBound="grdMultipleChoiceBody_RowDataBound"  runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
                 <Columns>
                     <asp:BoundField DataField="QUESTION_ID" HeaderText="Question ID" SortExpression="QUESTION_ID" />
                     <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
                     <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
                 </Columns>
             </asp:GridView>
+                </div>
         </div>
 
     </div>
@@ -159,16 +167,24 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:Label ID="lblBeforeText" class="mdl-textfield__label" runat="server" Text="Before Text: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtBeforeText" class="mdl-textfield__input" runat="server" />
                 </div>
-
+                <br />
+                <asp:RequiredFieldValidator ID="BeforeTextValidator" runat="server" ErrorMessage="Please Enter Before Text" ForeColor="Red" ControlToValidate="txtBeforeText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <asp:Label ID="lblAnswerText" class="mdl-textfield__label" runat="server" Text="Answer Text: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtAnswerText" class="mdl-textfield__input" runat="server" />
                 </div>
+                <br />
+                <asp:RequiredFieldValidator ID="AnswerTextValidator" runat="server" ErrorMessage="Please Enter Answer Text" ForeColor="Red" ControlToValidate="txtAnswerText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <asp:Label ID="lblAfterText" class="mdl-textfield__label" runat="server" Text="After Text: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtAfterText" class="mdl-textfield__input" runat="server" />
                 </div>
+                <br />
+                <asp:RequiredFieldValidator ID="AfterValidator" runat="server" ErrorMessage="Please Enter After Text" ForeColor="Red" ControlToValidate="txtAfterText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
             </div>
         </div>
     </div>
@@ -181,6 +197,9 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:Label ID="lblAddTFQuestion" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtAddTFQuestion" class="mdl-textfield__input" runat="server" />
                 </div>
+                <br />
+                <asp:RequiredFieldValidator ID="TFValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtAddTFQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
 
                 <label id="lblAddTFAnswer" class="mdl-textfield__label" runat="server" style="position: unset; text-align: center; color: black">Answer: </label>
                 <div style="margin-left: 41%">
@@ -194,11 +213,31 @@ SELECT choice_id, question_id, choice_text, set_order
         </div>
     </div>
     <div style="text-align: center;">
-        <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" OnClick="btnAddQuestion_Click" />
+        <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" ValidationGroup="testQuestions" OnClick="btnAddQuestion_Click" />
     </div>
 
-    <div style="position: fixed; right: 31px; margin-top: 214px; z-index: 2;">
-        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Test Finished" />
+    <!-- Multiple Choice Choices -->
+    <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMultipleChoiceChoice" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
+        <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
+            <div id="Div2" runat="server">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
+                    <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
+                </div>
+                <br />
+                <asp:RequiredFieldValidator ID="MultipleChoiceValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
+                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
+                <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
+                <br />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Save Choices Body" OnClick="btnSaveMCBody_Click" />
+            </div>
+        </div>
+    </div>   
+
+    <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
+        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" />
     </div>
     <!-- Question Display Section -->
     <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -311,12 +350,14 @@ SELECT question_id, question_text, answer
                                                     </div>
                                             </div>
                                             <div>
-                                            <asp:GridView ID="grdDispMQuestion" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMQuestion">
+                                                <div class="table-responsive-vertical shadow-z-1">
+                                            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="grdDispMQuestion" runat="server" OnRowDataBound="grdDispMQuestion_RowDataBound" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMQuestion" CellSpacing="-1" GridLines="None">
                                                 <Columns>
                                                     <asp:BoundField DataField="question_text" HeaderText="Question" SortExpression="question_text" />
                                                     <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
                                                 </Columns>
                                             </asp:GridView>
+                                                    </div>
                                                 </div>
 
                                             <!-- Multiple Choice Question Display -->
@@ -339,14 +380,15 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                         <asp:Label ID="txtMCQuestion" runat="server" Text='<%#Eval("multiple_choice_question") %>' />
                                             </div>
                                             </div>
-                                            <asp:GridView ID="grdMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="question_id" DataSourceID="sqlDispMC">
+                                            <div class="table-responsive-vertical shadow-z-1">
+                                            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="grdMChoice" OnRowDataBound="grdMChoice_RowDataBound" AutoGenerateColumns="false" CellSpacing="-1" runat="server" DataKeyNames="question_id" DataSourceID="sqlDispMC">
                                                 <Columns>
                                                     <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
                                                     <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
                                                     <asp:BoundField DataField="set_order" HeaderText="Set Order" SortExpression="set_order" />
                                                 </Columns>
                                             </asp:GridView>
-
+                                                </div>
                                             <!-- Short Answer Question Display -->
                                             <div ID="tblSAQuestion" runat="server">
                                                         <asp:Label ID="lblDispBeforeText" runat="server" Text="Before Text: " />
@@ -392,11 +434,17 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                     <asp:Label class="mdl-textfield__label" ID="lblEditWeight" runat="server" style="bottom:0px"> Weight: </asp:Label>
                                                         <asp:TextBox class="mdl-textfield__input" ID="txtEditWeight" runat="server" Text='<%#Bind("weight") %>' />
                                                     </div>
+                                                    <br />
+                <asp:RequiredFieldValidator ID="weightValidator" runat="server" ErrorMessage="Please Enter Weight Text" ForeColor="Red" ControlToValidate="txtEditWeight" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
                                                         </br>
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                                         <asp:Label class="mdl-textfield__label" ID="lblEditTestOrder" runat="server" style="bottom:0px">Test Order: </asp:Label>
                                                         <asp:TextBox class="mdl-textfield__input" ID="txtEditTestOrder" runat="server" Text='<%#Bind("test_order") %>' />
                                                 </div>
+                                                     <br />
+                <asp:RequiredFieldValidator ID="testOrderValidator" runat="server" ErrorMessage="Please Enter Test Order" ForeColor="Red" ControlToValidate="txtEditTestOrder" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
                                             </div>
 
                                             <!-- Edit Essay -->
@@ -405,6 +453,9 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                         <asp:Label ID="lblEditEQuestion"  class="mdl-textfield__label" runat="server" style="bottom:0px"> Question </asp:Label>
                                                         <asp:TextBox ID="txtEditEQuestion" class="mdl-textfield__input" runat="server" Text='<%#Bind("essay_question") %>' />
                                             </div>
+                                                 <br />
+                <asp:RequiredFieldValidator ID="EssayQuestValidator" runat="server" ErrorMessage="Please Enter Essay Question" ForeColor="Red" ControlToValidate="txtEditTestOrder" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <br />
                                                 </div>
 
                                             <!-- Edit Matching -->
@@ -433,7 +484,8 @@ END;">
                                                                 <asp:ControlParameter Name="p_QuestionID" ControlID="hdnEditQuestionID" PropertyName="value" />
                                                             </SelectParameters>
                                                         </asp:SqlDataSource>
-                                                        <asp:GridView ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" ShowFooter="true" OnRowCommand="grdEditMQuestion_RowCommand">
+                                                   <div class="table-responsive-vertical shadow-z-1">
+                                                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="grdEditMQuestion" runat="server" DataSourceID="sqlEditMQuestion" DataKeyNames="matching_body_id" AutoGenerateColumns="false" ShowFooter="true" OnRowCommand="grdEditMQuestion_RowCommand" CellSpacing="-1" GridLines="None">
                                                             <Columns>
                                                                 <asp:TemplateField>
                                                                     <ItemTemplate>
@@ -472,6 +524,7 @@ END;">
                                                                 </asp:TemplateField>
                                                             </Columns>
                                                         </asp:GridView>
+                                                       </div>
                                                 </div>
 </div>
                                             <!-- Edit Multiple Choice -->
@@ -503,7 +556,8 @@ END;">
                                                     </div>
                                             </div>
                                             <div>
-                                            <asp:GridView ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="choice_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand" ShowHeaderWhenEmpty="true">
+                                                <div class="table-responsive-vertical shadow-z-1">
+                                            <asp:GridView CssClass="table table-hover table-mc-light-blue" OnRowDataBound="grdEditMChoice_RowDataBound" ID="grdEditMChoice" runat="server" AutoGenerateColumns="False" DataKeyNames="choice_id" DataSourceID="sqlEditMC" ShowFooter="true" OnRowCommand="grdEditMChoice_RowCommand" ShowHeaderWhenEmpty="true" CellSpacing="-1" GridLines="None">
                                                 <Columns>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
@@ -560,6 +614,7 @@ END;">
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
+                                                    </div>
 </div>
 
                                             <!-- Edit Short Answer -->
@@ -611,18 +666,20 @@ END;">
     </asp:UpdatePanel>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
+     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../Assets/JS/ResponsiveTable.js"></script>
     <script>
 
 
         // show the question type card when number is typed into point value
-        $(document).ready(function () {
-            $('#<%= txtAddWeight.ClientID %>').on('input', function (e) {
-                var weightInput = $('#<%= txtAddWeight.ClientID %>').val();
+<%--        $(document).ready(function () {
+            $('#<%= cardQuestionType.ClientID %>').on('input', function (e) {
+                var weightInput = $('#<%= cardQuestionType.ClientID %>').val();
                 if ($.isNumeric(weightInput)) {
-                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "visible");
+                    $('#<%= txtAddWeight.ClientID %>').css("visibility", "visible");
                 }
                 else
-                    $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
+                    $('#<%= txtAddWeight.ClientID %>').css("visibility", "hidden");
             });
 
             if ($.isNumeric($('#<%= txtAddWeight.ClientID %>').val()))
@@ -630,6 +687,6 @@ END;">
             else
                 $('#<%= cardQuestionType.ClientID %>').css("visibility", "hidden");
 
-        });
+        });--%>
     </script>
 </asp:Content>

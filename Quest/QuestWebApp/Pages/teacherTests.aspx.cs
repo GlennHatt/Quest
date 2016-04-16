@@ -19,7 +19,7 @@ namespace QuestWebApp.Pages
          {
             if (Session["UserID"] == null)
             {
-               Session["UserID"] = 1;
+               Session["UserID"] = 20;
             }
          }
       }
@@ -27,6 +27,7 @@ namespace QuestWebApp.Pages
       protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
       {
          ddlStudentsSelect.DataBind();
+         rblTypeTest.SelectedIndex = -1;
       }
 
       protected void rblTypeTest_SelectedIndexChanged(object sender, EventArgs e)

@@ -112,12 +112,13 @@ SELECT permission_level
 
       protected void discoverButton_Click(object sender, EventArgs e)
       {
-         Response.Redirect("AboutUsPage.aspx");
+         Response.Redirect("~/Pages/AboutUsPage.aspx");
       }
 
       protected void btnbackToLogin_Click(object sender, EventArgs e)
       {
-         Response.Redirect("http://localhost:52416/Pages/forgotPassword.aspx");
-      }
-   }
+            Response.Redirect("~/Pages/forgotPassword.aspx");
+
+        }
+    }
 }

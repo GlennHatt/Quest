@@ -74,7 +74,7 @@ namespace QuestWebApp.Pages
 
          Response.Cache.SetNoStore();
 
-         lblWarning.Text = valCourseNumber.Text;
+         //lblWarning.Text = valCourseNumber.Text;
 
          // toast notifications 
          if (Session["showAddUserMessage"] != null)
@@ -152,7 +152,7 @@ namespace QuestWebApp.Pages
          string passwordStrength;
          int errorCount = 0;
 
-         lblWarning.Text = string.Empty;
+         //lblWarning.Text = string.Empty;
 
          if (txtbxTeacherFirstName.Text == String.Empty)
          {
@@ -169,26 +169,28 @@ namespace QuestWebApp.Pages
             txtbxTeacherEmail.BorderColor = Color.Red;
             errorCount++;
          }
-         if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
-         {
-            txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            errorCount++;
-         } else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
-         {
-            passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
+            //if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
+            //{
+            //    txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+            //    errorCount++;
+            //}
+            //else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
+            //{
+            //    passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
 
-            if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
-            {
-               txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
-               lblPassword.Visible = true;
-               lblWarning.Text = " Password is " + passwordStrength + ";";
-               errorCount++;
-            }
-         } else
-         {
-            txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            errorCount++;
-         }
+            //    if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
+            //    {
+            //        txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
+            //        lblPassword.Visible = true;
+            //        lblWarning.Text = " Password is " + passwordStrength + ";";
+            //        errorCount++;
+            //    }
+            //}
+            //else
+            //{
+            //    txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+            //    errorCount++;
+            //}
 
          if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
          {
@@ -287,7 +289,7 @@ namespace QuestWebApp.Pages
          string passwordStrength;
          int errorCount = 0;
 
-         lblWarning.Text = string.Empty;
+         //lblWarning.Text = string.Empty;
 
          if (txtbxTeacherFirstName.Text == String.Empty)
          {
@@ -304,26 +306,26 @@ namespace QuestWebApp.Pages
             txtbxTeacherEmail.BorderColor = Color.Red;
             errorCount++;
          }
-         if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
-         {
-            txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            errorCount++;
-         } else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
-         {
-            passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
+         //if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
+         //{
+         //   txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+         //   errorCount++;
+         //} else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
+         //{
+         //   passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
 
-            if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
-            {
-               txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
-               lblPassword.Visible = true;
-               lblWarning.Text = " Password is " + passwordStrength + ";";
-               errorCount++;
-            }
-         } else
-         {
-            txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            errorCount++;
-         }
+         //   if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
+         //   {
+         //      txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
+         //      lblPassword.Visible = true;
+         //      //lblWarning.Text = " Password is " + passwordStrength + ";";
+         //      errorCount++;
+         //   }
+         //} else
+         //{
+         //   txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
+         //   errorCount++;
+         //}
 
          if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
          {

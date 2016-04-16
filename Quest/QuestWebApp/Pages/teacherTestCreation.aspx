@@ -48,6 +48,8 @@ SELECT section_id, c.code || '-' || section_number AS section_title
     <label class="mdl-textfield__label"style="bottom:0px"> Test Name:</label>
     <asp:TextBox ID="txtName" cssclass="mdl-textfield__input" runat="server" />
     </div>
+        <br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter a Test Name" ControlToValidate="txtName" SetFocusOnError="True" ValidationGroup="nameValidator" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
 
     <div style="text-align:center">
@@ -112,7 +114,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
         <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
             </div>
             </div>
-    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" /></div>
+    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" ValidationGroup="nameValidator" /></div>
     </div> 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">

@@ -1,6 +1,6 @@
 // Alarm sound
 
-var alarmSound = new Audio('assets/06_Urban_Beat.mp3');
+var alarmSound = new Audio('../Assets/chime.mp3');
 alarmSound.volume = 0.3;
 
 var finishButton;           // button to redirect when test is over
@@ -35,6 +35,8 @@ var timerClock = $(".container.timer").find(".clock"),
 //    }
 
 //});
+
+
 
 function setTime(time) {
 

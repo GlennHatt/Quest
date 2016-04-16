@@ -64,7 +64,7 @@ SELECT time_limit
           }
       }*/
 
-      protected void btnSubmitTest_Click(object sender, EventArgs e)
+      protected void btnBackToLogin_Click(object sender, EventArgs e)
       {
          //            int noAnswerCounter = 0;
          //            string TFAnswer;
@@ -167,7 +167,7 @@ SELECT time_limit
          //                }
          //    }
 
-         //    Response.Redirect("pledgePage.aspx");
+             Response.Redirect("~/Pages/teacherDashboard.aspx");
 
       }
 
@@ -209,8 +209,16 @@ SELECT time_limit
                e.Item.FindControl("divSA").Visible = false;
 
                string answer = ((HiddenField)e.Item.FindControl("hdnTFAnswer")).Value;
+                    int stuff;
+                    try { 
+                        stuff = int.Parse(((HiddenField)e.Item.FindControl("hdnTFPointsEarned")).Value);
+                    }
+                    catch
+                    {
+                       stuff = -1;
+                    }
 
-               if (int.Parse(((HiddenField)e.Item.FindControl("hdnTFPointsEarned")).Value) == 0)
+               if (stuff == 0)
                {
                   if (answer == "T")
                      answer = "F";

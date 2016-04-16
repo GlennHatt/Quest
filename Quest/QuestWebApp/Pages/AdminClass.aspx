@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminClass.aspx.cs" Inherits="QuestWebApp.Pages.adminClass" %>
+﻿<%@ Page Title="Admin | Class" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminClass.aspx.cs" Inherits="QuestWebApp.Pages.adminClass" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -155,5 +155,4 @@ SELECT class_id, code || '/' || title as CODE_TITLE
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/ResponsiveTable.js"></script>
-    <script src="../Assets/JS/deleteButton.js"></script>
 </asp:Content>

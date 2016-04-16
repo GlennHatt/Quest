@@ -94,7 +94,7 @@ SELECT f_name || ' ' || l_name as full_name, user_id
             <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest2" runat="server" Text="View Test"/>
     </div>
         </div>  
-            
+                <asp:SqlDataSource ID="sqlPastTests" runat="server"></asp:SqlDataSource>
             </div>
             </div>
         </main>

@@ -50,7 +50,7 @@ namespace QuestWebApp.Pages
          {
             case "lstStudentTestsLnkBtnClick":
                Session["TestID"] = e.CommandArgument;
-               Response.Redirect("takingTestTest.aspx");
+               Response.Redirect("studentTestTaking.aspx");
                break;
          }
       }

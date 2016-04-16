@@ -1,11 +1,14 @@
 ﻿
 .controlform {
-/*display: none;*/
+display: none;
 }
 .wrapper{
 	width: 100vw;
-	min-height: 100vh;
+	/*min-height: 100vh;*/
 	overflow-x: hidden;
+    position: fixed;
+    z-index: 2;
+    top:-33px;
 }
 
 .app {
@@ -104,23 +107,35 @@ form a{
 	padding-left: 20px;
 }
 
+.waves-effect {
+    cursor: default;
+    pointer-events: none;
+}
+
+ .clock :hover {
+     cursor:default;
+ }
 .clock {
 	position: relative;
-	height: 300px;
-	max-width: 700px;
-	width: 100%;
+	/*height: 300px;*/
+    height: 132px;
+	/*max-width: 700px;*/
+	width: 80%;
 	display: block;
 	margin: 50px auto;
+    margin-bottom:0;
 
-	font-size: 150px;
+	/*font-size: 150px;*/
+    font-size: 65px;
 	color: #0277BD;
 	text-align: center;
-	line-height: 300px;
+	/*line-height: 300px;*/
+    line-height:85px;
 
 	background-color: #fff;
 	border-radius: 2px;
 
-	transition: all 0.4s ease-in, box-shadow 0.2s;
+	/*transition: all 0.4s ease-in, box-shadow 0.2s;*/
 }
 
 .clock.inactive {
@@ -219,9 +234,9 @@ form a{
 	}
 
 	.clock{
-		font-size: 60px;
+		/*font-size: 60px;
 		height: 180px;
-		line-height: 180px;
+		line-height: 180px;*/
 		margin-top:20px;
 	}
 
@@ -234,4 +249,3 @@ form a{
 	}
 
 }
-
