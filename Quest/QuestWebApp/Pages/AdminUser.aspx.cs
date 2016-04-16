@@ -32,6 +32,7 @@ namespace QuestWebApp.Pages
             else
                 showUpdate = false;
 
+
             if (showUpdate == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
