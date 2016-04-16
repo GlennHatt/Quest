@@ -14,9 +14,42 @@ namespace QuestWebApp.Pages
         OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
         string studentEmailEnabled = "false";
         string currentUser;
+        bool showEnableEmail,
+             showPasswordUpdated;
 
         protected void Page_Load(object sender, EventArgs e)
       {
+
+            // toast notifications 
+            if (Session["showEnableEmail"] != null)
+                showEnableEmail = (bool)Session["showEnableEmail"];
+            else
+                showEnableEmail = false;
+
+            if (Session["showPasswordUpdated"] != null)
+                showPasswordUpdated = (bool)Session["showPasswordUpdated"];
+            else
+                showPasswordUpdated = false;
+
+
+            if (showEnableEmail == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Email Has Been Enabled', 'Success!')", true);
+                Session["showEnableEmail"] = null;
+                showEnableEmail = false;
+            }
+
+            if (showPasswordUpdated == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Password Has Been Updated', 'Success!')", true);
+                Session["showPasswordUpdated"] = null;
+                showPasswordUpdated = false;
+            }
+
             //currentUser = Session["p_StudentID"].ToString();
             currentUser = "17"; // comment this out when we use login functionality
             cdDisable.Visible = false;

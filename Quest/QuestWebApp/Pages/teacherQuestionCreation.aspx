@@ -381,7 +381,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             </div>
                                             </div>
                                             <div class="table-responsive-vertical shadow-z-1">
-                                            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="grdMChoice" OnRowDataBound="grdMChoice_RowDataBound" AutoGenerateColumns="false" CellSpacing="-1" runat="server" DataKeyNames="question_id" DataSourceID="sqlDispMC">
+                                            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="grdMChoice" OnRowDataBound="grdMChoice_RowDataBound" AutoGenerateColumns="false" CellSpacing="-1" GridLines="None" runat="server" DataKeyNames="question_id" DataSourceID="sqlDispMC">
                                                 <Columns>
                                                     <asp:BoundField DataField="answer" HeaderText="Answer" SortExpression="answer" />
                                                     <asp:BoundField DataField="choice_text" HeaderText="Choice Text" SortExpression="choice_text" />
@@ -408,6 +408,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                 <div>
                                                         <asp:Label ID="lblDispQuestion" runat="server" Text="Question: " />
                                                         <asp:Label ID="lblQuestion" runat="server" Text='<%#Eval("true_false_question") %>' />
+                                                        <br />
                                                         <asp:Label ID="lblDispAnswer" runat="server" Text="Answer: " />
                                                         <asp:Label ID="lblAnswer" runat="server" Text='<%#Eval("true_false_answer") %>' />
 
