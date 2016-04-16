@@ -90,7 +90,7 @@
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address" SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" runat="server" type="password" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
             </div>
             <div>

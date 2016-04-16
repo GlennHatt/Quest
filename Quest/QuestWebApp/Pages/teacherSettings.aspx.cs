@@ -15,10 +15,57 @@ namespace QuestWebApp.Pages
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
       string studentEmailEnabled = "false";
       string currentUser;
-      protected void Page_Load(object sender, EventArgs e)
+        bool showEnableEmail,
+                  showPasswordUpdated,
+            showDisableEmail;
+        protected void Page_Load(object sender, EventArgs e)
       {
-         //currentUser = Session["p_StudentID"].ToString();
-         currentUser = "17"; // comment this out when we use login functionality
+
+            // toast notifications 
+            if (Session["showEnableEmail"] != null)
+                showEnableEmail = (bool)Session["showEnableEmail"];
+            else
+                showEnableEmail = false;
+
+            if (Session["showPasswordUpdated"] != null)
+                showPasswordUpdated = (bool)Session["showPasswordUpdated"];
+            else
+                showPasswordUpdated = false;
+            if (Session["showDisableEmail"] != null)
+                showDisableEmail = (bool)Session["showDisableEmail"];
+            else
+                showDisableEmail = false;
+
+
+            if (showEnableEmail == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Email Has Been Enabled', 'Success!')", true);
+                Session["showEnableEmail"] = null;
+                showEnableEmail = false;
+            }
+
+            if (showPasswordUpdated == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Password Has Been Updated', 'Success!')", true);
+                Session["showPasswordUpdated"] = null;
+                showPasswordUpdated = false;
+            }
+
+            if (showDisableEmail == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Email Has Been Disabled', 'Success!')", true);
+                Session["showDisableEmail"] = null;
+                showDisableEmail = false;
+            }
+
+            //currentUser = Session["p_StudentID"].ToString();
+            currentUser = "17"; // comment this out when we use login functionality
          cdDisable.Visible = false;
          cdEnable.Visible = false;
          OracleCommand cmdEmailActive = new OracleCommand(@"
@@ -52,16 +99,26 @@ SELECT receive_email
       protected void btnEnable_Click(object sender, EventArgs e)
       {
 
-         enableEmail();
-      }
+            enableEmail();
+            showEnableEmail = true;
+            Session["showEnableEmail"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
       protected void btnDisable_Click(object sender, EventArgs e)
       {
          disableEmail();
-      }
+            showDisableEmail = true;
+            Session["showDisableEmail"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
       protected void clickUpdatePassword(object sender, EventArgs e)
       {
+            showPasswordUpdated = true;
+            Session["showPasswordUpdated"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
             currentUser = "16";
             // ^--- needs to be changed to session when login is up
 

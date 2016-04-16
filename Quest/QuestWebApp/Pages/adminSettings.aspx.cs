@@ -15,9 +15,10 @@ namespace QuestWebApp.Pages
       string studentEmailEnabled = "false";
       string currentUser;
         bool showEnableEmail,
-                   showPasswordUpdated;
+                   showPasswordUpdated,
+            showDisableEmail;
 
-      protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
       {
             
 
@@ -31,7 +32,10 @@ namespace QuestWebApp.Pages
                 showPasswordUpdated = (bool)Session["showPasswordUpdated"];
             else
                 showPasswordUpdated = false;
-
+            if (Session["showDisableEmail"] != null)
+                showDisableEmail = (bool)Session["showDisableEmail"];
+            else
+                showDisableEmail = false;
 
             if (showEnableEmail == true)
             {
@@ -49,6 +53,14 @@ namespace QuestWebApp.Pages
                 "toastr.success('Password Has Been Updated', 'Success!')", true);
                 Session["showPasswordUpdated"] = null;
                 showPasswordUpdated = false;
+            }
+            if (showDisableEmail == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Email Has Been Disabled', 'Success!')", true);
+                Session["showDisableEmail"] = null;
+                showDisableEmail = false;
             }
 
 
@@ -97,7 +109,10 @@ SELECT receive_email
       protected void btnDisable_Click(object sender, EventArgs e)
       {
          disableEmail();
-      }
+            showDisableEmail = true;
+            Session["showDisableEmail"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
 
       protected void clickUpdatePassword(object sender, EventArgs e)
       {
