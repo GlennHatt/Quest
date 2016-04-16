@@ -610,6 +610,61 @@ END;", connectionString);
             Session["QuestionID"] = null;
         }
 
+        protected void grdDispMQuestion_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCellCollection cell = e.Row.Cells;
+                GridViewRow row = e.Row;
+
+                //row.Attributes.Add("class", "header");
+                cell[0].Attributes.Add("data-title", "Question");
+                cell[1].Attributes.Add("data-title", "Answer");
+            }
+        }
+
+        protected void grdMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCellCollection cell = e.Row.Cells;
+                GridViewRow row = e.Row;
+
+                //row.Attributes.Add("class", "header");
+                cell[0].Attributes.Add("data-title", "Answer");
+                cell[1].Attributes.Add("data-title", "Choice");
+                cell[2].Attributes.Add("data-title", "Set Order");
+            }
+        }
+
+        protected void grdEditMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCellCollection cell = e.Row.Cells;
+                GridViewRow row = e.Row;
+
+                cell[0].Attributes.Add("data-title", "Edit/Delete");
+                cell[1].Attributes.Add("data-title", "Answer");
+                cell[2].Attributes.Add("data-title", "Text");
+                cell[3].Attributes.Add("data-title", "Set Order");
+            }
+        }
+
+        protected void grdMultipleChoiceBody_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                TableCellCollection cell = e.Row.Cells;
+                GridViewRow row = e.Row;
+
+                cell[0].Attributes.Add("data-title", "Question");
+                cell[1].Attributes.Add("data-title", "Text");
+                cell[2].Attributes.Add("data-title", "Set Order");
+            }
+        }
+
+
 
 
         //protected void btnPointValue_Click(object sender, EventArgs e)

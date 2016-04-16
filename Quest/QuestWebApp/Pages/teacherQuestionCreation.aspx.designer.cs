@@ -67,6 +67,24 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAddWeight;
         
         /// <summary>
+        /// numbersOnlyValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator numbersOnlyValidator;
+        
+        /// <summary>
+        /// ValidatorWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorWeight;
+        
+        /// <summary>
         /// cardEssay control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddEssayText;
+        
+        /// <summary>
+        /// ValidatorEssay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidatorEssay;
         
         /// <summary>
         /// sqlAddMatchingQuestion control.
@@ -146,6 +173,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddMatchingText;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// lblAddMatchingAnswer control.
@@ -256,6 +292,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAddMultipleChoiceQuestion;
         
         /// <summary>
+        /// MCValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MCValidator;
+        
+        /// <summary>
         /// cardAddedMultiple control.
         /// </summary>
         /// <remarks>
@@ -310,6 +355,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtBeforeText;
         
         /// <summary>
+        /// BeforeTextValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator BeforeTextValidator;
+        
+        /// <summary>
         /// lblAnswerText control.
         /// </summary>
         /// <remarks>
@@ -328,6 +382,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAnswerText;
         
         /// <summary>
+        /// AnswerTextValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AnswerTextValidator;
+        
+        /// <summary>
         /// lblAfterText control.
         /// </summary>
         /// <remarks>
@@ -344,6 +407,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAfterText;
+        
+        /// <summary>
+        /// AfterValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AfterValidator;
         
         /// <summary>
         /// cardTrueFalse control.
@@ -380,6 +452,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddTFQuestion;
+        
+        /// <summary>
+        /// TFValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TFValidator;
         
         /// <summary>
         /// lblAddTFAnswer control.
@@ -443,6 +524,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMultipleChoiceBody;
+        
+        /// <summary>
+        /// MultipleChoiceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MultipleChoiceValidator;
         
         /// <summary>
         /// lblAddMultipleChoiceAnswer control.

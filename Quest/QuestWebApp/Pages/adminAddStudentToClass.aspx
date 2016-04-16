@@ -43,11 +43,11 @@
             <br />
             </div>
             <div class="table-responsive-vertical shadow-z-1">
-    <asp:GridView ID="gvCurrentStudents" CssClass="table table-hover table-mc-light-blue" runat="server" DataSourceID="sqlCurrentStudents"  DataKeyNames="enrollment_id" OnRowDeleted="gvCurrentStudents_RowDeleted">
+    <asp:GridView OnPreRender="gvCurrentStudents_PreRender" ID="gvCurrentStudents" OnRowDataBound="gvCurrentStudents_RowDataBound" CssClass="table table-hover table-mc-light-blue"  runat="server" DataSourceID="sqlCurrentStudents"  DataKeyNames="enrollment_id" OnRowDeleted="gvCurrentStudents_RowDeleted" AutoGenerateColumns="false" CellSpacing="-1" GridLines="None">
     <Columns>
         <asp:TemplateField HeaderText="Delete">
                     <ItemTemplate>
-                     <asp:LinkButton ID="lnkdelete" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="delete">Delete</asp:LinkButton>
+                     <asp:LinkButton ID="lnkdelete" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" CellSpacing="-1" GridLines="None" runat="server" ForeColor="White" CommandName="delete">Delete</asp:LinkButton>
                     </ItemTemplate>
             </asp:TemplateField>
         <asp:TemplateField HeaderText="Enrollment ID" >
