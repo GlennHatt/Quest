@@ -12,7 +12,43 @@
     width: 597px;
 }
 
+/* styles for test taking */
+.mc {
+            margin-left: 34%;
+            text-align: left;
+        }
 
+        .tf {
+            margin-left: 16%;
+        }
+
+        .hide {
+            display:none;
+        }
+
+        .mdl-card-sizing {
+                top: 35px;
+    height: 100px;
+    margin-top: 30px;
+    margin-bottom: 42px;
+    min-height:0px;
+    margin-left:25%;
+    width: 50%;
+        }
+
+        @media (max-width: 800px) {
+            .mdl-card-sizing {
+                width:100%;
+                margin-left: 0%;
+                
+
+            }
+
+        }
+
+ .saveTestButtonStyle {
+     width:118px;
+ }
 
 /*.GridViewEditRow input[type=text] {width:50px;} /* size textboxes 
 .GridViewEditRow select {width:50px;}  size drop down lists */
