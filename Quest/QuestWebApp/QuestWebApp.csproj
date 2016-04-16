@@ -123,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\chime.mp3" />
     <Content Include="Assets\Images\android-desktop.png" />
     <Content Include="Assets\Images\crown.png" />
     <Content Include="Assets\Images\favicon.png" />
