@@ -41,14 +41,51 @@
 
     <div class="mdl-card mdl-shadow--3dp demo-card-wide" style="width: 85%; margin-left:7%;">
         <div class="table-responsive-vertical shadow-z-1">
-            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id">
+
+
+            <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
+            <!-- This fixes the partial post pack not maintaining scroll possition error -->
+            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+            <script type="text/javascript">
+                // It is important to place this JavaScript code after ScriptManager1
+                var xPos, yPos;
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+                function BeginRequestHandler(sender, args) {
+                    if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
+                // Get X and Y positions of scrollbar before the partial postback
+                xPos = $get('<%=pnlEditQuestions.ClientID%>').scrollLeft;
+                yPos = $get('<%=pnlEditQuestions.ClientID%>').scrollTop;
+            }
+        }
+
+        function EndRequestHandler(sender, args) {
+            if ($get('<%=pnlEditQuestions.ClientID%>') != null) {
+                // Set X and Y positions back to the scrollbar
+                // after partial postback
+                $get('<%=pnlEditQuestions.ClientID%>').scrollLeft = xPos;
+                $get('<%=pnlEditQuestions.ClientID%>').scrollTop = yPos;
+            }
+        }
+
+        prm.add_beginRequest(BeginRequestHandler);
+        prm.add_endRequest(EndRequestHandler);
+            </script>
+
+            <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
+                <ContentTemplate>
+                    <asp:Panel ID="pnlEditQuestions" runat="server">
+                        <!-- End borrowed Code, except the closeing tags... -->
+
+
+            <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id" OnRowUpdated="GVClass_RowUpdated" OnPreRender="GVClass_PreRender">
                 <Columns>
                     <asp:TemplateField HeaderText="Edit">
                     <ItemTemplate>
                      <asp:LinkButton ID="lnkEdit" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Edit">Edit</asp:LinkButton>
                     </ItemTemplate>
                         <EditItemTemplate>
-                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" OnClick="lnkUpdate_Click">Update</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" >Update</asp:LinkButton>
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
                          </EditItemTemplate>
                     </asp:TemplateField>
@@ -123,6 +160,9 @@
 
 <RowStyle Wrap="False"></RowStyle>
             </asp:GridView>
+                        </asp:Panel>
+                        </ContentTemplate>
+                </asp:UpdatePanel>
         </div>
         <br />
     </div>

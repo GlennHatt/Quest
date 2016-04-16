@@ -129,7 +129,24 @@ END;",
          }
       }
 
-        protected void lnkUpdate_Click(object sender, EventArgs e)
+        protected void GVClass_PreRender(object sender, EventArgs e)
+        {
+            GridView grdView = (GridView)sender;
+            if (grdView.Rows.Count > 0)
+            {
+                //This replaces <td> with <th> and adds the scope attribute
+                grdView.UseAccessibleHeader = true;
+
+                //This will add the <thead> and <tbody> elements
+                grdView.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                //This adds the <tfoot> element. 
+                //Remove if you don't have a footer row
+                grdView.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
+        }
+
+        protected void GVClass_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
             showUpdate = true;
             Session["showUpdate"] = true;

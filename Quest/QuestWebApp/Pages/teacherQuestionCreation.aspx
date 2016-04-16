@@ -8,7 +8,7 @@
     <script src="../Assets/JS/jquery-2.1.3.min.js"></script>
         <script src="../Assets/JS/modernizerResponsiveTable.js"></script>
     <link href="../Assets/Styles/Responsive-Tables/responsiveTableNormalize.css" rel="stylesheet" />
-    <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableClass.css" rel="stylesheet" />
+    <link href="../Assets/Styles/Responsive-Tables/ResponsiveTableQuestions.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
