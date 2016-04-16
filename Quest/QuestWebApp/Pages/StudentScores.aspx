@@ -17,7 +17,7 @@
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="ENROLLMENT_ID" OnSelectedIndexChanged="ddlStudentClasses_SelectedIndexChanged" AppendDataBoundItems="true">
-                                <%--   Checks for whether there is a value or not <asp:ListItem Text="Test Case" Value="2" /> --%>  
+                                <%--   Checks for whether there is data or not--%>  <asp:ListItem Text="Test Case" Value="1" />  
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="classesDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
                                  SELECT e.enrollment_id, c.code || '-' || s.section_number || '/' || c.title as students_classes
@@ -83,10 +83,8 @@
                                     <asp:Label runat="server" ID="lbltestName" Text='<%# Eval("title") %>'> </asp:Label>
                                     <asp:Label runat="server" ID="lbScore" Text='<%# Eval("grade") %>'> </asp:Label>
                                     <asp:Label runat="server" ID="lblDateSub" Text='<%# Eval("due_date") %>'> </asp:Label>
-                                    <div style="margin-right: -430px; margin-top: -21px;">
-                                        <asp:LinkButton ID="btnContactTeacher" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" runat="server">
-                                            <i class="material-icons" style="color:white">mail</i>
-                                        </asp:LinkButton>
+                                    <%--<div style="margin-right: -430px; margin-top: -21px;">--%>
+                                       
                                     </div>
                                 </div>
                             </div>
