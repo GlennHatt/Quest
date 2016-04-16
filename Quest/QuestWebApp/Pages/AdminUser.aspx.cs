@@ -36,11 +36,14 @@ namespace QuestWebApp.Pages
             if (showUpdate == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-                "toastr.success('The Student's Information Has Been Updated', 'Success!')", true);
+            "toastr_message",
+            "toastr.success('The student&apos;s information has been updated', 'Success!')", true);
                 Session["showUpdate"] = null;
                 showUpdate = false;
+                
             }
+
+
             GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
          //ddlSortDirection.SelectedIndex = 0;
       }
@@ -117,7 +120,7 @@ namespace QuestWebApp.Pages
             case "edit":
                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
                break;
-         }
+            }
       }
 
       protected void grdEventsAvailable_PreRender1(object sender, EventArgs e)
@@ -179,7 +182,11 @@ namespace QuestWebApp.Pages
 
       protected void GVUser_RowUpdated(object sender, GridViewUpdatedEventArgs e)
       {
-         Response.Redirect(Request.RawUrl);
+            showUpdate = true;
+            Session["showUpdate"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            Console.WriteLine("test");
+           // Response.Redirect(Request.RawUrl);
       }
 
       protected void GVUser_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
