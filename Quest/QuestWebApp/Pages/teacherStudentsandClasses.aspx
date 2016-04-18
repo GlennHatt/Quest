@@ -48,6 +48,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
                 </asp:DropDownList>
             </div>
             <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
+                <label style="padding-left: 1%;">Order By:</label>
                 <asp:DropDownList ID="ddlSortDirection" runat="server" class="mdl-textfield__input">
                     <asp:ListItem Value="Ascending"></asp:ListItem>
                     <asp:ListItem Value="Descending"></asp:ListItem>

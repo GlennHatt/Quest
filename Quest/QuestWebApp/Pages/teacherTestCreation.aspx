@@ -73,7 +73,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 
 <div style="text-align:center">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <asp:Label ID="lblDate" cssclass="mdl-textfield__input" runat="server" Text=" Due Date: " />
+    <asp:Label ID="lblDate" cssclass="mdl-textfield__input" runat="server" Text=" Test Start Date: " />
     <%--<asp:Calendar ID="cldrTestDay" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" NextPrevFormat="FullMonth">
         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
         <NextPrevStyle Font-Size="8pt" ForeColor="#333333" Font-Bold="True" VerticalAlign="Bottom" />
@@ -109,7 +109,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
 
         <div style="text-align:center">
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <asp:Label ID="Label1" cssclass="mdl-textfield__input" runat="server" Text=" Time Due: " />
+        <asp:Label ID="Label1" cssclass="mdl-textfield__input" runat="server" Text=" Test Start Time: " />
         
         <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
             </div>

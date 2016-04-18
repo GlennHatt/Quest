@@ -72,6 +72,7 @@ SELECT permission_level
          } catch
          {
             answer.Text = "Incorrect username and/or password";
+                answer.ForeColor = System.Drawing.Color.Red;
          }
          //All passwords are placholders that should be replaces with the passwords stored in the database
          switch (userPermissionLevel)
