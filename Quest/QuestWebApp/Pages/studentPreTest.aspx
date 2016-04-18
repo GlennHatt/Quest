@@ -21,7 +21,7 @@
             <h1>Test Time!</h1>
             <div style="font-size: 150%">
                 You have
-                            <asp:Label runat="server"> 0 </asp:Label>
+                            <asp:Label ID="lblTimeLimit" runat="server"> 0 </asp:Label>
                 minutes to finish your Test! Good Luck!
             </div>
             <br />
@@ -38,6 +38,14 @@
             <br />
         </div>
     </div>
+    <asp:SqlDataSource ID="sqlTimeLimit" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT time_limit
+  FROM test
+ WHERE test_id = :TestID">
+        <SelectParameters>
+            <asp:SessionParameter Name="TestID" SessionField="TestID" />
+        </SelectParameters>
+       </asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
 </asp:Content>

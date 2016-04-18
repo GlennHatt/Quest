@@ -17,7 +17,7 @@
             <!-- Textfield with Floating DropDown for classes -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlAllSections" AppendDataBoundItems="true" AutoPostBack="true" DataTextField="CLASS.TITLE||'/'||CLASS.CODE||'-'||SECTION.SECTION_NUMBER" DataValueField="section_id" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlAllSections" AppendDataBoundItems="true" AutoPostBack="true" DataTextField="full_information" DataValueField="section_id" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged">
                     <asp:ListItem Value="0">-- Select a Class First --</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -66,12 +66,12 @@
          </div>
     <asp:SqlDataSource ID="sqlCurrentStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT end_user.f_name || ' ' || end_user.l_name as currently_enrolled, enrollment_id
-        FROM end_user
+  FROM end_user
        JOIN (SELECT user_id, enrollment_id
-               FROM end_user
-                    JOIN enrollment ON (student_id = user_id)
-              WHERE section_id = :p_SectionID) USING (user_id)
- WHERE permission_level = 'S'" DeleteCommand="
+            FROM end_user
+                 JOIN enrollment ON (student_id = user_id)
+                      WHERE section_id = :p_SectionID) USING (user_id)
+WHERE permission_level = 'S'" DeleteCommand="
 BEGIN
     enrollments.delete(p_EnrollmentID =&gt; :enrollment_id);
 END;">
@@ -80,10 +80,11 @@ END;">
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlAllSections" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-select class.title || '/' || class.code || '-' || section.section_number, section_id
-  from section, class
- where section.class_id = class.class_id
- order by class.title asc">
+SELECT title || '/' || code || '-' || section_number || ' with ' || f_name || ' ' || l_name as full_information, section_id
+  FROM section
+       JOIN class    USING (class_id)
+       JOIN end_user ON    (user_id = teacher_id)
+       ORDER BY title asc">
     </asp:SqlDataSource>
 
     <asp:SqlDataSource ID="sqlStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
