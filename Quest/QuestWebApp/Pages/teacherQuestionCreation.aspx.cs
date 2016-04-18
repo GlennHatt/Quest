@@ -254,7 +254,7 @@ END;",
  END;",
                connectionString);
                     cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", lblAddEssayText.Text);
+                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddEssayText.Text);
                break;
             case "M":
                     cmdAddQuestionType = new OracleCommand(@"
