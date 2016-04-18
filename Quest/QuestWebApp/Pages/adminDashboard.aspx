@@ -43,7 +43,11 @@ BEGIN
       p_Code   =&gt; :p_Code,
       p_Title  =&gt; :p_Title);
 END;"
-        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT TITLE, CLASS_ID FROM CLASS">
+        ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+  SELECT title || '/' || code || '-' || section_number as full_class, class_id 
+    FROM CLASS
+         JOIN SECTION USING (class_id)
+ORDER BY full_class asc">
         <InsertParameters>
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />
@@ -236,7 +240,7 @@ select *
                         <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Course:</Label>
-                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
+                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="full_class" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
                                 <asp:ListItem>-- Select a Course --</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlCourseValidator" ControlToValidate="ddlCourses" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -248,7 +252,11 @@ select *
                             <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID"  AppendDataBoundItems="true">
                                 <asp:ListItem>-- Select a Teacher --</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID FROM END_USER where permission_level = 'T'"
+                            <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
+  FROM END_USER 
+ WHERE permission_level = 'T'
+       ORDER BY FULL_NAME ASC"
                             ></asp:SqlDataSource>
                              <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlTeacherValidator" ControlToValidate="ddlTeacher" ErrorMessage="Please Select a Teacher"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
                             <%--<span id="lblTeacherError" runat="server" class="mdl-textfield__error">Select a teacher</span>--%>
