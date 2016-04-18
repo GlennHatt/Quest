@@ -45,7 +45,7 @@ namespace QuestWebApp.Pages
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                 "toastr_message",
-                "toastr.success('A Student Has Been Deleted From a Class', 'Success!')", true);
+                "toastr.success('A Class Has Been Deleted', 'Success!')", true);
                 Session["showdeleteStudent"] = null;
                 showdeleteStudent = false;
             }

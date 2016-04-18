@@ -49,6 +49,15 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder studentSidebar;
         
         /// <summary>
+        /// home control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink home;
+        
+        /// <summary>
         /// teacherAndClass control.
         /// </summary>
         /// <remarks>
