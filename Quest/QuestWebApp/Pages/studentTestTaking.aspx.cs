@@ -303,6 +303,8 @@ END;", connectionString);
       protected void restoreTest()
       {
          OracleCommand cmdRestoreTest = new OracleCommand();
+         string questionID;
+         string questionType;
 
          cmdRestoreTest = new OracleCommand(@"
   SELECT test_taken_id 
@@ -318,9 +320,37 @@ END;", connectionString);
 
          if (reader.Read())
          {
-            Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+            try
+            {
+               Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+            }
+            catch
+            {
+               Session["testTakenID"] = null;
+            }
          }
          cmdRestoreTest.Connection.Close();
+
+         if (Session["testTakenID"] != null)
+         {
+            foreach (ListViewItem item in lstQuestions.Items)
+            {
+               questionID = ((HiddenField)item.FindControl("hdnQuestionID")).Value;
+               questionType = ((HiddenField)item.FindControl("hdnQuestionType")).Value;
+
+               switch (questionType)
+               {
+                  case "E":
+                     break;
+                  case "MC":
+                     break;
+                  case "SA":
+                     break;
+                  case "TF":
+                     break;
+               }
+            }
+         }
       }
    }
 }
