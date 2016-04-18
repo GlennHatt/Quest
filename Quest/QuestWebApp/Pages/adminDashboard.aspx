@@ -44,10 +44,9 @@ BEGIN
       p_Title  =&gt; :p_Title);
 END;"
         ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-  SELECT title || '/' || code || '-' || section_number as full_class, class_id 
+  SELECT title || '/' || code full_class, class_id 
     FROM CLASS
-         JOIN SECTION USING (class_id)
-ORDER BY full_class asc">
+         ORDER BY full_class asc">
         <InsertParameters>
             <asp:ControlParameter ControlID="txtbxCourseNumber" Name="p_Code" PropertyName="Text" />
             <asp:ControlParameter ControlID="txtbxClassTitle" Name="p_Title" PropertyName="Text" />

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -101,7 +103,25 @@ namespace QuestWebApp.Pages
 
       protected void active_Click(object sender, EventArgs e)
       {
-         LinkButton btnactive = (LinkButton)sender;
+//           LinkButton btn = (LinkButton)sender;
+
+//           //Get the row that contains this button
+//           GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+//           OracleCommand cmdDeleteUser = new OracleCommand(@"
+//BEGIN
+//   end_user.activate(
+//    p_EndUserID => :p_EndUserID);
+//END;",
+//            new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+//            cmdDeleteUser.Parameters.AddWithValue("p_SectionID", GVUser.DataKeys[gvr.RowIndex].Value);
+
+//            cmdDeleteUser.Connection.Open();
+//            cmdDeleteUser.ExecuteNonQuery();
+
+//            cmdDeleteUser.Connection.Close();
+//            GVUser.DataBind();
+            LinkButton btnactive = (LinkButton)sender;
          if (btnactive.Text == "Active")
          {
             btnactive.Text = "Inactive";
