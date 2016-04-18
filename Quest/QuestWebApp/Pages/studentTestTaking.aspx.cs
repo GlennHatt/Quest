@@ -58,7 +58,7 @@ SELECT time_limit
             }
             cmdGetTime.Connection.Close();
 
-            restoreTest();
+            //restoreTest();
          }
 
       }
@@ -145,6 +145,8 @@ END;", connectionString);
          }
          questionCount++;
             hdnQuestionTotal.Value = questionCount.ToString();
+
+         restoreTest();
       }
 
       protected void myTest_Click(object sender, EventArgs e)
@@ -317,17 +319,23 @@ END;", connectionString);
 
          cmdRestoreTest.Connection.Open();
          OracleDataReader reader = cmdRestoreTest.ExecuteReader();
-
-         if (reader.Read())
+         try
          {
-            try
+            if (reader.Read())
             {
-               Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+               try
+               {
+                  Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+               }
+               catch
+               {
+                  Session["testTakenID"] = null;
+               }
             }
-            catch
-            {
-               Session["testTakenID"] = null;
-            }
+         }
+         finally
+         {
+            reader.Close();
          }
          cmdRestoreTest.Connection.Close();
 
@@ -341,6 +349,27 @@ END;", connectionString);
                switch (questionType)
                {
                   case "E":
+                     cmdRestoreTest = new OracleCommand(@"
+SELECT essay
+  FROM question_taken_essay
+       JOIN question_taken USING (question_taken_id)
+ WHERE test_taken_id = :p_TestTakenID
+       AND question_id = :p_QuestionID", connectionString);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
+                     cmdRestoreTest.Connection.Open();
+                     reader = cmdRestoreTest.ExecuteReader();
+                     try
+                     {
+                        if (reader.Read())
+                        {
+                           ((TextBox)item.FindControl("txtEAnswer")).Text = reader.GetValue(0).ToString();
+                        }
+                     }
+                     finally
+                     {
+                        reader.Close();
+                     }
                      break;
                   case "MC":
                      break;
@@ -351,6 +380,11 @@ END;", connectionString);
                }
             }
          }
+      }
+
+      protected void lstQuestions_DataBound(object sender, EventArgs e)
+      {
+         restoreTest();
       }
    }
 }
