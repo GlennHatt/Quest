@@ -22,7 +22,12 @@
                 <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
-       JOIN class c USING (class_id)"></asp:SqlDataSource>
+       JOIN class c USING (class_id)
+ WHERE s.teacher_id = :session_id">
+                <SelectParameters>
+                    <asp:SessionParameter Name="session_id" SessionField="UserID" />
+                </SelectParameters>
+            </asp:SqlDataSource>
     <!-- Disabled for sessionIDs
  WHERE teacher_id = :session_id">
                     <SelectParameters>

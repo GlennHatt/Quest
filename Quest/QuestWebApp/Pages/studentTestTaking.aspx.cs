@@ -57,8 +57,9 @@ SELECT time_limit
                reader.Close();
             }
             cmdGetTime.Connection.Close();
-         }
 
+            restoreTest();
+         }
 
       }
 
@@ -153,6 +154,7 @@ END;", connectionString);
 
       protected void btnSmall_Click(object sender, EventArgs e)
       {
+         saveTest();
          Session["cardsLarge"] = "false";
          Response.Redirect(Request.RawUrl);
          cardsLarge = false;
@@ -161,11 +163,11 @@ END;", connectionString);
 
          btnLarge.Attributes.Add("disabled", "false");
          btnSmall.Attributes.Add("disabled", "true");
-         saveTest();
       }
 
       protected void btnLarge_Click(object sender, EventArgs e)
       {
+         saveTest();
          Session["cardsLarge"] = "true";
          Response.Redirect(Request.RawUrl);
          cardsLarge = true;
@@ -173,38 +175,16 @@ END;", connectionString);
          btnSmall.Enabled = true;
          btnLarge.Attributes.Add("disabled", "true");
          btnSmall.Attributes.Add("disabled", "false");
-         saveTest();
       }
 
       public void saveTest()
       {
          string questionID;
          string questionType;
-         int testTakenID = -1;
          OracleCommand cmdGradeQuestion = new OracleCommand();
-         
-         cmdGradeQuestion = new OracleCommand(@"
-  SELECT test_taken_id 
-    FROM test_taken
-         JOIN enrollment USING (enrollment_id)
-   WHERE test_id    = :p_TestID
-     AND student_id = :p_StudentID", connectionString);
-         cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
-         cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-         cmdGradeQuestion.Connection.Open();
-         OracleDataReader reader =  cmdGradeQuestion.ExecuteReader();
 
-         if (reader.Read())
-         {
-            testTakenID = int.Parse(reader.GetValue(0).ToString());
-                
-            Session["testTakenID"] = testTakenID.ToString(); // NOT SURE IF THIS IS RIGHT< BUT PAGE DOESNT CRASH
-            }
-         cmdGradeQuestion.Connection.Close();
-         
-
-         if (testTakenID == -1)
+         if (Session["testTakenID"] == null)
          {
             cmdGradeQuestion = new OracleCommand(@"
 BEGIN
@@ -221,7 +201,7 @@ END;", connectionString);
             cmdGradeQuestion.Connection.Open();
             cmdGradeQuestion.ExecuteNonQuery();
 
-            testTakenID = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
+            Session["testTakenID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
             cmdGradeQuestion.Connection.Close();
          }
@@ -241,7 +221,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_Essay       => :p_Essay);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
@@ -259,7 +239,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_ChoiceID);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
 
@@ -275,7 +255,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
@@ -291,7 +271,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", testTakenID);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
@@ -318,6 +298,59 @@ END;", connectionString);
 
          //Page.ClientScript.RegisterStartupScript(this.GetType(), "setProgress", "setProgress()", true);
          //btnSaveTest.Text = "reached";
+      }
+
+      protected void restoreTest()
+      {
+         OracleCommand cmdRestoreTest = new OracleCommand();
+         string questionID;
+         string questionType;
+
+         cmdRestoreTest = new OracleCommand(@"
+  SELECT test_taken_id 
+    FROM test_taken
+         JOIN enrollment USING (enrollment_id)
+   WHERE test_id    = :p_TestID
+     AND student_id = :p_StudentID", connectionString);
+         cmdRestoreTest.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
+         cmdRestoreTest.Parameters.AddWithValue("p_TestID", Session["TestID"]);
+
+         cmdRestoreTest.Connection.Open();
+         OracleDataReader reader = cmdRestoreTest.ExecuteReader();
+
+         if (reader.Read())
+         {
+            try
+            {
+               Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+            }
+            catch
+            {
+               Session["testTakenID"] = null;
+            }
+         }
+         cmdRestoreTest.Connection.Close();
+
+         if (Session["testTakenID"] != null)
+         {
+            foreach (ListViewItem item in lstQuestions.Items)
+            {
+               questionID = ((HiddenField)item.FindControl("hdnQuestionID")).Value;
+               questionType = ((HiddenField)item.FindControl("hdnQuestionType")).Value;
+
+               switch (questionType)
+               {
+                  case "E":
+                     break;
+                  case "MC":
+                     break;
+                  case "SA":
+                     break;
+                  case "TF":
+                     break;
+               }
+            }
+         }
       }
    }
 }

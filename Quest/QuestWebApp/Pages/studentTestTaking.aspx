@@ -141,14 +141,6 @@ SELECT q.question_id, weight, type, test_order,
             <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide" />
             <button id="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
 
-
-
-
-
-
-
-
-            <!-- TRUE/FALSE QUESTIONS -->
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound">
                 <ItemTemplate>
                     <div id="questionCard" class="mdl-cell mdl-cell--6-col" runat="server">
