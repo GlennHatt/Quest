@@ -19,6 +19,7 @@ namespace QuestWebApp.Pages
       public string time;
       int questionCount = 0;
       List<bool> testProgress = new List<bool>();
+      DateTime startTime;
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ SELECT time_limit
             }
             cmdGetTime.Connection.Close();
 
-            //restoreTest();
+            startTime = new DateTime();
          }
 
       }
@@ -146,7 +147,6 @@ END;", connectionString);
          questionCount++;
             hdnQuestionTotal.Value = questionCount.ToString();
 
-         restoreTest();
       }
 
       protected void myTest_Click(object sender, EventArgs e)
@@ -370,12 +370,90 @@ SELECT essay
                      {
                         reader.Close();
                      }
+                     cmdRestoreTest.Connection.Close();
                      break;
                   case "MC":
+                     cmdRestoreTest = new OracleCommand(@"
+SELECT choice_text
+  FROM question_taken_multiple_choice
+       JOIN question_taken q USING (question_taken_id)
+       JOIN question_multiple_choice_body ON (student_choice = choice_id)
+ WHERE test_taken_id = :p_TestTakenID
+       AND q.question_id = :p_QuestionID", connectionString);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
+                     cmdRestoreTest.Connection.Open();
+                     reader = cmdRestoreTest.ExecuteReader();
+                     try
+                     {
+                        if (reader.Read())
+                        {
+                           ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue = reader.GetValue(0).ToString();
+                           // There is a bug in ASP that it's selected value is the text. Be aware.
+                        }
+                     }
+                     finally
+                     {
+                        reader.Close();
+                     }
+                     cmdRestoreTest.Connection.Close();
                      break;
                   case "SA":
+                     cmdRestoreTest = new OracleCommand(@"
+SELECT answer
+  FROM question_taken_short_answer
+       JOIN question_taken USING (question_taken_id)
+ WHERE test_taken_id = :p_TestTakenID
+       AND question_id = :p_QuestionID", connectionString);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
+                     cmdRestoreTest.Connection.Open();
+                     reader = cmdRestoreTest.ExecuteReader();
+                     try
+                     {
+                        if (reader.Read())
+                        {
+                           ((TextBox)item.FindControl("txtSAAnswer")).Text = reader.GetValue(0).ToString();
+                        }
+                     }
+                     finally
+                     {
+                        reader.Close();
+                     }
+                     cmdRestoreTest.Connection.Close();
                      break;
                   case "TF":
+                     cmdRestoreTest = new OracleCommand(@"
+SELECT points_earned, answer
+  FROM question_taken
+       JOIN question_true_false USING (question_id)
+ WHERE test_taken_id = :p_TestTakenID
+       AND question_id = :p_QuestionID", connectionString);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
+                     cmdRestoreTest.Connection.Open();
+                     reader = cmdRestoreTest.ExecuteReader();
+                     try
+                     {
+                        // This code will cause an restored test with unanswer TF to be set to F. There isn't much I can do about it at this point.
+                        if (reader.Read())
+                        {
+                           if (reader.GetValue(0).ToString() == "0")
+                           {
+                              if (reader.GetValue(1).ToString() == "T")
+                                 ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue = "F";
+                              else
+                                 ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue = "T";
+                           }
+                           else
+                              ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue = reader.GetValue(1).ToString();
+                        }
+                     }
+                     finally
+                     {
+                        reader.Close();
+                     }
+                     cmdRestoreTest.Connection.Close();
                      break;
                }
             }
