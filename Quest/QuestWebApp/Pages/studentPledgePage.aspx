@@ -1,13 +1,15 @@
-﻿<%@ Page Title="Pledge Page" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentPledgePage.aspx.cs" Inherits="QuestWebApp.Pages.studentPledgePage" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="studentBreadCrumb" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="studentPledgePage.aspx.cs" Inherits="QuestWebApp.Pages.studentPledgePage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="studentHead" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="studentExtraReferances" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="withoutSidebarExtraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="studentWithSidebarBodyContent" runat="server">
-    
-    <!-- Wide card -->
+<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
+
+      <!-- Wide card -->
 <style>
 .demo-card-wide.mdl-card {
   width: 50%;
@@ -33,5 +35,5 @@
 </div>
 
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
 </asp:Content>

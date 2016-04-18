@@ -238,15 +238,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlSemester;
         
         /// <summary>
-        /// dropDownValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator dropDownValidator;
-        
-        /// <summary>
         /// ddlSection control.
         /// </summary>
         /// <remarks>
@@ -301,13 +292,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlTeacherValidator;
         
         /// <summary>
-        /// Button2 control.
+        /// btnaddSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnaddSection;
         
         /// <summary>
         /// jquery control.

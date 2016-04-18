@@ -214,10 +214,10 @@ select *
                             <Label style="padding-left:1%; " >Semester:</Label>
                             <asp:DropDownList ID="ddlSemester" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="dropDownValidator" ControlToValidate="ddlSemester" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
+
                             <%-- <span id="lblSemesterError" runat="server" class="mdl-textfield__error">Select a semester</span>--%>
                         </div>
-
+                        <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Section:</Label>
                             <asp:DropDownList ID="ddlSection" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
@@ -233,7 +233,7 @@ select *
                                 <asp:ListItem Value="10"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
-
+                        <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Course:</Label>
                             <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="TITLE" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
@@ -242,7 +242,7 @@ select *
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlCourseValidator" ControlToValidate="ddlCourses" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
                             <%--<span id="lblAddSectionCourseError" runat="server" class="mdl-textfield__error">Select a course</span>--%>
                         </div>
-
+                        <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Teacher:</Label>
                             <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID"  AppendDataBoundItems="true">
@@ -259,7 +259,7 @@ select *
            <i class="material-icons">add</i>
                             </asp:LinkButton>--%>
                         <br />
-                            <asp:Button ID="Button2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
+                            <asp:Button ID="btnaddSection" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
                     </div>
                 </div>
             </div>

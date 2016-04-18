@@ -249,14 +249,14 @@ SELECT choice_id, question_id, choice_text, set_order
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
                 <br />
                 <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Save Choices Body" OnClick="btnSaveMCBody_Click" />
+                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Finish Question" OnClick="btnSaveMCBody_Click" />
             </div>
         </div>
     </div>   
         
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
-        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" />
+        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" onclick="finishTest_Click"/>
     </div>
     <!-- Question Display Section -->
     <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
