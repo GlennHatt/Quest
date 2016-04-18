@@ -10,15 +10,12 @@ using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
 {
-   public partial class studentPledgePage : System.Web.UI.Page
-   {
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+    public partial class studentPledgePage : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-      protected void Page_Load(object sender, EventArgs e)
-      {
-
-      }
-
+        }
         protected void btnCheat_Click(object sender, EventArgs e)
         {
             Session["cheated_status"] = "1";
@@ -27,7 +24,7 @@ BEGIN
   tests_taken.cheated(p_TestTakenID => :p_TestTakenID);
 END;",
                              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-            cmdCheated.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]); 
+            cmdCheated.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
 
 
             cmdCheated.Connection.Open();
@@ -39,9 +36,9 @@ END;",
         }
 
         protected void btnNoCheat_Click(object sender, EventArgs e)
-      {
-        Session["cheated_status"] = null;
-         OracleCommand cmdPledgeCheck = new OracleCommand(@"
+        {
+            Session["cheated_status"] = null;
+            OracleCommand cmdPledgeCheck = new OracleCommand(@"
 DECLARE
   pledge_signature varchar(300);
   actual_name      varchar(300);
@@ -56,23 +53,23 @@ BEGIN
      approval := 0;
   END IF;
 END;",
-                          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-         cmdPledgeCheck.Parameters.AddWithValue("pledge_signature", txtbxUsersName.Text);
-         cmdPledgeCheck.Parameters.AddWithValue("session_id", Session["UserID"]);
-         cmdPledgeCheck.Parameters.AddWithValue("approval", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
+                             new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+            cmdPledgeCheck.Parameters.AddWithValue("pledge_signature", txtbxUsersName.Text);
+            cmdPledgeCheck.Parameters.AddWithValue("session_id", Session["UserID"]);
+            cmdPledgeCheck.Parameters.AddWithValue("approval", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
 
-         cmdPledgeCheck.Connection.Open();
-         cmdPledgeCheck.ExecuteNonQuery();
+            cmdPledgeCheck.Connection.Open();
+            cmdPledgeCheck.ExecuteNonQuery();
 
-         if (int.Parse(Convert.ToString(cmdPledgeCheck.Parameters["approval"].Value)) == 1)
-         {
-            btnNoCheat.Text = "SUCCESS";
-            Session["TestTakenID"] = 115;
-            Response.Redirect("~/Pages/studentGradeOverview.aspx");
-         }
+            if (int.Parse(Convert.ToString(cmdPledgeCheck.Parameters["approval"].Value)) == 1)
+            {
+                btnNoCheat.Text = "SUCCESS";
+                Session["TestTakenID"] = 115;
+                Response.Redirect("~/Pages/studentGradeOverview.aspx");
+            }
 
-         cmdPledgeCheck.Connection.Close();
-      }
-   }
+            cmdPledgeCheck.Connection.Close();
+        }
+    }
 }

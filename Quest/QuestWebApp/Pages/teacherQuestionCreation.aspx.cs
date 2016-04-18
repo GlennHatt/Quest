@@ -683,6 +683,11 @@ END;", connectionString);
             }
         }
 
+        protected void finishTest_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/teacherDashboard.aspx");
+        }
+
 
 
 

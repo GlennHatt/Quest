@@ -1,14 +1,14 @@
-﻿<%@ Page Title="Student | Pre-Test" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentPreTest.aspx.cs" Inherits="QuestWebApp.Pages.studentPreTest" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="studentPreTest.aspx.cs" Inherits="QuestWebApp.Pages.studentPreTest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="withoutSidebarExtraReferances" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
-
-    <!-- Wide card with share menu button -->
-    <style>
+<asp:Content ID="Content4" ContentPlaceHolderID="withoutSidebarHeadBodyContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarBodyContent" runat="server">
+       <style>
         .demo-card-wide.mdl-card {
             width: 58%;
             margin: 0 auto;
@@ -26,10 +26,10 @@
             </div>
             <br />
             <br />
-            <asp:linkbutton runat="server" id="btnNotReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px" ForeColor="#FF3300">
+            <asp:linkbutton runat="server" id="btnNotReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px" ForeColor="#FF3300" OnClick="btnNotReady_Click">
             I am NOT Ready
             </asp:linkbutton>
-            <asp:linkbutton runat="server" id="btnReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px">
+            <asp:linkbutton runat="server" id="btnReady" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="margin-left: 5%; margin-bottom:-60px" OnClick="btnReady_Click">
             I am Ready
             </asp:linkbutton>
             <br />
@@ -39,5 +39,5 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="withoutSidebarPageSpecificJS" runat="server">
 </asp:Content>

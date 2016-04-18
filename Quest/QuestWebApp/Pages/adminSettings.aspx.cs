@@ -15,13 +15,12 @@ namespace QuestWebApp.Pages
       string studentEmailEnabled = "false";
       string currentUser;
         bool showEnableEmail,
-                   showPasswordUpdated,
-            showDisableEmail;
+             showPasswordUpdated,
+             showDisableEmail;
 
         protected void Page_Load(object sender, EventArgs e)
       {
             
-
             // toast notifications 
             if (Session["showEnableEmail"] != null)
                 showEnableEmail = (bool)Session["showEnableEmail"];
@@ -32,6 +31,7 @@ namespace QuestWebApp.Pages
                 showPasswordUpdated = (bool)Session["showPasswordUpdated"];
             else
                 showPasswordUpdated = false;
+
             if (Session["showDisableEmail"] != null)
                 showDisableEmail = (bool)Session["showDisableEmail"];
             else
@@ -54,6 +54,7 @@ namespace QuestWebApp.Pages
                 Session["showPasswordUpdated"] = null;
                 showPasswordUpdated = false;
             }
+
             if (showDisableEmail == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
@@ -100,18 +101,15 @@ SELECT receive_email
     protected void btnEnable_Click(object sender, EventArgs e)
       {
             enableEmail();
-            showEnableEmail = true;
-            Session["showEnableEmail"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
-           
+            
+            
       }
 
       protected void btnDisable_Click(object sender, EventArgs e)
       {
-         disableEmail();
-            showDisableEmail = true;
-            Session["showDisableEmail"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            disableEmail();
+            
+            
         }
 
       protected void clickUpdatePassword(object sender, EventArgs e)
@@ -162,7 +160,9 @@ END;", connectionString);
          cmdEmailDisable.Connection.Open();
          cmdEmailDisable.ExecuteNonQuery();
          cmdEmailDisable.Connection.Close();
-         Response.Redirect(Request.RawUrl);
+            showDisableEmail = true;
+            Session["showDisableEmail"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
       }
 
       protected void enableEmail()
@@ -176,7 +176,10 @@ END;", connectionString);
          cmdEmailEnable.Connection.Open();
          cmdEmailEnable.ExecuteNonQuery();
          cmdEmailEnable.Connection.Close();
-         Response.Redirect(Request.RawUrl);
+            showEnableEmail = true;
+            Session["showEnableEmail"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            //Response.Redirect(Request.RawUrl);
       }
 
 
