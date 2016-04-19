@@ -71,7 +71,7 @@ namespace QuestWebApp.Pages
             if (Session["testTakenID"] == null)
             {
                cmdGetTime = new OracleCommand(@"
-SELECT time_limit
+SELECT time_limit, restore_test
   FROM test
  WHERE test_id = :p_TestID", connectionString);
                cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
@@ -83,6 +83,11 @@ SELECT time_limit
                   while (reader.Read())
                   {
                      timerTime = reader.GetInt32(0);
+
+                     if(reader.GetString(1) == "N")
+                     {
+                        btnSaveTest.Enabled = false;
+                     }
 
                      lblTimeLimit.Text = timerTime.ToString();
                   }
@@ -96,7 +101,7 @@ SELECT time_limit
             else
             {
                cmdGetTime = new OracleCommand(@"
-SELECT time_limit, time_left
+SELECT time_limit, time_left, restore_test
   FROM test
        JOIN test_taken USING (test_id)
  WHERE test_taken_id = :p_TestTakenID", connectionString);
@@ -119,6 +124,11 @@ SELECT time_limit, time_left
 
 
                      lblTimeLimit.Text = timerTime.ToString();
+
+                     if (reader.GetString(1) == "N")
+                     {
+                        btnSaveTest.Enabled = false;
+                     }
                   }
                }
                finally
