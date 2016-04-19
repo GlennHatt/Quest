@@ -59,7 +59,8 @@
     <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%; margin-left: 7%;">
         <div class="table-responsive-vertical shadow-z-1">
             <asp:SqlDataSource ID="sqlAdminUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT user_id, f_name, l_name, permission_level, email, password, username, email_password, active, receive_email
+SELECT user_id, f_name, l_name, permission_level, email, password, username, email_password, DECODE(active, 'true', 'Active',
+                                                                                                            'false', 'Inactive') AS active, receive_email
   FROM end_user"
                 UpdateCommand="
 BEGIN
@@ -145,7 +146,7 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Active">
                                     <ItemTemplate>
-                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" ForeColor="White" CommandArgument='<%# Bind("user_id") %>' CommandName="active" />
+                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text='<%# Bind("active") %>' BackColor="Green" ForeColor="White" CommandArgument='<%# Bind("user_id") %>' CommandName="active" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
