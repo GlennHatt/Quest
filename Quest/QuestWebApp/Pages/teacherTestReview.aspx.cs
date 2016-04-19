@@ -23,8 +23,7 @@ namespace QuestWebApp.Pages
          {
             if (Session["TestID"] == null)
             {
-               Session["TestID"] = 104;
-               Session["UserID"] = 1;
+               Response.Redirect("~/Pages/teacherDashboard.aspx");
             }
 
             if (Session["cardsLarge"] == null)
