@@ -94,7 +94,8 @@ SELECT f_name || ' ' || l_name as full_name, user_id
    AND user_id NOT IN (SELECT user_id
                FROM end_user
                     JOIN enrollment ON (student_id = user_id)
-              WHERE section_id = :p_SectionID)">
+              WHERE section_id = :p_SectionID)
+              ORDER BY l_name">
         <SelectParameters>
             <asp:ControlParameter ControlID="ddlClassSelect" Name="p_SectionID" PropertyName="SelectedValue" />
         </SelectParameters>

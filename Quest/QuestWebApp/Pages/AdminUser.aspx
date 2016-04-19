@@ -133,7 +133,6 @@ END;"></asp:SqlDataSource>
                                 <asp:BoundField DataField="email" HeaderText="E-Mail" SortExpression="email" />
                                 <asp:BoundField DataField="email_password" HeaderText="E-Mail Password" SortExpression="email_password" />
                                 <asp:BoundField DataField="username" HeaderText="Username" SortExpression="username" />
-                                <asp:BoundField DataField="password" HeaderText="Password" SortExpression="password" />
                                 <asp:TemplateField HeaderText="Classification" SortExpression="permission_level">
                                     <EditItemTemplate>
                                         <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="sqlPermissions" DataTextField="PERMISSION_LEVEL" DataValueField="PERMISSION_LEVEL" SelectedValue='<%# Bind("PERMISSION_LEVEL") %>'>
