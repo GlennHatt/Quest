@@ -43,7 +43,7 @@ SELECT receive_email
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                  <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
-                <div class="mdl-tooltip">
+                <div class="mdl-tooltip" for="helpIconPass">
                     Password SHOULD be 8-15 characters long,<br>
                     contain at least 1 number,
                     <br />
