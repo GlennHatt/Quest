@@ -67,6 +67,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblTimeLimit;
         
         /// <summary>
+        /// lblProgressBar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProgressBar;
+        
+        /// <summary>
         /// lstQuestions control.
         /// </summary>
         /// <remarks>

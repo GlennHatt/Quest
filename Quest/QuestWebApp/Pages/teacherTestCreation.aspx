@@ -114,7 +114,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
         <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
             </div>
             </div>
-    <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" ValidationGroup="nameValidator" /></div>
+    <div style="text-align:center"><asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" ValidationGroup="nameValidator" /></div>
     </div> 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
