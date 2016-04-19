@@ -32,7 +32,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
             <asp:SessionParameter Name="session_id" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource> -->
-    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1200px;">
+    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1297px;">
         <div style="text-align: center">
             <h1>Create A Test</h1>
         </div>
@@ -121,7 +121,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text="Set the Effetive Time: " />
+                <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text="Set the Effective Time: " />
 
                 <asp:DropDownList ID="ddlTestEffectiveDate" runat="server" CssClass="mdl-textfield__input">
                     <asp:ListItem Selected="True" Value="1" Text="1 Day"></asp:ListItem>
