@@ -51,7 +51,8 @@ namespace QuestWebApp.Pages
 
          //Setting From , To and CC
          mail.From = new MailAddress(txtbxStudentEmail.Text, txtbxStudentID.Text);
-         //mail.To.Add(new MailAddress("ryan8440@gmail.com"));
+            // THIS NEEDS REPLACED WITH THE SELECTED ADMIN'S EMAIL
+         mail.To.Add(new MailAddress(ddlAdmins.SelectedValue));
          mail.Subject = txtbxStudentLogin.Text + "password reset";
          mail.Body = txtbxMessageBody.Value;
 
