@@ -67,11 +67,10 @@ namespace QuestWebApp.Pages
                 cell[4].Attributes.Add("data-title", "E-mail");
                 cell[5].Attributes.Add("data-title", "E-mail Password");
                 cell[6].Attributes.Add("data-title", "Username");
-                cell[7].Attributes.Add("data-title", "Password");
-                cell[8].Attributes.Add("data-title", "Classification");
+                cell[7].Attributes.Add("data-title", "Classification");
 
                 // Assign proper button color based on active or inactive
-                LinkButton activeButton = (LinkButton)cell[9].Controls[1];
+                LinkButton activeButton = (LinkButton)cell[8].Controls[1];
                 System.Diagnostics.Debug.WriteLine(activeButton.Text);
                 if (string.Equals(activeButton.Text, "INACTIVE", StringComparison.CurrentCultureIgnoreCase))
                 {
