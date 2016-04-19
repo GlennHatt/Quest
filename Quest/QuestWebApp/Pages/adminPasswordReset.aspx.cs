@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuestWebApp.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.OracleClient;
@@ -26,6 +27,8 @@ namespace QuestWebApp.Pages
 
       protected void updatePassword_Click(object sender, EventArgs e)
       {
+         utilities util = new utilities();
+
          OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
   end_users.changePassword
@@ -34,7 +37,7 @@ BEGIN
 END;",
                           new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
          cmdChangePassword.Parameters.AddWithValue("p_EndUserID", ddlClassSelect.SelectedValue);
-         cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
+         cmdChangePassword.Parameters.AddWithValue("p_Password", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
 
 
          cmdChangePassword.Connection.Open();

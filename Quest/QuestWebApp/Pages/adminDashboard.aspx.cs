@@ -150,7 +150,7 @@ namespace QuestWebApp.Pages
       // Insert user into database
       protected void btnAddTeacher_Click(object sender, EventArgs e)
       {
-         string passwordStrength;
+         //string passwordStrength;
          int errorCount = 0;
 
          //lblWarning.Text = string.Empty;
@@ -287,7 +287,7 @@ namespace QuestWebApp.Pages
 
       protected void Button3_Click(object sender, EventArgs e)
       {
-         string passwordStrength;
+         //string passwordStrength;
          int errorCount = 0;
 
          //lblWarning.Text = string.Empty;

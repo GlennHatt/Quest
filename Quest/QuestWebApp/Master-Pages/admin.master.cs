@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuestWebApp.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace QuestWebApp.Master_Pages
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-         /* SECURITY DISABLED FOR TESTING
+         
          Session["neededClassification"] = 'A';
 
          try
@@ -28,7 +29,6 @@ namespace QuestWebApp.Master_Pages
          {
              Response.Redirect("login.aspx");
          }
-         */
       }
    }
 }

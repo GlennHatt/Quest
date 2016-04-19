@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Reset Password" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminPasswordReset.aspx.cs" Inherits="QuestWebApp.Pages.adminPasswordReset" %>
+﻿<%@ Page Title="Admin | Reset Password" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminPasswordReset.aspx.cs" Inherits="QuestWebApp.Pages.adminPasswordReset" StylesheetTheme="validationSkin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="adminHead" runat="server">
@@ -29,7 +29,7 @@
             </asp:RadioButtonList>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: center;">
                 <label style="padding-left: 1%;">Users:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="True" DataSourceID="sqlUsers" DataTextField="FULL_NAME" DataValueField="USER_ID"> 
+                <asp:DropDownList ID="ddlClassSelect" CssClass="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="True" DataSourceID="sqlUsers" DataTextField="FULL_NAME" DataValueField="USER_ID"> 
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sqlUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT F_NAME || ' ' || L_NAME as FULL_NAME, user_id
@@ -58,7 +58,7 @@ END;">
             <!-- Textfield with Floating Label for teacher password -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">New Password:</label>
-                <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherPassword" CssClass="mdl-textfield__input" TextMode="password" runat="server" />
 
                 <!-- fix the regex for the password -->
                 <asp:RegularExpressionValidator ID="valUserPass" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$"></asp:RegularExpressionValidator>
@@ -70,7 +70,7 @@ END;">
             <!-- Textfield with Floating Label for teacher confirm password -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm New Password:</label>
-                <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherConfirmPassword" CssClass="mdl-textfield__input" TextMode="password" runat="server" />
                 <asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error"></asp:CompareValidator>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password" SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator>
             </div>

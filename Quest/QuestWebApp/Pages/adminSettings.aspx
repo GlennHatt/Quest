@@ -40,7 +40,7 @@
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserPassReq" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password" SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                 <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
-                <div class="mdl-tooltip" for="helpIconPass">
+                <div class="mdl-tooltip">
                     Password SHOULD be 8-15 characters long,<br>
                     contain at least 1 number,
                     <br />

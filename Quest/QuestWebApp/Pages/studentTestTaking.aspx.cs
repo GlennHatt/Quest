@@ -142,9 +142,6 @@ SELECT time_limit, time_left
 
       protected void btnSubmitTest_Click(object sender, EventArgs e)
       {
-         int noAnswerCounter = 0;
-         string TFAnswer;
-         string SAAnswer;
          OracleCommand cmdGradeQuestion;
 
          saveTest();
