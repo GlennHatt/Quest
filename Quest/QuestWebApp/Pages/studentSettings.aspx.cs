@@ -63,9 +63,8 @@ namespace QuestWebApp.Pages
                 Session["showDisableEmail"] = null;
                 showDisableEmail = false;
             }
-
-            //currentUser = Session["p_StudentID"].ToString();
-            currentUser = Session["UserID"].ToString(); // comment this out when we use login functionality
+            
+            currentUser = Session["UserID"].ToString();
             cdDisable.Visible = false;
             cdEnable.Visible = false;
             OracleCommand cmdEmailActive = new OracleCommand(@"

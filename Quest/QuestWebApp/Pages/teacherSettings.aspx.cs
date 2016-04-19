@@ -63,8 +63,7 @@ namespace QuestWebApp.Pages
                 Session["showDisableEmail"] = null;
                 showDisableEmail = false;
             }
-
-            //currentUser = Session["p_StudentID"].ToString();
+            
             currentUser = Session["UserID"].ToString(); // comment this out when we use login functionality
          cdDisable.Visible = false;
          cdEnable.Visible = false;
