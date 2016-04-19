@@ -104,7 +104,7 @@ select *
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Last Name:</label>
                             <asp:TextBox ID="txtbxTeacherLastName" CssClass="mdl-textfield__input" runat="server" />
                         </div>
-                        <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtbxTeacherLastName" ErrorMessage="Please enter last name"  SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator></div>
+                        <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtbxTeacherLastName" ErrorMessage="Please enter last name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator></div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
