@@ -218,10 +218,10 @@
                     <img src="../Assets/Images/Team%20Pics/RPG.smaller%20copy01160307.jpg" style="width: 104%; padding-left: 10%;" />
                     <br />
                     <br />
-                    <p style="font-size: 175%; padding-left: 10%;">
+                    <div style="font-size: 175%; padding-left: 10%;">
                         R.P.G. was founded in 2016. This group of gentlemen have been hand-picked to create an online testing center. 
                            As every team member does his part, they have successfully created the Quest Testing Center.
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

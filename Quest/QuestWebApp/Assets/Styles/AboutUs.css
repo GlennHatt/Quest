@@ -1247,3 +1247,15 @@ h2,
 h3 {
   font-weight: 200;
 }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+{
+    html{
+        overflow: hidden;
+        height: 100%;    
+    }
+    body{
+        overflow: auto;
+        height: 100%;
+    }
+}
