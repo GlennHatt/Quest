@@ -8,16 +8,17 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="studentSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="studentwithSidebarBodyContent" runat="server">
-    <main class="mdl-layout__content">
-        <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--6-col">
-                <div class="demo-card-wide mdl-card-pickClass mdl-shadow--3dp demo-card-square mdl-card">
+     <main class="mdl-layout__content" style="width: 99%; padding-right: 1%;">
+        <div class="content-grid mdl-grid" style="width: 100%;">
+            <div class="mdl-cell mdl-cell--4-col">
+                 <div class="demo-card-wide mdl-card-pickClass mdl-shadow--3dp demo-card-square mdl-card">
                     <div class="mdl-card__supporting-text" style="text-align: center">
-                        <h1>Classes</h1>
+
+                <h1>Classes</h1>
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="ENROLLMENT_ID" OnSelectedIndexChanged="ddlStudentClasses_SelectedIndexChanged" AppendDataBoundItems="true">
-                                <%--   Checks for whether there is data or not--%>  <asp:ListItem Text="Test Case" Value="4" />  
+                                <%--   Checks for whether there is data or not--%>  <asp:ListItem Text="Test Case" Value="1" />  
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="classesDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
                                  SELECT e.enrollment_id, c.code || '-' || s.section_number || '/' || c.title as students_classes
@@ -37,11 +38,14 @@
                                 </SelectParameters>
 
                             </asp:SqlDataSource> -->
-                        </div>
-                    </div>
-                </div>
+
+</div>
+
             </div>
-             <asp:SqlDataSource ID="testInfo" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+</div>
+                </div>
+
+            <asp:SqlDataSource ID="testInfo" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
                    SELECT title, grade, due_date 
                    FROM test t
                          JOIN test_taken tt USING (test_id)
@@ -61,38 +65,44 @@
                         <asp:ControlParameter ControlID="ddlStudentClasses" Name="p_EnrollmentID" PropertyName="SelectedValue" />
                     </SelectParameters>
                  </asp:SqlDataSource>
-             <asp:ListView ID="studentAverageGrade" runat="server" DataSourceID="sqlAverageGrade">
-                 <ItemTemplate>
-             <div class="mdl-cell mdl-cell--6-col">
+
+            <div class="mdl-cell mdl-cell--4-col">
             <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card">
-                    <div class="mdl-card__supporting-text" style="text-align: center">
+                <div class="mdl-card__supporting-text" style="text-align: center">
                         <div style="font-size:30pt">Class Average</div>
                         <br /> <br /> <br /> <br />
                         <asp:Label runat="server" ID="lbltestAverage" Font-Size="30pt" Text='<%# Eval("average_grade") %>'> </asp:Label>
                     </div>
-                </div>
+                
                  </div>
-                 </ItemTemplate>
-                 </asp:ListView>
 
-                <asp:ListView ID="lstTestInfo" runat="server" DataSourceID="testInfo">
+                </div>
+
+            <asp:ListView ID="lstTestInfo" runat="server" DataSourceID="testInfo">
                     <ItemTemplate>
-                        <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="demo-card-wide mdl-card-TestScore mdl-shadow--3dp demo-card-square mdl-card">
-                                <div class="mdl-card__supporting-text" style="text-align: center">
+                                <div class="mdl-card__supporting-text" style="text-align: center; font-size:18pt">
+                                    <br />
+                                    <br />
                                     <asp:Label runat="server" ID="lbltestName" Text='<%# Eval("title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
                                     <asp:Label runat="server" ID="lbScore" Text='<%# Eval("grade") %>'> </asp:Label>
+                                    <br />
+                                    <br />
                                     <asp:Label runat="server" ID="lblDateSub" Text='<%# Eval("due_date") %>'> </asp:Label>
                                     <%--<div style="margin-right: -430px; margin-top: -21px;">--%>
                                        
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </ItemTemplate>
                 </asp:ListView>
-            </div>
-        </main>
+</div>
+    </main>
+
+            
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentpageSpecificJS" runat="server">
 </asp:Content>
