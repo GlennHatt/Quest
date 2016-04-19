@@ -127,7 +127,7 @@ select *
        
                         <br />
                     <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5%">help</div>
-                        <div class="mdl-tooltip" for="helpIconPass">
+                        <div class="mdl-tooltip" >
                             Password SHOULD be 8-15 characters long,
                                 <br>contain at least 1 number, 
                                 <br />1 upper-case letter, 
@@ -254,7 +254,7 @@ select *
                             <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
   FROM END_USER 
- WHERE permission_level = 'T'
+ WHERE permission_level != 'S'
        ORDER BY FULL_NAME ASC"
                             ></asp:SqlDataSource>
                              <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlTeacherValidator" ControlToValidate="ddlTeacher" ErrorMessage="Please Select a Teacher"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
