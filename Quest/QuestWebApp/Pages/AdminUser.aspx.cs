@@ -106,44 +106,44 @@ namespace QuestWebApp.Pages
             LinkButton btn = (LinkButton)sender;
 
             //Get the row that contains this button
-            //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
             
-            //LinkButton btnactive = (LinkButton)sender;
+            LinkButton btnactive = (LinkButton)sender;
 
          if (btn.Text == "Active")
             {
                 btn.Text = "Inactive";
                 btn.BackColor = System.Drawing.Color.Red;
-                //                OracleCommand cmdDeactivateUser = new OracleCommand(@"
-                //BEGIN
-                //    end_user.deactivate(
-                //    p_EndUserID => :p_EndUserID);
-                //END;",
-                //                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-                //                cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
+                OracleCommand cmdDeactivateUser = new OracleCommand(@"
+                BEGIN
+                    end_user.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
 
-                //                cmdDeactivateUser.Connection.Open();
-                //                cmdDeactivateUser.ExecuteNonQuery();
+                cmdDeactivateUser.Connection.Open();
+                cmdDeactivateUser.ExecuteNonQuery();
 
-                //                cmdDeactivateUser.Connection.Close();
+                cmdDeactivateUser.Connection.Close();
 
             } else
             {
                 btn.Text = "Active";
                 btn.BackColor = System.Drawing.Color.Green;
-                //                OracleCommand cmdActivateUser = new OracleCommand(@"
-                //BEGIN
-                //    end_user.deactivate(
-                //    p_EndUserID => :p_EndUserID);
-                //END;",
-                //                        new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-                //                cmdActivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
+                OracleCommand cmdActivateUser = new OracleCommand(@"
+                BEGIN
+                    end_user.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                        new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdActivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
 
-                //                cmdActivateUser.Connection.Open();
-                //                cmdActivateUser.ExecuteNonQuery();
+                cmdActivateUser.Connection.Open();
+                cmdActivateUser.ExecuteNonQuery();
 
-                //                cmdActivateUser.Connection.Close();
+                cmdActivateUser.Connection.Close();
 
             }
 
@@ -158,8 +158,54 @@ namespace QuestWebApp.Pages
                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
                break;
             case "active":
-                    // Code in here Jesse
-               break;
+                    //LinkButton btn = ((LinkButton)((GridView)sender).Rows[int.Parse(e.CommandSource.ToString())].FindControl("activeButton"));
+                    LinkButton btn = ((LinkButton)e.CommandSource);
+
+                    //Get the row that contains this button
+                    //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+
+                    //LinkButton btnactive = (LinkButton)sender;
+
+                    if (btn.Text == "Active")
+                    {
+                        btn.Text = "Inactive";
+                        btn.BackColor = System.Drawing.Color.Red;
+                        OracleCommand cmdDeactivateUser = new OracleCommand(@"
+                BEGIN
+                    end_users.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                         new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                        cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", e.CommandArgument);
+
+                        cmdDeactivateUser.Connection.Open();
+                        cmdDeactivateUser.ExecuteNonQuery();
+
+                        cmdDeactivateUser.Connection.Close();
+
+                    }
+                    else
+                    {
+                        btn.Text = "Active";
+                        btn.BackColor = System.Drawing.Color.Green;
+                        OracleCommand cmdActivateUser = new OracleCommand(@"
+                BEGIN
+                    end_users.activate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                                new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                        cmdActivateUser.Parameters.AddWithValue("p_EndUserID", e.CommandArgument);
+
+                        cmdActivateUser.Connection.Open();
+                        cmdActivateUser.ExecuteNonQuery();
+
+                        cmdActivateUser.Connection.Close();
+
+                    }
+
+                    //GVUser.DataBind();
+                    break;
             }
       }
 
