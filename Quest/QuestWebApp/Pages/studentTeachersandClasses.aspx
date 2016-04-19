@@ -67,7 +67,7 @@ SELECT t.l_name as name, title
                                         <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
                                     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                                 </div>
-                                <div id="mailButton" class="overbox" runat="server">
+                                <%--<div id="mailButton" class="overbox" runat="server">
                                         <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
                                         <div class="title">Email</div><br />
                                     <div class="input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -83,7 +83,7 @@ SELECT t.l_name as name, title
                                         </button>
                                         <asp:LinkButton ID="btnSendMessage" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="background-color:rgb(76,175,80); color:white;" runat="server" OnClick="btnSendMessage_Click">
                                             <i class="material-icons">done</i>
-                                        </asp:LinkButton>
+                                        </asp:LinkButton>--%>
                                     </div>
                                 </div>
                             </div>

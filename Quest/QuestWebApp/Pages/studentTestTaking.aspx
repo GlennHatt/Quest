@@ -139,7 +139,7 @@ SELECT q.question_id, weight, type, test_order,
                 </InsertParameters>
             </asp:SqlDataSource>
             <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide" />
-            <asp:Label ID="lblProgressBar" runat="server" CssClass="hide" />
+            <asp:Label ID="lblProgressBar" runat="server" CssClass="hide"/>
             <button id="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
 
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnDataBound="lstQuestions_DataBound">
@@ -269,19 +269,21 @@ SELECT choice_id, choice_text
         document.getElementById("alarm-sounds").checked = true;
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
 
-        //window.onload = function () {
-        //    //if (localStorage.getItem("testProgress")) {
-        //    //    testProgress = JSON.parse(localStorage.getItem("testProgress"));
-        //    //    progressPercent = localStorage.getItem("progressPercent");
+        window.onload = function () {
+            //if (localStorage.getItem("testProgress")) {
+            //    testProgress = JSON.parse(localStorage.getItem("testProgress"));
+            //    progressPercent = localStorage.getItem("progressPercent");
 
-        //        // wait for progress bar to load before incrementing
-        //        setTimeout(function () {
-                    
-        //            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
-        //        }, 500);
+            // wait for progress bar to load before incrementing
+            testProgress = JSON.parse(document.getElementById("<%=btnSubmitTest.ClientID%>").textContent);
+
+            setTimeout(function () {
                 
-        //}
-        //}
+                document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
+            }, 500);
+                
+        }
+        
 
         
         //console.log("test");
