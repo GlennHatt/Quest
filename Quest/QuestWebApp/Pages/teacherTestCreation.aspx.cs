@@ -42,11 +42,12 @@ namespace QuestWebApp.Pages
          OracleCommand cmdAddTest = new OracleCommand(@"
 BEGIN
   :v_TestID := TESTS.add(
-    p_SectionID => :p_SectionID,
-    p_Title     => :p_Title,
-    P_DueDate   => :p_DueDate,
-    p_TimeLimit => :p_TimeLimit,
-    p_StartTime => :p_StartTime);
+    p_SectionID   => :p_SectionID,
+    p_Title       => :p_Title,
+    P_DueDate     => :p_DueDate,
+    p_TimeLimit   => :p_TimeLimit,
+    p_StartTime   => :p_StartTime,
+    p_RestoreTest => :p_RestoreTest);
 END;",
          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
          cmdAddTest.Parameters.AddWithValue("p_SectionID", ddlSection.SelectedValue);
@@ -54,6 +55,7 @@ END;",
          cmdAddTest.Parameters.AddWithValue("p_DueDate", testDateTime.ToString("dd-MMM-yy"));
          cmdAddTest.Parameters.AddWithValue("p_TimeLimit", ddlTimeLimit.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_StartTime", ddlTime.SelectedValue);
+         cmdAddTest.Parameters.AddWithValue("p_RestoreTest", ddlSavable.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("v_TestID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
          cmdAddTest.Connection.Open();

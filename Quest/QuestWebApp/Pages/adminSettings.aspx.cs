@@ -177,10 +177,12 @@ END;", connectionString);
          cmdEmailEnable.ExecuteNonQuery();
          cmdEmailEnable.Connection.Close();
             showEnableEmail = true;
+            insertEmail();
             Session["showEnableEmail"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            
             //Response.Redirect(Request.RawUrl);
-      }
+        }
 
 
       protected void insertEmail()

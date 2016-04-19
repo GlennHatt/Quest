@@ -145,7 +145,7 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Active">
                                     <ItemTemplate>
-                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" ForeColor="White" OnClick="active_Click" />
+                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="btnActive" runat="server" Text="Active" BackColor="Green" ForeColor="White" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>' OnClick="active_Click" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

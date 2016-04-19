@@ -103,35 +103,52 @@ namespace QuestWebApp.Pages
 
       protected void active_Click(object sender, EventArgs e)
       {
-//           LinkButton btn = (LinkButton)sender;
+            LinkButton btn = (LinkButton)sender;
 
-//           //Get the row that contains this button
-//           GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            //Get the row that contains this button
+            //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
-//           OracleCommand cmdDeleteUser = new OracleCommand(@"
-//BEGIN
-//   end_user.activate(
-//    p_EndUserID => :p_EndUserID);
-//END;",
-//            new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-//            cmdDeleteUser.Parameters.AddWithValue("p_SectionID", GVUser.DataKeys[gvr.RowIndex].Value);
+            
+            //LinkButton btnactive = (LinkButton)sender;
 
-//            cmdDeleteUser.Connection.Open();
-//            cmdDeleteUser.ExecuteNonQuery();
+         if (btn.Text == "Active")
+            {
+                btn.Text = "Inactive";
+                btn.BackColor = System.Drawing.Color.Red;
+                //                OracleCommand cmdDeactivateUser = new OracleCommand(@"
+                //BEGIN
+                //    end_user.deactivate(
+                //    p_EndUserID => :p_EndUserID);
+                //END;",
+                //                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                //                cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
 
-//            cmdDeleteUser.Connection.Close();
-//            GVUser.DataBind();
-            LinkButton btnactive = (LinkButton)sender;
-         if (btnactive.Text == "Active")
-         {
-            btnactive.Text = "Inactive";
-            btnactive.BackColor = System.Drawing.Color.Red;
-         } else
-         {
-            btnactive.Text = "Active";
-            btnactive.BackColor = System.Drawing.Color.Green;
-         }
-      }
+                //                cmdDeactivateUser.Connection.Open();
+                //                cmdDeactivateUser.ExecuteNonQuery();
+
+                //                cmdDeactivateUser.Connection.Close();
+
+            } else
+            {
+                btn.Text = "Active";
+                btn.BackColor = System.Drawing.Color.Green;
+                //                OracleCommand cmdActivateUser = new OracleCommand(@"
+                //BEGIN
+                //    end_user.deactivate(
+                //    p_EndUserID => :p_EndUserID);
+                //END;",
+                //                        new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                //                cmdActivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
+
+                //                cmdActivateUser.Connection.Open();
+                //                cmdActivateUser.ExecuteNonQuery();
+
+                //                cmdActivateUser.Connection.Close();
+
+            }
+
+            //GVUser.DataBind();
+        }
 
       protected void GVUser_RowCommand(object sender, GridViewCommandEventArgs e)
       {

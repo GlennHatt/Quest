@@ -111,7 +111,19 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <asp:Label ID="Label1" cssclass="mdl-textfield__input" runat="server" Text=" Test Start Time: " />
         
-        <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input"></asp:DropDownList>
+        <asp:DropDownList ID="ddlTime" runat="server" cssclass="mdl-textfield__input">
+        </asp:DropDownList>
+            </div>
+            </div>
+
+        <div style="text-align:center">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <asp:Label ID="Label2" cssclass="mdl-textfield__input" runat="server" Text=" Allow student to save test: " />
+        
+        <asp:DropDownList ID="ddlSavable" runat="server" cssclass="mdl-textfield__input">
+            <asp:ListItem Selected="True" Value="Y">Yes</asp:ListItem>
+            <asp:ListItem Value="N">No</asp:ListItem>
+        </asp:DropDownList>
             </div>
             </div>
     <div style="text-align:center"><asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="btnAddInfo" runat="server" Text="Create Test" OnClick="btnAddInfo_Click" ForeColor="White" ValidationGroup="nameValidator" /></div>
