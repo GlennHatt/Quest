@@ -19,11 +19,11 @@ namespace QuestWebApp.Pages
         {
             if (!IsPostBack)
             {
-                Session["UserID"] =
-                    1;
+                //Session["UserID"] =
+                //    1;
 
-                if (Session["UserID"] == null)
-                    Session["UserID"] = 1;
+                //if (Session["UserID"] == null)
+                //    Session["UserID"] = 1;
 
                 string testNumber = "0";
                 string currentUser = "1";
