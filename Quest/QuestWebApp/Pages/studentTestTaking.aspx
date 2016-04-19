@@ -139,6 +139,7 @@ SELECT q.question_id, weight, type, test_order,
                 </InsertParameters>
             </asp:SqlDataSource>
             <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide" />
+            <asp:Label ID="lblProgressBar" runat="server" CssClass="hide" />
             <button id="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
 
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnDataBound="lstQuestions_DataBound">
@@ -160,8 +161,8 @@ SELECT q.question_id, weight, type, test_order,
                             <!-- Essay -->
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divE">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" class="mdl-textfield__input" OnTextChanged="questionChanged"/>
+                                    <asp:Label ID="lblEQuestion" CssClass="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
+                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" CssClass="mdl-textfield__input" OnTextChanged="questionChanged"/>
                                 </div>
                             </div>
                             <!-- Matching -->
@@ -178,27 +179,27 @@ SELECT choice_id, choice_text
                                             <asp:ControlParameter Name="p_QuestionID" ControlID="hdnQuestionID" PropertyName="Value" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-                                    <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
-                                    <asp:RadioButtonList ID="rblMCAnswer" runat="server" DataSourceID="sqlMCChoices" DataTextField="choice_text" DataValueFeild="choice_id" CssClass="mc" />
+                                    <asp:Label ID="lblMCQuestion" CssClass="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
+                                    <asp:RadioButtonList ID="rblMCAnswer" runat="server" DataSourceID="sqlMCChoices" DataTextField="choice_text" DataValueField="choice_id" CssClass="mc" />
                                 </div>
                             </div>
                             <!-- Short Answer -->
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divSA">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:HiddenField ID="hdnSAAnswer" runat="server" Value='<%#Bind("short_answer_answer") %>' />
-                                    <asp:Label ID="lblBeforeText" class="mdl-textfield" Text='<%# Eval("before_text") %>' runat="server" />
+                                    <asp:Label ID="lblBeforeText" CssClass="mdl-textfield" Text='<%# Eval("before_text") %>' runat="server" />
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <asp:TextBox ID="txtSAAnswer" runat="server" class="mdl-textfield__input" />
+                                        <asp:TextBox ID="txtSAAnswer" runat="server" CssClass="mdl-textfield__input" />
                                         <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Answer:</label>
                                     </div>
-                                    <asp:Label ID="lblAfterText" class="mdl-textfield" Text='<%# Eval("after_text") %>' runat="server" />
+                                    <asp:Label ID="lblAfterText" CssClass="mdl-textfield" Text='<%# Eval("after_text") %>' runat="server" />
                                 </div>
                             </div>
                             <!-- True False -->
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divTF">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:HiddenField ID="hdnTFAnswer" Value='<%# Eval("true_false_answer") %>' runat="server" />
-                                    <asp:Label ID="lblTFQuestion" class="mdl-textfield" Text='<%# Eval("true_false_question") %>' runat="server" />
+                                    <asp:Label ID="lblTFQuestion" CssClass="mdl-textfield" Text='<%# Eval("true_false_question") %>' runat="server" />
                                     <asp:RadioButtonList ID="rblTFAnswer" runat="server" CssClass="mdl-radio__button tf" RepeatDirection="Horizontal" OnSelectedIndexChanged="questionChanged">
                                         <asp:ListItem Text="True" Value="T" />
                                         <asp:ListItem Text="False" Value="F" />
@@ -212,10 +213,10 @@ SELECT choice_id, choice_text
 
             <asp:Label ID="lblASP" runat="server" Text="Label"></asp:Label>
             <div style="position: fixed; right: 41px; bottom: 80px; z-index: 2;">
-                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="moveValue();"/>
+                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="moveValue();"/>
             </div>
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
-                <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
+                <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
             </div>
             <asp:HiddenField ID="hdnQuestionTotal" runat="server" />
         </div>
@@ -258,7 +259,7 @@ SELECT choice_id, choice_text
     <script src="../Assets/JS/testTaking.js"></script>
     <script>
 
-        var progressPercent;
+        var progressPercent = 0;
         var testProgress = [];
         var isPostingBack; // is the page posting back? flag value
         var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").value;
@@ -268,19 +269,19 @@ SELECT choice_id, choice_text
         document.getElementById("alarm-sounds").checked = true;
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
 
-        window.onload = function () {
-            if (localStorage.getItem("testProgress")) {
-                testProgress = JSON.parse(localStorage.getItem("testProgress"));
-                progressPercent = localStorage.getItem("progressPercent");
+        //window.onload = function () {
+        //    //if (localStorage.getItem("testProgress")) {
+        //    //    testProgress = JSON.parse(localStorage.getItem("testProgress"));
+        //    //    progressPercent = localStorage.getItem("progressPercent");
 
-                // wait for progress bar to load before incrementing
-                setTimeout(function () {
+        //        // wait for progress bar to load before incrementing
+        //        setTimeout(function () {
                     
-                    document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
-                }, 500);
+        //            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
+        //        }, 500);
                 
-        }
-        }
+        //}
+        //}
 
         
         //console.log("test");

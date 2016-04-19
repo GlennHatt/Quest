@@ -162,40 +162,42 @@ END;", connectionString);
 
       protected void enableEmail()
       {
-         OracleCommand cmdEmailEnable = new OracleCommand(@"
+            OracleCommand cmdEmailEnable = new OracleCommand(@"
 BEGIN
     END_USERS.activateEmail(
     p_EndUserID => :p_EndUserID);
 END;", connectionString);
-         cmdEmailEnable.Parameters.AddWithValue("p_EndUserID", currentUser);
-         cmdEmailEnable.Connection.Open();
-         cmdEmailEnable.ExecuteNonQuery();
-         cmdEmailEnable.Connection.Close();
+            cmdEmailEnable.Parameters.AddWithValue("p_EndUserID", currentUser);
+            cmdEmailEnable.Connection.Open();
+            cmdEmailEnable.ExecuteNonQuery();
+            cmdEmailEnable.Connection.Close();
             showEnableEmail = true;
+            insertEmail();
             Session["showEnableEmail"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
-      }
+
+            //Response.Redirect(Request.RawUrl);
+        }
 
 
-      protected void insertEmail()
+        protected void insertEmail()
       {
-         //            // This has to be finished later
-         //            OracleCommand cmdEmailInsert = new OracleCommand(@"
-         //BEGIN
-         //    END_USERS.addEmail(
-         //    p_EndUserID     => :p_EndUserID,
-         //    p_Email         => :p_Email,
-         //    p_EmailUsername => :p_EmailUsername,
-         //    p_EmailPassword => :p_EmailPassword);
-         //END;", connectionString);
-         //            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
-         //            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
-         //            cmdEmailInsert.Parameters.AddWithValue("p_EmailUsername", /*TextBox*/);
-         //            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
-         //            cmdEmailInsert.Connection.Open();
-         //            cmdEmailInsert.ExecuteNonQuery();
-         //            cmdEmailInsert.Connection.Close();
-         //            Response.Redirect(Request.RawUrl);
-      }
+            OracleCommand cmdEmailInsert = new OracleCommand(@"
+BEGIN
+  end_users.addEmail(
+        p_EndUserID     => :p_EndUserID, 
+        p_Email         => :p_Email, 
+        p_EmailUsername => :p_EmailUsername, 
+        p_EmailPassword => :p_EmailPassword);
+END;", connectionString);
+            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
+            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
+            cmdEmailInsert.Parameters.AddWithValue("p_EmailUsername", tbStudentLogin.Text);
+            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
+            cmdEmailInsert.Connection.Open();
+            cmdEmailInsert.ExecuteNonQuery();
+            cmdEmailInsert.Connection.Close();
+            Response.Redirect(Request.RawUrl);
+        }
    }
 }

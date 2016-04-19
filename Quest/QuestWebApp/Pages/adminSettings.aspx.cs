@@ -187,7 +187,6 @@ END;", connectionString);
 
       protected void insertEmail()
       {
-            // This has to be finished later
             OracleCommand cmdEmailInsert = new OracleCommand(@"
 BEGIN
   end_users.addEmail(

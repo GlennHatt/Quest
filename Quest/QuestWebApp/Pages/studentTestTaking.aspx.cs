@@ -19,7 +19,6 @@ namespace QuestWebApp.Pages
       public string time;
       int questionCount = 0;
       List<bool> testProgress = new List<bool>();
-      DateTime startTime;
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -27,6 +26,7 @@ namespace QuestWebApp.Pages
          int timerTime = 0;
          Session["TestID"] = 31;
          Session["UserID"] = 1;
+
          if (!IsPostBack)
          {
             if (Session["TestID"] == null)
@@ -39,29 +39,96 @@ namespace QuestWebApp.Pages
                Session["cardsLarge"] = false;
 
             OracleCommand cmdGetTime = new OracleCommand(@"
-SELECT time_limit
-  FROM test
- WHERE test_id = :p_TestID", connectionString);
+  SELECT test_taken_id 
+    FROM test_taken
+         JOIN enrollment USING (enrollment_id)
+   WHERE test_id    = :p_TestID
+     AND student_id = :p_StudentID", connectionString);
+            cmdGetTime.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
             cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
             cmdGetTime.Connection.Open();
             OracleDataReader reader = cmdGetTime.ExecuteReader();
             try
             {
-               while (reader.Read())
+               if (reader.Read())
                {
-                  timerTime = Convert.ToInt32(reader.GetValue(0));
-                  lblTimeLimit.Text = timerTime.ToString();
+                  try
+                  {
+                     Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+                  }
+                  catch
+                  {
+                     Session["testTakenID"] = null;
+                  }
                }
-            } finally
+            }
+            finally
             {
                reader.Close();
             }
             cmdGetTime.Connection.Close();
 
-            startTime = new DateTime();
-         }
+            if (Session["testTakenID"] == null)
+            {
+               cmdGetTime = new OracleCommand(@"
+SELECT time_limit, time_left
+  FROM test
+ WHERE test_id = :p_TestID", connectionString);
+               cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
+               cmdGetTime.Connection.Open();
+               reader = cmdGetTime.ExecuteReader();
+               try
+               {
+                  while (reader.Read())
+                  {
+                     DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
+                     timerTime = Convert.ToInt32(elapsed.Minute);
+                     if (elapsed.Hour > 0)
+                        timerTime -= 60;
+
+                     lblTimeLimit.Text = timerTime.ToString();
+                  }
+               }
+               finally
+               {
+                  reader.Close();
+               }
+               cmdGetTime.Connection.Close();
+            }
+            else
+            {
+               cmdGetTime = new OracleCommand(@"
+SELECT time_limit, time_left
+  FROM test
+       JOIN test_taken USING (test_id)
+ WHERE test_taken_id = :p_TestTakenID", connectionString);
+               cmdGetTime.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+
+               cmdGetTime.Connection.Open();
+               reader = cmdGetTime.ExecuteReader();
+               try
+               {
+                  while (reader.Read())
+                  {
+                     DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
+                     timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - Convert.ToInt32(elapsed.Minute);
+                     if (elapsed.Hour > 0)
+                        timerTime -= 60;
+                     
+                     lblTimeLimit.Text = timerTime.ToString();
+                  }
+               }
+               finally
+               {
+                  reader.Close();
+               }
+               cmdGetTime.Connection.Close();
+
+            }
+            Session["StartTime"] = DateTime.Now.ToString();
+         }
       }
 
       /*protected void OnLayoutCreated(object sender, EventArgs e)
@@ -184,6 +251,17 @@ END;", connectionString);
          string questionID;
          string questionType;
          OracleCommand cmdGradeQuestion = new OracleCommand();
+         DateTime startTime;
+         if (Session["StartTime"] != null)
+            startTime = Convert.ToDateTime(Session["StartTime"].ToString());
+         else
+            startTime = DateTime.Now;
+         DateTime currentTime = DateTime.Now;
+         string hour = Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour));
+         string minute = Convert.ToString(Convert.ToUInt32(currentTime.Minute) - Convert.ToUInt32(startTime.Minute));
+         string second = "0";// Convert.ToString(Convert.ToUInt32(currentTime.Second) - Convert.ToUInt32(startTime.Second));
+         //currentTime.Subtract(Convert.ToDateTime(Session["StartTime"].ToString()));
+         string remainingTime = hour + ":" + minute + ":" + second;
 
 
          if (Session["testTakenID"] == null)
@@ -197,7 +275,7 @@ BEGIN
 END;", connectionString);
             cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
             cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", String.Empty);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", remainingTime);
             cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
             cmdGradeQuestion.Connection.Open();
@@ -205,6 +283,21 @@ END;", connectionString);
 
             Session["testTakenID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
+            cmdGradeQuestion.Connection.Close();
+         }
+         else
+         {
+            cmdGradeQuestion = new OracleCommand(@"
+BEGIN
+  TESTS_TAKEN.change(
+    p_TestTakenID => :p_TestTakenID,
+    p_TimeLeft    => :p_TimeLeft);
+END;", connectionString);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", remainingTime);
+
+            cmdGradeQuestion.Connection.Open();
+            cmdGradeQuestion.ExecuteNonQuery();
             cmdGradeQuestion.Connection.Close();
          }
 
@@ -307,37 +400,8 @@ END;", connectionString);
          OracleCommand cmdRestoreTest = new OracleCommand();
          string questionID;
          string questionType;
-
-         cmdRestoreTest = new OracleCommand(@"
-  SELECT test_taken_id 
-    FROM test_taken
-         JOIN enrollment USING (enrollment_id)
-   WHERE test_id    = :p_TestID
-     AND student_id = :p_StudentID", connectionString);
-         cmdRestoreTest.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
-         cmdRestoreTest.Parameters.AddWithValue("p_TestID", Session["TestID"]);
-
-         cmdRestoreTest.Connection.Open();
-         OracleDataReader reader = cmdRestoreTest.ExecuteReader();
-         try
-         {
-            if (reader.Read())
-            {
-               try
-               {
-                  Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
-               }
-               catch
-               {
-                  Session["testTakenID"] = null;
-               }
-            }
-         }
-         finally
-         {
-            reader.Close();
-         }
-         cmdRestoreTest.Connection.Close();
+         String progressBar = String.Empty;
+         string progressElement = string.Empty;
 
          if (Session["testTakenID"] != null)
          {
@@ -358,12 +422,17 @@ SELECT essay
                      cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
                      cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
                      cmdRestoreTest.Connection.Open();
-                     reader = cmdRestoreTest.ExecuteReader();
+                     OracleDataReader reader = cmdRestoreTest.ExecuteReader();
                      try
                      {
                         if (reader.Read())
                         {
                            ((TextBox)item.FindControl("txtEAnswer")).Text = reader.GetValue(0).ToString();
+
+                           if (reader.GetValue(0).ToString() == null)
+                              progressElement = "false,";
+                           else
+                              progressElement = "true,";
                         }
                      }
                      finally
@@ -374,10 +443,9 @@ SELECT essay
                      break;
                   case "MC":
                      cmdRestoreTest = new OracleCommand(@"
-SELECT choice_text
+SELECT student_choice
   FROM question_taken_multiple_choice
        JOIN question_taken q USING (question_taken_id)
-       JOIN question_multiple_choice_body ON (student_choice = choice_id)
  WHERE test_taken_id = :p_TestTakenID
        AND q.question_id = :p_QuestionID", connectionString);
                      cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
@@ -389,7 +457,11 @@ SELECT choice_text
                         if (reader.Read())
                         {
                            ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue = reader.GetValue(0).ToString();
-                           // There is a bug in ASP that it's selected value is the text. Be aware.
+
+                           if (reader.GetValue(0).ToString() == null)
+                              progressElement = "false,";
+                           else
+                              progressElement = "true,";
                         }
                      }
                      finally
@@ -414,6 +486,12 @@ SELECT answer
                         if (reader.Read())
                         {
                            ((TextBox)item.FindControl("txtSAAnswer")).Text = reader.GetValue(0).ToString();
+
+
+                           if (reader.GetValue(0).ToString() == null)
+                              progressElement = "false,";
+                           else
+                              progressElement = "true,";
                         }
                      }
                      finally
@@ -447,6 +525,8 @@ SELECT points_earned, answer
                            }
                            else
                               ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue = reader.GetValue(1).ToString();
+
+                           progressElement = "true,";
                         }
                      }
                      finally
@@ -456,7 +536,11 @@ SELECT points_earned, answer
                      cmdRestoreTest.Connection.Close();
                      break;
                }
+
+               progressBar += progressElement;
             }
+            // This is what you want Ryan.
+            lblProgressBar.Text = progressBar;
          }
       }
 
