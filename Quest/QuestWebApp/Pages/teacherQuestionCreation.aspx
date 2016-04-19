@@ -24,7 +24,7 @@
    
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardQuestionType" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px; ">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center">
-            <asp:Label ID="lblAddType" class="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
+            <asp:Label ID="lblAddType" CssClass="mdl-textfield__label" runat="server" Text="Question Type:" Style="text-align: center" />
             <br />
             <br />
             <br />
