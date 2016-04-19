@@ -12,6 +12,11 @@
     width: 597px;
 }
 
+.center
+{
+    position:unset;
+    left: 0px;
+}
 /* styles for test taking */
 .mc {
             margin-left: 34%;

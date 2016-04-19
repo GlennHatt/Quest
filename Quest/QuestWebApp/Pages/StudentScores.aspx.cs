@@ -31,7 +31,7 @@ namespace QuestWebApp.Pages
         protected void ddlStudentClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstTestInfo.DataBind();
-            //studentAverageGrade.DataBind();
+            ddlStudentClasses.DataBind();
         }
     }
 }
