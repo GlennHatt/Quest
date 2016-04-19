@@ -29,6 +29,7 @@
                 <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">New Password:</label>
                 <asp:TextBox ID="txtbxTeacherPassword" CssClass="mdl-textfield__input" TextMode="Password" runat="server" />
                 <!-- Multiline Tooltip -->
+                 
 
             </div>
 
@@ -40,7 +41,7 @@
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserPassReq" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password" SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                 <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
-                <div class="mdl-tooltip">
+                <div class="mdl-tooltip" for="helpIconPass">
                     Password SHOULD be 8-15 characters long,<br>
                     contain at least 1 number,
                     <br />
