@@ -47,7 +47,8 @@ BEGIN
     P_DueDate     => :p_DueDate,
     p_TimeLimit   => :p_TimeLimit,
     p_StartTime   => :p_StartTime,
-    p_RestoreTest => :p_RestoreTest);
+    p_RestoreTest => :p_RestoreTest,
+    p_EffectiveDate => :p_EffectiveDate);
 END;",
          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
          cmdAddTest.Parameters.AddWithValue("p_SectionID", ddlSection.SelectedValue);
@@ -56,6 +57,7 @@ END;",
          cmdAddTest.Parameters.AddWithValue("p_TimeLimit", ddlTimeLimit.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_StartTime", ddlTime.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_RestoreTest", ddlSavable.SelectedValue);
+         cmdAddTest.Parameters.AddWithValue("p_EffectiveDate", ddlTestEffectiveDate.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("v_TestID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
          cmdAddTest.Connection.Open();
