@@ -21,16 +21,16 @@
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">User Name:</label>
-                <asp:TextBox ID="username" runat="server" class="mdl-textfield__input"></asp:TextBox>
+                <asp:TextBox ID="username" runat="server" CssClass="mdl-textfield__input"></asp:TextBox>
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">Password:</label>
-                <asp:TextBox ID="password" runat="server" class="mdl-textfield__input" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="password" runat="server" CssClass="mdl-textfield__input" TextMode="Password"></asp:TextBox>
             </div>
 
             <div class="button login" style="text-align: center;">
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" ForeColor="White" OnClick="loginButton_Click" />
+                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ID="loginButton" runat="server" Text="Login" ForeColor="White" OnClick="loginButton_Click" />
                 <br />
                 <div style="text-align: center; font-size:13px;">
                     <asp:Label ID="answer" runat="server" Text="" Style="text-align: center;"></asp:Label></div>
@@ -45,7 +45,7 @@
         <img src="../Assets/Images/transparent.png" height="50" width="50" />
     </div>
     <div class="buttonDiscover" style= "position: absolute; bottom: 0px; width: 162px; right: 83px;">
-        <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
+        <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="color:white" ID="Discover" runat="server" Text="Discover More" OnClick="discoverButton_Click" />
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="loginPageSpecificJS" runat="server">

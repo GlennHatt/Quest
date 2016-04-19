@@ -28,6 +28,9 @@ namespace QuestWebApp.Master_Pages
          {
                Response.Redirect("login.aspx");
          }
+
+         if (Session["userClassification"].ToString() == "A")
+            adminDash.Visible = true;
       }
    }
 }

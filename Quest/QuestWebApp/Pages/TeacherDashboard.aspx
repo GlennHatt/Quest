@@ -30,7 +30,7 @@
                         <h1>Create a Test </h1>
                     </div>
                     <div style="text-align: right">
-                        <asp:LinkButton ID="btnCreateTest" PostBackUrl="~/Pages/teacherTestCreation.aspx" runat="server" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                        <asp:LinkButton ID="btnCreateTest" PostBackUrl="~/Pages/teacherTestCreation.aspx" runat="server" CssClass="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
                             <i class="material-icons">create</i>
                         </asp:LinkButton>
                     </div>
@@ -97,7 +97,7 @@ SELECT DISTINCT test_taken_id, test_id, 'Test Name: ' || t.title AS test_title, 
        JOIN question_taken qt USING (test_taken_id)
        JOIN question_taken_essay tte USING (question_taken_id)
  WHERE s.teacher_id = :p_TeacherID
-   --AND graded = 'N'">
+   AND graded = 'N'">
         <SelectParameters>
             <asp:SessionParameter DefaultValue="1" Name="p_TeacherID" SessionField="UserID" />
         </SelectParameters>

@@ -65,7 +65,8 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        JOIN class c      USING (class_id)
  WHERE student_id = :p_StudentID
        AND sysdate &lt; due_date 
-       AND sysdate &gt; due_date - effective_date;">
+       AND sysdate &gt; due_date - effective_date
+       ">
                     <SelectParameters>
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID"/>
                     </SelectParameters>

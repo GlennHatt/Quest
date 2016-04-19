@@ -76,13 +76,13 @@ namespace QuestWebApp.Master_Pages {
         protected global::System.Web.UI.WebControls.HyperLink tests;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// adminDash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink adminDash;
         
         /// <summary>
         /// help control.

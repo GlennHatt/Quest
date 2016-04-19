@@ -21,8 +21,6 @@ namespace QuestWebApp.Master_Pages
 
          if (Session["Username"] == null)
          {
-            if (Session["UserID"] == null)
-               Session["UserID"] = "17";
             OracleCommand cmdShowGreeting = new OracleCommand(@"
 SELECT f_name
   FROM end_user
