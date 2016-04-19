@@ -14,8 +14,7 @@ namespace QuestWebApp.Pages
    {
         // Global Variables
         bool showAddedQuestion;
-
-        int QuestionID;   // ID of the current question.
+      
       string questionType; // The questions type, should be 'E', 'M', 'MC', 'SA', or 'TF'.
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
 

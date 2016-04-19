@@ -20,7 +20,7 @@
 <body>
     <form runat="server">
     <!-- Accent-colored raised button with ripple -->
-    <asp:LinkButton class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; top: 1px; width: 157px;" Text="Back To Login" OnClick="btnbackToLogin_Click">
+    <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; top: 1px; width: 157px;" Text="Back To Login" OnClick="btnbackToLogin_Click">
     </asp:LinkButton>
 
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">

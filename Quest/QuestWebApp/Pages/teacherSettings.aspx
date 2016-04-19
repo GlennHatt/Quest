@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Teacher | Settings" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherSettings.aspx.cs" Inherits="QuestWebApp.Pages.teacherSettings" %>
+﻿<%@ Page Title="Teacher | Settings" Language="C#" MasterPageFile="~/Master-Pages/teacher.master" AutoEventWireup="true" CodeBehind="teacherSettings.aspx.cs" Inherits="QuestWebApp.Pages.teacherSettings" StylesheetTheme="validationSkin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="teacherBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="teacherHead" runat="server">

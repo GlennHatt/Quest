@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuestWebApp.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.OracleClient;
@@ -64,7 +65,7 @@ namespace QuestWebApp.Pages
             }
 
             //currentUser = Session["p_StudentID"].ToString();
-            currentUser = "17"; // comment this out when we use login functionality
+            currentUser = Session["UserID"].ToString(); // comment this out when we use login functionality
             cdDisable.Visible = false;
             cdEnable.Visible = false;
             OracleCommand cmdEmailActive = new OracleCommand(@"
@@ -134,7 +135,8 @@ END;", connectionString);
 
         protected void clickUpdatePassword(object sender, EventArgs e)
         {
-            currentUser = "36";
+         utilities util = new utilities();
+            currentUser = Session["UserID"].ToString();
             // ^--- needs to be changed to session when login is up
 
             OracleCommand cmdChangePassword = new OracleCommand(@"
@@ -153,10 +155,10 @@ END;",
                             connectionString);
             cmdChangePassword.Parameters.AddWithValue("currentUser", currentUser);
             // ^--- needs to be changed to session when login is up
-            cmdChangePassword.Parameters.AddWithValue("typed_password", txtOldPassword.Text);
+            cmdChangePassword.Parameters.AddWithValue("typed_password", util.CalculateHash(txtOldPassword.Text));
             cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
             // ^--- needs to be changed to session when login is up
-            cmdChangePassword.Parameters.AddWithValue("p_Password", txtbxTeacherConfirmPassword.Text);
+            cmdChangePassword.Parameters.AddWithValue("p_Password", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
 
 
             cmdChangePassword.Connection.Open();

@@ -15,7 +15,6 @@ namespace QuestWebApp.Pages
 {
    public partial class studentTestTaking : System.Web.UI.Page
    {
-      bool cardsLarge;
       public string time;
       int questionCount = 0;
       List<bool> testProgress = new List<bool>();
@@ -224,7 +223,6 @@ END;", connectionString);
          saveTest();
          Session["cardsLarge"] = "false";
          Response.Redirect(Request.RawUrl);
-         cardsLarge = false;
          btnLarge.Enabled = true;
          btnSmall.Enabled = false;
 
@@ -237,7 +235,6 @@ END;", connectionString);
          saveTest();
          Session["cardsLarge"] = "true";
          Response.Redirect(Request.RawUrl);
-         cardsLarge = true;
          btnLarge.Enabled = false;
          btnSmall.Enabled = true;
          btnLarge.Attributes.Add("disabled", "true");

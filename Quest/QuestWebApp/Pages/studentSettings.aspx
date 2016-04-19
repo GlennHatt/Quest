@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student | Settings" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentSettings.aspx.cs" Inherits="QuestWebApp.Pages.studentSettings" %>
+﻿<%@ Page Title="Student | Settings" Language="C#" MasterPageFile="~/Master-Pages/student.master" AutoEventWireup="true" CodeBehind="studentSettings.aspx.cs" Inherits="QuestWebApp.Pages.studentSettings" StylesheetTheme="validationSkin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="studentBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="studentHead" runat="server">
@@ -21,7 +21,7 @@ SELECT receive_email
             <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
-                <asp:TextBox ID="txtOldPassword" class="mdl-textfield__input" runat="server" type="password" />
+                <asp:TextBox ID="txtOldPassword" CssClass="mdl-textfield__input" runat="server" TextMode="Password" />
             </div>
             <div>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtOldPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$" ForeColor="Red"></asp:RegularExpressionValidator>
@@ -32,7 +32,7 @@ SELECT receive_email
             <!-- Textfield with Floating Label for teacher password -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">New Password:</label>
-                <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherPassword" CssClass="mdl-textfield__input" TextMode="password" runat="server" />
                
 </div>
 
@@ -43,7 +43,7 @@ SELECT receive_email
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
                 <br />
                  <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5">help</div>
-                <div class="mdl-tooltip" for="helpIconPass">
+                <div class="mdl-tooltip">
                     Password SHOULD be 8-15 characters long,<br>
                     contain at least 1 number,
                     <br />
@@ -58,7 +58,7 @@ SELECT receive_email
             <!-- Textfield with Floating Label for teacher confirm password -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm New Password:</label>
-                <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherConfirmPassword" CssClass="mdl-textfield__input" TextMode="password" runat="server" />
             </div>
             <div>
                 <asp:CompareValidator ID="valConfirmPassMatch" runat="server" style="left:38%" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" SetFocusOnError="true" ValidationGroup="grpUpdatePass" Display="Dynamic" CssClass="mdl-textfield__error" ForeColor="Red"></asp:CompareValidator>
@@ -85,21 +85,21 @@ SELECT receive_email
             <div>Would you like to enable the e-mail feature?</div>
             <br />
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbemail" CssClass="mdl-textfield__input" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">E-mail:</label>
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" runat="server" type="password"/>
+                <asp:TextBox ID="tbpassword" CssClass="mdl-textfield__input" runat="server" TextMode="Password"/>
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailPassword" ControlToValidate="tbpassword" ErrorMessage="Please enter email password"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbStudentLogin" CssClass="mdl-textfield__input" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label>
             </div>
             <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailID" ControlToValidate="tbStudentLogin" ErrorMessage="Please enter Student ID"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator></div>

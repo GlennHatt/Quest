@@ -15,7 +15,6 @@ namespace QuestWebApp.Pages
 {
    public partial class teacherTestReview : System.Web.UI.Page
    {
-      bool cardsLarge;
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
@@ -254,7 +253,6 @@ SELECT time_limit
       {
          Session["cardsLarge"] = "false";
          Response.Redirect(Request.RawUrl);
-         cardsLarge = false;
          btnLarge.Enabled = true;
          btnSmall.Enabled = false;
 
@@ -266,7 +264,6 @@ SELECT time_limit
       {
          Session["cardsLarge"] = "true";
          Response.Redirect(Request.RawUrl);
-         cardsLarge = true;
          btnLarge.Enabled = false;
          btnSmall.Enabled = true;
          btnLarge.Attributes.Add("disabled", "true");
