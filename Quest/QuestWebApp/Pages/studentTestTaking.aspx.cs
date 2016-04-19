@@ -72,7 +72,7 @@ namespace QuestWebApp.Pages
             if (Session["testTakenID"] == null)
             {
                cmdGetTime = new OracleCommand(@"
-SELECT time_limit, time_left
+SELECT time_limit
   FROM test
  WHERE test_id = :p_TestID", connectionString);
                cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
@@ -83,10 +83,7 @@ SELECT time_limit, time_left
                {
                   while (reader.Read())
                   {
-                     DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
-                     timerTime = Convert.ToInt32(elapsed.Minute);
-                     if (elapsed.Hour > 0)
-                        timerTime -= 60;
+                     timerTime = reader.GetInt32(0);
 
                      lblTimeLimit.Text = timerTime.ToString();
                   }
@@ -113,10 +110,15 @@ SELECT time_limit, time_left
                   while (reader.Read())
                   {
                      DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
-                     timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - Convert.ToInt32(elapsed.Minute);
+                     int ellaspedTime = Convert.ToInt32(elapsed.Minute);
+
                      if (elapsed.Hour > 0)
-                        timerTime -= 60;
-                     
+                        ellaspedTime += 60;
+
+                     timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
+                     Session["ellaspedTime"] = ellaspedTime;
+
+
                      lblTimeLimit.Text = timerTime.ToString();
                   }
                }
@@ -125,7 +127,6 @@ SELECT time_limit, time_left
                   reader.Close();
                }
                cmdGetTime.Connection.Close();
-
             }
             Session["StartTime"] = DateTime.Now.ToString();
          }
@@ -251,14 +252,24 @@ END;", connectionString);
          string questionID;
          string questionType;
          OracleCommand cmdGradeQuestion = new OracleCommand();
-         DateTime startTime;
-         if (Session["StartTime"] != null)
-            startTime = Convert.ToDateTime(Session["StartTime"].ToString());
-         else
-            startTime = DateTime.Now;
+         DateTime startTime = Convert.ToDateTime(Session["StartTime"].ToString());
          DateTime currentTime = DateTime.Now;
-         string hour = Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour));
-         string minute = Convert.ToString(Convert.ToUInt32(currentTime.Minute) - Convert.ToUInt32(startTime.Minute));
+         int ellapsedTime = 0;
+         string hour;
+
+         if (Session["ellaspedTime"] != null)
+            ellapsedTime = Convert.ToInt32(Session["ellaspedTime"]);
+
+         if (ellapsedTime < 60)
+         {
+            hour = "0";// Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour) - 1);
+         }
+         else
+         {
+            hour = "0";//Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour));
+         }
+         
+         string minute = Convert.ToString(Convert.ToUInt32(currentTime.Minute) - Convert.ToUInt32(startTime.Minute) + ellapsedTime);
          string second = "0";// Convert.ToString(Convert.ToUInt32(currentTime.Second) - Convert.ToUInt32(startTime.Second));
          //currentTime.Subtract(Convert.ToDateTime(Session["StartTime"].ToString()));
          string remainingTime = hour + ":" + minute + ":" + second;
