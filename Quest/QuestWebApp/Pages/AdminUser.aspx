@@ -110,7 +110,7 @@ END;"></asp:SqlDataSource>
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
-                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True" OnRowUpdated="GVUser_RowUpdated" OnRowCancelingEdit="GVUser_RowCancelingEdit">
+                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True" OnRowUpdated="GVUser_RowUpdated" OnRowCancelingEdit="GVUser_RowCancelingEdit" OnRowCommand="GVUser_RowCommand">
                             <EditRowStyle CssClass="GridViewEditRow" />
                             <Columns>
                                 <asp:TemplateField>
@@ -145,7 +145,7 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Active">
                                     <ItemTemplate>
-                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" ForeColor="White" OnClick="active_Click" />
+                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text="Active" BackColor="Green" ForeColor="White" CommandArgument='<%# Bind("user_id") %>' CommandName="active" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

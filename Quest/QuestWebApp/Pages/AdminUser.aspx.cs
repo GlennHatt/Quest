@@ -140,6 +140,9 @@ namespace QuestWebApp.Pages
             case "edit":
                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
                break;
+            case "active":
+                    // Code in here Jesse
+               break;
             }
       }
 
@@ -219,6 +222,11 @@ namespace QuestWebApp.Pages
             showUpdate = true;
             Session["showUpdate"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
+
+        protected void GVUser_RowCommand1(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }
