@@ -112,6 +112,24 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlTime;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// ddlSavable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSavable;
+        
+        /// <summary>
         /// btnAddInfo control.
         /// </summary>
         /// <remarks>
