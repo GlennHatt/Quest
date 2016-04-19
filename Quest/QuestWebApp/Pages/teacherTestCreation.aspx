@@ -32,7 +32,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
             <asp:SessionParameter Name="session_id" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource> -->
-    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1200px;">
+    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1297px;">
         <div style="text-align: center">
             <h1>Create A Test</h1>
         </div>
