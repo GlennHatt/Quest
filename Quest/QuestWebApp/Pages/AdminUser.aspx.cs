@@ -70,19 +70,23 @@ namespace QuestWebApp.Pages
             cell[7].Attributes.Add("data-title", "Password");
             cell[8].Attributes.Add("data-title", "Classification");
 
-            //Initially hide rows
-            //cell[1].Attributes.Add("style", "display:none;");
-            // cell[2].Attributes.Add("style", "display:none;");
-            // cell[3].Attributes.Add("style", "display:none;");
-            // cell[4].Attributes.Add("style", "display:none;");
-            // cell[5].Attributes.Add("style", "display:none;");
-            // cell[6].Attributes.Add("style", "display:none;");
-            // cell[7].Attributes.Add("style", "display:none;");
-            // cell[8].Attributes.Add("style", "display:none;");
-            // cell[9].Attributes.Add("style", "display:none;"); 
+            //if(cell[9].Text == "INACTIVE")
+            //        cell[9].Attributes.Add("ForeColor", "Red");
 
 
-         }
+                //Initially hide rows
+                //cell[1].Attributes.Add("style", "display:none;");
+                // cell[2].Attributes.Add("style", "display:none;");
+                // cell[3].Attributes.Add("style", "display:none;");
+                // cell[4].Attributes.Add("style", "display:none;");
+                // cell[5].Attributes.Add("style", "display:none;");
+                // cell[6].Attributes.Add("style", "display:none;");
+                // cell[7].Attributes.Add("style", "display:none;");
+                // cell[8].Attributes.Add("style", "display:none;");
+                // cell[9].Attributes.Add("style", "display:none;"); 
+
+
+            }
 
 
 
@@ -103,35 +107,52 @@ namespace QuestWebApp.Pages
 
       protected void active_Click(object sender, EventArgs e)
       {
-//           LinkButton btn = (LinkButton)sender;
+            LinkButton btn = (LinkButton)sender;
 
-//           //Get the row that contains this button
-//           GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
-//           OracleCommand cmdDeleteUser = new OracleCommand(@"
-//BEGIN
-//   end_user.activate(
-//    p_EndUserID => :p_EndUserID);
-//END;",
-//            new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-//            cmdDeleteUser.Parameters.AddWithValue("p_SectionID", GVUser.DataKeys[gvr.RowIndex].Value);
-
-//            cmdDeleteUser.Connection.Open();
-//            cmdDeleteUser.ExecuteNonQuery();
-
-//            cmdDeleteUser.Connection.Close();
-//            GVUser.DataBind();
+            
             LinkButton btnactive = (LinkButton)sender;
-         if (btnactive.Text == "Active")
-         {
-            btnactive.Text = "Inactive";
-            btnactive.BackColor = System.Drawing.Color.Red;
-         } else
-         {
-            btnactive.Text = "Active";
-            btnactive.BackColor = System.Drawing.Color.Green;
-         }
-      }
+
+         if (btn.Text == "Active")
+            {
+                btn.Text = "Inactive";
+                btn.BackColor = System.Drawing.Color.Red;
+                OracleCommand cmdDeactivateUser = new OracleCommand(@"
+                BEGIN
+                    end_user.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
+
+                cmdDeactivateUser.Connection.Open();
+                cmdDeactivateUser.ExecuteNonQuery();
+
+                cmdDeactivateUser.Connection.Close();
+
+            } else
+            {
+                btn.Text = "Active";
+                btn.BackColor = System.Drawing.Color.Green;
+                OracleCommand cmdActivateUser = new OracleCommand(@"
+                BEGIN
+                    end_user.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                        new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdActivateUser.Parameters.AddWithValue("p_EndUserID", GVUser.DataKeys[gvr.RowIndex].Value);
+
+                cmdActivateUser.Connection.Open();
+                cmdActivateUser.ExecuteNonQuery();
+
+                cmdActivateUser.Connection.Close();
+
+            }
+
+            //GVUser.DataBind();
+        }
 
       protected void GVUser_RowCommand(object sender, GridViewCommandEventArgs e)
       {
@@ -140,6 +161,55 @@ namespace QuestWebApp.Pages
             case "edit":
                GVUser.HeaderRow.TableSection = TableRowSection.TableHeader;
                break;
+            case "active":
+                    //LinkButton btn = ((LinkButton)((GridView)sender).Rows[int.Parse(e.CommandSource.ToString())].FindControl("activeButton"));
+                    LinkButton btn = ((LinkButton)e.CommandSource);
+
+                    //Get the row that contains this button
+                    //GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
+
+                    //LinkButton btnactive = (LinkButton)sender;
+
+                    if (btn.Text == "Active")
+                    {
+                        btn.Text = "Inactive";
+                        btn.BackColor = System.Drawing.Color.Red;
+                        OracleCommand cmdDeactivateUser = new OracleCommand(@"
+                BEGIN
+                    end_users.deactivate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                         new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                        cmdDeactivateUser.Parameters.AddWithValue("p_EndUserID", e.CommandArgument);
+
+                        cmdDeactivateUser.Connection.Open();
+                        cmdDeactivateUser.ExecuteNonQuery();
+
+                        cmdDeactivateUser.Connection.Close();
+
+                    }
+                    else
+                    {
+                        btn.Text = "Active";
+                        btn.BackColor = System.Drawing.Color.Green;
+                        OracleCommand cmdActivateUser = new OracleCommand(@"
+                BEGIN
+                    end_users.activate(
+                    p_EndUserID => :p_EndUserID);
+                END;",
+                                new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                        cmdActivateUser.Parameters.AddWithValue("p_EndUserID", e.CommandArgument);
+
+                        cmdActivateUser.Connection.Open();
+                        cmdActivateUser.ExecuteNonQuery();
+
+                        cmdActivateUser.Connection.Close();
+
+                    }
+
+                    //GVUser.DataBind();
+                    break;
             }
       }
 
@@ -219,6 +289,11 @@ namespace QuestWebApp.Pages
             showUpdate = true;
             Session["showUpdate"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
+
+        protected void GVUser_RowCommand1(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }
