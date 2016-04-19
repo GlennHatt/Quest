@@ -15,7 +15,7 @@
     <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" runat="server" id="btnbackToLogin" style="margin-bottom: -18px; right: 0px; position: absolute; height: 48px; bottom: 18px; width: 157px;" Text="Back To Login" Onclick="btnbackToLogin_Click">
     </asp:Button>
 
-    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width: 60%; margin-left: 20%; height: 550px;">
+    <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width: 60%; margin-left: 20%; height: 651px;">
 
         <div class="mdl-card__supporting-text" style="text-align: center">
             <h3>
@@ -47,8 +47,13 @@
 
             <div class="input">
                 <asp:TextBox ID="txtbxStudentID" class="mdl-textfield__input" type="text" runat="server" />
-                <asp:DropDownList ID="ddlAdmins" class="mdl-textfield__input" runat="server" DataSourceID="sqlAdmins" DataTextField="full_name" DataValueField="email"></asp:DropDownList>
-                <label class="mdl-textfield" style="bottom: 0px" for="sample3">Choose Admin:</label>
+                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Your student ID:</label>
+            </div>
+            <div class="input">
+                <%--<label>Choose Admin:</label>--%>
+                Choose Admin:
+                <asp:DropDownList ID="ddlAdmins" class="mdl-textfield__input" runat="server" DataSourceID="sqlAdmins" DataTextField="full_name" DataValueField="email" BackColor="#EE7600" ForeColor="White"></asp:DropDownList>
+                
                 <asp:SqlDataSource ID="sqlAdmins" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT user_id, f_name || ' ' || l_name as full_name, email
   FROM end_user
