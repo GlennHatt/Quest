@@ -69,10 +69,14 @@ namespace QuestWebApp.Pages
             cell[6].Attributes.Add("data-title", "Username");
             cell[7].Attributes.Add("data-title", "Password");
             cell[8].Attributes.Add("data-title", "Classification");
-
-            //if(cell[9].Text == "INACTIVE")
-            //        cell[9].Attributes.Add("ForeColor", "Red");
-
+               LinkButton activeButton = (LinkButton)cell[9].Controls[1];
+                System.Diagnostics.Debug.WriteLine(activeButton.Text);
+                if (string.Equals(activeButton.Text, "INACTIVE", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    activeButton.BackColor = System.Drawing.Color.Red;
+                }
+                else
+                    activeButton.BackColor = System.Drawing.Color.Green;
 
                 //Initially hide rows
                 //cell[1].Attributes.Add("style", "display:none;");

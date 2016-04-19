@@ -146,7 +146,7 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Active">
                                     <ItemTemplate>
-                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text='<%# Bind("active") %>' BackColor="Green" ForeColor="White" CommandArgument='<%# Bind("user_id") %>' CommandName="active" />
+                                        <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised" ID="activeButton" runat="server" Text='<%# Bind("active") %>'  ForeColor="White" CommandArgument='<%# Bind("user_id") %>' CommandName="active" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
