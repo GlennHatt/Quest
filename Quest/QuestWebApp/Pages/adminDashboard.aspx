@@ -104,7 +104,7 @@ select *
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Last Name:</label>
                             <asp:TextBox ID="txtbxTeacherLastName" CssClass="mdl-textfield__input" runat="server" />
                         </div>
-                        <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtbxTeacherLastName" ErrorMessage="Please enter last name"  SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator></div>
+                        <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtbxTeacherLastName" ErrorMessage="Please enter last name"  SetFocusOnError="True" ValidationGroup="grpAddUser"></asp:RequiredFieldValidator></div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -127,7 +127,7 @@ select *
        
                         <br />
                     <div id="helpIconPass" class="icon material-icons" style="margin-left: -5%;" tabindex="-5%">help</div>
-                        <div class="mdl-tooltip" >
+                        <div class="mdl-tooltip" for="helpIconPass">
                             Password SHOULD be 8-15 characters long,
                                 <br>contain at least 1 number, 
                                 <br />1 upper-case letter, 

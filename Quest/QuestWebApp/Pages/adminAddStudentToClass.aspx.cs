@@ -31,6 +31,7 @@ namespace QuestWebApp.Pages
             {
                 showdeleteStudent = (bool)Session["showdeleteStudent"];
                 ddlClassSelect.SelectedIndex = (int)Session["selectedClass"];
+                ddlStudentsSelect.Enabled = true;
             }
             else
                 showdeleteStudent = false;
