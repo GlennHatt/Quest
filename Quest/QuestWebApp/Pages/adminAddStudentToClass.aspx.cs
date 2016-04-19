@@ -22,6 +22,7 @@ namespace QuestWebApp.Pages
             {
                 showAddStudent = (bool)Session["showAddStudent"];
                 ddlClassSelect.SelectedIndex = (int)Session["selectedClass"];
+                ddlStudentsSelect.Enabled = true;
             }
             else
                 showAddStudent = false;
