@@ -27,8 +27,7 @@ namespace QuestWebApp.Pages
          {
             if (Session["Test_ID"] == null)
             {
-               Session["Test_ID"] = "23"; // Replace with line below in production.
-               //Response.Redirect("TestCreation.aspx");
+               Response.Redirect("TestCreation.aspx");
             }
 
             Session["QuestionID"] = null; // Destroy stale session variables.

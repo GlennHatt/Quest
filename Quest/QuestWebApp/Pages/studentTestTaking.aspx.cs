@@ -23,15 +23,12 @@ namespace QuestWebApp.Pages
       protected void Page_Load(object sender, EventArgs e)
       {
          int timerTime = 0;
-         Session["TestID"] = 31;
-         Session["UserID"] = 1;
 
          if (!IsPostBack)
          {
             if (Session["TestID"] == null)
             {
-               Session["TestID"] = 31;
-               Session["UserID"] = 1;
+               Response.Redirect("~/Pages/studentDashboard.aspx");
             }
 
             if (Session["cardsLarge"] == null)

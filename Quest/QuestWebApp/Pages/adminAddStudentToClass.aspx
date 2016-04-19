@@ -17,7 +17,7 @@
             <!-- Textfield with Floating DropDown for classes -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Classes:</label>
-                <asp:DropDownList ID="ddlClassSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlAllSections" AppendDataBoundItems="true" AutoPostBack="true" DataTextField="full_information" DataValueField="section_id" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlClassSelect" CssClass="mdl-textfield__input" runat="server" DataSourceID="sqlAllSections" AppendDataBoundItems="true" AutoPostBack="true" DataTextField="full_information" DataValueField="section_id" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged">
                     <asp:ListItem Value="0">-- Select a Class First --</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -26,12 +26,12 @@
             <!-- Textfield with Floating DropDown for students -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
                 <label style="padding-left: 1%;">Students:</label>
-                <asp:DropDownList ID="ddlStudentsSelect" class="mdl-textfield__input" runat="server" DataSourceID="sqlStudents" DataTextField="FULL_NAME" DataValueField="user_id" Enabled="false">
+                <asp:DropDownList ID="ddlStudentsSelect" CssClass="mdl-textfield__input" runat="server" DataSourceID="sqlStudents" DataTextField="FULL_NAME" DataValueField="user_id" Enabled="false">
                 </asp:DropDownList>
             </div>
 
             <div style="text-align: center">
-            <asp:Button ID="btnStudenttoClass" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" runat="server" Text="Add Student To Class" OnClick="btnStudenttoClass_Click" />
+            <asp:Button ID="btnStudenttoClass" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" runat="server" Text="Add Student To Class" OnClick="btnStudenttoClass_Click" />
             </div>
         </div>
     </div>
