@@ -39,7 +39,7 @@ BEGIN
 END;",
                          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdLogin.Parameters.AddWithValue("p_Username", username.Text);
-            cmdLogin.Parameters.AddWithValue("p_Password", password.Text);
+            cmdLogin.Parameters.AddWithValue("p_Password", util.CalculateHash(password.Text));
             cmdLogin.Parameters.AddWithValue("v_UserID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;
 
 

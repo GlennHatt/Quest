@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Home" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" %>
+﻿<%@ Page Title="Admin | Home" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminDashboard.aspx.cs" Inherits="QuestWebApp.Pages.adminDashboard" StylesheetTheme="validationSkin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -95,28 +95,28 @@ select *
                         <!-- Textfield with Floating Label for teacher First name-->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">First Name:</label>
-                            <asp:TextBox ID="txtbxTeacherFirstName" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxTeacherFirstName" CssClass="mdl-textfield__input" runat="server" />
                         </div>
              <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtbxTeacherFirstName" ErrorMessage="Please enter first name"  SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator>          </div>         
                                
                         <!-- Textfield with Floating Label for teacher Last name -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Last Name:</label>
-                            <asp:TextBox ID="txtbxTeacherLastName" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxTeacherLastName" CssClass="mdl-textfield__input" runat="server" />
                         </div>
                         <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtbxTeacherLastName" ErrorMessage="Please enter last name"  SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator></div>
 
                         <!-- Textfield with Floating Label for teacher Email -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Username:</label>
-                            <asp:TextBox ID="txtbxTeacherEmail" class="mdl-textfield__input" type="text" runat="server"/>
+                            <asp:TextBox ID="txtbxTeacherEmail" CssClass="mdl-textfield__input" runat="server"/>
                         </div>
                         <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherEmail" ErrorMessage="Please enter username"  SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator></div>
 
                         <!-- Textfield with Floating Label for teacher password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
                             <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Password:</label>
-                            <asp:TextBox ID="txtbxTeacherPassword"  class="mdl-textfield__input" type="password" runat="server"/>
+                            <asp:TextBox ID="txtbxTeacherPassword"  CssClass="mdl-textfield__input" runat="server" TextMode="Password" />
                                                             
                         </div>
 
@@ -138,7 +138,7 @@ select *
                         <!-- Textfield with Floating Label for teacher confirm password -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm Password:</label>
-                            <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                            <asp:TextBox ID="txtbxTeacherConfirmPassword" CssClass="mdl-textfield__input" TextMode="Password" runat="server" />
                         </div>
                         <div><asp:CompareValidator ID="valConfirmPassMatch" runat="server" ErrorMessage="Passwords must match" ControlToValidate="txtbxTeacherConfirmPassword" ControlToCompare="txtbxTeacherPassword" style="left:38%" SetFocusOnError="true" ValidationGroup="grpAddUser" Display="Dynamic" CssClass="mdl-textfield__error" ForeColor="Red"></asp:CompareValidator>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCinfirmPassReq" ControlToValidate="txtbxTeacherConfirmPassword" ErrorMessage="Please confirm password" SetFocusOnError="True" ValidationGroup="grpAddUser" ForeColor="Red"></asp:RequiredFieldValidator></div>
@@ -146,7 +146,7 @@ select *
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align:left;">
                             <Label style="padding-left:1%; " >User Type:</Label>
-                            <asp:DropDownList ID="ddlUserSelect" class="mdl-textfield__input" runat="server" AppendDataBoundItems="true">
+                            <asp:DropDownList ID="ddlUserSelect" CssClass="mdl-textfield__input" runat="server" AppendDataBoundItems="true">
                                 <asp:ListItem Value="S">Student</asp:ListItem>
                                 <asp:ListItem Value="T">Teacher</asp:ListItem>
                                 <asp:ListItem Value="A">Administrator</asp:ListItem>
@@ -157,7 +157,7 @@ select *
                         <%--<asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="Button3_Click" ForeColor="White">
                         </asp:LinkButton>--%>
                         <br />
-                        <asp:Button ID="Button3" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="Button3_Click" ValidationGroup="grpAddUser"></asp:Button>
+                        <asp:Button ID="Button3" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="Button3_Click" ValidationGroup="grpAddUser"></asp:Button>
                     </div>
                     <br />
                 </div>
@@ -175,7 +175,7 @@ select *
                         
                         <!-- Textfield with Floating Label for Course Number -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxCourseNumber" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxCourseNumber" CssClass="mdl-textfield__input" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Code: (AA ###)</label>
                             
                             <%--<span id="lblClassNumError" runat="server" class="mdl-textfield__error">Enter Course Number</span>--%>
@@ -186,7 +186,7 @@ select *
 
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:TextBox ID="txtbxClassTitle" class="mdl-textfield__input" type="text" runat="server" />
+                            <asp:TextBox ID="txtbxClassTitle" CssClass="mdl-textfield__input" runat="server" />
                             <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Class Name:</label>
                            <%-- <span id="lblClasstitleError" runat="server" class="mdl-textfield__error">Enter class title</span>--%>
                         </div>
@@ -197,7 +197,7 @@ select *
                                 <i id="myTest" class="material-icons">add</i>
                             </asp:LinkButton>--%>
                         <br />
-                            <asp:Button ID="Button1" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button1_Click" ValidationGroup="grpAddClass" />
+                            <asp:Button ID="Button1" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button1_Click" ValidationGroup="grpAddClass" />
 
                     </div>
                 </div>
@@ -215,7 +215,7 @@ select *
                         <h1>Add a Section </h1>
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Semester:</Label>
-                            <asp:DropDownList ID="ddlSemester" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
+                            <asp:DropDownList ID="ddlSemester" runat="server" CssClass="mdl-textfield__input" DataTextField="Semester:">
                             </asp:DropDownList>
 
                             <%-- <span id="lblSemesterError" runat="server" class="mdl-textfield__error">Select a semester</span>--%>
@@ -223,7 +223,7 @@ select *
                         <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Section:</Label>
-                            <asp:DropDownList ID="ddlSection" runat="server" class="mdl-textfield__input" DataTextField="Semester:">
+                            <asp:DropDownList ID="ddlSection" runat="server" CssClass="mdl-textfield__input" DataTextField="Semester:">
                                 <asp:ListItem Value="1"></asp:ListItem>
                                 <asp:ListItem Value="2"></asp:ListItem>
                                 <asp:ListItem Value="3"></asp:ListItem>
@@ -239,7 +239,7 @@ select *
                         <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Course:</Label>
-                            <asp:DropDownList ID="ddlCourses" runat="server" class="mdl-textfield__input" DataTextField="full_class" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
+                            <asp:DropDownList ID="ddlCourses" runat="server" CssClass="mdl-textfield__input" DataTextField="full_class" DataSourceID="sqlClass" DataValueField="CLASS_ID" AppendDataBoundItems="true">
                                 <asp:ListItem>-- Select a Course --</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlCourseValidator" ControlToValidate="ddlCourses" ErrorMessage="Please Select a Course"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -248,7 +248,7 @@ select *
                         <br />
                         <div class="mdl-textfield mdl-js-textfield" style="text-align:left;">
                             <Label style="padding-left:1%; " >Teacher:</Label>
-                            <asp:DropDownList ID="ddlTeacher" runat="server" class="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID"  AppendDataBoundItems="true">
+                            <asp:DropDownList ID="ddlTeacher" runat="server" CssClass="mdl-textfield__input" DataTextField="FULL_NAME" DataSourceID="sqlTeacherSelect" DataValueField="USER_ID"  AppendDataBoundItems="true">
                                 <asp:ListItem>-- Select a Teacher --</asp:ListItem>
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="sqlTeacherSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -266,7 +266,7 @@ SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID
            <i class="material-icons">add</i>
                             </asp:LinkButton>--%>
                         <br />
-                            <asp:Button ID="btnaddSection" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
+                            <asp:Button ID="btnaddSection" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
                     </div>
                 </div>
             </div>

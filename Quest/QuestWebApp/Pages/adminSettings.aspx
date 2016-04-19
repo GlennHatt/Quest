@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Settings" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminSettings.aspx.cs" Inherits="QuestWebApp.Pages.adminSettings" %>
+﻿<%@ Page Title="Admin | Settings" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminSettings.aspx.cs" Inherits="QuestWebApp.Pages.adminSettings" StylesheetTheme="validationSkin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -18,7 +18,7 @@
             <div style="font-size: 200%">Update User Password</div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="Label1" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">Old Password:</label>
-                <asp:TextBox ID="txtOldPassword" class="mdl-textfield__input" runat="server" type="password" />
+                <asp:TextBox ID="txtOldPassword" CssClass="mdl-textfield__input" runat="server" TextMode="Password" />
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtbxTeacherPassword" ErrorMessage="Please enter password" SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -27,7 +27,7 @@
             <!-- Textfield with Floating Label for teacher password-->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label id="lblPassword" class="mdl-textfield__label" style="bottom: 0px" runat="server" for="txtbxTeacherPassword">New Password:</label>
-                <asp:TextBox ID="txtbxTeacherPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherPassword" CssClass="mdl-textfield__input" TextMode="Password" runat="server" />
                 <!-- Multiline Tooltip -->
 
             </div>
@@ -55,7 +55,7 @@
             <!-- Textfield with Floating Label for teacher confirm password -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Confirm New Password:</label>
-                <asp:TextBox ID="txtbxTeacherConfirmPassword" class="mdl-textfield__input" type="password" runat="server" />
+                <asp:TextBox ID="txtbxTeacherConfirmPassword" CssClass="mdl-textfield__input" TextMode="Password" runat="server" />
             </div>
             <div>
                 <br />
@@ -83,21 +83,21 @@
             <div>Would you like to enable the e-mail feature?</div>
             <br />
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbemail" CssClass="mdl-textfield__input" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">E-mail:</label>
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address" SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" runat="server" type="password" />
+                <asp:TextBox ID="tbpassword" CssClass="mdl-textfield__input" runat="server" TextMode="Password" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
             </div>
             <div>
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailPassword" ControlToValidate="tbpassword" ErrorMessage="Please enter email password" SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
+                <asp:TextBox ID="tbStudentLogin" CssClass="mdl-textfield__input" runat="server" />
                 <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label>
             </div>
             <div>

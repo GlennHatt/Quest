@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuestWebApp.App_Code;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -335,6 +336,8 @@ namespace QuestWebApp.Pages
 
          if (errorCount == 0)
          {
+            utilities util = new utilities();
+            txtbxTeacherPassword.Text = util.CalculateHash(txtbxTeacherPassword.Text);
             sqlTeacher.Insert();
             clearUserFields();
             ddlTeacher.DataBind();
