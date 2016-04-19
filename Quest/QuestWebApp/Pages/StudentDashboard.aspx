@@ -63,7 +63,9 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        JOIN section s USING (section_id)
        JOIN enrollment e USING (section_id)
        JOIN class c      USING (class_id)
- WHERE student_id = :p_StudentID">
+ WHERE student_id = :p_StudentID
+       AND sysdate &lt; due_date 
+       AND sysdate &gt; due_date - effective_date;">
                     <SelectParameters>
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID"/>
                     </SelectParameters>
@@ -84,7 +86,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                             </div>
                             <div style="text-align: right">
                                 <br />
-                                <asp:LinkButton ID="btnTaketest" CommandName="lstStudentTestsLnkBtnClick" CommandArgument='<%#Bind("test_id") %>' runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
+                                <asp:LinkButton ID="btnTaketest" CommandName="lstStudentTestsLnkBtnClick" CommandArgument='<%#Bind("test_id") %>' runat="server" CssClass="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;">
                                     Take Test
                                 </asp:LinkButton>
                             </div>

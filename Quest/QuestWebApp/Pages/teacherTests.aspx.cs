@@ -42,7 +42,7 @@ namespace QuestWebApp.Pages
                cardLiveTest.Visible = true;
                break;
             case "D":
-               cardPendingTest.Visible = true;
+               lstDraftTests.Visible = true;
                break;
          }
       }
@@ -50,7 +50,18 @@ namespace QuestWebApp.Pages
       {
          cardLiveTest.Visible = false;
          cardPastTest.Visible = false;
-         cardPendingTest.Visible = false;
+         lstDraftTests.Visible = false;
+      }
+
+      protected void lstDraftTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+      {
+         switch(e.CommandName)
+         {
+            case "EditTest":
+               Session["Test_ID"] = e.CommandArgument;
+               Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
+               break;
+         }
       }
    }
 }

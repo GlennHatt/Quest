@@ -42,8 +42,8 @@
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px; ">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label class="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
-                <asp:TextBox ID="txtAddWeight" class="mdl-textfield__input" runat="server" />
+                <asp:Label CssClass="mdl-textfield__label" ID="lblAddWeight" runat="server" AssociatedControlID="txtAddWeight" Text="Question Point Value: " Style="bottom: 0px" />
+                <asp:TextBox ID="txtAddWeight" CssClass="mdl-textfield__input" runat="server" />
             </div>
             <br />
             
@@ -63,8 +63,8 @@
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddEssay" runat="server">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label class="mdl-textfield__label" ID="lblAddEssayText" runat="server" Text=" Essay Question: " Style="bottom: 0px" />
-                    <asp:TextBox class="mdl-textfield__input" ID="txtAddEssayText" runat="server" />
+                    <asp:Label CssClass="mdl-textfield__label" ID="lblAddEssayText" runat="server" Text=" Essay Question: " Style="bottom: 0px" />
+                    <asp:TextBox CssClass="mdl-textfield__input" ID="txtAddEssayText" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="ValidatorEssay" runat="server" ErrorMessage="Please an Essay Question" ForeColor="Red" ControlToValidate="txtAddEssayText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -88,23 +88,23 @@ SELECT question_id, question_text, answer
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <div id="tblMatchingSection" runat="server">
-                    <asp:Label class="mdl-textfield__label" ID="lblAddMatchingText" runat="server" Text="Header Text: " Style="bottom: 0px" />
-                    <asp:TextBox class="mdl-textfield__input" ID="txtAddMatchingText" runat="server" />
+                    <asp:Label CssClass="mdl-textfield__label" ID="lblAddMatchingText" runat="server" Text="Header Text: " Style="bottom: 0px" />
+                    <asp:TextBox CssClass="mdl-textfield__input" ID="txtAddMatchingText" runat="server" />
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter a Question Weight" ForeColor="Red" ControlToValidate="txtAddWeight" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
             </div>
             <br />
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label class="mdl-textfield__label" ID="lblAddMatchingAnswer" runat="server" Text="Answer" Style="bottom: 0px" />
-                <asp:TextBox class="mdl-textfield__input" ID="txtAddMatchingAnswer" runat="server" />
+                <asp:Label CssClass="mdl-textfield__label" ID="lblAddMatchingAnswer" runat="server" Text="Answer" Style="bottom: 0px" />
+                <asp:TextBox CssClass="mdl-textfield__input" ID="txtAddMatchingAnswer" runat="server" />
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label class="mdl-textfield__label" ID="lblAddMatchingQuestion" runat="server" Text="Question" Style="bottom: 0px" />
-                <asp:TextBox class="mdl-textfield__input" ID="txtAddMatchingQuestion" runat="server" />
+                <asp:Label CssClass="mdl-textfield__label" ID="lblAddMatchingQuestion" runat="server" Text="Question" Style="bottom: 0px" />
+                <asp:TextBox CssClass="mdl-textfield__input" ID="txtAddMatchingQuestion" runat="server" />
             </div>
             <br />
             <div>
-                <asp:Button ID="btnAddMatchingQuestion" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="white" Text="Add Matching Question" OnClick="btnAddMatchingQuestion_Click" />
+                <asp:Button ID="btnAddMatchingQuestion" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="white" Text="Add Matching Question" OnClick="btnAddMatchingQuestion_Click" />
         </div>
 
         </div>
@@ -143,8 +143,8 @@ SELECT choice_id, question_id, choice_text, set_order
             <div id="tblAddMultipleChoice" runat="server">
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMutipleChoiceQuestion" class="mdl-textfield__label" runat="server" Text="Header Text: " Style="bottom: 0px" />
-                    <asp:TextBox ID="txtAddMultipleChoiceQuestion" class="mdl-textfield__input" runat="server" />
+                    <asp:Label ID="lblAddMutipleChoiceQuestion" CssClass="mdl-textfield__label" runat="server" Text="Header Text: " Style="bottom: 0px" />
+                    <asp:TextBox ID="txtAddMultipleChoiceQuestion" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="MCValidator" runat="server" ErrorMessage="Please Enter Header Text" ForeColor="Red" ControlToValidate="txtAddMultipleChoiceQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -178,23 +178,23 @@ SELECT choice_id, question_id, choice_text, set_order
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddShortAnswer" runat="server">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblBeforeText" class="mdl-textfield__label" runat="server" Text="Before Text: " Style="bottom: 0px" />
-                    <asp:TextBox ID="txtBeforeText" class="mdl-textfield__input" runat="server" />
+                    <asp:Label ID="lblBeforeText" CssClass="mdl-textfield__label" runat="server" Text="Before Text: " Style="bottom: 0px" />
+                    <asp:TextBox ID="txtBeforeText" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="BeforeTextValidator" runat="server" ErrorMessage="Please Enter Before Text" ForeColor="Red" ControlToValidate="txtBeforeText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAnswerText" class="mdl-textfield__label" runat="server" Text="Answer Text: " Style="bottom: 0px" />
-                    <asp:TextBox ID="txtAnswerText" class="mdl-textfield__input" runat="server" />
+                    <asp:Label ID="lblAnswerText" CssClass="mdl-textfield__label" runat="server" Text="Answer Text: " Style="bottom: 0px" />
+                    <asp:TextBox ID="txtAnswerText" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="AnswerTextValidator" runat="server" ErrorMessage="Please Enter Answer Text" ForeColor="Red" ControlToValidate="txtAnswerText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAfterText" class="mdl-textfield__label" runat="server" Text="After Text: " Style="bottom: 0px" />
-                    <asp:TextBox ID="txtAfterText" class="mdl-textfield__input" runat="server" />
+                    <asp:Label ID="lblAfterText" CssClass="mdl-textfield__label" runat="server" Text="After Text: " Style="bottom: 0px" />
+                    <asp:TextBox ID="txtAfterText" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="AfterValidator" runat="server" ErrorMessage="Please Enter After Text" ForeColor="Red" ControlToValidate="txtAfterText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -210,8 +210,8 @@ SELECT choice_id, question_id, choice_text, set_order
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="tblAddTrueFalse" runat="server">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddTFQuestion" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px" />
-                    <asp:TextBox ID="txtAddTFQuestion" class="mdl-textfield__input" runat="server" />
+                    <asp:Label ID="lblAddTFQuestion" CssClass="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px" />
+                    <asp:TextBox ID="txtAddTFQuestion" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="TFValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtAddTFQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -230,7 +230,7 @@ SELECT choice_id, question_id, choice_text, set_order
     </div>
     
     <div style="text-align: center;">
-        <asp:Button ID="btnAddQuestion" ForeColor="White" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" ValidationGroup="testQuestions" OnClick="btnAddQuestion_Click" />
+        <asp:Button ID="btnAddQuestion" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Add A Question" ValidationGroup="testQuestions" OnClick="btnAddQuestion_Click" />
     </div>
 
     <!-- Multiple Choice Choices -->
@@ -239,8 +239,8 @@ SELECT choice_id, question_id, choice_text, set_order
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="Div2" runat="server">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMultipleChoiceBody" class="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
-                    <asp:TextBox ID="txtMultipleChoiceBody" class="mdl-textfield__input" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblAddMultipleChoiceBody" CssClass="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
+                    <asp:TextBox ID="txtMultipleChoiceBody" CssClass="mdl-textfield__input" runat="server"></asp:TextBox>
                 </div>
                 <br />
                 <asp:RequiredFieldValidator ID="MultipleChoiceValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -248,15 +248,15 @@ SELECT choice_id, question_id, choice_text, set_order
                 <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
                 <br />
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
-                <asp:Button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Finish Question" OnClick="btnSaveMCBody_Click" />
+                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
+                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Finish Question" OnClick="btnSaveMCBody_Click" />
             </div>
         </div>
     </div>   
         
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
-        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" onclick="finishTest_Click"/>
+        <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" onclick="finishTest_Click"/>
     </div>
     <!-- Question Display Section -->
     <asp:SqlDataSource ID="sqlQuestionDisplay" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
@@ -451,16 +451,16 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                                         <asp:LinkButton ID="btnCancel" runat="server" Text="Cancel" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" CommandName="Cancel" CommandArgument='<%#Bind("question_id") %>' />
                                                         <br />
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                    <asp:Label class="mdl-textfield__label" ID="lblEditWeight" runat="server" style="bottom:0px"> Weight: </asp:Label>
-                                                        <asp:TextBox class="mdl-textfield__input" ID="txtEditWeight" runat="server" Text='<%#Bind("weight") %>' />
+                                                    <asp:Label CssClass="mdl-textfield__label" ID="lblEditWeight" runat="server" style="bottom:0px"> Weight: </asp:Label>
+                                                        <asp:TextBox CssClass="mdl-textfield__input" ID="txtEditWeight" runat="server" Text='<%#Bind("weight") %>' />
                                                     </div>
                                                     <br />
                 <asp:RequiredFieldValidator ID="weightValidator" runat="server" ErrorMessage="Please Enter Weight Text" ForeColor="Red" ControlToValidate="txtEditWeight" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
                                                         </br>
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label class="mdl-textfield__label" ID="lblEditTestOrder" runat="server" style="bottom:0px">Test Order: </asp:Label>
-                                                        <asp:TextBox class="mdl-textfield__input" ID="txtEditTestOrder" runat="server" Text='<%#Bind("test_order") %>' />
+                                                        <asp:Label CssClass="mdl-textfield__label" ID="lblEditTestOrder" runat="server" style="bottom:0px">Test Order: </asp:Label>
+                                                        <asp:TextBox CssClass="mdl-textfield__input" ID="txtEditTestOrder" runat="server" Text='<%#Bind("test_order") %>' />
                                                 </div>
                                                      <br />
                 <asp:RequiredFieldValidator ID="testOrderValidator" runat="server" ErrorMessage="Please Enter Test Order" ForeColor="Red" ControlToValidate="txtEditTestOrder" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -470,8 +470,8 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             <!-- Edit Essay -->
                                             <div ID="tblEditEQuestion" runat="server">
                                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align:center; ">
-                                                        <asp:Label ID="lblEditEQuestion"  class="mdl-textfield__label" runat="server" style="bottom:0px"> Question </asp:Label>
-                                                        <asp:TextBox ID="txtEditEQuestion" class="mdl-textfield__input" runat="server" Text='<%#Bind("essay_question") %>' />
+                                                        <asp:Label ID="lblEditEQuestion"  CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Question </asp:Label>
+                                                        <asp:TextBox ID="txtEditEQuestion" CssClass="mdl-textfield__input" runat="server" Text='<%#Bind("essay_question") %>' />
                                             </div>
                                                  <br />
                 <asp:RequiredFieldValidator ID="EssayQuestValidator" runat="server" ErrorMessage="Please Enter Essay Question" ForeColor="Red" ControlToValidate="txtEditTestOrder" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
@@ -482,8 +482,8 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
                                             <div ID="tblEditMQuestion" runat="server">
                                                <div style="text-align:center; ">
                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditMQuestion" class="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
-                                                        <asp:TextBox ID="txtEditMQuestion" class="mdl-textfield__input"  runat="server" Text='<%#Bind("matching_question") %>' />
+                                                        <asp:Label ID="lblEditMQuestion" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
+                                                        <asp:TextBox ID="txtEditMQuestion" CssClass="mdl-textfield__input"  runat="server" Text='<%#Bind("matching_question") %>' />
                                                    </div>
                                                         <asp:SqlDataSource ID="sqlEditMQuestion" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT matching_body_id, question_id, question_text, answer
@@ -570,8 +570,8 @@ END;">
                                             <div ID="tblDispMC" runat="server">
                                                 <div style="text-align:center">
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblDispMCQuestion" class="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
-                                                        <asp:TextBox ID="txtEditMCQuestion" class="mdl-textfield__input"  runat="server" Text='<%#Eval("multiple_choice_question") %>' />
+                                                        <asp:Label ID="lblDispMCQuestion" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
+                                                        <asp:TextBox ID="txtEditMCQuestion" CssClass="mdl-textfield__input"  runat="server" Text='<%#Eval("multiple_choice_question") %>' />
                                                     </div>
                                                     </div>
                                             </div>
@@ -641,18 +641,18 @@ END;">
                                             <div ID="tblEditSAQuestion" runat="server">
                                                 <div style="text-align:center">
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditSABeforeText" class="mdl-textfield__label" runat="server" style="bottom:0px"> Before Text </asp:Label>
-                                                        <asp:TextBox ID="txtEditSABeforeText" class="mdl-textfield__input" runat="server" Text='<%#Bind("before_text") %>' />
+                                                        <asp:Label ID="lblEditSABeforeText" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Before Text </asp:Label>
+                                                        <asp:TextBox ID="txtEditSABeforeText" CssClass="mdl-textfield__input" runat="server" Text='<%#Bind("before_text") %>' />
                                                     </div>
                                                         <br />
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditSAAnswerText" class="mdl-textfield__label" runat="server" style="bottom:0px"> Answer: </asp:Label>
-                                                        <asp:TextBox ID="txtEditSAAnswerText" class="mdl-textfield__input" runat="server" Text='<%#Bind("short_answer_answer") %>' />
+                                                        <asp:Label ID="lblEditSAAnswerText" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Answer: </asp:Label>
+                                                        <asp:TextBox ID="txtEditSAAnswerText" CssClass="mdl-textfield__input" runat="server" Text='<%#Bind("short_answer_answer") %>' />
                                                     </div>
                                                         <br />   
                                                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                    <asp:Label ID="lblEditSAAfterText" class="mdl-textfield__label" runat="server" style="bottom:0px"> After Text:</asp:Label>
-                                                        <asp:TextBox ID="txtEditSAAfterText" class="mdl-textfield__input" runat="server" Text='<%#Bind("after_text") %>' />
+                                                    <asp:Label ID="lblEditSAAfterText" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> After Text:</asp:Label>
+                                                        <asp:TextBox ID="txtEditSAAfterText" CssClass="mdl-textfield__input" runat="server" Text='<%#Bind("after_text") %>' />
                                                     </div>
                                             </div>
 
@@ -660,8 +660,8 @@ END;">
                                             <div ID="tblEditTFQuestion" runat="server">
                                                 <div style="text-align:center">
                                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                                        <asp:Label ID="lblEditTFQuestion" class="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
-                                                        <asp:TextBox ID="txtEditTFQuestion" class="mdl-textfield__input" runat="server" Text='<%#Bind("true_false_question") %>' />
+                                                        <asp:Label ID="lblEditTFQuestion" CssClass="mdl-textfield__label" runat="server" style="bottom:0px"> Question: </asp:Label>
+                                                        <asp:TextBox ID="txtEditTFQuestion" CssClass="mdl-textfield__input" runat="server" Text='<%#Bind("true_false_question") %>' />
                                                         </div>
                                                         <asp:Label ID="lblEditTFAnswer" runat="server" Text="Answer: " />
                                                         <asp:DropDownList ID="ddlEditTFAnswer" runat="server" SelectedValue='<%#Bind("true_false_answer") %>'>

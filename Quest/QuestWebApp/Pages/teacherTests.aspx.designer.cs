@@ -148,30 +148,21 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
         
         /// <summary>
-        /// cardPendingTest control.
+        /// sqlDraftTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardPendingTest;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlDraftTest;
         
         /// <summary>
-        /// Label1 control.
+        /// lstDraftTests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// btnResumeTest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResumeTest;
+        protected global::System.Web.UI.WebControls.ListView lstDraftTests;
     }
 }
