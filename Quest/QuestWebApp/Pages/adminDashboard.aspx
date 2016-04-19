@@ -182,7 +182,7 @@ select *
                         </div>
                         <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valCourseNumber" ControlToValidate="txtbxCourseNumber" ErrorMessage="Please enter course number"  SetFocusOnError="True" ValidationGroup="grpAddClass" ForeColor="Red"></asp:RequiredFieldValidator>
                             <br />
-                            <asp:RegularExpressionValidator ID="valCourseNumRegex" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxCourseNumber" ErrorMessage="Invalid course number" ValidationExpression="[A-Z]{2} [1-9]{3}" ForeColor="Red"></asp:RegularExpressionValidator></div>
+                            <asp:RegularExpressionValidator ID="valCourseNumRegex" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtbxCourseNumber" ErrorMessage="Invalid course number" ValidationExpression="[A-Z]{2} [0-9]{3}" ForeColor="Red"></asp:RegularExpressionValidator></div>
 
                         <!-- Textfield with Floating Label for Title -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
