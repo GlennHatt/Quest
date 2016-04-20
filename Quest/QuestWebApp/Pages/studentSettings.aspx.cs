@@ -20,7 +20,7 @@ namespace QuestWebApp.Pages
             showDisableEmail;
 
         protected void Page_Load(object sender, EventArgs e)
-      {
+        {
 
             // toast notifications 
             if (Session["showEnableEmail"] != null)
@@ -63,10 +63,8 @@ namespace QuestWebApp.Pages
                 Session["showDisableEmail"] = null;
                 showDisableEmail = false;
             }
-            
+
             currentUser = Session["UserID"].ToString();
-            cdDisable.Visible = false;
-            cdEnable.Visible = false;
             OracleCommand cmdEmailActive = new OracleCommand(@"
 SELECT receive_email
   FROM end_user
@@ -88,15 +86,7 @@ SELECT receive_email
             }
             cmdEmailActive.Connection.Close();
 
-            // show or hide the activate email box
-            if (studentEmailEnabled == "true")
-            {
-                cdDisable.Visible = true;
-            }
-            else
-                cdEnable.Visible = true;
         }
-
         protected void btnEnable_Click(object sender, EventArgs e)
         {
             OracleCommand cmdEmailEnable = new OracleCommand(@"
@@ -109,7 +99,6 @@ END;", connectionString);
             cmdEmailEnable.ExecuteNonQuery();
             cmdEmailEnable.Connection.Close();
             showEnableEmail = true;
-            insertEmail();
             Session["showEnableEmail"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
 
@@ -168,25 +157,6 @@ END;",
             showPasswordUpdated = true;
             Session["showPasswordUpdated"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
-        }
-        protected void insertEmail()
-        {
-            OracleCommand cmdEmailInsert = new OracleCommand(@"
-BEGIN
-  end_users.addEmail(
-        p_EndUserID     => :p_EndUserID, 
-        p_Email         => :p_Email, 
-        p_EmailUsername => :p_EmailUsername, 
-        p_EmailPassword => :p_EmailPassword);
-END;", connectionString);
-            cmdEmailInsert.Parameters.AddWithValue("p_EndUserID", currentUser);
-            cmdEmailInsert.Parameters.AddWithValue("p_Email", tbemail.Text);
-            cmdEmailInsert.Parameters.AddWithValue("p_EmailUsername", tbStudentLogin.Text);
-            cmdEmailInsert.Parameters.AddWithValue("p_EmailPassword", tbpassword.Text);
-            cmdEmailInsert.Connection.Open();
-            cmdEmailInsert.ExecuteNonQuery();
-            cmdEmailInsert.Connection.Close();
-            Response.Redirect(Request.RawUrl);
         }
     }
 }

@@ -102,15 +102,12 @@ SELECT receive_email
     protected void btnEnable_Click(object sender, EventArgs e)
       {
             enableEmail();
-            
-            
+            insertEmail();
       }
 
       protected void btnDisable_Click(object sender, EventArgs e)
       {
-            disableEmail();
-            
-            
+            disableEmail();   
         }
 
       protected void clickUpdatePassword(object sender, EventArgs e)
@@ -176,7 +173,6 @@ END;", connectionString);
          cmdEmailEnable.ExecuteNonQuery();
          cmdEmailEnable.Connection.Close();
             showEnableEmail = true;
-            insertEmail();
             Session["showEnableEmail"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
             

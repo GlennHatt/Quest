@@ -243,7 +243,7 @@ SELECT choice_id, question_id, choice_text, set_order
                 <br />
                 <asp:RequiredFieldValidator ID="MultipleChoiceValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
-                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: unset; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
+                <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: static; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
                 <br />
                 <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
