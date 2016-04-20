@@ -262,7 +262,8 @@ SELECT choice_id, choice_text
         var progressPercent = 0;
         var testProgress = [];
         var isPostingBack; // is the page posting back? flag value
-        var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").innerText;
+        var totalQuestions;
+        
         document.getElementById('btnResetTimer').click();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
@@ -270,6 +271,7 @@ SELECT choice_id, choice_text
         setFinishButton(document.getElementById("<%=btnSubmitTest.ClientID%>"));
 
         window.onload = function () {
+            totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").value;
             //if (localStorage.getItem("testProgress")) {
             //    testProgress = JSON.parse(localStorage.getItem("testProgress"));
             //    progressPercent = localStorage.getItem("progressPercent");
@@ -277,8 +279,8 @@ SELECT choice_id, choice_text
             // wait for progress bar to load before incrementing
             //testProgress = JSON.parse(document.getElementById("<%=lblProgressBar.ClientID%>").textContent);
             progressArray = document.getElementById("<%=lblProgressBar.ClientID%>").textContent;
-            progressArray = progressArray.slice(0, -1);
-            testProgress = JSON.parse(progressArray);
+            //progressArray = progressArray.slice(0, -1);
+            testProgress = progressArray.split(',');
 
             setTimeout(function () {
                 setProgressBar()
@@ -341,12 +343,12 @@ SELECT choice_id, choice_text
             var progressNum = 0;
 
             for (var question in testProgress) {
-                if (testProgress[question] == true)
+                if (testProgress[question] == "true")
                     progressNum++;
             }
 
-            progressPercent = progressNum / totalQuestions * 100;
-            console.log(testProgress[0]);
+            progressPercent = (progressNum / totalQuestions) * 100;
+            console.log(totalQuestions);
             document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
         }
 
