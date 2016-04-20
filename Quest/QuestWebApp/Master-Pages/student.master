@@ -10,11 +10,11 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="withSidebarSidebar" runat="server">
     <asp:ContentPlaceHolder ID="studentSidebar" runat="server" />
-    <asp:HyperLink class="mdl-navigation__link" id="home" runat="server" Text="home" NavigateUrl="~/Pages/studentDashboard.aspx" > <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home </asp:HyperLink>
-    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="teacherAndClass" Text="Teacher and Classes" NavigateUrl="~/Pages/studentTeachersandClasses.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Teachers & Classes </asp:HyperLink>
-    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="scores" Text="Scores" NavigateUrl="~/Pages/studentScores.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i> Scores </asp:HyperLink>
-    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="help" Text="help" NavigateUrl="~/Pages/studentHelp.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help </asp:HyperLink>
-    <asp:HyperLink class="mdl-navigation__link" runat="server" ID="userSettings" Text="Settings" NavigateUrl="~/Pages/studentSettings.aspx" > <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:HyperLink>
+    <asp:HyperLink CssClass="mdl-navigation__link" id="home" runat="server" Text="home" NavigateUrl="~/Pages/studentDashboard.aspx" > <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i> Home </asp:HyperLink>
+    <asp:HyperLink CssClass="mdl-navigation__link" runat="server" ID="teacherAndClass" Text="Teacher and Classes" NavigateUrl="~/Pages/studentTeachersandClasses.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i> Teachers & Classes </asp:HyperLink>
+    <asp:HyperLink CssClass="mdl-navigation__link" runat="server" ID="scores" Text="Scores" NavigateUrl="~/Pages/studentScores.aspx"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i> Scores </asp:HyperLink>
+    <asp:HyperLink CssClass="mdl-navigation__link" runat="server" ID="help" Text="help" NavigateUrl="~/Pages/studentHelp.aspx"> <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help</i> Help </asp:HyperLink>
+    <asp:HyperLink CssClass="mdl-navigation__link" runat="server" ID="userSettings" Text="Settings" NavigateUrl="~/Pages/studentSettings.aspx" > <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">settings</i> Settings </asp:HyperLink>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="withSidebarBodyContent" runat="server">
     <asp:ContentPlaceHolder ID="studentWithSidebarBodyContent" runat="server" />

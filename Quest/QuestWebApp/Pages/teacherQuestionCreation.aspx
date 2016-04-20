@@ -143,7 +143,7 @@ SELECT choice_id, question_id, choice_text, set_order
             <div id="tblAddMultipleChoice" runat="server">
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMutipleChoiceQuestion" CssClass="mdl-textfield__label" runat="server" Text="Header Text: " Style="bottom: 0px" />
+                    <asp:Label ID="lblAddMutipleChoiceQuestion" CssClass="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px" />
                     <asp:TextBox ID="txtAddMultipleChoiceQuestion" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
@@ -239,7 +239,7 @@ SELECT choice_id, question_id, choice_text, set_order
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="Div2" runat="server">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <asp:Label ID="lblAddMultipleChoiceBody" CssClass="mdl-textfield__label" runat="server" Text="Question: " Style="bottom: 0px"></asp:Label>
+                    <asp:Label ID="lblAddMultipleChoiceBody" CssClass="mdl-textfield__label" runat="server" Text="Answer: " Style="bottom: 0px"></asp:Label>
                     <asp:TextBox ID="txtMultipleChoiceBody" CssClass="mdl-textfield__input" runat="server"></asp:TextBox>
                 </div>
                 <br />
