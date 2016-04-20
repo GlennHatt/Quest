@@ -124,7 +124,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                 <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text="Set the Effective Time: " />
 
                 <asp:DropDownList ID="ddlTestEffectiveDate" runat="server" CssClass="mdl-textfield__input">
-                    <asp:ListItem Value="1" Text="1 Day"Selected="True" />
+                    <asp:ListItem Value="1" Text="1 Day" Selected="True" />
                     <asp:ListItem Value="2" Text="2 Days" />
                     <asp:ListItem Value="3" Text="3 Days" />
                     <asp:ListItem Value="4" Text="4 Days" />

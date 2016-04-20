@@ -26,7 +26,7 @@ namespace QuestWebApp.Pages
 
       protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
       {
-         ddlStudentsSelect.DataBind();
+         //ddlStudentsSelect.DataBind();
          rblTypeTest.SelectedIndex = -1;
       }
 
@@ -36,7 +36,7 @@ namespace QuestWebApp.Pages
          switch (typeTest)
          {
             case "P":
-               cardPastTest.Visible = true;
+               lvPastTests.Visible = true;
                break;
             case "L":
                cardLiveTest.Visible = true;
@@ -49,7 +49,7 @@ namespace QuestWebApp.Pages
       public void hideCards()
       {
          cardLiveTest.Visible = false;
-         cardPastTest.Visible = false;
+         lvPastTests.Visible = false;
          lstDraftTests.Visible = false;
       }
 
@@ -63,5 +63,10 @@ namespace QuestWebApp.Pages
                break;
          }
       }
-   }
+
+        protected void lstPastTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            
+        }
+    }
 }

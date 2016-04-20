@@ -38,8 +38,55 @@ SELECT code || '-' || section_number || '/' || title as FULL_NAME, section_id
         </div>
     </div>
 
-    <%--old card--%>
+    <%--Past Tests--%>
     <asp:SqlDataSource ID="sqlPastTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
+       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date, 'Student: ' || eu.f_name || ' ' || eu.l_name as student_name
+  FROM test t
+       JOIN section    s  USING (section_id)
+       JOIN enrollment e  USING (section_id)
+       JOIN class      c  USING (class_id)
+       JOIN end_user   eu ON    (eu.user_id = e.student_id)
+ WHERE teacher_id = :p_UserID
+       AND sysdate > due_date + 1
+       AND section_id = :section_id">
+        <SelectParameters>
+            <asp:SessionParameter Name="p_UserID" SessionField="UserID" />
+            <asp:ControlParameter ControlID="ddlClassSelect" Name="section_id" PropertyName="SelectedValue" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <main class="mdl-layout__content" style="width: 100%;">
+        <div class="content-grid mdl-grid">
+            <asp:ListView ID="lvPastTests" runat="server" OnItemCommand="lstDraftTests_ItemCommand" DataSourceID="sqlPastTests">
+                <ItemTemplate>
+                    <div id="cardUser" class="mdl-cell mdl-cell--4-col">
+                        <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardPastTest" runat="server">
+                            <div class="mdl-card__supporting-text" style="text-align: center;">
+                                <div style="font-size: 12pt">
+                                    <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblClassTitle" runat="server" Text='<%#Bind("class_title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("due_date") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblStudentName" runat="server" Text='<%#Bind("student_name") %>'> </asp:Label>
+                                </div>
+                                <br />
+                                <br />
+                                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test" />
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
+    </main>
+
+    <%--live card--%>
+    <asp:SqlDataSource ID="sqlLiveTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
        'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date--, 'Student: ' || eu.f_name || ' ' || eu.l_name
   FROM test t
@@ -48,58 +95,8 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        JOIN class      c  USING (class_id)
        JOIN end_user   eu ON    (eu.user_id = e.student_id)
  WHERE teacher_id = :p_UserID 
-       AND sysdate > due_date + 1">
-        <SelectParameters>
-            <asp:SessionParameter Name="p_TeacherID" SessionField="UserID" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-    <main class="mdl-layout__content" style="width: 100%;">
-        <div class="content-grid mdl-grid">
-            <div id="cardUser" class="mdl-cell mdl-cell--4-col">
-                <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardPastTest" runat="server">
-                    <div class="mdl-card__supporting-text" style="text-align: center;">
-                        <div style="font-size: 17pt">
-                            <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
-                            <br />
-                            <br />
-                            <asp:Label ID="lblClassTitle" runat="server" Text='<%#Bind("class_title") %>'> </asp:Label>
-                            <br />
-                            <br />
-                            <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("due_date") %>'> </asp:Label>
-                        </div>
-                        <br />
-                        <div>Select a Student</div>
-                        <!-- Textfield with Floating DropDown for students -->
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
-                            <label style="padding-left: 1%;">Students:</label>
-                            <asp:DropDownList ID="ddlStudentsSelect" CssClass="mdl-textfield__input" runat="server" DataSourceID="sqlSectionStudents" DataTextField="FULL_NAME" DataValueField="USER_ID">
-                            </asp:DropDownList>
-                            <asp:SqlDataSource ID="sqlSectionStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT f_name || ' ' || l_name as full_name, user_id
-  FROM section
-  JOIN enrollment USING (section_id)
-  JOIN end_user   ON (student_id = user_id)
- WHERE section_id = :section_id">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="ddlClassSelect" Name="section_id" PropertyName="SelectedValue" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
-                        </div>
-                        <br />
-                        <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <%--live card--%>
-    <asp:SqlDataSource ID="sqlLiveTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, title
-  FROM test
-       JOIN section USING (section_id)
- WHERE teacher_id = :p_TeacherID
-       AND sysdate &lt; due_date - effective_date">
+       AND sysdate &lt; due_date
+       AND sysdate &gt; due_date - effective_date">
         <SelectParameters>
             <asp:SessionParameter Name="p_TeacherID" SessionField="UserID" />
         </SelectParameters>
@@ -137,7 +134,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        --JOIN end_user   eu ON    (eu.user_id = e.student_id)
  WHERE teacher_id = :p_UserID
        AND sysdate &lt; due_date 
-       AND sysdate &lt; due_date - effective_date">
+       AND sysdate &gt; due_date - effective_date">
         <SelectParameters>
             <asp:SessionParameter Name="p_UserID" SessionField="UserID" />
         </SelectParameters>
