@@ -39,7 +39,7 @@ namespace QuestWebApp.Pages
                lvPastTests.Visible = true;
                break;
             case "L":
-               cardLiveTest.Visible = true;
+               lvLiveTests.Visible = true;
                break;
             case "D":
                lstDraftTests.Visible = true;
@@ -48,7 +48,7 @@ namespace QuestWebApp.Pages
       }
       public void hideCards()
       {
-         cardLiveTest.Visible = false;
+         lvLiveTests.Visible = false;
          lvPastTests.Visible = false;
          lstDraftTests.Visible = false;
       }
@@ -66,7 +66,24 @@ namespace QuestWebApp.Pages
 
         protected void lstPastTests_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            
+            switch (e.CommandName)
+            {
+                case "ViewTest":
+                    Session["Test_ID"] = e.CommandArgument;
+                    Response.Redirect("~/Pages/teacherTestReview.aspx");
+                    break;
+            }
+        }
+
+        protected void lstLiveTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            //switch (e.CommandName)
+            //{
+            //    case "EditTest":
+            //        Session["Test_ID"] = e.CommandArgument;
+            //        Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
+            //        break;
+            //}
         }
     }
 }

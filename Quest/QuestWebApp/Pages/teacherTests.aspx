@@ -76,10 +76,10 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                                 </div>
                                 <br />
                                 <br />
-                                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test" />
+                                <asp:Button CommandArgument='<%#Bind("test_id") %>' CommandName="ViewTest" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test" />
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </ItemTemplate>
             </asp:ListView>
         </div>
@@ -88,7 +88,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
     <%--live card--%>
     <asp:SqlDataSource ID="sqlLiveTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
-       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date--, 'Student: ' || eu.f_name || ' ' || eu.l_name
+       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date
   FROM test t
        JOIN section    s  USING (section_id)
        JOIN enrollment e  USING (section_id)
@@ -98,32 +98,36 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        AND sysdate &lt; due_date
        AND sysdate &gt; due_date - effective_date">
         <SelectParameters>
-            <asp:SessionParameter Name="p_TeacherID" SessionField="UserID" />
+            <asp:SessionParameter Name="p_UserID" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource>
     <main class="mdl-layout__content" style="width: 100%;">
         <div class="content-grid mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col">
-                <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardLiveTest" runat="server">
-                    <div class="mdl-card__supporting-text" style="text-align: center;">
-                        <div style="font-size: 17pt">
-                            <asp:Label ID="lblTestName2" runat="server" Text="(Test Name)"> </asp:Label>
-                            <br />
-                            <br />
-                            <asp:Label ID="lblStudent" runat="server" Text="(Student Name)"> </asp:Label>
-                            <br />
-                            <br />
-                            <asp:Label ID="lblPendingScore" runat="server" Text="(Pending Score)"> </asp:Label>
+            <asp:ListView ID="lvLiveTests" runat="server" OnItemCommand="lstLiveTests_ItemCommand" DataSourceID="sqlLiveTest">
+                <ItemTemplate>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardLiveTest" runat="server">
+                            <div class="mdl-card__supporting-text" style="text-align: center;">
+                                <div style="font-size: 17pt">
+                                    <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblClassTitle" runat="server" Text='<%#Bind("class_title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("due_date") %>'> </asp:Label>
+                                </div>
+                                <br />
+                                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest2" runat="server" Text="View Test" />
+                            </div>
                         </div>
-                        <br />
-                        <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest2" runat="server" Text="View Test" />
                     </div>
-                </div>
-            </div>
+                </ItemTemplate>
+            </asp:ListView>
         </div>
     </main>
 
-    <%--pending card--%>
+    <%--draft card--%>
     <asp:SqlDataSource ID="sqlDraftTest" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
        'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date
