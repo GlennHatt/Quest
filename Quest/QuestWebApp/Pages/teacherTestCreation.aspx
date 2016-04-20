@@ -124,15 +124,15 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                 <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text="Set the Effective Time: " />
 
                 <asp:DropDownList ID="ddlTestEffectiveDate" runat="server" CssClass="mdl-textfield__input">
-                    <asp:ListItem Selected="True" Value="1" Text="1 Day"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="2 Days"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="3 Days"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="4 Days"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="5 Days"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="6 Days"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="1 Week"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="2 Weeks"></asp:ListItem>
-                    <asp:ListItem Value="1" Text="1 Month"></asp:ListItem>
+                    <asp:ListItem Value="1" Text="1 Day"Selected="True" />
+                    <asp:ListItem Value="2" Text="2 Days" />
+                    <asp:ListItem Value="3" Text="3 Days" />
+                    <asp:ListItem Value="4" Text="4 Days" />
+                    <asp:ListItem Value="5" Text="5 Days" />
+                    <asp:ListItem Value="6" Text="6 Days" />
+                    <asp:ListItem Value="7" Text="1 Week" />
+                    <asp:ListItem Value="14" Text="2 Weeks" />
+                    <asp:ListItem Value="30" Text="1 Month" />
                 </asp:DropDownList>
             </div>
         </div>
