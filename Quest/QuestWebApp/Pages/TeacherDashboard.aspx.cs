@@ -37,7 +37,7 @@ SELECT Count(DISTINCT test_taken_id) as test_count
        JOIN question_taken_essay tte USING (question_taken_id)
  WHERE s.teacher_id = :p_TeacherID
    AND graded = 'N'", connectionString);
-                cmdGradeTests.Parameters.AddWithValue("p_TeacherID", currentUser);
+                cmdGradeTests.Parameters.AddWithValue("p_TeacherID", Session["UserID"]);
 
                 cmdGradeTests.Connection.Open();
                 OracleDataReader reader = cmdGradeTests.ExecuteReader();

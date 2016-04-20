@@ -16,7 +16,7 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["TestTakenID"] = "114";
+            //Session["TestTakenID"] = "114";
             string testGrade = "";
             OracleCommand cmdTestGrade = new OracleCommand(@"
 SELECT grade

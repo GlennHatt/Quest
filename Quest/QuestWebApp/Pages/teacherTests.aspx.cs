@@ -28,6 +28,10 @@ namespace QuestWebApp.Pages
       {
          //ddlStudentsSelect.DataBind();
          rblTypeTest.SelectedIndex = -1;
+         lvLiveTests.DataBind();
+         lvPastTests.DataBind();
+         lstDraftTests.DataBind();
+
       }
 
       protected void rblTypeTest_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,13 +81,13 @@ namespace QuestWebApp.Pages
 
         protected void lstLiveTests_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
-            //switch (e.CommandName)
-            //{
-            //    case "EditTest":
-            //        Session["Test_ID"] = e.CommandArgument;
-            //        Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
-            //        break;
-            //}
+            switch (e.CommandName)
+            {
+                case "EditTest":
+                    Session["Test_ID"] = e.CommandArgument;
+                    Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
+                    break;
+            }
         }
     }
 }

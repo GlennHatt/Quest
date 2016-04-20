@@ -27,32 +27,23 @@
                                   WHERE e.student_id = :UserID
                                  ORDER BY c.code asc">
                                 <SelectParameters>
-                                    <asp:SessionParameter DefaultValue="1" Name="UserID" SessionField="UserID" />
+                                    <asp:SessionParameter Name="UserID" SessionField="UserID" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
- <!-- Commented out until pages are connected with session IDs
-     WHERE e.student_id = :session_id">
-                                <SelectParameters>
-                                    <asp:SessionParameter Name="session_id" SessionField="UserID" />
-                                </SelectParameters>
-
-                            </asp:SqlDataSource> -->
-
-</div>
-
-            </div>
-</div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
             <asp:SqlDataSource ID="testInfo" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-                   SELECT title, grade, due_date 
+                   SELECT title, grade
                    FROM test t
                          JOIN test_taken tt USING (test_id)
                          JOIN enrollment e  USING (enrollment_id)
                    WHERE student_id   = :UserID
                    AND e.section_id   = :SectonID">
                                 <SelectParameters>
-                                    <asp:SessionParameter DefaultValue="1" Name="UserID" SessionField="UserID" />  
+                                    <asp:SessionParameter Name="UserID" SessionField="UserID" />  
                                     <asp:ControlParameter ControlID="ddlStudentClasses" Name="SectonID" PropertyName="SelectedValue" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
@@ -92,13 +83,12 @@
                                     <br />
                                     <asp:Label runat="server" ID="lblDateSub" Text='<%# Eval("due_date") %>'> </asp:Label>
                                     <%--<div style="margin-right: -430px; margin-top: -21px;">--%>
-                                       
-                                    </div>
                                 </div>
                             </div>
-                    </ItemTemplate>
-                </asp:ListView>
-</div>
+                        </div>
+                </ItemTemplate>
+            </asp:ListView>
+        </div>
     </main>
 
             

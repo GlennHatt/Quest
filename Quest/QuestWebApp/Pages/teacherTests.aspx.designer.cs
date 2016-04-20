@@ -40,24 +40,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RadioButtonList rblTypeTest;
         
         /// <summary>
-        /// sqlPastTests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
-        
-        /// <summary>
-        /// lvPastTests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvPastTests;
-        
-        /// <summary>
         /// sqlLiveTest control.
         /// </summary>
         /// <remarks>
@@ -74,6 +56,24 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvLiveTests;
+        
+        /// <summary>
+        /// sqlPastTests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
+        
+        /// <summary>
+        /// lvPastTests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvPastTests;
         
         /// <summary>
         /// sqlDraftTest control.

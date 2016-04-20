@@ -73,7 +73,7 @@ BEGIN
 END;",
          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
             cmdCheated.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
-            cmdCheated.Parameters.AddWithValue("P_Cheated", "Y");
+            cmdCheated.Parameters.AddWithValue("P_Cheated", "N");
 
 
             cmdCheated.Connection.Open();
@@ -84,7 +84,7 @@ END;",
             cmdCheated.Connection.Close();
 
             btnNoCheat.Text = "SUCCESS";
-            Session["TestTakenID"] = 115;
+            //Session["TestTakenID"] = 115;
             Response.Redirect("~/Pages/studentGradeOverview.aspx");
          }
 

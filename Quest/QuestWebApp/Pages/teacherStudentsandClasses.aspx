@@ -18,7 +18,7 @@
             <h1>Select a Class</h1>
             <!-- Textfield with Floating DropDown for user type -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="text-align: left;">
-                <label style="padding-left: 1%;">Classes:</label>
+                <label style="padding-left: 1%;">My Classes:</label>
                 <asp:SqlDataSource ID="sqlTeacherClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.code || '-' || section_number AS section_title
   FROM section s
