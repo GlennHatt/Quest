@@ -197,7 +197,7 @@ END;",
 
 
 
-         if (txtBeforeText.Text == string.Empty && txtAfterText.Text == string.Empty)
+         if (rblAddType.SelectedValue == "SA" && txtBeforeText.Text == string.Empty && txtAfterText.Text == string.Empty)
          {
             lblSAError.Visible = true;
             if (txtBeforeText.Text == string.Empty)
@@ -338,7 +338,6 @@ END;",
                hideInputs();
                Session["QuestionID"] = null;
             }
-
          }
       }
 
@@ -650,6 +649,7 @@ END;", connectionString);
       {
          hideInputs();
          Session["QuestionID"] = null;
+         lstQuestionDisplay.DataBind();
       }
 
       protected void grdDispMQuestion_RowDataBound(object sender, GridViewRowEventArgs e)

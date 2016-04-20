@@ -180,9 +180,7 @@ BEGIN
         p_ClassID       => :class_id,
         p_Semester      => :semester,
         p_SectionNumber => :section_number);
-END;">
-
-    </asp:SqlDataSource>
+END;"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT user_id, f_name || ' ' || l_name as FULL_NAME
   FROM end_user
  WHERE permission_level = 'T'
@@ -190,8 +188,7 @@ END;">
     <asp:SqlDataSource ID="sqlClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT class_id, code || '/' || title as CODE_TITLE
   FROM class
- "></asp:SqlDataSource>
-    <%--</div>--%>
+ "></asp:SqlDataSource>=
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="adminPageSpecificJS" runat="server">
     <script src="../Assets/JS/deleteButton.js"></script>
