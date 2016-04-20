@@ -57,8 +57,8 @@
                     }
                 </style>
                 <asp:SqlDataSource ID="sqlStudentTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, user_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
-       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date, cheated, time_limit
+SELECT t.test_id, eu.user_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
+       'Due Date: ' || TO_DATE( t.due_date, 'DD-MON-YY') AS due_date, tt.cheated, t.time_limit
   FROM test t
        JOIN section    s  USING (section_id)
        JOIN enrollment e  USING (section_id)
