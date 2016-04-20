@@ -14,7 +14,7 @@ namespace QuestWebApp.Pages
       protected void Page_Load(object sender, EventArgs e)
       {
          
-         //Session["UserID"] = 1;
+         Session["UserID"] = 1;
          displayGreeting();
          //testAlertTemplate.Visible = true;
 

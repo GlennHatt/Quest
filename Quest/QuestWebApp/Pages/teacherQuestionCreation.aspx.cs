@@ -395,7 +395,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMCQuestion")).Text);
                break;
             case "SA":
                cmdEditQuestion = new OracleCommand(@"

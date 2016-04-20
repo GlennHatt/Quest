@@ -63,10 +63,11 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
        JOIN section s USING (section_id)
        JOIN enrollment e USING (section_id)
        JOIN class c      USING (class_id)
+       JOIN test_taken   USING (test_id)
  WHERE student_id = :p_StudentID
        AND sysdate &lt; due_date 
        AND sysdate &gt; due_date - effective_date
-       ">
+       AND cheated IS NULL">
                     <SelectParameters>
                         <asp:SessionParameter Name="p_StudentID" SessionField="UserID"/>
                     </SelectParameters>

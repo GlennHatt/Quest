@@ -40,6 +40,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RadioButtonList rblTypeTest;
         
         /// <summary>
+        /// sqlPastTests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
+        
+        /// <summary>
         /// cardPastTest control.
         /// </summary>
         /// <remarks>
@@ -49,22 +58,31 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl cardPastTest;
         
         /// <summary>
-        /// lblTestName control.
+        /// lblTestTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTestName;
+        protected global::System.Web.UI.WebControls.Label lblTestTitle;
         
         /// <summary>
-        /// lblDate control.
+        /// lblClassTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.Label lblClassTitle;
+        
+        /// <summary>
+        /// lblDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDueDate;
         
         /// <summary>
         /// ddlStudentsSelect control.
@@ -92,6 +110,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnViewTest;
+        
+        /// <summary>
+        /// sqlLiveTest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlLiveTest;
         
         /// <summary>
         /// cardLiveTest control.
@@ -137,15 +164,6 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnViewTest2;
-        
-        /// <summary>
-        /// sqlPastTests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
         
         /// <summary>
         /// sqlDraftTest control.
