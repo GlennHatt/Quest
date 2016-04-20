@@ -296,7 +296,24 @@ END;", connectionString);
                cmdUpdate.ExecuteNonQuery();
                cmdUpdate.Connection.Close();
 
-               break;
+               OracleCommand cmdUpdatePoints = new OracleCommand(@"
+DECLARE
+    points NUMBER;
+BEGIN
+    SELECT SUM(points_earned) INTO points
+    FROM question_taken
+    WHERE test_taken_id = :test_taken_id;
+    UPDATE test_taken
+    SET points_earned = points
+    WHERE test_taken_id = :test_taken_id;
+    tests_taken.updateGrade(p_TestTakenID => :test_taken_id);
+END;", connectionString);
+                cmdUpdatePoints.Parameters.AddWithValue("test_taken_id", Session["TestID"]);
+                cmdUpdatePoints.Connection.Open();
+                cmdUpdatePoints.ExecuteNonQuery();
+                cmdUpdatePoints.Connection.Close();
+
+                break;
          }
 
       }

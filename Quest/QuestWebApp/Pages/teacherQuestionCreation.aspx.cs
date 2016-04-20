@@ -12,9 +12,9 @@ namespace QuestWebApp.Pages
 {
    public partial class teacherQuestionCreation : System.Web.UI.Page
    {
-        // Global Variables
-        bool showAddedQuestion;
-      
+      // Global Variables
+      bool showAddedQuestion;
+
       string questionType; // The questions type, should be 'E', 'M', 'MC', 'SA', or 'TF'.
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
 
@@ -32,24 +32,25 @@ namespace QuestWebApp.Pages
 
             Session["QuestionID"] = null; // Destroy stale session variables.
             hideInputs();
-         } else
+         }
+         else
          {
             questionType = rblAddType.SelectedValue;
          }
-            if (Session["showAddedQuestion"] != null)
-                showAddedQuestion = (bool)Session["showAddedQuestion"];
-            else
-                showAddedQuestion = false;
+         if (Session["showAddedQuestion"] != null)
+            showAddedQuestion = (bool)Session["showAddedQuestion"];
+         else
+            showAddedQuestion = false;
 
-            if (showAddedQuestion == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-                "toastr.success('A Question Has Been Added', 'Success!')", true);
-                Session["showAddedQuestion"] = null;
-                showAddedQuestion = false;
-            }
-        }
+         if (showAddedQuestion == true)
+         {
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('A Question Has Been Added', 'Success!')", true);
+            Session["showAddedQuestion"] = null;
+            showAddedQuestion = false;
+         }
+      }
 
       /***********************************************************************/
       /*                              Functionality                          */
@@ -77,8 +78,8 @@ namespace QuestWebApp.Pages
          tblMatchingSection.Visible = false;
          grdAddMatchingQuestion.Visible = false;
 
-            // Weight
-            cardPoints.Visible = false;
+         // Weight
+         cardPoints.Visible = false;
       }
 
       /***********************************************************************/
@@ -90,7 +91,7 @@ namespace QuestWebApp.Pages
       /****************************/
       protected void rblAddType_SelectedIndexChanged(object sender, EventArgs e)
       {
-            hideInputs();
+         hideInputs();
          switch (questionType)
          {
             case "E":
@@ -117,7 +118,7 @@ namespace QuestWebApp.Pages
                cardTrueFalse.Visible = true;
                break;
          }
-            cardPoints.Visible = true;
+         cardPoints.Visible = true;
          btnAddQuestion.Visible = true;
       }
 
@@ -174,15 +175,15 @@ END;",
     p_ChoiceID   => :p_ChoiceID);
  END;",
                connectionString);
-                cmdChangeChoice.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                cmdChangeChoice.Parameters.AddWithValue("p_ChoiceID", Session["ChoiceID"]);
-                cmdChangeChoice.ExecuteNonQuery();
-                cmdChangeChoice.Connection.Close();
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            }
+            cmdChangeChoice.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+            cmdChangeChoice.Parameters.AddWithValue("p_ChoiceID", Session["ChoiceID"]);
+            cmdChangeChoice.ExecuteNonQuery();
+            cmdChangeChoice.Connection.Close();
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         }
 
-            cmdAddQuestion.Connection.Close();
-            grdMultipleChoiceBody.Visible = true;
+         cmdAddQuestion.Connection.Close();
+         grdMultipleChoiceBody.Visible = true;
          grdMultipleChoiceBody.DataBind();
          txtMultipleChoiceBody.Text = string.Empty;
          chkMultipleChoiceAnswer.Checked = false;
@@ -190,36 +191,49 @@ END;",
 
       protected void btnAddQuestion_Click(object sender, EventArgs e)
       {
-            //showAddedQuestion = true;
-            //Session["showAddedQuestion"] = true;
-            //Response.Redirect(Request.RawUrl); // to ensure message always shows up
+         //showAddedQuestion = true;
+         //Session["showAddedQuestion"] = true;
+         //Response.Redirect(Request.RawUrl); // to ensure message always shows up
 
+
+
+         if (txtBeforeText.Text == string.Empty && txtAfterText.Text == string.Empty)
+         {
+            lblSAError.Visible = true;
+            if (txtBeforeText.Text == string.Empty)
+               txtBeforeText.Focus();
+            else
+               txtAfterText.Focus();
+         }
+         else
+         {
+            lblSAError.Visible = false;
             questionType = rblAddType.SelectedValue.ToString();
             OracleCommand cmdAddQuestion;
             if (Session["QuestionID"] == null)
             {
-                cmdAddQuestion = new OracleCommand(@"
+               cmdAddQuestion = new OracleCommand(@"
  BEGIN
    :v_QuestionID := QUESTIONS.add(
      p_TestID => :p_TestID,
      p_Weight => :p_Weight,
      P_Type   => :p_Type);
  END;",
-                connectionString);
-                cmdAddQuestion.Parameters.AddWithValue("p_TestID", Session["Test_ID"]);
-                cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
-                cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
-                cmdAddQuestion.Parameters.AddWithValue("v_QuestionID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
-                cmdAddQuestion.Connection.Open();
-                cmdAddQuestion.ExecuteNonQuery();
+               connectionString);
+               cmdAddQuestion.Parameters.AddWithValue("p_TestID", Session["Test_ID"]);
+               cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
+               cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
+               cmdAddQuestion.Parameters.AddWithValue("v_QuestionID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+               cmdAddQuestion.Connection.Open();
+               cmdAddQuestion.ExecuteNonQuery();
 
-                Session["QuestionID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_QuestionID"].Value);
+               Session["QuestionID"] = Convert.ToInt32(cmdAddQuestion.Parameters["v_QuestionID"].Value);
 
-                cmdAddQuestion.Connection.Close();
+               cmdAddQuestion.Connection.Close();
             }
             else
             {
-                cmdAddQuestion = new OracleCommand(@"
+               cmdAddQuestion = new OracleCommand(@"
  BEGIN
    QUESTIONS.change(
      p_QuestionID  => :p_QuestionID,
@@ -227,63 +241,63 @@ END;",
      p_Type        => :p_Type,
      p_TestOrder   => :p_TestOrder);
  END;",
-                connectionString);
-                cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
-                cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
-                cmdAddQuestion.Parameters.AddWithValue("p_TestOrder", "1");
+               connectionString);
+               cmdAddQuestion.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+               cmdAddQuestion.Parameters.AddWithValue("p_Weight", txtAddWeight.Text);
+               cmdAddQuestion.Parameters.AddWithValue("p_Type", questionType);
+               cmdAddQuestion.Parameters.AddWithValue("p_TestOrder", "1");
 
-                cmdAddQuestion.Connection.Open();
-                cmdAddQuestion.ExecuteNonQuery();
-                cmdAddQuestion.Connection.Close();
+               cmdAddQuestion.Connection.Open();
+               cmdAddQuestion.ExecuteNonQuery();
+               cmdAddQuestion.Connection.Close();
             }
 
             hideInputs();
             OracleCommand cmdAddQuestionType = new OracleCommand();
 
-         switch (questionType)
-         {
-            case "E":
-                    cmdAddQuestionType = new OracleCommand(@"
+            switch (questionType)
+            {
+               case "E":
+                  cmdAddQuestionType = new OracleCommand(@"
  BEGIN
    QUESTIONS_ESSAY.add(
      p_QuestionID   => :p_QuestionID,
      p_QuestionText => :p_QuestionText);
  END;",
-               connectionString);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddEssayText.Text);
-               break;
-            case "M":
-                    cmdAddQuestionType = new OracleCommand(@"
+             connectionString);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddEssayText.Text);
+                  break;
+               case "M":
+                  cmdAddQuestionType = new OracleCommand(@"
  BEGIN
    QUESTIONS_MATCHING.add(
     p_QuestionID   => :p_QuestionID,
     p_QuestionText => :p_QuestionText);
  END;",
-               connectionString);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddMatchingText.Text);
-                    cardMultipleChoiceChoice.Visible = true;
-               break;
-            case "MC":
+             connectionString);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddMatchingText.Text);
+                  cardMultipleChoiceChoice.Visible = true;
+                  break;
+               case "MC":
 
-                    cmdAddQuestionType = new OracleCommand(@"
+                  cmdAddQuestionType = new OracleCommand(@"
  BEGIN
    QUESTIONS_MULTIPLE_CHOICE.add(
      p_QuestionID   => :p_QuestionID,
      P_ChoiceID     => null,
      p_QuestionText => :p_QuestionText);
  END;",
-               connectionString);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    //cmdAddQuestionType.Parameters.AddWithValue("P_ChoiceID", Session["ChoiceID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddMultipleChoiceQuestion.Text);
-                    cardMultipleChoiceChoice.Visible = true;
-                    // This is where multiple choice questions pop up
-               break;
-            case "SA":
-                    cmdAddQuestionType = new OracleCommand(@"
+             connectionString);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                  //cmdAddQuestionType.Parameters.AddWithValue("P_ChoiceID", Session["ChoiceID"]);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddMultipleChoiceQuestion.Text);
+                  cardMultipleChoiceChoice.Visible = true;
+                  // This is where multiple choice questions pop up
+                  break;
+               case "SA":
+                  cmdAddQuestionType = new OracleCommand(@"
  BEGIN
    QUESTIONS_SHORT_ANSWER.add(
      p_QuestionID => :P_QuestionID,
@@ -291,39 +305,41 @@ END;",
      p_AfterText  => :P_AfterText,
      P_Answer     => :P_Answer);
  END;",
-               connectionString);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("P_BeforeText", txtBeforeText.Text);
-                    cmdAddQuestionType.Parameters.AddWithValue("P_Answer", txtAnswerText.Text);
-                    cmdAddQuestionType.Parameters.AddWithValue("P_AfterText", txtAfterText.Text);
-               break;
-            case "TF":
-                    cmdAddQuestionType = new OracleCommand(@"
+             connectionString);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                  cmdAddQuestionType.Parameters.AddWithValue("P_BeforeText", txtBeforeText.Text);
+                  cmdAddQuestionType.Parameters.AddWithValue("P_Answer", txtAnswerText.Text);
+                  cmdAddQuestionType.Parameters.AddWithValue("P_AfterText", txtAfterText.Text);
+                  break;
+               case "TF":
+                  cmdAddQuestionType = new OracleCommand(@"
  BEGIN
    QUESTIONS_TRUE_FALSE.add(
      p_QuestionID   => :p_QuestionID,
      p_QuestionText => :p_QuestionText,
      P_Answer       => :p_Answer);
  END;",
-               connectionString);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddTFQuestion.Text);
-                    cmdAddQuestionType.Parameters.AddWithValue("p_Answer", rblAddTFAnswer.SelectedValue);
-               break;
-         }
+             connectionString);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionID", Session["QuestionID"]);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_QuestionText", txtAddTFQuestion.Text);
+                  cmdAddQuestionType.Parameters.AddWithValue("p_Answer", rblAddTFAnswer.SelectedValue);
+                  break;
+            }
 
             cmdAddQuestionType.Connection.Open();
             cmdAddQuestionType.ExecuteNonQuery();
             cmdAddQuestionType.Connection.Close();
 
-         lstQuestionDisplay.DataBind();
+            lstQuestionDisplay.DataBind();
 
-         rblAddType.SelectedIndex = -1;
-        if (questionType != "MC")
-        {
-            hideInputs();
-            Session["QuestionID"] = null;
-        }
+            rblAddType.SelectedIndex = -1;
+            if (questionType != "MC")
+            {
+               hideInputs();
+               Session["QuestionID"] = null;
+            }
+
+         }
       }
 
       /**************************/
@@ -592,7 +608,7 @@ END;", connectionString);
          // matching 
          // multiple choice 
          string questionType = "NA";
-         
+
          questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
 
          switch (questionType)
@@ -630,74 +646,78 @@ END;", connectionString);
          }
       }
 
-        protected void btnSaveMCBody_Click(object sender, EventArgs e)
-        {
-            hideInputs();
-            Session["QuestionID"] = null;
-        }
+      protected void btnSaveMCBody_Click(object sender, EventArgs e)
+      {
+         hideInputs();
+         Session["QuestionID"] = null;
+      }
 
-        protected void grdDispMQuestion_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                GridViewRow row = e.Row;
+      protected void grdDispMQuestion_RowDataBound(object sender, GridViewRowEventArgs e)
+      {
+         if (e.Row.RowType == DataControlRowType.DataRow)
+         {
+            TableCellCollection cell = e.Row.Cells;
+            GridViewRow row = e.Row;
 
-                //row.Attributes.Add("class", "header");
-                cell[0].Attributes.Add("data-title", "Question");
-                cell[1].Attributes.Add("data-title", "Answer");
-            }
-        }
+            //row.Attributes.Add("class", "header");
+            cell[0].Attributes.Add("data-title", "Question");
+            cell[1].Attributes.Add("data-title", "Answer");
+         }
+      }
 
-        protected void grdMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                GridViewRow row = e.Row;
+      protected void grdMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
+      {
+         if (e.Row.RowType == DataControlRowType.DataRow)
+         {
+            TableCellCollection cell = e.Row.Cells;
+            GridViewRow row = e.Row;
 
-                //row.Attributes.Add("class", "header");
-                cell[0].Attributes.Add("data-title", "Answer");
-                cell[1].Attributes.Add("data-title", "Choice");
-                cell[2].Attributes.Add("data-title", "Set Order");
-            }
-        }
+            //row.Attributes.Add("class", "header");
+            cell[0].Attributes.Add("data-title", "Answer");
+            cell[1].Attributes.Add("data-title", "Choice");
+            cell[2].Attributes.Add("data-title", "Set Order");
+         }
+      }
 
-        protected void grdEditMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                GridViewRow row = e.Row;
+      protected void grdEditMChoice_RowDataBound(object sender, GridViewRowEventArgs e)
+      {
+         if (e.Row.RowType == DataControlRowType.DataRow)
+         {
+            TableCellCollection cell = e.Row.Cells;
+            GridViewRow row = e.Row;
 
-                cell[0].Attributes.Add("data-title", "Edit/Delete");
-                cell[1].Attributes.Add("data-title", "Answer");
-                cell[2].Attributes.Add("data-title", "Text");
-                cell[3].Attributes.Add("data-title", "Set Order");
-            }
-        }
+            cell[0].Attributes.Add("data-title", "Edit/Delete");
+            cell[1].Attributes.Add("data-title", "Answer");
+            cell[2].Attributes.Add("data-title", "Text");
+            cell[3].Attributes.Add("data-title", "Set Order");
+         }
+      }
 
-        protected void grdMultipleChoiceBody_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                TableCellCollection cell = e.Row.Cells;
-                GridViewRow row = e.Row;
+      protected void grdMultipleChoiceBody_RowDataBound(object sender, GridViewRowEventArgs e)
+      {
+         if (e.Row.RowType == DataControlRowType.DataRow)
+         {
+            TableCellCollection cell = e.Row.Cells;
+            GridViewRow row = e.Row;
 
-                cell[0].Attributes.Add("data-title", "Question");
-                cell[1].Attributes.Add("data-title", "Text");
-                cell[2].Attributes.Add("data-title", "Set Order");
-            }
-        }
+            cell[0].Attributes.Add("data-title", "Question");
+            cell[1].Attributes.Add("data-title", "Text");
+            cell[2].Attributes.Add("data-title", "Set Order");
+         }
+      }
 
-        protected void finishTest_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Pages/teacherDashboard.aspx");
-        }
+      protected void finishTest_Click(object sender, EventArgs e)
+      {
+         Response.Redirect("~/Pages/teacherDashboard.aspx");
+      }
 
       protected void sqlMCQuestion_Updating(object sender, SqlDataSourceCommandEventArgs e)
       {
          e.Cancel = true;
+      }
+
+      protected void txtBeforeText_TextChanged(object sender, EventArgs e)
+      {
       }
 
 
