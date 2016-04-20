@@ -84,8 +84,8 @@ namespace QuestWebApp.Pages
             switch (e.CommandName)
             {
                 case "EditTest":
-                    Session["Test_ID"] = e.CommandArgument;
-                    Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
+                    Session["TestID"] = e.CommandArgument;
+                    Response.Redirect("~/Pages/teacherTestReview.aspx");
                     break;
             }
         }

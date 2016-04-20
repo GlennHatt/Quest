@@ -30,7 +30,6 @@ namespace QuestWebApp.Pages
 
         protected void ddlStudentClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlStudentClasses.DataBind();
             lstTestInfo.DataBind();
         }
     }
