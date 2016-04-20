@@ -18,7 +18,22 @@
 //http://daneden.github.io/animate.css/
 // http://stefangabos.ro/jquery/zebra-datepicker/
 
+var extoday = new Date();
+    extoday.setDate(extoday.getDate() + 7);
+var exdd = extoday.getDate();
+var exmm = extoday.getMonth() + 1; //January is 0!
+var exyyyy = extoday.getFullYear();
 
+if (exdd < 10) {
+    exdd = '0' + exdd
+}
+
+if (exmm < 10) {
+    exmm = '0' + exmm
+}
+
+extoday = exmm + '-' + exdd + '-' + exyyyy;
+//console.log(extoday);
 
 
 
@@ -266,7 +281,7 @@
             //  a default date to start the date picker with
             //  must be specified in the format defined by the "format" property, or it will be ignored!
             //  note that this value is used only if there is no value in the field the date picker is attached to!
-            start_date: false,
+            start_date: extoday,
 
             //  should default values, in the input field the date picker is attached to, be deleted if they are not valid
             //  according to "direction" and/or "disabled_dates"?

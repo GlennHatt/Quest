@@ -355,15 +355,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtBeforeText;
         
         /// <summary>
-        /// BeforeTextValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator BeforeTextValidator;
-        
-        /// <summary>
         /// lblAnswerText control.
         /// </summary>
         /// <remarks>
@@ -409,13 +400,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.TextBox txtAfterText;
         
         /// <summary>
-        /// AfterValidator control.
+        /// lblSAError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator AfterValidator;
+        protected global::System.Web.UI.WebControls.Label lblSAError;
         
         /// <summary>
         /// cardTrueFalse control.

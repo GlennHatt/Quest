@@ -181,7 +181,6 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:TextBox ID="txtBeforeText" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
-                <asp:RequiredFieldValidator ID="BeforeTextValidator" runat="server" ErrorMessage="Please Enter Before Text" ForeColor="Red" ControlToValidate="txtBeforeText" SetFocusOnError="True" ValidationGroup="testQuestions" Display=""></asp:RequiredFieldValidator>
                 <br />
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <asp:Label ID="lblAnswerText" CssClass="mdl-textfield__label" runat="server" Text="Answer Text: " Style="bottom: 0px" />
@@ -196,7 +195,7 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:TextBox ID="txtAfterText" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
-                <asp:RequiredFieldValidator ID="AfterValidator" runat="server" ErrorMessage="Please Enter After Text" ForeColor="Red" ControlToValidate="txtAfterText" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <asp:Label ID="lblSAError" runat="server" Text="Please Enter After Text" ForeColor="Red" Visible="false" />
                 <br />
             </div>
         </div>
