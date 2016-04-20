@@ -332,8 +332,8 @@ END;",
       protected void lstQuestionDisplay_ItemUpdating(object sender, ListViewUpdateEventArgs e)
       {
          ListView lstView = (ListView)sender;
-         int questionID = Convert.ToInt32(((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnEditQuestionID")).Value);
-         string questionType = ((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnEditQuestionType")).Value;
+         int questionID = Convert.ToInt32(((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnQuestionID")).Value);
+         string questionType = ((HiddenField)lstView.Items[e.ItemIndex].FindControl("hdnQuestionType")).Value;
          TextBox weight = (TextBox)lstView.EditItem.FindControl("txtEditWeight");
          TextBox testOrder = (TextBox)lstView.EditItem.FindControl("txtEditTestOrder");
          OracleCommand cmdEditQuestion = new OracleCommand();
@@ -356,7 +356,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditEQuestion")).Text);
                break;
             case "M":
@@ -375,7 +375,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMQuestion")).Text);
                break;
             case "MC":
@@ -394,7 +394,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditMCQuestion")).Text);
                break;
             case "SA":
@@ -415,7 +415,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_BeforeText", ((TextBox)lstView.EditItem.FindControl("txtEditSABeforeText")).Text);
                cmdEditQuestion.Parameters.AddWithValue("p_AfterText", ((TextBox)lstView.EditItem.FindControl("txtEditSAAfterText")).Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)lstView.EditItem.FindControl("txtEditSAAnswerText")).Text);
@@ -438,7 +438,7 @@ END;", connectionString);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                cmdEditQuestion.Parameters.AddWithValue("p_TestOrder", testOrder.Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Weight", weight.Text);
-               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnEditQuestionType")).Value);
+               cmdEditQuestion.Parameters.AddWithValue("p_Type", ((HiddenField)lstView.EditItem.FindControl("hdnQuestionType")).Value);
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)lstView.EditItem.FindControl("txtEditTFQuestion")).Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((DropDownList)lstView.EditItem.FindControl("ddlEditTFAnswer")).SelectedValue);
                break;
@@ -468,7 +468,7 @@ END;", connectionString);
      p_QuestionText => :p_QuestionText,
      P_Answer       => :p_Answer);
  END;", connectionString);
-               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+               cmdEditQuestion.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnQuestionID")).Value));
                cmdEditQuestion.Parameters.AddWithValue("p_QuestionText", ((TextBox)grdView.FooterRow.FindControl("txtInsEditMQuestion")).Text);
                cmdEditQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)grdView.FooterRow.FindControl("txtInsEditMAnswer")).Text);
 
@@ -497,7 +497,7 @@ BEGIN
     p_QuestionID => :p_QuestionID,
     p_ChoiceText => :p_ChoiceText);
 END;", connectionString);
-               cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+               cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnQuestionID")).Value));
                cmdMCEdit.Parameters.AddWithValue("p_ChoiceText", ((TextBox)grdSender.FooterRow.FindControl("txtEditMCAddChoiceText")).Text);
                cmdMCEdit.Parameters.AddWithValue("v_ChoiceID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
@@ -517,7 +517,7 @@ BEGIN
     p_QuestionID => :p_QuestionID,
     p_ChoiceID   => :p_ChoiceID);
 END;", connectionString);
-                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnQuestionID")).Value));
                   cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", choiceID);
 
                   cmdMCEdit.Connection.Open();
@@ -550,7 +550,7 @@ BEGIN
     p_QuestionID => :p_QuestionID,
     p_ChoiceID   => :p_ChoiceID);
 END;", connectionString);
-                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnEditQuestionID")).Value));
+                  cmdMCEdit.Parameters.AddWithValue("p_QuestionID", Convert.ToInt32(((HiddenField)lstView.Items[lstView.EditIndex].FindControl("hdnQuestionID")).Value));
                   cmdMCEdit.Parameters.AddWithValue("p_ChoiceID", ((HiddenField)grdSender.Rows[grdSender.EditIndex].FindControl("hdnEditMCChoiceID")).Value);
 
                   cmdMCEdit.Connection.Open();
@@ -559,7 +559,6 @@ END;", connectionString);
                }
 
                grdSender.EditIndex = -1;
-               //e.handled = true;
                break;
          }
          grdSender.DataBind();
@@ -567,7 +566,7 @@ END;", connectionString);
 
       protected void lstQuestionDisplay_ItemEditing(object sender, ListViewEditEventArgs e)
       {
-         //string questionType = ((HiddenField)lstQuestionDisplay.Items[e.NewEditIndex].FindControl("hdnEditQuestionType")).Value;
+         //string questionType = ((HiddenField)lstQuestionDisplay.Items[e.NewEditIndex].FindControl("hdnQuestionType")).Value;
 
          //switch (questionType)
          //{
@@ -593,30 +592,40 @@ END;", connectionString);
          // matching 
          // multiple choice 
          string questionType = "NA";
-
-
-         if (lstQuestionDisplay.EditIndex != e.Item.DataItemIndex)
-            questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
+         
+         questionType = ((HiddenField)e.Item.FindControl("hdnQuestionType")).Value;
 
          switch (questionType)
          {
             case "E":
-               //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-               (e.Item.FindControl("tblSAQuestion")).Visible = false;
+               //(e.Item.FindControl("divMQuestion")).Visible = false;
+               (e.Item.FindControl("divMCQuestion")).Visible = false;
+               (e.Item.FindControl("divSAQuestion")).Visible = false;
+               (e.Item.FindControl("divTFQuestion")).Visible = false;
                break;
-            case "M":
-               (e.Item.FindControl("tblSAQuestion")).Visible = false;
-               break;
+            //case "M":
+            //   (e.Item.FindControl("divEQuestion")).Visible = false;
+            //   (e.Item.FindControl("divMCQuestion")).Visible = false;
+            //   (e.Item.FindControl("divSAQuestion")).Visible = false;
+            //   (e.Item.FindControl("divTFQuestion")).Visible = false;
+            //   break;
             case "MC":
-               //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-               (e.Item.FindControl("tblSAQuestion")).Visible = false;
+               (e.Item.FindControl("divEQuestion")).Visible = false;
+               //(e.Item.FindControl("divMQuestion")).Visible = false;
+               (e.Item.FindControl("divSAQuestion")).Visible = false;
+               (e.Item.FindControl("divTFQuestion")).Visible = false;
                break;
             case "SA":
-               //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
+               (e.Item.FindControl("divEQuestion")).Visible = false;
+               //(e.Item.FindControl("divMQuestion")).Visible = false;
+               (e.Item.FindControl("divMCQuestion")).Visible = false;
+               (e.Item.FindControl("divTFQuestion")).Visible = false;
                break;
             case "TF":
-               //((Table)e.Item.FindControl("tblMQuestion")).Visible = false;
-               (e.Item.FindControl("tblSAQuestion")).Visible = false;
+               (e.Item.FindControl("divEQuestion")).Visible = false;
+               //(e.Item.FindControl("divMQuestion")).Visible = false;
+               (e.Item.FindControl("divMCQuestion")).Visible = false;
+               (e.Item.FindControl("divSAQuestion")).Visible = false;
                break;
          }
       }
@@ -686,12 +695,17 @@ END;", connectionString);
             Response.Redirect("~/Pages/teacherDashboard.aspx");
         }
 
+      protected void sqlMCQuestion_Updating(object sender, SqlDataSourceCommandEventArgs e)
+      {
+         e.Cancel = true;
+      }
 
 
 
-        //protected void btnPointValue_Click(object sender, EventArgs e)
-        //{
-        //    cardQuestionType.Visible = true;
-        //}
-    }
+
+      //protected void btnPointValue_Click(object sender, EventArgs e)
+      //{
+      //    cardQuestionType.Visible = true;
+      //}
+   }
 }

@@ -245,8 +245,8 @@
                             <div class="mc-description">
                                 <ul style="font-size: 100%;">
                                     <li>Project Manager</li>
-                                    <li>Enjoys long walks on the beach</li>
-                                    <li>Database Expert</li>
+                                    <li>ORACLE and ASP mastermind</li>
+                                    <li>Drinks 2 gallons of coffee a week</li>
                                     <li>Part-time Youth Pastor</li>
                                     <li>Part-time Barbie dress designer</li>
                                 </ul>
