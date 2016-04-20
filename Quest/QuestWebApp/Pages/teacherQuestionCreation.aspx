@@ -320,7 +320,7 @@ END;">
 
             <asp:ListView ID="lstQuestionDisplay" runat="server" DataSourceID="sqlQuestionDisplay" DataKeyNames="question_id" OnItemUpdating="lstQuestionDisplay_ItemUpdating" OnItemDataBound="lstQuestionDisplay_ItemDataBound" OnItemEditing="lstQuestionDisplay_ItemEditing">
                 <ItemTemplate>
-                    <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-cell mdl-cell--6-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
@@ -335,7 +335,7 @@ END;">
                                     <div style="text-align: center">
 
                                         <asp:LinkButton ID="LinkButton1" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Edit" CommandName="Edit" />
-                                        <asp:LinkButton ID="LinkButton2" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete" />
+                                        <asp:LinkButton ID="LinkButton2" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete"/>
                                     </div>
                                     <br />
                                     <div>
@@ -438,7 +438,7 @@ SELECT question_id, choice_text, NVL(correct, 'N') AS answer, set_order
 
 
                 <EditItemTemplate>
-                    <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-cell mdl-cell--6-col">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--3dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center">
                                 <asp:HiddenField ID="hdnQuestionID" runat="server" Value='<%#Bind("question_id") %>' />
@@ -582,16 +582,16 @@ END;">
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" Value='<%#Bind("choice_id") %>' />
-                                                            <asp:LinkButton ID="lnkEditMCEdit" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="edit">Edit</asp:LinkButton>
-                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="delete">Delete</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCEdit" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="edit" Width="80px">Edit</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="delete" Width="80px">Delete</asp:LinkButton>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" Value='<%#Bind("choice_id") %>' />
-                                                            <asp:LinkButton ID="lnkEditMCUpdate" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="update">Update</asp:LinkButton>
-                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="cancel">Cancel</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCUpdate" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="update" Width="80px">Update</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="cancel" Width="80px">Cancel</asp:LinkButton>
                                                         </EditItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:LinkButton ID="lnkEditMCAdd" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="add">Add</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCAdd" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="add" Width="80px">Add</asp:LinkButton>
                                                         </FooterTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField>
