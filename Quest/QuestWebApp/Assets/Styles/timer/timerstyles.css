@@ -8,7 +8,7 @@ display: none;
 	overflow-x: hidden;
     position: fixed;
     z-index: 2;
-    top:-33px;
+    top: 0px;
 }
 
 .app {
