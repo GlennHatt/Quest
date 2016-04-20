@@ -108,7 +108,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                     <div class="mdl-cell mdl-cell--4-col">
                         <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardLiveTest" runat="server">
                             <div class="mdl-card__supporting-text" style="text-align: center;">
-                                <div style="font-size: 17pt">
+                                <div style="font-size: 12pt">
                                     <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
                                     <br />
                                     <br />
