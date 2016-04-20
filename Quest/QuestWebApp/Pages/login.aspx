@@ -19,7 +19,7 @@
         <div class="box" style="padding: 60px 40px 4px 50px;">
             <div class="title">LOGIN</div>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
                 <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">User Name:</label>
                 <asp:TextBox ID="username" runat="server" CssClass="mdl-textfield__input"></asp:TextBox>
             </div>
