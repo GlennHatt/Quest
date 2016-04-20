@@ -65,7 +65,6 @@ SELECT t.l_name as name, title
                                     <h3>
                                         <asp:Label ID="lblTeacher" runat="server" Text='<%# Eval("name") %>'></asp:Label></h3>
                                         <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
-                                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                                 </div>
                                 <%--<div id="mailButton" class="overbox" runat="server">
                                         <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
@@ -86,16 +85,12 @@ SELECT t.l_name as name, title
                                         </asp:LinkButton>--%>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
                   </ItemTemplate>
 </asp:ListView>
                 </div>
     </main>
     <br />
-        <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlStudentsClasses"></asp:GridView>
+       <%-- <asp:GridView ID="GridView1" runat="server" DataSourceID="sqlStudentsClasses"></asp:GridView>--%>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">
 
