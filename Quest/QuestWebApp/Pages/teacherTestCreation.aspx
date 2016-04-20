@@ -32,7 +32,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
             <asp:SessionParameter Name="session_id" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource> -->
-    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1297px;">
+    <div class="demo-card-wide mdl-shadow--3dp demo-card-square mdl-card" style="width: 70%; right: -16%; height: 1330px;">
         <div style="text-align: center">
             <h1>Create A Test</h1>
         </div>
@@ -73,7 +73,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="lblDate" CssClass="mdl-textfield__input" runat="server" Text=" Test Start Date: " />
+                <asp:Label ID="lblDate" CssClass="mdl-textfield__input" runat="server" Text=" Select When the Test is Due: " />
                 <%--<asp:Calendar ID="cldrTestDay" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" Width="350px" NextPrevFormat="FullMonth">
         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
         <NextPrevStyle Font-Size="8pt" ForeColor="#333333" Font-Bold="True" VerticalAlign="Bottom" />
@@ -112,7 +112,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="Label1" CssClass="mdl-textfield__input" runat="server" Text=" Test Start Time: " />
+                <asp:Label ID="Label1" CssClass="mdl-textfield__input" runat="server" Text=" Select the Time When the Test Is Due: " />
 
                 <asp:DropDownList ID="ddlTime" runat="server" CssClass="mdl-textfield__input">
                 </asp:DropDownList>
@@ -121,7 +121,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text="Set the Effective Time: " />
+                <asp:Label ID="lblTestEffectiveDate" CssClass="mdl-textfield__input" runat="server" Text=" Select How Many Days the Test Will Be Available Before the Due Date: " />
 
                 <asp:DropDownList ID="ddlTestEffectiveDate" runat="server" CssClass="mdl-textfield__input">
                     <asp:ListItem Value="1" Text="1 Day" Selected="True" />
@@ -139,7 +139,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="Label2" CssClass="mdl-textfield__input" runat="server" Text=" Allow student to save test: " />
+                <asp:Label ID="Label2" CssClass="mdl-textfield__input" runat="server" Text=" Do You Want To Allow Students To Save This Test While In Progress? " />
 
                 <asp:DropDownList ID="ddlSavable" runat="server" CssClass="mdl-textfield__input">
                     <asp:ListItem Selected="True" Value="Y">Yes</asp:ListItem>

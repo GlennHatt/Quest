@@ -211,7 +211,7 @@ SELECT choice_id, choice_text
                 </ItemTemplate>
             </asp:ListView>
 
-            <asp:Label ID="lblASP" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblASP" runat="server" Text="Label" CssClass="hidden"></asp:Label>
             <div style="position: fixed; right: 41px; bottom: 80px; z-index: 2;">
                 <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="moveValue();"/>
             </div>
@@ -262,7 +262,7 @@ SELECT choice_id, choice_text
         var progressPercent = 0;
         var testProgress = [];
         var isPostingBack; // is the page posting back? flag value
-        var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").value;
+        var totalQuestions = document.getElementById("<%=hdnQuestionTotal.ClientID%>").innerText;
         document.getElementById('btnResetTimer').click();
         document.getElementById('btnTimeLimit').click();
         document.getElementById('btnStartTimer').click();
@@ -275,11 +275,14 @@ SELECT choice_id, choice_text
             //    progressPercent = localStorage.getItem("progressPercent");
 
             // wait for progress bar to load before incrementing
-            testProgress = JSON.parse(document.getElementById("<%=btnSubmitTest.ClientID%>").textContent);
+            //testProgress = JSON.parse(document.getElementById("<%=lblProgressBar.ClientID%>").textContent);
+            progressArray = document.getElementById("<%=lblProgressBar.ClientID%>").textContent;
+            progressArray = progressArray.slice(0, -1);
+            testProgress = JSON.parse(progressArray);
 
             setTimeout(function () {
-                
-                document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
+                setProgressBar()
+                //document.querySelector('.mdl-js-progress').MaterialProgress.setProgress();
             }, 500);
                 
         }
@@ -293,8 +296,8 @@ SELECT choice_id, choice_text
         window.onbeforeunload = function () {
 
             <%--'<%Session["testProgress"] = "' + testProgress + '"; %>';--%>
-            localStorage.setItem("testProgress", JSON.stringify(testProgress));
-            localStorage.setItem("progressPercent", progressPercent);
+            //localStorage.setItem("testProgress", JSON.stringify(testProgress));
+            //localStorage.setItem("progressPercent", progressPercent);
             
             <%--console.log('<%= Session["testProgress"] %>');--%>
             //console.log(localStorage.getItem("testProgress").toString());
@@ -331,6 +334,20 @@ SELECT choice_id, choice_text
             progressPercent = progressNum / totalQuestions * 100;
             document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
             
+        }
+
+        function setProgressBar()
+        {
+            var progressNum = 0;
+
+            for (var question in testProgress) {
+                if (testProgress[question] == true)
+                    progressNum++;
+            }
+
+            progressPercent = progressNum / totalQuestions * 100;
+            console.log(testProgress[0]);
+            document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
         }
 
         function moveValue()
