@@ -115,7 +115,7 @@ END;",
             switch (ddlSortBy.SelectedIndex)
             {
                case 0:
-                  sortBy = "code";
+                  sortBy = "CODE_TITLE";
                   break;
                case 1:
                   sortBy = "title";

@@ -68,60 +68,6 @@
     </div>
     <br />
 
-    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;" id="cdEnable" runat="server">
-        <div class="mdl-card__supporting-text" style="text-align: center">
-            <br />
-
-            <div style="font-size: 200%">Enable E-mail Feature</div>
-            <br />
-            <div>Would you like to enable the e-mail feature?</div>
-            <br />
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbemail" class="mdl-textfield__input" type="text" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">E-mail:</label>
-            </div>
-            <div>
-                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmail" ControlToValidate="tbemail" ErrorMessage="Please enter email address"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbpassword" class="mdl-textfield__input" type="password" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Password:</label>
-            </div>
-            <div>
-                <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailPassword" ControlToValidate="tbpassword" ErrorMessage="Please enter email password"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:TextBox ID="tbStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Student ID:</label> 
-            </div>
-           <div><asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valEnableEmailID" ControlToValidate="tbStudentLogin" ErrorMessage="Please enter Student ID"  SetFocusOnError="True" ValidationGroup="grpEnableEmail" ForeColor="Red"></asp:RequiredFieldValidator>
-</div> 
-            <br />
-            <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" runat="server" OnClick="btnEnable_Click" ValidationGroup="grpEnableEmail">
-                            Enable
-            </asp:LinkButton>
-        </div>
-    </div>
-    <br />
-    <div class="demo-card-wide mdl-shadow--3dp mdl-card" style="width: 41%; left: 30%;" id="cdDisable" runat="server">
-        <div class="mdl-card__supporting-text" style="text-align: center">
-            <br />
-
-            <div style="font-size: 200%">Disable E-mail Feature</div>
-            <br />
-            <div>Would you like to disable the e-mail feature?</div>
-            <br />
-            <br />
-            <br />
-            
-            </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="bottom: 30px; left: 41%;">
-                <asp:LinkButton CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnDisable" runat="server" OnClick="btnDisable_Click">
-                            Disable
-                </asp:LinkButton>
-        </div>
-    </div>
-
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
 </asp:Content>

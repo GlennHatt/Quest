@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Admin | Class" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminClass.aspx.cs" Inherits="QuestWebApp.Pages.adminClass" %>
+﻿<%@ Page Title="Admin | Sections" Language="C#" MasterPageFile="~/Master-Pages/admin.master" AutoEventWireup="true" CodeBehind="adminClass.aspx.cs" Inherits="QuestWebApp.Pages.adminClass" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="adminBreadcrumbs" runat="server">
 </asp:Content>
@@ -169,7 +169,7 @@
     </div>
 
     <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
-select semester, class_id, section_id, code || '/' || c.title as CODE_TITLE, section_number, l_name || ', ' || f_name as full_name, user_id 
+select semester, class_id, title, section_id, code || '/' || c.title as CODE_TITLE, section_number, l_name || ', ' || f_name as full_name, user_id 
  from class c
       JOIN section s USING (class_id)
       JOIN end_user e ON (s.teacher_id = e.user_id)" UpdateCommand="
