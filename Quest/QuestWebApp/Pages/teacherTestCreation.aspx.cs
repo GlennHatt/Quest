@@ -34,7 +34,6 @@ BEGIN
     p_Title       => :p_Title,
     P_DueDate     => :p_DueDate,
     p_TimeLimit   => :p_TimeLimit,
-    p_StartTime   => :p_StartTime,
     p_RestoreTest => :p_RestoreTest,
     p_EffectiveDate => :p_EffectiveDate);
 END;",

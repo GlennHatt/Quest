@@ -140,6 +140,7 @@ SELECT q.question_id, weight, type, test_order,
             </asp:SqlDataSource>
             <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide" />
             <asp:Label ID="lblProgressBar" runat="server" CssClass="hide"/>
+            <asp:Label ID="lblTest" runat="server" CssClass="hide" Text="00:45:00"/>
             <button id="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
 
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnDataBound="lstQuestions_DataBound">
@@ -279,9 +280,12 @@ SELECT choice_id, choice_text
             // wait for progress bar to load before incrementing
             //testProgress = JSON.parse(document.getElementById("<%=lblProgressBar.ClientID%>").textContent);
             progressArray = document.getElementById("<%=lblProgressBar.ClientID%>").textContent;
+            //console.log("new test progress: " + progressArray);
+            //console.log("total questions: " + totalQuestions);
+
             //progressArray = progressArray.slice(0, -1);
             testProgress = progressArray.split(',');
-
+            
             setTimeout(function () {
                 setProgressBar()
                 //document.querySelector('.mdl-js-progress').MaterialProgress.setProgress();
@@ -348,7 +352,7 @@ SELECT choice_id, choice_text
             }
 
             progressPercent = (progressNum / totalQuestions) * 100;
-            console.log(totalQuestions);
+            console.log("progress percent: " + totalQuestions);
             document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
         }
 
