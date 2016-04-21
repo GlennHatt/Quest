@@ -21,7 +21,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="teacherWithSidebarSidebar" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="teacherWithSidebarBodyContent" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <asp:SqlDataSource ID="SQLSectionSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_title
@@ -98,7 +98,8 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                 <div id="search" class="bbox">
                     <fieldset>
                         <div id="datepickbox1" class="datepickbox">
-                            <input type="text" id="indnap" name="h" title="" value="" class="searchinput datepicker" placeholder="When?" runat="server" /></div>
+                            <input type="hidden" id="dueDate" name="dueDate" value="" class="searchinput datepicker" />
+                        </div>
                     </fieldset>
                 </div>
                 <div id="zebracontainer1" class="zbc">

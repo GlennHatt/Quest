@@ -26,7 +26,7 @@ namespace QuestWebApp.Pages
                 //    Session["UserID"] = 1;
 
                 string testNumber = "0";
-                string currentUser = "1";
+                //string currentUser = "1";
 
                 OracleCommand cmdGradeTests = new OracleCommand(@"
 SELECT Count(DISTINCT test_taken_id) as test_count

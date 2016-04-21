@@ -18,7 +18,7 @@ namespace QuestWebApp.Pages
 
          int defaultStartTime = 8;
 
-         indnap.Value = DateTime.Now.AddDays(7).ToString("MM-dd-yy");
+         //indnap.Value = DateTime.Now.AddDays(7).ToString("MM-dd-yy");
 
          for (int index = defaultStartTime; index <= 11; index++)
          {
@@ -37,8 +37,8 @@ namespace QuestWebApp.Pages
 
       protected void btnAddInfo_Click(object sender, EventArgs e)
       {
-         string dateString = indnap.Value;
-         DateTime testDateTime = DateTime.Parse(dateString);
+         //string dateString = indnap.Value;
+         DateTime testDateTime = DateTime.Parse(Page.Request.Form["dueDate"]);
          OracleCommand cmdAddTest = new OracleCommand(@"
 BEGIN
   :v_TestID := TESTS.add(

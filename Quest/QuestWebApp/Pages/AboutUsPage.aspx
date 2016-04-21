@@ -246,8 +246,8 @@
                                 <ul style="font-size: 100%;">
                                     <li>Project Manager</li>
                                     <li>ORACLE and ASP mastermind</li>
-                                    <li>Drinks 2 gallons of coffee a week</li>
-                                    <li>Part-time Youth Pastor</li>
+                                    <li>Drinks 2 Gallons of Coffee a Week</li>
+                                    <li>Social Network Hermit</li>
                                     <li>Part-time Barbie dress designer</li>
                                 </ul>
                             </div>
