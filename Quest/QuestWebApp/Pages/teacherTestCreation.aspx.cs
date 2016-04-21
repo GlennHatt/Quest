@@ -20,19 +20,6 @@ namespace QuestWebApp.Pages
 
          //dueDate.Value = DateTime.Now.AddDays(7).ToString("MM-dd-yy");
 
-         for (int index = defaultStartTime; index <= 11; index++)
-         {
-            ddlTime.Items.Add(new ListItem(index + ":" + "00" + " AM"));
-         }
-
-         ddlTime.Items.Add(new ListItem(12 + ":" + "00" + " PM"));
-
-         for (int index = 1; index <= 11; index++)
-         {
-            ddlTime.Items.Add(new ListItem(index + ":" + "00" + " PM"));
-         }
-         ddlTime.Items.Add(new ListItem(12 + ":" + "00" + " AM"));
-
       }
 
       protected void btnAddInfo_Click(object sender, EventArgs e)
@@ -55,7 +42,6 @@ END;",
          cmdAddTest.Parameters.AddWithValue("p_Title", txtName.Text);
          cmdAddTest.Parameters.AddWithValue("p_DueDate", testDateTime.ToString("dd-MMM-yy"));
          cmdAddTest.Parameters.AddWithValue("p_TimeLimit", ddlTimeLimit.SelectedValue);
-         cmdAddTest.Parameters.AddWithValue("p_StartTime", ddlTime.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_RestoreTest", ddlSavable.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_EffectiveDate", ddlTestEffectiveDate.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("v_TestID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;

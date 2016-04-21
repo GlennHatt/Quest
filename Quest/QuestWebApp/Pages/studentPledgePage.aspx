@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="studentPledgePage.aspx.cs" Inherits="QuestWebApp.Pages.studentPledgePage" %>
+﻿<%@ Page Title="Student | Pledge" Language="C#" MasterPageFile="~/Master-Pages/withoutSidebar.master" AutoEventWireup="true" CodeBehind="studentPledgePage.aspx.cs" Inherits="QuestWebApp.Pages.studentPledgePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="withoutSidebarBreadCrumb" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="withoutSidebarHead" runat="server">
@@ -19,7 +19,7 @@
 
 <div class="demo-card-wide mdl-card mdl-shadow--3dp" style="margin-left: 30%;">
   <div class="mdl-card__title" style="text-align:center">
-    <h1 class="mdl-card__title-text" style="margin-left: 20%;">If you did not cheat please type your name.</h1>
+    <h1 class="mdl-card__title-text" style="margin-left: 5%;">If you did not cheat please type your name.</h1>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin-left: 30%;">
                             <asp:TextBox ID="txtbxUsersName" CssClass="mdl-textfield__input" runat="server" style="font-size:27px"/>
