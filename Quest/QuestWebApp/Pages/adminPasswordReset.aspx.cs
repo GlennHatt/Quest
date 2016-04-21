@@ -12,12 +12,27 @@ namespace QuestWebApp.Pages
 {
    public partial class adminPasswordReset : System.Web.UI.Page
    {
-      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        bool showPasswordUpdated;
+
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
       protected void Page_Load(object sender, EventArgs e)
       {
          cardUpdatePassword.Visible = false;
-      }
+
+            if (Session["showPasswordUpdated"] != null)
+                showPasswordUpdated = (bool)Session["showPasswordUpdated"];
+            else
+                showPasswordUpdated = false;
+            if (showPasswordUpdated == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.success('Password Has Been Updated', 'Success!')", true);
+                Session["showPasswordUpdated"] = null;
+                showPasswordUpdated = false;
+            }
+        }
 
       protected void ddlClassSelect_SelectedIndexChanged1(object sender, EventArgs e)
       {
@@ -28,8 +43,9 @@ namespace QuestWebApp.Pages
       protected void updatePassword_Click(object sender, EventArgs e)
       {
          utilities util = new utilities();
+            
 
-         OracleCommand cmdChangePassword = new OracleCommand(@"
+            OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
   end_users.changePassword
     (p_EndUserID => :p_EndUserID, 
@@ -44,6 +60,9 @@ END;",
          cmdChangePassword.ExecuteNonQuery();
          cmdChangePassword.Connection.Close();
          txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
-      }
+            showPasswordUpdated = true;
+            Session["showPasswordUpdated"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+        }
    }
 }
