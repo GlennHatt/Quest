@@ -31,7 +31,7 @@
         <div class="mdl-card__supporting-text" style="text-align: center; width: 100%;">
             <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
                 <label style="padding-left: 1%;">Sort By:</label>
-                <asp:DropDownList ID="ddlSortBy" runat="server" class="mdl-textfield__input" DataTextField="Sort By">
+                <asp:DropDownList ID="ddlSortBy" runat="server" CssClass="mdl-textfield__input" DataTextField="Sort By">
                     <asp:ListItem Value="First Name"></asp:ListItem>
                     <asp:ListItem Value="Last Name"></asp:ListItem>
                     <asp:ListItem Value="E-mail"></asp:ListItem>
@@ -41,13 +41,13 @@
             </div>
             <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
                 <label style="padding-left: 1%;">Order By:</label>
-                <asp:DropDownList ID="ddlSortDirection" runat="server" class="mdl-textfield__input">
+                <asp:DropDownList ID="ddlSortDirection" runat="server" CssClass="mdl-textfield__input">
                     <asp:ListItem Value="Ascending"></asp:ListItem>
                     <asp:ListItem Value="Descending"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <br />
-            <asp:LinkButton ID="btnSortUsers" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-button--colored" BackColor="#FF6E40" ForeColor="White" runat="server" OnClick="btnSortUsers_Click">
+            <asp:LinkButton ID="btnSortUsers" CssClass="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect mdl-button--colored" BackColor="#FF6E40" ForeColor="White" runat="server" OnClick="btnSortUsers_Click">
            Sort
             </asp:LinkButton>
         </div>
@@ -58,27 +58,19 @@
 
     <div class="mdl-card mdl-shadow--3dp demo-card-wide " style="width: 85%; margin-left: 7%;">
         <div class="table-responsive-vertical shadow-z-1">
-            <asp:SqlDataSource ID="sqlAdminUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+            <asp:SqlDataSource ID="sqlAdminUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" OnUpdating="sqlAdminUsers_Updating" SelectCommand="
 SELECT user_id, f_name, l_name, permission_level, email, password, username, email_password, DECODE(active, 'true', 'Active',
                                                                                                             'false', 'Inactive') AS active, receive_email
   FROM end_user"
                 UpdateCommand="
 BEGIN
-  end_users.change(
-    :user_id,
-    :username,
-    :password,
-    :f_name,
-    :l_name,
-    :email,
-    :email_password,
-    :permission_level);
+  null;
 END;"></asp:SqlDataSource>
             <asp:SqlDataSource ID="sqlPermissions" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT DISTINCT &quot;PERMISSION_LEVEL&quot; FROM &quot;END_USER&quot;"></asp:SqlDataSource>
 
             <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
             <!-- This fixes the partial post pack not maintaining scroll possition error -->
-            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+           <%-- <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
             <script type="text/javascript">
                 // It is important to place this JavaScript code after ScriptManager1
                 var xPos, yPos;
@@ -107,7 +99,7 @@ END;"></asp:SqlDataSource>
 
             <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
                 <ContentTemplate>
-                    <asp:Panel ID="pnlEditQuestions" runat="server">
+                    <asp:Panel ID="pnlEditQuestions" runat="server">--%>
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
@@ -124,18 +116,53 @@ END;"></asp:SqlDataSource>
                                         <asp:LinkButton ID="lnkEdit" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Edit">Edit</asp:LinkButton>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update">Update</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" CommandArgument='<%# Bind("user_id") %>'>Update</asp:LinkButton>
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
                                     </EditItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="f_name" HeaderText="First Name" SortExpression="f_name" />
-                                <asp:BoundField DataField="l_name" HeaderText="Last Name" SortExpression="l_name" />
-                                <asp:BoundField DataField="email" HeaderText="E-Mail" SortExpression="email" />
-                                <asp:BoundField DataField="email_password" HeaderText="E-Mail Password" SortExpression="email_password" />
-                                <asp:BoundField DataField="username" HeaderText="Username" SortExpression="username" />
+                                <asp:TemplateField HeaderText="First Name" SortExpression="f_name">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Last Name" SortExpression="l_name">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="E-Mail" SortExpression="email">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("email") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("email") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="E-Mail Password" SortExpression="email_password">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtEmailPassword" runat="server" Text='<%# Bind("email_password") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("email_password") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Username" SortExpression="username">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("username") %>'></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("username") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Classification" SortExpression="permission_level">
                                     <EditItemTemplate>
-                                        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="sqlPermissions" DataTextField="PERMISSION_LEVEL" DataValueField="PERMISSION_LEVEL" SelectedValue='<%# Bind("PERMISSION_LEVEL") %>'>
+                                        <asp:DropDownList ID="ddlPermissionLevel" runat="server" DataSourceID="sqlPermissions" DataTextField="permission_level" DataValueField="permission_level" SelectedValue='<%# Bind("permission_level") %>'>
                                         </asp:DropDownList>
 
                                     </EditItemTemplate>
@@ -153,10 +180,10 @@ END;"></asp:SqlDataSource>
                             <RowStyle Wrap="False"></RowStyle>
 
                         </asp:GridView>
-                    </asp:Panel>
+           <%--         </asp:Panel>
                 </ContentTemplate>
 
-            </asp:UpdatePanel>
+            </asp:UpdatePanel>--%>
         </div>
     </div>
 
