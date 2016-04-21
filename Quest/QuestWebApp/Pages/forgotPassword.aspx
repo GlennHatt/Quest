@@ -42,12 +42,12 @@
 
             <div class="input">
                 <asp:TextBox ID="txtbxStudentLogin" class="mdl-textfield__input" type="text" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Your login ID:</label>
+                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3"> User Name:</label>
             </div>
 
             <div class="input">
                 <asp:TextBox ID="txtbxStudentID" class="mdl-textfield__input" type="text" runat="server" />
-                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Your student ID:</label>
+                <label class="mdl-textfield__label" style="bottom: 0px" for="sample3">Your Student ID:</label>
             </div>
             <div class="input">
                 <%--<label>Choose Admin:</label>--%>

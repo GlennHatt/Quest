@@ -16,8 +16,8 @@ namespace QuestWebApp.Pages
       string studentEmailEnabled = "false";
       string currentUser;
         bool showEnableEmail,
-                  showPasswordUpdated,
-            showDisableEmail;
+             showPasswordUpdated,
+             showDisableEmail;
         protected void Page_Load(object sender, EventArgs e)
       {
 

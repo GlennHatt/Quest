@@ -56,17 +56,16 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <asp:Label ID="lblTimeLimit" CssClass="mdl-textfield__input" runat="server" Text="Time Limit: " />
                 <asp:DropDownList ID="ddlTimeLimit" CssClass="mdl-textfield__input" runat="server">
-                    <asp:ListItem Value="5">5 minutes</asp:ListItem>
-                    <asp:ListItem Value="10">10 minutes</asp:ListItem>
-                    <asp:ListItem Value="15">15 minutes</asp:ListItem>
-                    <asp:ListItem Value="20">20 minutes</asp:ListItem>
-                    <asp:ListItem Value="25">25 minutes</asp:ListItem>
-                    <asp:ListItem Value="30">30 minutes</asp:ListItem>
-                    <asp:ListItem Value="45">45 minutes</asp:ListItem>
-                    <asp:ListItem Value="50" Selected="True">50 minutes</asp:ListItem>
-                    <asp:ListItem Value="60">1 hour</asp:ListItem>
-                    <asp:ListItem Value="80">1 hour 20 minutes</asp:ListItem>
-                    <asp:ListItem Value="0">No Time Limit</asp:ListItem>
+                    <asp:ListItem Value="00:05:00">5 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:10:00">10 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:15:00">15 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:20:00">20 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:25:00">25 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:30:00">30 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:45:00">45 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:50:00" Selected="True">50 minutes</asp:ListItem>
+                    <asp:ListItem Value="01:00:00">1 hour</asp:ListItem>
+                    <asp:ListItem Value="01:20:00">1 hour 20 minutes</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -111,14 +110,6 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
 
         <!-- end datepicker -->
 
-        <div style="text-align: center">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <asp:Label ID="Label1" CssClass="mdl-textfield__input" runat="server" Text=" Select the Time When the Test Is Due: " />
-
-                <asp:DropDownList ID="ddlTime" runat="server" CssClass="mdl-textfield__input">
-                </asp:DropDownList>
-            </div>
-        </div>
 
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

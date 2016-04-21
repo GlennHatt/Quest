@@ -24,7 +24,6 @@ SELECT receive_email
                 <asp:TextBox ID="txtOldPassword" CssClass="mdl-textfield__input" runat="server" TextMode="Password" />
             </div>
             <div>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" SkinID="validatorRegexSkin" runat="server" ControlToValidate="txtOldPassword" ErrorMessage="Weak password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$" ForeColor="Red"></asp:RegularExpressionValidator>
                 <br />
                 <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="RequiredFieldValidator2" ControlToValidate="txtOldPassword" ErrorMessage="Please enter password"  SetFocusOnError="True" ValidationGroup="grpUpdatePass" ForeColor="Red"></asp:RequiredFieldValidator></div>
 

@@ -8,6 +8,7 @@ using System.Data.OleDb;
 using System.Data.OracleClient;
 using System.Configuration;
 using QuestWebApp.App_Code;
+using System.Web.UI.HtmlControls;
 
 namespace QuestWebApp.Pages
 {
@@ -18,20 +19,7 @@ namespace QuestWebApp.Pages
 
          int defaultStartTime = 8;
 
-         //dueDate.Value = DateTime.Now.AddDays(7).ToString("MM-dd-yy");
-
-         for (int index = defaultStartTime; index <= 11; index++)
-         {
-            ddlTime.Items.Add(new ListItem(index + ":" + "00" + " AM"));
-         }
-
-         ddlTime.Items.Add(new ListItem(12 + ":" + "00" + " PM"));
-
-         for (int index = 1; index <= 11; index++)
-         {
-            ddlTime.Items.Add(new ListItem(index + ":" + "00" + " PM"));
-         }
-         ddlTime.Items.Add(new ListItem(12 + ":" + "00" + " AM"));
+         //((HtmlGenericControl)Page.Request.Form["dueDate"]).InnerText = DateTime.Now.AddDays(7).ToString("dd-MMM-yy");
 
       }
 
@@ -46,7 +34,6 @@ BEGIN
     p_Title       => :p_Title,
     P_DueDate     => :p_DueDate,
     p_TimeLimit   => :p_TimeLimit,
-    p_StartTime   => :p_StartTime,
     p_RestoreTest => :p_RestoreTest,
     p_EffectiveDate => :p_EffectiveDate);
 END;",
@@ -55,7 +42,6 @@ END;",
          cmdAddTest.Parameters.AddWithValue("p_Title", txtName.Text);
          cmdAddTest.Parameters.AddWithValue("p_DueDate", testDateTime.ToString("dd-MMM-yy"));
          cmdAddTest.Parameters.AddWithValue("p_TimeLimit", ddlTimeLimit.SelectedValue);
-         cmdAddTest.Parameters.AddWithValue("p_StartTime", ddlTime.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_RestoreTest", ddlSavable.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("p_EffectiveDate", ddlTestEffectiveDate.SelectedValue);
          cmdAddTest.Parameters.AddWithValue("v_TestID", OleDbType.Integer).Direction = System.Data.ParameterDirection.Output;

@@ -217,6 +217,33 @@ namespace QuestWebApp.Pages
 
                     //GVUser.DataBind();
                     break;
+            case "Update":
+               OracleCommand cmdUpdateUser = new OracleCommand(@"
+               BEGIN
+                 end_users.change(
+                   p_EndUserID       => :p_EndUserID,
+                   p_Username        => :p_Username,
+                   p_FName           => :p_FName,
+                   p_LName           => :p_LName,
+                   p_Email           => :p_Email,
+                   p_EmailPassword   => :p_EmailPassword,
+                   p_PermissionLevel => :p_PermissionLevel);
+               END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+               cmdUpdateUser.Parameters.AddWithValue("p_EndUserID", e.CommandArgument);
+               cmdUpdateUser.Parameters.AddWithValue("p_Username", ((TextBox)GVUser.Rows[GVUser.EditIndex].FindControl("txtUsername")).Text);
+               cmdUpdateUser.Parameters.AddWithValue("p_FName", ((TextBox)GVUser.Rows[GVUser.EditIndex].FindControl("txtFirstName")).Text);
+               cmdUpdateUser.Parameters.AddWithValue("p_LName", ((TextBox)GVUser.Rows[GVUser.EditIndex].FindControl("txtLastName")).Text);
+               cmdUpdateUser.Parameters.AddWithValue("p_Email", ((TextBox)GVUser.Rows[GVUser.EditIndex].FindControl("txtEmail")).Text);
+               cmdUpdateUser.Parameters.AddWithValue("p_EmailPassword", ((TextBox)GVUser.Rows[GVUser.EditIndex].FindControl("txtEmailPassword")).Text);
+               cmdUpdateUser.Parameters.AddWithValue("p_PermissionLevel", ((DropDownList)GVUser.Rows[GVUser.EditIndex].FindControl("ddlPermissionLevel")).SelectedValue);
+
+
+               cmdUpdateUser.Connection.Open();
+               cmdUpdateUser.ExecuteNonQuery();
+
+               cmdUpdateUser.Connection.Close();
+               GVUser.DataBind();
+               break;
             }
         }
 
@@ -303,5 +330,10 @@ namespace QuestWebApp.Pages
         {
 
         }
-    }
+
+      protected void sqlAdminUsers_Updating(object sender, SqlDataSourceCommandEventArgs e)
+      {
+         e.Cancel = true;
+      }
+   }
 }
