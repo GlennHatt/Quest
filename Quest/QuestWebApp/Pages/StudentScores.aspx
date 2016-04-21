@@ -36,7 +36,7 @@
             </div>
 
             <asp:SqlDataSource ID="testInfo" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-                   SELECT 'Name: ' || title as title, 'Grade: ' || grade || '(' || ROUND(points_earned/possible_points*100, 2) || '%)' as score
+                   SELECT 'Name: ' || title as title, 'Due Date: ' || due_date as due_date, 'Grade: ' || grade || '(' || ROUND(points_earned/possible_points*100, 2) || '%)' as score
                    FROM test t
                          JOIN test_taken tt USING (test_id)
                          JOIN enrollment e  USING (enrollment_id)
@@ -76,6 +76,9 @@
                                     <br />
                                     <br />
                                     <asp:Label runat="server" ID="lbltestName" Text='<%# Eval("title") %>'> </asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Label runat="server" ID="lblScore" Text='<%# Eval("due_date") %>'> </asp:Label>
                                     <br />
                                     <br />
                                     <asp:Label runat="server" ID="lbScore" Text='<%# Eval("score") %>'> </asp:Label>
