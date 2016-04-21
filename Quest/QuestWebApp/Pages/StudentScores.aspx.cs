@@ -5,32 +5,56 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QuestWebApp.App_Code;
+using System.Data.OracleClient;
+using System.Configuration;
 
 namespace QuestWebApp.Pages
 {
    public partial class studentScores : System.Web.UI.Page
    {
-      protected void Page_Load(object sender, EventArgs e)
+        OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+
+
+        protected void Page_Load(object sender, EventArgs e)
       {
-            //Session["UserID"] = "1";
-         //try
-         //{
-         //   if (Session["userClassification"] == null)
-         //      throw new NullReferenceException();
-         //   if ((char)Session["userClassification"] != 'S')
-         //   {
-         //      utilities util = new utilities();
-         //      util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-         //   }
-         //} catch (NullReferenceException)
-         //{
-         //   Response.Redirect("~/Pages/login.aspx");
-         //}
-      }
+            //Session["TestTakenID"] = "114";
+            string classGrade = "";
+            OracleCommand cmdClassGrade = new OracleCommand(@"
+SELECT ROUND(SUM(qt.points_earned)/SUM(t.possible_points)*100, 2) || '%' as class_grade
+                   FROM test t
+                         JOIN test_taken     tt USING (test_id)
+                         JOIN question_taken qt USING (test_taken_id)
+                         JOIN enrollment e  USING (enrollment_id)
+                         JOIN section    s  ON (s.section_id = e.section_id)
+                         JOIN class      c  USING (class_id)
+                         JOIN end_user   eu   ON (s.teacher_id = eu.user_id)
+                   WHERE student_id   = :UserID 
+                     AND s.section_id = :SectionID", connectionString);
+            cmdClassGrade.Parameters.AddWithValue("UserID", Session["UserID"]);
+            cmdClassGrade.Parameters.AddWithValue("SectionID", ddlStudentClasses.SelectedValue);
+
+            cmdClassGrade.Connection.Open();
+            OracleDataReader reader = cmdClassGrade.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    classGrade = reader.GetValue(0).ToString();
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+            cmdClassGrade.Connection.Close();
+
+            lbltestAverage.Text = classGrade;
+        }
 
         protected void ddlStudentClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstTestInfo.DataBind();
+            lbltestAverage.DataBind();
         }
     }
 }

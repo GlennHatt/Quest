@@ -47,23 +47,31 @@
                                     <asp:ControlParameter ControlID="ddlStudentClasses" Name="SectonID" PropertyName="SelectedValue" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-             <asp:SqlDataSource ID="sqlAverageGrade" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-                 SELECT average_grade 
-                   FROM enrollment 
-                  WHERE enrollment_id = :p_EnrollmentID">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="ddlStudentClasses" Name="p_EnrollmentID" PropertyName="SelectedValue" />
-                    </SelectParameters>
-                 </asp:SqlDataSource>
+             
 
             <div class="mdl-cell mdl-cell--4-col">
             <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card">
                 <div class="mdl-card__supporting-text" style="text-align: center">
                         <div style="font-size:30pt">Class Average</div>
                         <br /> <br /> <br /> <br />
-                        <asp:Label runat="server" ID="lbltestAverage" Font-Size="30pt" Text='<%# Eval("average_grade") %>'> </asp:Label>
+                        <asp:Label runat="server" ID="lbltestAverage" Font-Size="30pt" Text=""> </asp:Label>
                     </div>
-                
+                <asp:SqlDataSource ID="sqlAverageGrade" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+                 SELECT ROUND(SUM(qt.points_earned)/SUM(t.possible_points)*100, 2) || '%' as class_grade
+                   FROM test t
+                         JOIN test_taken     tt USING (test_id)
+                         JOIN question_taken qt USING (test_taken_id)
+                         JOIN enrollment e  USING (enrollment_id)
+                         JOIN section    s  ON (s.section_id = e.section_id)
+                         JOIN class      c  USING (class_id)
+                         JOIN end_user   eu   ON (s.teacher_id = eu.user_id)
+                   WHERE student_id   = :UserID 
+                     AND s.section_id = :SectionID">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="UserID" SessionField="UserID" />
+                        <asp:ControlParameter ControlID="ddlStudentClasses" Name="SectionID" PropertyName="SelectedValue" />
+                    </SelectParameters>
+                 </asp:SqlDataSource>
                  </div>
 
                 </div>
