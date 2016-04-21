@@ -98,7 +98,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                 <div id="search" class="bbox">
                     <fieldset>
                         <div id="datepickbox1" class="datepickbox">
-                            <input type="hidden" id="dueDate" name="dueDate" value="" class="searchinput datepicker" />
+                            <input type="text" id="dueDate" name="dueDate" value="" class="searchinput datepicker" placeholder="When?" />
                         </div>
                     </fieldset>
                 </div>
