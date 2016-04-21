@@ -8,6 +8,7 @@ using System.Data.OleDb;
 using System.Data.OracleClient;
 using System.Configuration;
 using QuestWebApp.App_Code;
+using System.Web.UI.HtmlControls;
 
 namespace QuestWebApp.Pages
 {
@@ -18,7 +19,7 @@ namespace QuestWebApp.Pages
 
          int defaultStartTime = 8;
 
-         //dueDate.Value = DateTime.Now.AddDays(7).ToString("MM-dd-yy");
+         //((HtmlGenericControl)Page.Request.Form["dueDate"]).InnerText = DateTime.Now.AddDays(7).ToString("dd-MMM-yy");
 
       }
 
