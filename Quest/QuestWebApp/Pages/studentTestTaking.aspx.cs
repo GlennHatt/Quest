@@ -112,11 +112,11 @@ SELECT time_limit, time_left, restore_test
                {
                   while (reader.Read())
                   {
-                     DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
-                     int ellaspedTime = Convert.ToInt32(elapsed.Minute);
+                     //DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
+                     //int ellaspedTime = Convert.ToInt32(elapsed.Minute);
 
-                     if (elapsed.Hour > 0)
-                        ellaspedTime += 60;
+                     //if (elapsed.Hour > 0)
+                       // ellaspedTime += 60;
 
                      //timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
                      //Session["ellaspedTime"] = ellaspedTime;
