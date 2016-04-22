@@ -22,10 +22,6 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-            Session["TestID"] = 10;
-            Session["EnrollmentID"] = 27;
-
-            Session["UserID"] = 37;
 
             int timerTime = 0;
 
