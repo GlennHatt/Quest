@@ -236,13 +236,22 @@ namespace QuestWebApp.Pages
 
          if (errorCount == 0)
          {
-            sqlClass.Insert();
-            clearClassFields();
-            ddlCourses.DataBind();
-            // toast
-            showAddUserMessage = true;
-            Session["showAddClassMessage"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            try {
+                sqlClass.Insert();
+                clearClassFields();
+                ddlCourses.DataBind();
+                // toast
+                showAddUserMessage = true;
+                Session["showAddClassMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
+            catch
+                {
+                    // Maybe a toaster warning? (Not sure of the difficulty level)
+                    // Needs to be in the red error thing -- class_add
+                    txtbxCourseNumber.Text = "Course number already exists";
+                    clearClassFields();
+                }
          }
       }
 
@@ -278,10 +287,18 @@ namespace QuestWebApp.Pages
 
          if (errorCount == 0)
          {
-            sqlSection.Insert();
-            showAddSectionMessage = true;
-            Session["showAddSectionMessage"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            try {
+                sqlSection.Insert();
+                showAddSectionMessage = true;
+                Session["showAddSectionMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
+            catch
+            {
+                // This currently does not work
+                // Needs to be in the red error thing -- section_add
+                txtbxCourseNumber.Text = "Section exists already this semester";
+            }
          }
       }
 
@@ -336,15 +353,25 @@ namespace QuestWebApp.Pages
 
          if (errorCount == 0)
          {
-            utilities util = new utilities();
-            txtbxTeacherPassword.Text = util.CalculateHash(txtbxTeacherPassword.Text);
-            sqlTeacher.Insert();
-            clearUserFields();
-            ddlTeacher.DataBind();
-            // Toast
-            showAddUserMessage = true;
-            Session["showAddUserMessage"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            try
+            {
+                utilities util = new utilities();
+                txtbxTeacherPassword.Text = util.CalculateHash(txtbxTeacherPassword.Text);
+                sqlTeacher.Insert();
+                clearUserFields();
+                ddlTeacher.DataBind();
+                // Toast
+                showAddUserMessage = true;
+                Session["showAddUserMessage"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+             }
+                catch
+                {
+                    // Maybe a toaster warning? (Not sure of the difficulty level)
+                    // Needs the red error thingy
+                    txtbxTeacherEmail.Text = "Username already exists";
+                    txtbxTeacherEmail.BorderColor = Color.Red;
+                }
          }
       }
 
