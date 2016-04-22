@@ -122,8 +122,8 @@ SELECT time_limit, time_left, restore_test
                      if (elapsed.Hour > 0)
                         ellaspedTime += 60;
 
-                     timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
-                     Session["ellaspedTime"] = ellaspedTime;
+                     //timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
+                     //Session["ellaspedTime"] = ellaspedTime;
 
 
                      lblTimeLimit.Text = timerTime.ToString();
