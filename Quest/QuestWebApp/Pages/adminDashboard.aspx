@@ -255,6 +255,7 @@ select *
 SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID 
   FROM END_USER 
  WHERE permission_level != 'S'
+   AND active != 'false'
        ORDER BY FULL_NAME ASC"
                             ></asp:SqlDataSource>
                              <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="ddlTeacherValidator" ControlToValidate="ddlTeacher" ErrorMessage="Please Select a Teacher"  SetFocusOnError="True" ValidationGroup="grpAddSection" ForeColor="Red"></asp:RequiredFieldValidator>

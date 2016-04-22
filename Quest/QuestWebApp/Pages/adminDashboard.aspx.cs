@@ -412,8 +412,8 @@ namespace QuestWebApp.Pages
                 }
                 catch
                 {
-                    showAddUserMessage = true;
-                    Session["showAddUserMessage"] = true;
+                    showFailAddUserNameMessage = true;
+                    Session["showFailAddUserNameMessage"] = true;
                     Response.Redirect(Request.RawUrl); // to ensure message always shows up
                 }
             }

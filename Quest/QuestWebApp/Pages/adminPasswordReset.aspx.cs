@@ -50,27 +50,33 @@ namespace QuestWebApp.Pages
 
       protected void updatePassword_Click(object sender, EventArgs e)
       {
-         utilities util = new utilities();
-            
-
-            OracleCommand cmdChangePassword = new OracleCommand(@"
+         if (txtbxTeacherConfirmPassword.Text == txtbxTeacherPassword.Text)
+            {
+                utilities util = new utilities();
+                OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
   end_users.changePassword
     (p_EndUserID => :p_EndUserID, 
      p_Password  => :p_Password);
 END;",
-                          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-         cmdChangePassword.Parameters.AddWithValue("p_EndUserID", ddlClassSelect.SelectedValue);
-         cmdChangePassword.Parameters.AddWithValue("p_Password", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
+                              new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdChangePassword.Parameters.AddWithValue("p_EndUserID", ddlClassSelect.SelectedValue);
+                cmdChangePassword.Parameters.AddWithValue("p_Password", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
 
 
-         cmdChangePassword.Connection.Open();
-         cmdChangePassword.ExecuteNonQuery();
-         cmdChangePassword.Connection.Close();
-         txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
-            showPasswordUpdated = true;
-            Session["showPasswordUpdated"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+                cmdChangePassword.Connection.Open();
+                cmdChangePassword.ExecuteNonQuery();
+                cmdChangePassword.Connection.Close();
+                txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
+                showPasswordUpdated = true;
+                Session["showPasswordUpdated"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
+          else
+            {
+                // PUT THE TOASTER IN HERE
+                cardUpdatePassword.Visible = true;
+            }
         }
    }
 }

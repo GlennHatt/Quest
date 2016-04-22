@@ -91,6 +91,7 @@ SELECT title || '/' || code || '-' || section_number || ' with ' || f_name || ' 
 SELECT f_name || ' ' || l_name as full_name, user_id
   FROM end_user
  WHERE permission_level = 'S'
+   AND active != 'false'
    AND user_id NOT IN (SELECT user_id
                FROM end_user
                     JOIN enrollment ON (student_id = user_id)
