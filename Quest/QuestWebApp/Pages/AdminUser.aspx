@@ -103,7 +103,7 @@ END;"></asp:SqlDataSource>
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
-                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True" OnRowUpdated="GVUser_RowUpdated" OnRowCancelingEdit="GVUser_RowCancelingEdit" OnRowCommand="GVUser_RowCommand">
+                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVUser" runat="server" RowStyle-Wrap="false" DataSourceID="sqlAdminUsers" CellSpacing="-1" GridLines="None" OnRowDataBound="GVUser_RowDataBound" AutoGenerateColumns="False" DataKeyNames="user_id" OnPreRender="grdEventsAvailable_PreRender1" AllowSorting="True" OnRowUpdated="GVUser_RowUpdated" OnRowCancelingEdit="GVUser_RowCancelingEdit" OnRowCommand="GVUser_RowCommand" >
                             <EditRowStyle CssClass="GridViewEditRow" />
                             <Columns>
                                 <asp:TemplateField>
@@ -123,6 +123,7 @@ END;"></asp:SqlDataSource>
                                 <asp:TemplateField HeaderText="First Name" SortExpression="f_name">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:TextBox>
+                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtFirstName" ErrorMessage="First name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="lblFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:Label>
@@ -131,6 +132,7 @@ END;"></asp:SqlDataSource>
                                 <asp:TemplateField HeaderText="Last Name" SortExpression="l_name">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:TextBox>
+                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtLastName" ErrorMessage="Last name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="lblLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:Label>
@@ -155,6 +157,7 @@ END;"></asp:SqlDataSource>
                                 <asp:TemplateField HeaderText="Username" SortExpression="username">
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("username") %>'></asp:TextBox>
+                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserName" ControlToValidate="txtUsername" ErrorMessage="Username required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("username") %>'></asp:Label>
