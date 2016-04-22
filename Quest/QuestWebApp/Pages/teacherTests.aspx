@@ -59,7 +59,7 @@ SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: '
     </asp:SqlDataSource>
     <main class="mdl-layout__content" style="width: 100%;">
         <div class="content-grid mdl-grid">
-            <asp:ListView ID="lvLiveTests" runat="server" OnItemCommand="lstLiveTests_ItemCommand" DataSourceID="sqlLiveTest">
+            <asp:ListView ID="lstLiveTests" runat="server" OnItemCommand="lstLiveTests_ItemCommand" DataSourceID="sqlLiveTest">
                 <ItemTemplate>
                     <div class="mdl-cell mdl-cell--4-col">
                         <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardLiveTest" runat="server">
@@ -68,16 +68,13 @@ SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: '
                                     <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Label ID="lblClassTitle" runat="server" Text='<%#Bind("class_title") %>'> </asp:Label>
-                                    <br />
-                                    <br />
                                     <asp:Label ID="lblS" runat="server" Text='<%#Bind("full_name") %>'> </asp:Label>
                                     <br />
                                     <br />
                                     <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("due_date") %>'> </asp:Label>
                                 </div>
                                 <br />
-                                <asp:Button CommandArgument='<%#Bind("test_taken_id") %>' CommandName="EditTest" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnResumeTest" runat="server" Text="Edit Grade" />
+                                <asp:Button CommandArgument='<%#Bind("test_taken_id") %>' CommandName="GradeTest" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnEditGrade" runat="server" Text="Edit Grade" />
                             </div>
                         </div>
                     </div>
@@ -88,15 +85,16 @@ SELECT test_id, test_taken_id, 'Test Name: ' || t.title AS test_title, 'Class: '
 
     <%--Past Tests--%>
     <asp:SqlDataSource ID="sqlPastTests" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
-       'Due Date: ' || TO_DATE( due_date, 'DD-MON-YY') AS due_date, 'Student: ' || eu.f_name || ' ' || eu.l_name as student_name
-  FROM test t
-       JOIN section    s  USING (section_id)
-       JOIN enrollment e  USING (section_id)
-       JOIN class      c  USING (class_id)
+SELECT test_taken_id, 'Name: ' || t.title AS test_title, 'Class: ' || c.title AS class_title, 
+       'Due: ' || TO_DATE( due_date, 'DD-MON-YY') AS live_date, 'Student: ' || f_name || ' ' || l_name as full_name
+  FROM test_taken tt
+       JOIN enrollment e  USING (enrollment_id)
        JOIN end_user   eu ON    (eu.user_id = e.student_id)
+       JOIN section    s  USING (section_id)
+       JOIN test       t  USING (section_id)
+       JOIN class      c  USING (class_id)
  WHERE teacher_id = :p_UserID
-       AND sysdate > due_date + 1
+       AND sysdate  > due_date + 1
        AND section_id = :section_id">
         <SelectParameters>
             <asp:SessionParameter Name="p_UserID" SessionField="UserID" />
@@ -105,7 +103,7 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
     </asp:SqlDataSource>
     <main class="mdl-layout__content" style="width: 100%;">
         <div class="content-grid mdl-grid">
-            <asp:ListView ID="lvPastTests" runat="server" OnItemCommand="lstDraftTests_ItemCommand" DataSourceID="sqlPastTests">
+            <asp:ListView ID="lstPastTests" runat="server" OnItemCommand="lstPastTests_ItemCommand" OnDataBound="lstPastTests_DataBound" DataSourceID="sqlPastTests">
                 <ItemTemplate>
                     <div id="cardUser" class="mdl-cell mdl-cell--4-col">
                         <div class="demo-card-wide mdl-shadow--3dp mdl-card" id="cardPastTest" runat="server">
@@ -114,17 +112,16 @@ SELECT test_id, 'Test Name: ' || t.title AS test_title, 'Class: ' || c.title AS 
                                     <asp:Label ID="lblTestTitle" runat="server" Text='<%#Bind("test_title") %>'> </asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Label ID="lblClassTitle" runat="server" Text='<%#Bind("class_title") %>'> </asp:Label>
+                                    <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("live_date") %>'> </asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Label ID="lblDueDate" runat="server" Text='<%#Bind("due_date") %>'> </asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text='<%#Bind("full_name") %>'> </asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Label ID="lblStudentName" runat="server" Text='<%#Bind("student_name") %>'> </asp:Label>
                                 </div>
                                 <br />
                                 <br />
-                                <asp:Button CommandArgument='<%#Bind("test_id") %>' CommandName="ViewTest" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnViewTest" runat="server" Text="View Test" />
+                                <asp:Button CommandName="GradePastTest" CommandArgument='<%#Bind("test_taken_id") %>' CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnEditGrade" runat="server" Text="Edit Grade" />
                                 </div>
                             </div>
                         </div>

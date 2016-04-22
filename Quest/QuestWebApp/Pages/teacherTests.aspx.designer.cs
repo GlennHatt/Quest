@@ -49,13 +49,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlLiveTest;
         
         /// <summary>
-        /// lvLiveTests control.
+        /// lstLiveTests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvLiveTests;
+        protected global::System.Web.UI.WebControls.ListView lstLiveTests;
         
         /// <summary>
         /// sqlPastTests control.
@@ -67,13 +67,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.SqlDataSource sqlPastTests;
         
         /// <summary>
-        /// lvPastTests control.
+        /// lstPastTests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvPastTests;
+        protected global::System.Web.UI.WebControls.ListView lstPastTests;
         
         /// <summary>
         /// sqlDraftTest control.

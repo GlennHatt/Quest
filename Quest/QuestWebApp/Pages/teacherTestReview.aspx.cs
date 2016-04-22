@@ -29,27 +29,28 @@ namespace QuestWebApp.Pages
             if (Session["cardsLarge"] == null)
                Session["cardsLarge"] = false;
 
-            OracleCommand cmdGetTime = new OracleCommand(@"
-SELECT time_limit
-  FROM test
- WHERE test_id = :p_TestID", connectionString);
-            cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
+//                OracleCommand cmdGetTime = new OracleCommand(@"
+//SELECT time_limit
+//  FROM test
+// WHERE test_id = :p_TestID", connectionString);
+//                cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-            cmdGetTime.Connection.Open();
-            OracleDataReader reader = cmdGetTime.ExecuteReader();
-            try
-            {
-               while (reader.Read())
-               {
-                  lblTimeLimit.Text = reader.GetValue(0).ToString();
-               }
-            } finally
-            {
-               reader.Close();
+//                cmdGetTime.Connection.Open();
+//                OracleDataReader reader = cmdGetTime.ExecuteReader();
+//                try
+//                {
+//                    while (reader.Read())
+//                    {
+//                        lblTimeLimit.Text = reader.GetValue(0).ToString();
+//                    }
+//                }
+//                finally
+//                {
+//                    reader.Close();
+//                }
+//                cmdGetTime.Connection.Close();
+
             }
-            cmdGetTime.Connection.Close();
-
-         }
 
 
       }

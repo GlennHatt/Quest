@@ -26,13 +26,12 @@ namespace QuestWebApp.Pages
 
       protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
       {
-         //ddlStudentsSelect.DataBind();
-         rblTypeTest.SelectedIndex = -1;
-         lvLiveTests.DataBind();
-         lvPastTests.DataBind();
-         lstDraftTests.DataBind();
+            rblTypeTest.SelectedIndex = -1;
+            lstLiveTests.DataBind();
+            lstPastTests.DataBind();
+            lstDraftTests.DataBind();
 
-      }
+        }
 
       protected void rblTypeTest_SelectedIndexChanged(object sender, EventArgs e)
       {
@@ -40,10 +39,10 @@ namespace QuestWebApp.Pages
          switch (typeTest)
          {
             case "P":
-               lvPastTests.Visible = true;
-               break;
+                lstPastTests.Visible = true;
+                break;
             case "L":
-               lvLiveTests.Visible = true;
+               lstLiveTests.Visible = true;
                break;
             case "D":
                lstDraftTests.Visible = true;
@@ -52,41 +51,49 @@ namespace QuestWebApp.Pages
       }
       public void hideCards()
       {
-         lvLiveTests.Visible = false;
-         lvPastTests.Visible = false;
+         lstLiveTests.Visible = false;
+         lstPastTests.Visible = false;
          lstDraftTests.Visible = false;
       }
-
-      protected void lstDraftTests_ItemCommand(object sender, ListViewCommandEventArgs e)
-      {
-         switch(e.CommandName)
-         {
-            case "EditTest":
-               Session["Test_ID"] = e.CommandArgument;
-               Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
-               break;
-         }
-      }
-
-        protected void lstPastTests_ItemCommand(object sender, ListViewCommandEventArgs e)
-        {
-            switch (e.CommandName)
-            {
-                case "ViewTest":
-                    Session["Test_ID"] = e.CommandArgument;
-                    Response.Redirect("~/Pages/teacherTestReview.aspx");
-                    break;
-            }
-        }
 
         protected void lstLiveTests_ItemCommand(object sender, ListViewCommandEventArgs e)
         {
             switch (e.CommandName)
             {
-                case "EditTest":
+                case "GradeTest":
                     Session["TestID"] = e.CommandArgument;
                     Response.Redirect("~/Pages/teacherTestReview.aspx");
                     break;
+            }
+        }
+
+        protected void lstPastTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+
+                case "GradePastTest":
+                    Session["TestID"] = e.CommandArgument;
+                    Response.Redirect("~/Pages/teacherTestReview.aspx");
+                    break;
+            }
+        }
+        protected void lstDraftTests_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "EditTest":
+                    Session["Test_ID"] = e.CommandArgument;
+                    Response.Redirect("~/Pages/teacherQuestionCreation.aspx");
+                    break;
+            }
+        }
+
+        protected void lstPastTests_DataBound(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lstPastTests.Items)
+            {
+                //((DropDownList)item.FindControl("ddlStudents")).DataBind();
             }
         }
     }
