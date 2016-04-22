@@ -32,9 +32,13 @@
                 <asp:DropDownList ID="ddlClassSelect" CssClass="mdl-textfield__input" runat="server" OnSelectedIndexChanged="ddlClassSelect_SelectedIndexChanged1" AutoPostBack="True" DataSourceID="sqlUsers" DataTextField="FULL_NAME" DataValueField="USER_ID"> 
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="sqlUsers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT F_NAME || ' ' || L_NAME as FULL_NAME, user_id
+SELECT null as l_name, '- Please Select a User -' AS full_name, null AS user_id
+  FROM dual
+UNION
+SELECT l_name, F_NAME || ' ' || L_NAME as FULL_NAME, user_id
   FROM end_user
- WHERE permission_level = :permission" UpdateCommand="BEGIN
+ WHERE permission_level = :permission
+       ORDER BY l_name NULLs first" UpdateCommand="BEGIN
   end_users.changePassword
            (p_EndUserID =&gt; :p_EndUserID, 
              p_Password  =&gt; :p_Password);

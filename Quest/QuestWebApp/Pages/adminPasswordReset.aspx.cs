@@ -36,8 +36,16 @@ namespace QuestWebApp.Pages
 
       protected void ddlClassSelect_SelectedIndexChanged1(object sender, EventArgs e)
       {
-         cardUpdatePassword.Visible = true;
-         txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
+        if (ddlClassSelect.SelectedIndex == 0)
+        {
+              cardUpdatePassword.Visible = false;
+        }
+        else
+        {
+            cardUpdatePassword.Visible = true;
+            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = string.Empty;
+        }
+         
       }
 
       protected void updatePassword_Click(object sender, EventArgs e)
