@@ -236,6 +236,12 @@ SELECT choice_id, question_id, choice_text, set_order
     <div class="demo-card mdl-card mdl-shadow--2dp" id="cardMultipleChoiceChoice" runat="server" style="width: 44%; float: none; left: 28%; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div id="Div2" runat="server">
+                <div style="text-align: center">
+                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                                <asp:Label ID="lblDispMCQuestion" CssClass="mdl-textfield__label" runat="server" Style="bottom: 0px"> Question: </asp:Label>
+                                                <asp:TextBox ID="txtEditMCQuestion" CssClass="mdl-textfield__input" runat="server" Text='<%#Eval("multiple_choice_question") %>' />
+                                            </div>
+                    <br />
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <asp:Label ID="lblAddMultipleChoiceBody" CssClass="mdl-textfield__label" runat="server" Text="Answer: " Style="bottom: 0px"></asp:Label>
                     <asp:TextBox ID="txtMultipleChoiceBody" CssClass="mdl-textfield__input" runat="server"></asp:TextBox>
@@ -254,7 +260,7 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>
-
+</div>
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
         <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" OnClick="finishTest_Click" />
