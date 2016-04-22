@@ -42,7 +42,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                 <asp:DropDownList ID="ddlSection" CssClass="mdl-textfield__input" runat="server" DataSourceID="SQLSectionSelect" DataTextField="section_title" DataValueField="section_id" />
             </div>
         </div>
-
+        <div style="text-align:center"><asp:RequiredFieldValidator ID="sectionValidator2" runat="server" ErrorMessage="Please Select a Section" ControlToValidate="ddlSection" SetFocusOnError="True" ValidationGroup="nameValidator" ForeColor="Red"></asp:RequiredFieldValidator></div>
         <div style="text-align: center">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <label class="mdl-textfield__label" style="bottom: 0px">Test Name:</label>
