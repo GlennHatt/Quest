@@ -53,7 +53,7 @@ namespace QuestWebApp.Pages
          mail.From = new MailAddress(txtbxStudentEmail.Text, txtbxStudentID.Text);
             // THIS NEEDS REPLACED WITH THE SELECTED ADMIN'S EMAIL
          mail.To.Add(new MailAddress(ddlAdmins.SelectedValue));
-         mail.Subject = txtbxStudentLogin.Text + "password reset";
+         mail.Subject = txtbxStudentLogin.Text + " Password Reset";
          mail.Body = txtbxMessageBody.Value;
 
 

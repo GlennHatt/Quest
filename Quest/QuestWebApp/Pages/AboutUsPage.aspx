@@ -146,7 +146,7 @@
                     </div>
                     <div class=" " style="text-align: center">
                         <i class="material-icons noTest" style="font-size: 800%;">contact_mail</i>
-                        <div style="font-size: 100%; margin-top: 5%">Students and teachers can email each other with questions.</div>
+                        <div style="font-size: 100%; margin-top: 5%">Students and teachers can email the administrator for a password reset.</div>
 
                     </div>
                     <div style="text-align: right">
@@ -248,7 +248,6 @@
                                     <li>ORACLE and ASP mastermind</li>
                                     <li>Drinks 2 Gallons of Coffee a Week</li>
                                     <li>Social Network Hermit</li>
-                                    <li>Part-time Barbie dress designer</li>
                                 </ul>
                             </div>
                         </div>
@@ -274,6 +273,8 @@
                                 <img class="img-responsive" src="../Assets/Images/Team%20Pics/RPG.smaller%20copy18160307.jpg" />
                             </div>
                             <div class="mc-description">
+                                <br />
+                                <br />
                                 <ul style="font-size: 100%;">
                                     <li>Assistant Project Manager</li>
                                     <li>Design Expert</li>
@@ -349,7 +350,7 @@
                             <i class="fa fa-bars" style="color: white"></i>
                         </a>
                         <div class="mc-footer">
-                            <a class="fa fa-fw fa-linkedin"></a>
+                            <a href="https://www.linkedin.com/in/lorenzo-lewis-242741116" class="fa fa-fw fa-linkedin"></a>
                         </div>
                     </article>
                 </div>
