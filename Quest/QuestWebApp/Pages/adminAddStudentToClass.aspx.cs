@@ -17,6 +17,10 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
+            //ddlStudentsSelect.DataBind();
+            
+
+            //btnStudenttoClass.Enabled = false;
             // toast notifications 
             if (Session["showAddStudent"] != null)
             {
@@ -56,22 +60,38 @@ namespace QuestWebApp.Pages
                 showdeleteStudent = false;
             }
 
-            //gvCurrentStudents.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
       protected void ddlClassSelect_SelectedIndexChanged(object sender, EventArgs e)
       {
-         if (ddlClassSelect.SelectedIndex == 0)
-            ddlStudentsSelect.Enabled = false;
-         else
-            ddlStudentsSelect.Enabled = true;
+            if (ddlClassSelect.SelectedIndex == 0)
+            {
+                ddlStudentsSelect.Enabled = false;
+                btnStudenttoClass.Enabled = false;
+            }
+            else
+            {
+                ddlStudentsSelect.Enabled = true;
+                btnStudenttoClass.Enabled = true;
+            }
 
-         ddlStudentsSelect.DataBind();
-      }
+            ddlStudentsSelect.DataBind();
+            if (ddlStudentsSelect.Items.Count <= 0)
+            {
+                ddlStudentsSelect.Enabled = false;
+                btnStudenttoClass.Enabled = false;
+            }
+            else
+            {
+                btnStudenttoClass.Enabled = true;
+                ddlStudentsSelect.Enabled = true;
+            }
 
-      protected void btnStudenttoClass_Click(object sender, EventArgs e)
-      {
-         OracleCommand cmdAddEnrollee = new OracleCommand(@"
+        }
+
+        protected void btnStudenttoClass_Click(object sender, EventArgs e)
+        {
+                OracleCommand cmdAddEnrollee = new OracleCommand(@"
 DECLARE
     v_dummy pls_integer;
 BEGIN
@@ -79,24 +99,36 @@ BEGIN
     p_StudentID => :p_StudentID,
     p_SectionID => :p_SectionID);
 END;",
-          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-         cmdAddEnrollee.Parameters.AddWithValue("p_StudentID", ddlStudentsSelect.SelectedValue);
-         cmdAddEnrollee.Parameters.AddWithValue("p_SectionID", ddlClassSelect.SelectedValue);
+                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdAddEnrollee.Parameters.AddWithValue("p_StudentID", ddlStudentsSelect.SelectedValue);
+                cmdAddEnrollee.Parameters.AddWithValue("p_SectionID", ddlClassSelect.SelectedValue);
 
-         cmdAddEnrollee.Connection.Open();
-         cmdAddEnrollee.ExecuteNonQuery();
+                cmdAddEnrollee.Connection.Open();
+                cmdAddEnrollee.ExecuteNonQuery();
 
-         cmdAddEnrollee.Connection.Close();
-         ddlStudentsSelect.DataBind();
-         gvCurrentStudents.DataBind();
+                cmdAddEnrollee.Connection.Close();
+            
+            ddlStudentsSelect.DataBind();
+            gvCurrentStudents.DataBind();
 
             showAddStudent = true;
-            Session["showAddStudent"] = true;
-            Session["selectedClass"] = ddlClassSelect.SelectedIndex;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+                Session["showAddStudent"] = true;
+                Session["selectedClass"] = ddlClassSelect.SelectedIndex;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
+            if (ddlStudentsSelect.Items.Count <= 0)
+            {
+                ddlStudentsSelect.Enabled = false;
+                btnStudenttoClass.Enabled = false;
+            }
+            else
+            {
+                btnStudenttoClass.Enabled = true;
+                ddlStudentsSelect.Enabled = true;
+            }
         }
 
-      protected void gvCurrentStudents_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        protected void gvCurrentStudents_RowDeleted(object sender, GridViewDeletedEventArgs e)
       {
          ddlStudentsSelect.DataBind();
             showdeleteStudent = true;
@@ -120,6 +152,26 @@ END;",
                 //Remove if you don't have a footer row
                 grdView.FooterRow.TableSection = TableRowSection.TableFooter;
             }
+        }
+
+        protected void ddlStudentsSelect_DataBound(object sender, EventArgs e)
+        {
+            if (ddlStudentsSelect.Items.Count <= 0)
+            {
+                ddlStudentsSelect.Enabled = false;
+                btnStudenttoClass.Enabled = false;
+            }
+            else
+            {
+                btnStudenttoClass.Enabled = true;
+                ddlStudentsSelect.Enabled = true;
+            }
+
+            if (ddlClassSelect.SelectedIndex == 0)
+                ddlStudentsSelect.Items.Clear();
+
+            if (ddlClassSelect.SelectedIndex == 0)
+                btnStudenttoClass.Enabled = false;
         }
 
         protected void gvCurrentStudents_RowDataBound(object sender, GridViewRowEventArgs e)

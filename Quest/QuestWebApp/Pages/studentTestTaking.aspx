@@ -140,8 +140,7 @@ SELECT q.question_id, weight, type, test_order,
             </asp:SqlDataSource>
             <asp:Label ID="lblTimeLimit" runat="server" CssClass="hide" />
             <asp:Label ID="lblProgressBar" runat="server" CssClass="hide"/>
-            <asp:Label ID="lblTest" runat="server" CssClass="hide" Text="00:45:00"/>
-            <button id="btnTimeLimit" onclick="setTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
+            <button id="btnTimeLimit" onclick="setClientTime(document.getElementById('<%=lblTimeLimit.ClientID%>').textContent); return false;" class="hide"></button>
 
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnDataBound="lstQuestions_DataBound">
                 <ItemTemplate>
@@ -359,10 +358,26 @@ SELECT choice_id, choice_text
         function moveValue()
         {
             // wait for progress bar to load before incrementing
-
-            
-
             
         }
+
+        function setClientTime(time)
+        {
+            console.log(time);
+            var timeInSeconds = 0;
+            var timeArray = time.split(':');
+            newTime = new Date();
+            newTime.setHours(timeArray[0]);
+            newTime.setMinutes(timeArray[1]);
+            newTime.setSeconds(timeArray[2]);
+
+            timeInSeconds += newTime.getSeconds();
+            timeInSeconds += (newTime.getMinutes() * 60);
+            timeInSeconds += (newTime.getHours() * 60 * 60);
+            console.log(timeInSeconds);
+            setTime(timeInSeconds);
+            
+        }
+
     </script>
 </asp:Content>

@@ -38,16 +38,14 @@ var timerClock = $(".container.timer").find(".clock"),
 
 
 
-function setTime(time) {
+function setTime(timeIn) {
 
-    alert("test");
-    var newTime = time;
-    
-    console.log("test");
-    console.log(time);
+    var newTime = timeIn;
 
     if (newTime && newTime >= 0) {
-        timerTime = newTime * 60;
+        //timerTime = newTime * 60;
+        timerTime = (newTime);
+        //time = (timeIn / 60);
         localStorage.lastTimerTime = newTime;
         timerClock.text(returnFormattedToSeconds(timerTime));
     }

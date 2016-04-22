@@ -146,7 +146,7 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:TextBox ID="txtAddMultipleChoiceQuestion" CssClass="mdl-textfield__input" runat="server" />
                 </div>
                 <br />
-                <asp:RequiredFieldValidator ID="MCValidator" runat="server" ErrorMessage="Please Enter Header Text" ForeColor="Red" ControlToValidate="txtAddMultipleChoiceQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="MCValidator" runat="server" ErrorMessage="Please Enter a Question" ForeColor="Red" ControlToValidate="txtAddMultipleChoiceQuestion" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
                 <br />
             </div>
         </div>
@@ -221,8 +221,8 @@ SELECT choice_id, question_id, choice_text, set_order
                         <asp:ListItem Text="True" Value="T" />
                         <asp:ListItem Text="False" Value="F" />
                     </asp:RadioButtonList>
-
                 </div>
+                <asp:RequiredFieldValidator ID="torfvalidadator" runat="server" ErrorMessage="Please Select True or False" ForeColor="Red" ControlToValidate="rblAddTFAnswer" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
             </div>
         </div>
     </div>
@@ -240,13 +240,16 @@ SELECT choice_id, question_id, choice_text, set_order
                     <asp:Label ID="lblAddMultipleChoiceBody" CssClass="mdl-textfield__label" runat="server" Text="Answer: " Style="bottom: 0px"></asp:Label>
                     <asp:TextBox ID="txtMultipleChoiceBody" CssClass="mdl-textfield__input" runat="server"></asp:TextBox>
                 </div>
+                <div>
                 <br />
-                <asp:RequiredFieldValidator ID="MultipleChoiceValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="bodyValidator" runat="server" ErrorMessage="Please Enter an Answer" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="testQuestions"></asp:RequiredFieldValidator></div>
+                <br />
+                <asp:RequiredFieldValidator ID="MultipleChoiceValidator" runat="server" ErrorMessage="Please Enter Question Text" ForeColor="Red" ControlToValidate="txtMultipleChoiceBody" SetFocusOnError="True" ValidationGroup="bodyval"></asp:RequiredFieldValidator>
                 <br />
                 <label id="lblAddMultipleChoiceAnswer" class="mdl-textfield__label" runat="server" style="position: static; margin-left: 45%; color: black" for="chkMultipleChoiceAnswer">is Answer: </label>
                 <asp:CheckBox ID="chkMultipleChoiceAnswer" runat="server" />
                 <br />
-                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" />
+                <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnNewMultipleChoice" runat="server" Text="Add Choice" OnClick="btnNewMultipleChoice_Click" ValidationGroup="bodyval" />
                 <asp:Button CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ForeColor="White" ID="btnAddMCBody" runat="server" Text="Finish Question" OnClick="btnSaveMCBody_Click" />
             </div>
         </div>

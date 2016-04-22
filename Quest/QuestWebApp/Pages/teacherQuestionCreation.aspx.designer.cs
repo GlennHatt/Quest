@@ -472,6 +472,15 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RadioButtonList rblAddTFAnswer;
         
         /// <summary>
+        /// torfvalidadator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator torfvalidadator;
+        
+        /// <summary>
         /// btnAddQuestion control.
         /// </summary>
         /// <remarks>
@@ -515,6 +524,15 @@ namespace QuestWebApp.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMultipleChoiceBody;
+        
+        /// <summary>
+        /// bodyValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator bodyValidator;
         
         /// <summary>
         /// MultipleChoiceValidator control.
