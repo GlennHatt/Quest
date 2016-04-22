@@ -13,8 +13,7 @@ namespace QuestWebApp.Pages
       {
 
       }
-
-        protected void lbtnPDF_Click(object sender, EventArgs e)
+        protected void btnPDF_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Assets/User Manual/The User Manual (1).pdf");
         }
