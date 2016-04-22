@@ -59,7 +59,11 @@ namespace QuestWebApp.Pages
                 GridViewRow row = e.Row;
 
                 //row.Attributes.Add("class", "header");
-                cell[0].Attributes.Add("data-title", row.Cells[3].Text + ", " + row.Cells[2].Text);
+
+                // Only add the name header if row isn't being edited
+                if ((e.Row.RowState == DataControlRowState.Normal) || (e.Row.RowState == DataControlRowState.Alternate))
+                    cell[0].Attributes.Add("data-title", ((Label)e.Row.FindControl("lblLastName")).Text + ", " + ((Label)e.Row.FindControl("lblFirstName")).Text);
+
                 cell[0].Attributes.Add("class", "header");
                 cell[1].Attributes.Add("data-title", "Edit User");
                 cell[2].Attributes.Add("data-title", "First Name");
@@ -71,7 +75,7 @@ namespace QuestWebApp.Pages
 
                 // Assign proper button color based on active or inactive
                 LinkButton activeButton = (LinkButton)cell[8].Controls[1];
-                System.Diagnostics.Debug.WriteLine(activeButton.Text);
+               // System.Diagnostics.Debug.WriteLine(activeButton.Text);
                 if (string.Equals(activeButton.Text, "INACTIVE", StringComparison.CurrentCultureIgnoreCase))
                 {
                     activeButton.BackColor = System.Drawing.Color.Red;
