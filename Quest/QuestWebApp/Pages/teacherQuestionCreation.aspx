@@ -37,7 +37,6 @@
     </div>
 
 
-
     <div class="demo-card-square mdl-card mdl-shadow--2dp" id="cardPoints" runat="server" style="width: 44%; float: none; margin-top: 16px; margin-bottom: 16px;">
         <div class="mdl-card__supporting-text mdl-card--expand" style="text-align: center; width: 94%">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
