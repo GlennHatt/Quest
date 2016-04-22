@@ -22,7 +22,12 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-         int timerTime = 0;
+            Session["TestID"] = 10;
+            Session["EnrollmentID"] = 27;
+
+            Session["UserID"] = 37;
+
+            int timerTime = 0;
 
          if (!IsPostBack)
          {
@@ -34,7 +39,8 @@ namespace QuestWebApp.Pages
             if (Session["cardsLarge"] == null)
                Session["cardsLarge"] = false;
 
-            OracleCommand cmdGetTime = new OracleCommand(@"
+                
+                OracleCommand cmdGetTime = new OracleCommand(@"
   SELECT test_taken_id 
     FROM test_taken
          JOIN enrollment USING (enrollment_id)

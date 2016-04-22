@@ -40,8 +40,11 @@ var timerClock = $(".container.timer").find(".clock"),
 
 function setTime(time) {
 
-
+    alert("test");
     var newTime = time;
+    
+    console.log("test");
+    console.log(time);
 
     if (newTime && newTime >= 0) {
         timerTime = newTime * 60;

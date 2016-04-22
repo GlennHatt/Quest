@@ -38,15 +38,18 @@
     </style>
 
     <asp:SqlDataSource ID="sqlStudentsClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT t.l_name as name, title
-  FROM end_user eu
-       JOIN enrollment ON (student_id = user_id)
-       JOIN section USING (section_id)
-       JOIN class   USING (class_id)
-       JOIN end_user t ON (t.user_id = teacher_id)
- WHERE eu.user_id = :enter_id">
+SELECT s.section_id, 'Teacher: ' || eu.f_name || ' ' || eu.l_name as full_name, 'Class: ' || c.title as class_title, 'Average Grade: ' || ROUND(SUM(qt.points_earned)/SUM(t.possible_points)*100, 2) || '%' as average_grade
+                   FROM test t
+                         JOIN test_taken     tt USING (test_id)
+                         JOIN question_taken qt USING (test_taken_id)
+                         JOIN enrollment e  USING (enrollment_id)
+                         JOIN section    s  ON (s.section_id = e.section_id)
+                         JOIN class      c  USING (class_id)
+                         JOIN end_user   eu   ON (s.teacher_id = eu.user_id)
+                   WHERE student_id   = :UserID
+                   GROUP BY s.section_id, f_name, l_name, c.title">
         <SelectParameters>
-            <asp:SessionParameter Name="enter_id" SessionField="UserID" />
+            <asp:SessionParameter Name="UserID" SessionField="UserID" />
         </SelectParameters>
     </asp:SqlDataSource>
 
@@ -60,11 +63,10 @@ SELECT t.l_name as name, title
                             <div class="demo-card-wide mdl-cardTakeTest mdl-shadow--3dp mdl-card" style="width:100%;">
                                 <div class="mdl-card__supporting-text" style="text-align: center">
                                     <h3>
-                                        <asp:Label ID="lblClass" runat="server" Text='<%# Eval("title") %>'></asp:Label></h3>
-                                        <asp:Label ID="lblTeacherId" runat="server" Text="" Enabled="false"></asp:Label>
+                                        <asp:Label ID="lblClass" runat="server" Text='<%# Eval("class_title") %>'></asp:Label></h3>
+                                        <asp:Label ID="lblTeacher" runat="server" Text='<%# Eval("full_name") %>'></asp:Label>
                                     <h3>
-                                        <asp:Label ID="lblTeacher" runat="server" Text='<%# Eval("name") %>'></asp:Label></h3>
-                                        <p style="font-size:150%;">Current Grade:<asp:Label ID="lblcurGrade" runat="server" Text=" B+(89%)"></asp:Label></p>
+                                        <asp:Label ID="lblGrade" runat="server" Text='<%# Eval("average_grade") %>'></asp:Label></h3>
                                 </div>
                                 <%--<div id="mailButton" class="overbox" runat="server">
                                         <div class="material-button alt-2"><span id="overbox" class="shape"><i class="material-icons" style="position: absolute;font-size: 298%;color: white;top: 31%;left: 33%;">mail</i></span></div>
