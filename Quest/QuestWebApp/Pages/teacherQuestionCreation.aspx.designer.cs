@@ -517,13 +517,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.Label lblDispMCQuestion;
         
         /// <summary>
-        /// txtEditMCQuestion control.
+        /// txtMCQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditMCQuestion;
+        protected global::System.Web.UI.WebControls.Label txtMCQuestion;
         
         /// <summary>
         /// lblAddMultipleChoiceBody control.
