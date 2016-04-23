@@ -12,7 +12,8 @@ namespace QuestWebApp.Pages
    public partial class adminClass : System.Web.UI.Page
    {
         bool showdeleteStudent,
-            showUpdate;
+            showUpdate,
+            showFailSectionDelete;
       protected void Page_Load(object sender, EventArgs e)
       {
          // SECURITY DISABLED FOR TESTING -----
@@ -41,6 +42,11 @@ namespace QuestWebApp.Pages
             else
                 showUpdate = false;
 
+            if (Session["showFailSectionDelete"] != null)
+                showFailSectionDelete = (bool)Session["showFailSectionDelete"];
+            else
+                showFailSectionDelete = false;
+
             if (showdeleteStudent == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
@@ -56,6 +62,15 @@ namespace QuestWebApp.Pages
                 "toastr.success('The Class Information Has Been Updated', 'Success!')", true);
                 Session["showUpdate"] = null;
                 showUpdate = false;
+            }
+
+            if (showFailSectionDelete == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+               "toastr.error('Cannot Delete A Section With Students', 'Fail!')", true);
+                Session["showFailSectionDelete"] = null;
+                showFailSectionDelete = false;
             }
         }
 
@@ -103,7 +118,9 @@ END;",
             }
             catch
             {
-                // Put the TOASTER in here
+                showFailSectionDelete = true;
+                Session["showFailSectionDelete"] = true;
+                Response.Redirect(Request.RawUrl);
             }
         }
 
