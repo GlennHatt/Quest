@@ -166,13 +166,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.DropDownList ddlUserSelect;
         
         /// <summary>
-        /// Button3 control.
+        /// btnAddUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnAddUser;
         
         /// <summary>
         /// txtbxCourseNumber control.
@@ -220,13 +220,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator valClassTitle;
         
         /// <summary>
-        /// Button1 control.
+        /// btnAddClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnAddClass;
         
         /// <summary>
         /// ddlSemester control.
@@ -292,13 +292,13 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlTeacherValidator;
         
         /// <summary>
-        /// btnaddSection control.
+        /// btnAddSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddSection;
+        protected global::System.Web.UI.WebControls.Button btnAddSection;
         
         /// <summary>
         /// jquery control.
