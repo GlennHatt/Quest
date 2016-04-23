@@ -89,6 +89,7 @@
                                     <EditItemTemplate>
                                         <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update">Update</asp:LinkButton>
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
+                                        <asp:HiddenField ID="hdnSectionID" runat="server" Value='<%#Bind("section_id") %>' />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Semester" SortExpression="SEMESTER">
