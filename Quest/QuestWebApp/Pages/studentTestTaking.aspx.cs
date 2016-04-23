@@ -26,6 +26,8 @@ namespace QuestWebApp.Pages
          OracleCommand cmdLoadTest = new OracleCommand();
          OracleDataReader reader;
 
+            Page.ClientScript.GetPostBackEventReference(btnSaveTest, "onclick");
+
          Session["TestID"] = 5;
          Session["UserID"] = 54;
 

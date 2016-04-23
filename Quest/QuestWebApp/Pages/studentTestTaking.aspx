@@ -214,7 +214,7 @@ SELECT choice_id, choice_text
 
             <asp:Label ID="lblASP" runat="server" Text="Label" CssClass="hidden"></asp:Label>
             <div style="position: fixed; right: 41px; bottom: 80px; z-index: 2;">
-                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="clickSave(this)" />
+                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" />
             </div>
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
                 <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
@@ -280,10 +280,6 @@ SELECT choice_id, choice_text
             // wait for progress bar to load before incrementing
             //testProgress = JSON.parse(document.getElementById("<%=lblProgressBar.ClientID%>").textContent);
             progressArray = document.getElementById("<%=lblProgressBar.ClientID%>").textContent;
-            //console.log("new test progress: " + progressArray);
-            //console.log("total questions: " + totalQuestions);
-
-            //progressArray = progressArray.slice(0, -1);
             testProgress = progressArray.split(',');
             
             setTimeout(function () {
@@ -301,18 +297,15 @@ SELECT choice_id, choice_text
 
         window.onbeforeunload = function () {
 
-            <%--'<%Session["testProgress"] = "' + testProgress + '"; %>';--%>
-            //localStorage.setItem("testProgress", JSON.stringify(testProgress));
-            //localStorage.setItem("progressPercent", progressPercent);
-            
-            <%--console.log('<%= Session["testProgress"] %>');--%>
-            //console.log(localStorage.getItem("testProgress").toString());
-
             if (!isPostingBack)
             {
 
                 isPostingBack = false;
-                document.getElementById("<%=btnSaveTest.ClientID%>").click();
+                setTimeout(function () {
+                    document.getElementById("<%=btnSaveTest.ClientID%>").click();
+                }, 500);
+                
+                
                 console.log("save test");
                 return "Are you sure you want to end the test?";
             }
@@ -322,11 +315,6 @@ SELECT choice_id, choice_text
         {
             isPostingBack = true;
         }
-
-        //function setProgress(progress)
-        //{
-        //    document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progress);
-        //}
 
         function questionChanged(questionNum)
         {
@@ -357,12 +345,6 @@ SELECT choice_id, choice_text
             progressPercent = (progressNum / totalQuestions) * 100;
             console.log("progress percent: " + totalQuestions);
             document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
-        }
-
-        function clickSave(btn)
-        {
-            btn.click();
-            
         }
 
         function setClientTime(time)
