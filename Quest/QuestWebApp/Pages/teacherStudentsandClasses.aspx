@@ -48,7 +48,7 @@ SELECT section_id, c.code || '-' || section_number AS section_title
             <div class="mdl-textfield mdl-js-textfield" style="text-align: left;">
                 <label style="padding-left: 1%;">Sort By:</label>
                 <asp:DropDownList ID="ddlSortBy" runat="server" class="mdl-textfield__input" DataTextField="Sort By">
-                    <asp:ListItem Value="Email"></asp:ListItem>
+                    <asp:ListItem Value="Username"></asp:ListItem>
                     <asp:ListItem Value="Full Name"></asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -75,12 +75,12 @@ SELECT section_id, c.code || '-' || section_number AS section_title
             <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="gvStudents" runat="server" AutoGenerateColumns="False" DataSourceID="sqlTeacherStudents" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" >
                 <Columns>
                     <asp:BoundField DataField="FULL_NAME" HeaderText="Name" SortExpression="FULL_NAME" />
-                    <asp:BoundField DataField="EMAIL" HeaderText="E-mail" SortExpression="EMAIL" />
+                    <asp:BoundField DataField="USERNAME" HeaderText="Username" SortExpression="USERNAME" />
                 </Columns>
             </asp:GridView>
                 </div>
             <asp:SqlDataSource ID="sqlTeacherStudents" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT s.f_name || ' ' || s.l_name full_name, s.email email
+SELECT s.f_name || ' ' || s.l_name full_name, s.username username
   FROM end_user s
        JOIN enrollment e  ON (e.student_id = s.user_id)
        JOIN section    sc ON (e.section_id = sc.section_id)

@@ -63,7 +63,7 @@ namespace QuestWebApp.Pages
             switch (ddlSortBy.SelectedIndex)
             {
                case 0:
-                  sortBy = "email";
+                  sortBy = "username";
                   break;
                case 1:
                   sortBy = "full_name";
