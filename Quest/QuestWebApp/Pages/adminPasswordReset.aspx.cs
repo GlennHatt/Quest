@@ -50,8 +50,6 @@ namespace QuestWebApp.Pages
 
       protected void updatePassword_Click(object sender, EventArgs e)
       {
-         if (txtbxTeacherConfirmPassword.Text == txtbxTeacherPassword.Text)
-            {
                 utilities util = new utilities();
                 OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
@@ -71,12 +69,6 @@ END;",
                 showPasswordUpdated = true;
                 Session["showPasswordUpdated"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
-          else
-            {
-                // PUT THE TOASTER IN HERE
-                cardUpdatePassword.Visible = true;
-            }
         }
    }
 }

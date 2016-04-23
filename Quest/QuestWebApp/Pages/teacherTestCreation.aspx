@@ -147,4 +147,17 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../Assets/JS/Datepicker/datepicker.js"></script>
 
+    <script>
+
+        var endDate = new Date(Date.now());
+        var days = 7;
+        endDate.setDate(endDate.getDate() + days);
+
+        var eMonth = '' + (endDate.getMonth() + 1),
+            eDay = '' + endDate.getDate(),
+            eYear = endDate.getFullYear();
+
+        document.getElementById("dueDate").value = eMonth + "-" + eDay + "-" + eYear;
+    </script>
+
 </asp:Content>

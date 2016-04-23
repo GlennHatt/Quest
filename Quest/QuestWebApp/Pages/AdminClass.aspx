@@ -181,9 +181,11 @@ BEGIN
         p_Semester      => :semester,
         p_SectionNumber => :section_number);
 END;"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="sqlTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="SELECT user_id, f_name || ' ' || l_name as FULL_NAME
+    <asp:SqlDataSource ID="sqlTeachers" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
+SELECT user_id, f_name || ' ' || l_name as FULL_NAME
   FROM end_user
  WHERE permission_level = 'T'
+   AND  active != 'false'
        OR permission_level = 'A'"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT class_id, code || '/' || title as CODE_TITLE

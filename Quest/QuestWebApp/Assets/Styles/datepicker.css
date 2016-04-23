@@ -87,11 +87,11 @@ transition: all 0.3s cubic-bezier(.4,0,.2,1);
 }
 
 input.datepicker {
-background-image: url('http://uxrepo.com/download.php?img=static/icon-sets/ocha/svg/calendar.svg&color=000000'); 
+/*background-image: url('http://uxrepo.com/download.php?img=static/icon-sets/ocha/svg/calendar.svg&color=000000'); 
 background-repeat: no-repeat; 
-/*background-position: 284px center; */
+/*background-position: 284px center; 
 background-position: 92% center;
-background-size: 22px 22px;
+background-size: 22px 22px;*/
 }
 
 .searchtipp {font-size: 14px; font-family: Roboto; letter-spacing: 0; color: rgba(32,39,36,0.7);line-height: 20px; width: 100%;display:inline-block; text-align:center; padding: 15px 0 10px 0;}
