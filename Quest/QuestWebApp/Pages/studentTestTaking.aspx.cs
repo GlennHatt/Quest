@@ -28,9 +28,6 @@ namespace QuestWebApp.Pages
 
             Page.ClientScript.GetPostBackEventReference(btnSaveTest, "onclick");
 
-         Session["TestID"] = 5;
-         Session["UserID"] = 54;
-
          if (!IsPostBack)
          {
             if (Session["TestID"] == null)
