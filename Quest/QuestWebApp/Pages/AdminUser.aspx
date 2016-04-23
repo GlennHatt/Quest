@@ -116,14 +116,14 @@ END;"></asp:SqlDataSource>
                                         <asp:LinkButton ID="lnkEdit" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Edit">Edit</asp:LinkButton>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" CommandArgument='<%# Bind("user_id") %>'>Update</asp:LinkButton>
+                                        <asp:LinkButton ID="lnkUpdate" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Update" CommandArgument='<%# Bind("user_id") %>' ValidationGroup="updateUser">Update</asp:LinkButton>
                                         <asp:LinkButton ID="lnkCancel" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" ForeColor="White" CommandName="Cancel">Cancel</asp:LinkButton>
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="First Name" SortExpression="f_name">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:TextBox>
-                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtFirstName" ErrorMessage="First name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:TextBox><br />
+                                        <asp:RequiredFieldValidator ValidationGroup="updateUser" SkinID="validatorSkin" runat="server" ID="valUserFname" ControlToValidate="txtFirstName" ErrorMessage="First name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="lblFirstName" runat="server" Text='<%# Bind("f_name") %>'></asp:Label>
@@ -131,8 +131,8 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Last Name" SortExpression="l_name">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:TextBox>
-                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserLname" ControlToValidate="txtLastName" ErrorMessage="Last name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:TextBox><br />
+                                        <asp:RequiredFieldValidator SkinID="validatorSkin" ValidationGroup="updateUser" runat="server" ID="valUserLname" ControlToValidate="txtLastName" ErrorMessage="Last name required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="lblLastName" runat="server" Text='<%# Bind("l_name") %>'></asp:Label>
@@ -156,8 +156,8 @@ END;"></asp:SqlDataSource>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Username" SortExpression="username">
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("username") %>'></asp:TextBox>
-                                        <asp:RequiredFieldValidator SkinID="validatorSkin" runat="server" ID="valUserName" ControlToValidate="txtUsername" ErrorMessage="Username required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="txtUsername" runat="server" Text='<%# Bind("username") %>'></asp:TextBox><br />
+                                        <asp:RequiredFieldValidator SkinID="validatorSkin" ValidationGroup="updateUser" runat="server" ID="valUserName" ControlToValidate="txtUsername" ErrorMessage="Username required"  SetFocusOnError="True" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label5" runat="server" Text='<%# Bind("username") %>'></asp:Label>
