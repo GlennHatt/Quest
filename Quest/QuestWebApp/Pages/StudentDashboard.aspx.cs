@@ -9,21 +9,27 @@ namespace QuestWebApp.Pages
 {
    public partial class studentDashboard : System.Web.UI.Page
    {
-      bool isTest = false; // If there is a pending test, change to true
+      bool isTest; // If there is a pending test, change to true
 
       protected void Page_Load(object sender, EventArgs e)
       {
          
          displayGreeting();
+            lstStudentTests.DataBind();
+            System.Diagnostics.Debug.WriteLine("count is" + lstStudentTests.Items.Count);
+            if (lstStudentTests.Items.Count > 0)
+                isTest = true;
+            else
+                isTest = false;
 
          if (isTest == false)
          {
             noTestMessage.Visible = true;
-            cardAllCaughtUp.Visible = false;
+            cardAllCaughtUp.Visible = true;
          } else
          {
             noTestMessage.Visible = false;
-            cardAllCaughtUp.Visible = true;
+            cardAllCaughtUp.Visible = false;
          }
 
       }
