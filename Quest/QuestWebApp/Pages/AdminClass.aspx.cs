@@ -5,6 +5,7 @@ using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
@@ -13,24 +14,12 @@ namespace QuestWebApp.Pages
    {
         bool showdeleteStudent,
             showUpdate,
-            showFailSectionDelete;
+            showFailSectionDelete,
+            showFailSectionUpdate;
+
+      OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
       protected void Page_Load(object sender, EventArgs e)
       {
-         // SECURITY DISABLED FOR TESTING -----
-         /*try
-         {
-             if (Session["userClassification"] == null)
-                 throw new NullReferenceException();
-             if ((char)Session["userClassification"] != 'A')
-             {
-                 utilities util = new utilities();
-                 util.checkAuthentication(1, (char)Session["userClassification"], (char)Session["neededClassification"]);
-             }
-         }
-         catch (NullReferenceException)
-         {
-             Response.Redirect("login.aspx");
-         } */
          GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
             if (Session["showdeleteStudent"] != null)
                 showdeleteStudent = (bool)Session["showdeleteStudent"];
@@ -46,6 +35,11 @@ namespace QuestWebApp.Pages
                 showFailSectionDelete = (bool)Session["showFailSectionDelete"];
             else
                 showFailSectionDelete = false;
+
+            if (Session["showFailSectionUpdate"] != null)
+                showFailSectionUpdate = (bool)Session["showFailSectionUpdate"];
+            else
+                showFailSectionUpdate = false;
 
             if (showdeleteStudent == true)
             {
@@ -71,6 +65,15 @@ namespace QuestWebApp.Pages
                "toastr.error('Cannot Delete A Section With Students', 'Fail!')", true);
                 Session["showFailSectionDelete"] = null;
                 showFailSectionDelete = false;
+            }
+
+            if (showFailSectionUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+               "toastr.error('Cannot update section with duplicate values', 'Fail!')", true);
+                Session["showFailSectionUpdate"] = null;
+                showFailSectionUpdate = false;
             }
         }
 
@@ -102,8 +105,7 @@ namespace QuestWebApp.Pages
 BEGIN
    sections.delete(
     p_SectionID => :p_SectionID);
-END;",
-                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
                 cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
 
                 cmdDeleteClass.Connection.Open();
@@ -153,7 +155,43 @@ END;",
          }
       }
 
-        protected void GVClass_PreRender(object sender, EventArgs e)
+      protected void GVClass_DataBound(object sender, EventArgs e)
+      {
+         foreach (GridViewRow row in GVClass.Rows)
+         {
+            int section_id = int.Parse(((HiddenField)row.FindControl("hdnSectionID")).Value);
+            int children = 0;
+
+
+            OracleCommand cmdFindChild = new OracleCommand(@"
+BEGIN
+  SELECT NVL(SUM(section_id), -1) INTO :v_HasChild
+    FROM section
+         JOIN enrollment USING (section_id)
+   WHERE section_id = :p_SectionID;
+END;", connectionString);
+            cmdFindChild.Parameters.AddWithValue("p_SectionID", int.Parse(((HiddenField)row.FindControl("hdnSectionID")).Value));
+            cmdFindChild.Parameters.AddWithValue("v_HasChild", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+            cmdFindChild.Connection.Open();
+            cmdFindChild.ExecuteNonQuery();
+
+            children = Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value);
+
+            if (Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value) != -1)
+            {
+               ((HtmlGenericControl)row.FindControl("myButton")).Attributes.Remove("onclick");
+               HtmlGenericControl btnFront = ((HtmlGenericControl)row.FindControl("btnFront"));
+
+               btnFront.Disabled = true;
+               btnFront.Attributes.Add("style", "background-color:gray;");
+            }
+
+            cmdFindChild.Connection.Close();
+         }
+      }
+
+      protected void GVClass_PreRender(object sender, EventArgs e)
         {
             GridView grdView = (GridView)sender;
             if (grdView.Rows.Count > 0)

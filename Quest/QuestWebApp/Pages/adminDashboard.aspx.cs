@@ -69,16 +69,10 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Need to change "Welcome User"
-            //userName = (Label)Master.FindControl("txtGreeting");
-            //userName.Text = Session["UserID"].ToString();
-
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
 
             Response.Cache.SetNoStore();
-
-            //lblWarning.Text = valCourseNumber.Text;
 
             // toast notifications 
             if (Session["showAddUserMessage"] != null)
@@ -146,6 +140,7 @@ namespace QuestWebApp.Pages
                 Session["showFailAddClassMessage"] = null;
                 showFailAddClassMessage = false;
             }
+
             if (showFailAddSectionMessage == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
@@ -154,7 +149,8 @@ namespace QuestWebApp.Pages
                 Session["showFailAddSectionMessage"] = null;
                 showFailAddSectionMessage = false;
             }
-            if (showFailAddSectionMessage == true)
+
+            if (showFailAddUserNameMessage == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
                 "toastr_message",
@@ -180,80 +176,12 @@ namespace QuestWebApp.Pages
                 ddlSemester.Items.Add(new ListItem("Spring " + (currentYear + 2)));
             }
 
-
-
             // Reset the sizing buttons on page refresh
             ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtons", "<script>pageResetSmall('btnResizeUserSm', 'btnResizeClassSm', 'btnResizeSectionSm');</script>", false);
             ScriptManager.RegisterStartupScript(Page, GetType(), "fixSizingButtonsLrg", "<script>pageResetLarge('btnResizeUserLrg', 'btnResizeClassLrg', 'btnResizeSectionLrg');</script> ", false);
-
-
         }
 
-        // Insert user into database
-        protected void btnAddTeacher_Click(object sender, EventArgs e)
-        {
-            //string passwordStrength;
-            int errorCount = 0;
-
-            //lblWarning.Text = string.Empty;
-
-            if (txtbxTeacherFirstName.Text == String.Empty)
-            {
-                txtbxTeacherFirstName.BorderColor = Color.Red;
-                errorCount++;
-            }
-            if (txtbxTeacherLastName.Text == String.Empty)
-            {
-                txtbxTeacherLastName.BorderColor = Color.Red;
-                errorCount++;
-            }
-            if (txtbxTeacherEmail.Text == String.Empty)
-            {
-                txtbxTeacherEmail.BorderColor = Color.Red;
-                errorCount++;
-            }
-            //if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
-            //{
-            //    txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            //    errorCount++;
-            //}
-            //else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
-            //{
-            //    passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
-
-            //    if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
-            //    {
-            //        txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
-            //        lblPassword.Visible = true;
-            //        lblWarning.Text = " Password is " + passwordStrength + ";";
-            //        errorCount++;
-            //    }
-            //}
-            //else
-            //{
-            //    txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            //    errorCount++;
-            //}
-
-            if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
-            {
-                ddlUserSelect.BorderColor = Color.Red;
-                errorCount++;
-            }
-
-            if (errorCount == 0)
-            {
-                sqlTeacher.Insert();
-                clearUserFields();
-                ddlTeacher.DataBind();
-                // Toast
-                showAddUserMessage = true;
-                Session["showAddUserMessage"] = true;
-                Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnAddClass_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
 
@@ -298,23 +226,9 @@ namespace QuestWebApp.Pages
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void btnAddSection_Click(object sender, EventArgs e)
         {
             int errorCount = 0;
-
-            // May this can be revisited to check for already taken semesters and sections of classes
-            /*if(ddlSemester.SelectedIndex == 0)
-            {
-                ddlSemester.BorderColor = Color.Red;
-                errorCount++;
-            }*/
-
-            /*if(ddlSection.SelectedIndex == 0)
-            {
-                // Should we default the section to 1 or maybe the next available section?
-                ddlSection.BorderColor = Color.Red;
-                errorCount++;
-            }*/
 
             if (ddlCourses.SelectedIndex == 0)
             {
@@ -339,15 +253,14 @@ namespace QuestWebApp.Pages
                 }
                 catch
                 {
-                    clearClassFields();
-                    showFailAddClassMessage = true;
-                    Session["showFailAddClassMessage"] = true;
+                    showFailAddSectionMessage = true;
+                    Session["showFailAddSectionMessage"] = true;
                     Response.Redirect(Request.RawUrl); // to ensure message always shows up
                 }
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void btnAddUser_Click(object sender, EventArgs e)
         {
             //string passwordStrength;
             int errorCount = 0;
@@ -369,26 +282,6 @@ namespace QuestWebApp.Pages
                 txtbxTeacherEmail.BorderColor = Color.Red;
                 errorCount++;
             }
-            //if (txtbxTeacherPassword.Text == String.Empty && txtbxTeacherConfirmPassword.Text == String.Empty)
-            //{
-            //   txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            //   errorCount++;
-            //} else if (txtbxTeacherPassword.Text == txtbxTeacherConfirmPassword.Text)
-            //{
-            //   passwordStrength = PasswordAdvisor.CheckStrength(txtbxTeacherConfirmPassword.Text).ToString();
-
-            //   if (passwordStrength == "Weak" || passwordStrength == "VeryWeak")
-            //   {
-            //      txtbxTeacherPassword.BorderColor = txtbxTeacherConfirmPassword.BorderColor = Color.Red;
-            //      lblPassword.Visible = true;
-            //      //lblWarning.Text = " Password is " + passwordStrength + ";";
-            //      errorCount++;
-            //   }
-            //} else
-            //{
-            //   txtbxTeacherConfirmPassword.BorderColor = txtbxTeacherPassword.BorderColor = Color.Red;
-            //   errorCount++;
-            //}
 
             if (string.IsNullOrEmpty(ddlUserSelect.SelectedValue))
             {
@@ -416,51 +309,6 @@ namespace QuestWebApp.Pages
                     Session["showFailAddUserNameMessage"] = true;
                     Response.Redirect(Request.RawUrl); // to ensure message always shows up
                 }
-            }
-        }
-
-        // Insert class into database
-        protected void btnAddClass_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnAddSection_Click(object sender, EventArgs e)
-        {
-            int errorCount = 0;
-
-            // May this can be revisited to check for already taken semesters and sections of classes
-            /*if(ddlSemester.SelectedIndex == 0)
-            {
-                ddlSemester.BorderColor = Color.Red;
-                errorCount++;
-            }*/
-
-            /*if(ddlSection.SelectedIndex == 0)
-            {
-                // Should we default the section to 1 or maybe the next available section?
-                ddlSection.BorderColor = Color.Red;
-                errorCount++;
-            }*/
-
-            if (ddlCourses.SelectedIndex == 0)
-            {
-                ddlCourses.BorderColor = Color.Red;
-                errorCount++;
-            }
-
-            if (ddlTeacher.SelectedIndex == 0)
-            {
-                ddlTeacher.BorderColor = Color.Red;
-                errorCount++;
-            }
-
-            if (errorCount == 0)
-            {
-                sqlSection.Insert();
-                showAddSectionMessage = true;
-                Session["showAddSectionMessage"] = true;
-                Response.Redirect(Request.RawUrl); // to ensure message always shows up
             }
         }
     }

@@ -26,6 +26,8 @@ namespace QuestWebApp.Pages
          OracleCommand cmdLoadTest = new OracleCommand();
          OracleDataReader reader;
 
+            Page.ClientScript.GetPostBackEventReference(btnSaveTest, "onclick");
+
          Session["TestID"] = 5;
          Session["UserID"] = 54;
 
@@ -456,8 +458,7 @@ SELECT essay
                         if (reader.Read())
                         {
                            ((TextBox)item.FindControl("txtEAnswer")).Text = reader.GetValue(0).ToString();
-
-                           if (reader.GetValue(0).ToString() == null)
+                           if (reader.GetValue(0).ToString() == string.Empty)
                               progressElement = "false,";
                            else
                               progressElement = "true,";
@@ -485,8 +486,8 @@ SELECT student_choice
                         if (reader.Read())
                         {
                            ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue = reader.GetValue(0).ToString();
-
-                           if (reader.GetValue(0).ToString() == null)
+                           string stuff = reader.GetValue(0).ToString();
+                           if (stuff == string.Empty)
                               progressElement = "false,";
                            else
                               progressElement = "true,";
@@ -516,7 +517,7 @@ SELECT answer
                            ((TextBox)item.FindControl("txtSAAnswer")).Text = reader.GetValue(0).ToString();
 
 
-                           if (reader.GetValue(0).ToString() == null)
+                           if (reader.GetValue(0).ToString() == string.Empty)
                               progressElement = "false,";
                            else
                               progressElement = "true,";
