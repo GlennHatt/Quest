@@ -308,10 +308,10 @@
                             <div class="mc-description">
                                 <ul style="font-size: 100%;">
                                     <li>Project Secretary</li>
-                                    <li>Runs on Pre-Workout</li>
+                                    <li>Runs on Caffeine</li>
                                     <li>Does Heavy Lifting</li>
-                                    <li>NOVA/DMV</li>
                                     <li>Early Bird</li>
+                                    <li><a href="https://www.biblegateway.com/passage/?search=1+Timothy+4%3A8&version=KJV" target="_blank">I Timothy 4:18</li>
                                 </ul>
                             </div>
                         </div>
@@ -342,7 +342,7 @@
                                     <li>5'5" Curly-Haired Brotha</li>
                                     <li>In and Out Burger ALL DAY, EVERYDAY. </li>
                                     <li>California Kid</li>
-                                    <li>Romans 8:38-39</li>
+                                    <li><a href="https://www.biblegateway.com/passage/?search=Romans+8%3A38-39&version=KJV" target="_blank">Romans 8:38-39</li>
                                 </ul>
                             </div>
                         </div>
@@ -374,7 +374,7 @@
                                     <li>Ball is life</li>
                                     <li>Video Game Master(Chief)</li>
                                     <li>He's Probably Read That </li>
-                                    <li>Psalm 91:2</li>
+                                    <li><a href="https://www.biblegateway.com/passage/?search=Psalm+91%3A2&version=KJV" target="_blank">Psalm 91:2</li>
                                 </ul>
                             </div>
                         </div>
