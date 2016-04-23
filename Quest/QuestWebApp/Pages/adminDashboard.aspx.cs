@@ -253,8 +253,8 @@ namespace QuestWebApp.Pages
                 }
                 catch
                 {
-                    showAddSectionMessage = true;
-                    Session["showAddSectionMessage"] = true;
+                    showFailAddSectionMessage = true;
+                    Session["showFailAddSectionMessage"] = true;
                     Response.Redirect(Request.RawUrl); // to ensure message always shows up
                 }
             }
