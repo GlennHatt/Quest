@@ -5,6 +5,7 @@ using System.Data.OracleClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace QuestWebApp.Pages
@@ -174,7 +175,39 @@ END;",
                 btnStudenttoClass.Enabled = false;
         }
 
-        protected void gvCurrentStudents_RowDataBound(object sender, GridViewRowEventArgs e)
+      protected void gvCurrentStudents_DataBound(object sender, EventArgs e)
+      {
+         foreach (GridViewRow row in gvCurrentStudents.Rows)
+         {
+            int section_id = int.Parse(((HiddenField)row.FindControl("hdnStudentID")).Value);
+            int children = 0;
+
+
+            OracleCommand cmdFindChild = new OracleCommand(@"
+BEGIN
+  SELECT NVL(SUM(student_id), -1) INTO :v_HasChild
+  FROM enrollment
+       JOIN test_taken USING (enrollment_id)
+ WHERE student_id = :p_StudentID;
+END;", connectionString);
+            cmdFindChild.Parameters.AddWithValue("p_StudentID", int.Parse(((HiddenField)row.FindControl("hdnStudentID")).Value));
+            cmdFindChild.Parameters.AddWithValue("v_HasChild", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+            cmdFindChild.Connection.Open();
+            cmdFindChild.ExecuteNonQuery();
+
+            children = Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value);
+
+            if (Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value) != -1)
+            {
+               ((LinkButton)row.FindControl("lnkdelete")).Enabled = false;
+            }
+
+            cmdFindChild.Connection.Close();
+         }
+      }
+
+      protected void gvCurrentStudents_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {

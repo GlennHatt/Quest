@@ -155,7 +155,7 @@ BEGIN
          JOIN enrollment USING (section_id)
    WHERE section_id = :p_SectionID;
 END;", connectionString);
-            cmdFindChild.Parameters.AddWithValue("p_SectionID", section_id);
+            cmdFindChild.Parameters.AddWithValue("p_SectionID", int.Parse(((HiddenField)row.FindControl("hdnSectionID")).Value));
             cmdFindChild.Parameters.AddWithValue("v_HasChild", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
             cmdFindChild.Connection.Open();
@@ -163,7 +163,7 @@ END;", connectionString);
 
             children = Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value);
 
-            if (children != -1)
+            if (Convert.ToInt32(cmdFindChild.Parameters["v_HasChild"].Value) != -1)
             {
                ((HtmlGenericControl)row.FindControl("myButton")).Attributes.Remove("onclick");
                HtmlGenericControl btnFront = ((HtmlGenericControl)row.FindControl("btnFront"));
