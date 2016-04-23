@@ -17,8 +17,9 @@ namespace QuestWebApp.Pages
       string currentUser;
         bool showEnableEmail,
              showPasswordUpdated,
-             showDisableEmail;
-      utilities util = new utilities();
+             showDisableEmail,
+             showFailPasswordUpdated;
+        utilities util = new utilities();
 
         protected void Page_Load(object sender, EventArgs e)
       {
@@ -33,6 +34,11 @@ namespace QuestWebApp.Pages
                 showPasswordUpdated = (bool)Session["showPasswordUpdated"];
             else
                 showPasswordUpdated = false;
+
+            if (Session["showFailPasswordUpdated"] != null)
+                showFailPasswordUpdated = (bool)Session["showFailPasswordUpdated"];
+            else
+                showFailPasswordUpdated = false;
 
             if (Session["showDisableEmail"] != null)
                 showDisableEmail = (bool)Session["showDisableEmail"];
@@ -57,6 +63,14 @@ namespace QuestWebApp.Pages
                 showPasswordUpdated = false;
             }
 
+            if (showFailPasswordUpdated == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+               "toastr.error('Your Old Password Does Not Match', 'Fail!')", true);
+                Session["showFailPasswordUpdated"] = null;
+                showFailPasswordUpdated = false;
+            }
             if (showDisableEmail == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
@@ -112,37 +126,74 @@ SELECT receive_email
 
       protected void clickUpdatePassword(object sender, EventArgs e)
       {
-         currentUser = Session["UserID"].ToString();
-            // ^--- needs to be changed to session when login is up
+            string oldPassword = string.Empty;
+            utilities util = new utilities();
 
-        OracleCommand cmdChangePassword = new OracleCommand(@"
+            OracleCommand checkOldPassword = new OracleCommand(@"
+SELECT password
+  FROM end_user
+ WHERE user_id = :p_UserID", connectionString);
+            checkOldPassword.Parameters.AddWithValue("p_UserID", Session["UserID"]);
+
+            checkOldPassword.Connection.Open();
+            OracleDataReader reader = checkOldPassword.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    oldPassword = reader.GetValue(0).ToString();
+                }
+            }
+            finally
+            {
+                reader.Close();
+            }
+            checkOldPassword.Connection.Close();
+            txtOldPassword.Text = util.CalculateHash(txtOldPassword.Text);
+
+            if (txtOldPassword.Text == oldPassword)
+            {
+                // to ensure message always shows up
+
+                currentUser = Session["UserID"].ToString();
+                // ^--- needs to be changed to session when login is up
+
+                OracleCommand cmdChangePassword = new OracleCommand(@"
 DECLARE
-  currentPassword varchar2 (100);
+    currentPassword varchar2 (100);
 BEGIN
-  SELECT password INTO currentPassword
+    SELECT password INTO currentPassword
     FROM end_user
-   WHERE user_id = :p_EndUserID;
-  IF currentPassword = :p_OldPassword THEN
+    WHERE user_id = :currentUser;
+    IF currentPassword = :typed_password THEN
     end_users.changePassword
-      (p_EndUserID => :p_EndUserID, 
-       p_Password  => :p_NewPassword);
-  END IF;
+        (p_EndUserID => :p_EndUserID, 
+        p_Password  => :p_Password);
+    END IF;
 END;",
-                         connectionString);
-            cmdChangePassword.Parameters.AddWithValue("p_OldPassword", util.CalculateHash(txtOldPassword.Text));
-            cmdChangePassword.Parameters.AddWithValue("p_NewPassword", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
-            cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
-            // ^--- needs to be changed to session when login is up
+                                connectionString);
+                cmdChangePassword.Parameters.AddWithValue("currentUser", currentUser);
+                // ^--- needs to be changed to session when login is up
+                cmdChangePassword.Parameters.AddWithValue("typed_password", txtOldPassword.Text);
+                cmdChangePassword.Parameters.AddWithValue("p_EndUserID", currentUser);
+                // ^--- needs to be changed to session when login is up
+                cmdChangePassword.Parameters.AddWithValue("p_Password", util.CalculateHash(txtbxTeacherConfirmPassword.Text));
 
 
-            cmdChangePassword.Connection.Open();
-            cmdChangePassword.ExecuteNonQuery();
-            cmdChangePassword.Connection.Close();
-            txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = txtOldPassword.Text = string.Empty;
-
-            showPasswordUpdated = true;
-            Session["showPasswordUpdated"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+                cmdChangePassword.Connection.Open();
+                cmdChangePassword.ExecuteNonQuery();
+                cmdChangePassword.Connection.Close();
+                txtbxTeacherPassword.Text = txtbxTeacherConfirmPassword.Text = txtOldPassword.Text = string.Empty;
+                showPasswordUpdated = true;
+                Session["showPasswordUpdated"] = true;
+                Response.Redirect(Request.RawUrl);
+            }
+            else
+            {
+                showFailPasswordUpdated = true;
+                Session["showFailPasswordUpdated"] = true;
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
       protected void disableEmail()
