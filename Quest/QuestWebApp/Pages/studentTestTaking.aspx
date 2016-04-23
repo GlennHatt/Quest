@@ -293,20 +293,24 @@ SELECT choice_id, choice_text
         
         //console.log("test");
         
-     
+     //window.on
 
         window.onbeforeunload = function () {
+setTimeout(function () {
+                    document.getElementById("<%=btnSaveTest.ClientID%>").click();
+            }, 1500);
+
+            
+
 
             if (!isPostingBack)
             {
 
                 isPostingBack = false;
-                setTimeout(function () {
-                    document.getElementById("<%=btnSaveTest.ClientID%>").click();
-                }, 500);
                 
                 
-                console.log("save test");
+                
+                //console.log("save test");
                 return "Are you sure you want to end the test?";
             }
         }
