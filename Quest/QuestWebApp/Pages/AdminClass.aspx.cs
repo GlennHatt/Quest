@@ -155,6 +155,23 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
          }
       }
 
+      protected void GVClass_RowCommand(object sender, GridViewCommandEventArgs e)
+      {
+         switch (e.CommandArgument.ToString())
+         {
+            case "Update":
+               try
+               {
+                  sqlAdminClasses.Update();
+               }
+               catch
+               {
+                  // Put the fail toats in here Ryan.
+               }
+               break;
+         }
+      }
+
       protected void GVClass_DataBound(object sender, EventArgs e)
       {
          foreach (GridViewRow row in GVClass.Rows)
