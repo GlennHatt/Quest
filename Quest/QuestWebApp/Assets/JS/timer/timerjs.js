@@ -11,8 +11,6 @@ var timerClock = $(".container.timer").find(".clock"),
     timerInput = $('#timer-input'),
     timerSoundsButton = $('#timer-sounds');
 
-    //timerClock.
-
 //// If there is a valid set time from last session, set it again.
 //if(Number(localStorage.lastTimerTime)){
 //    timerTime = Number(localStorage.lastTimerTime) * 60;

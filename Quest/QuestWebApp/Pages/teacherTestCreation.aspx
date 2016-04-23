@@ -66,6 +66,7 @@ SELECT section_id, c.title || '/' || c.code || '-' || section_number AS section_
                     <asp:ListItem Value="00:50:00" Selected="True">50 minutes</asp:ListItem>
                     <asp:ListItem Value="01:00:00">1 hour</asp:ListItem>
                     <asp:ListItem Value="01:20:00">1 hour 20 minutes</asp:ListItem>
+                    <asp:ListItem Value="00:00:00">No Time Limit</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
