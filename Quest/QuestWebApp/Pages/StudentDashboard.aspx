@@ -97,8 +97,7 @@ SELECT t.test_id, eu.user_id, 'Test Name: ' || t.title AS test_title, 'Class: ' 
                             </div>
                     </ItemTemplate>
                 </asp:ListView>
-            </div>
-    </main>
+         
 
             <div class="mdl-cell mdl-cell--4-col" id="noTestMessage" runat="server">
                 
@@ -129,6 +128,9 @@ SELECT t.test_id, eu.user_id, 'Test Name: ' || t.title AS test_title, 'Class: ' 
                     </div>
                 </div>
             </div>
+
+               </div>
+    </main>
 
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="studentPageSpecificJS" runat="server">

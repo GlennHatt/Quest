@@ -70,7 +70,7 @@ END;"></asp:SqlDataSource>
 
             <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
             <!-- This fixes the partial post pack not maintaining scroll possition error -->
-           <%-- <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
             <script type="text/javascript">
                 // It is important to place this JavaScript code after ScriptManager1
                 var xPos, yPos;
@@ -99,7 +99,7 @@ END;"></asp:SqlDataSource>
 
             <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
                 <ContentTemplate>
-                    <asp:Panel ID="pnlEditQuestions" runat="server">--%>
+                    <asp:Panel ID="pnlEditQuestions" runat="server">
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
@@ -183,10 +183,10 @@ END;"></asp:SqlDataSource>
                             <RowStyle Wrap="False"></RowStyle>
 
                         </asp:GridView>
-           <%--         </asp:Panel>
+                    </asp:Panel>
                 </ContentTemplate>
 
-            </asp:UpdatePanel>--%>
+            </asp:UpdatePanel>
         </div>
     </div>
 

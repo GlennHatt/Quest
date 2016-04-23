@@ -46,7 +46,7 @@
 
             <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
             <!-- This fixes the partial post pack not maintaining scroll possition error -->
-<%--            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+            <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
             <script type="text/javascript">
                 // It is important to place this JavaScript code after ScriptManager1
                 var xPos, yPos;
@@ -75,7 +75,7 @@
 
             <asp:UpdatePanel ID="updPnlEditQuestions" runat="server">
                 <ContentTemplate>
-                    <asp:Panel ID="pnlEditQuestions" runat="server">--%>
+                    <asp:Panel ID="pnlEditQuestions" runat="server">
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
@@ -163,18 +163,19 @@
 
                             <RowStyle Wrap="False"></RowStyle>
                         </asp:GridView>
-<%--                    </asp:Panel>
+                    </asp:Panel>
                 </ContentTemplate>
-            </asp:UpdatePanel>--%>
+            </asp:UpdatePanel>
         </div>
         <br />
     </div>
 
-    <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' SelectCommand="
+    <asp:SqlDataSource runat="server" ID="sqlAdminClasses" ConnectionString='<%$ ConnectionStrings:ProductionDB %>' ProviderName='<%$ ConnectionStrings:ProductionDB.ProviderName %>' OnUpdating="sqlAdminClasses_Updating" SelectCommand="
 select semester, class_id, title, section_id, code || '/' || c.title as CODE_TITLE, section_number, l_name || ', ' || f_name as full_name, user_id 
  from class c
       JOIN section s USING (class_id)
-      JOIN end_user e ON (s.teacher_id = e.user_id)"
+      JOIN end_user e ON (s.teacher_id = e.user_id)
+           ORDER BY code"
         UpdateCommand="
 BEGIN
     sections.change(
@@ -189,10 +190,12 @@ SELECT user_id, f_name || ' ' || l_name as FULL_NAME
   FROM end_user
  WHERE permission_level = 'T'
    AND  active != 'false'
-       OR permission_level = 'A'"></asp:SqlDataSource>
+       OR permission_level = 'A'
+          ORDER BY l_name"></asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
 SELECT class_id, code || '/' || title as CODE_TITLE
   FROM class
+       ORDER BY title
  "></asp:SqlDataSource>
     =
 </asp:Content>

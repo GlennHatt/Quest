@@ -157,7 +157,7 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
 
       protected void GVClass_RowCommand(object sender, GridViewCommandEventArgs e)
       {
-         switch (e.CommandArgument.ToString())
+         switch (e.CommandName.ToString())
          {
             case "Update":
                try
@@ -166,13 +166,20 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
                }
                catch
                {
-                  // Put the fail toats in here Ryan.
-               }
+                        showFailSectionUpdate = true;
+                        Session["showFailSectionUpdate"] = true;
+                        Response.Redirect(Request.RawUrl);
+                    }
                break;
          }
       }
 
-      protected void GVClass_DataBound(object sender, EventArgs e)
+        protected void sqlAdminClasses_Updating(object sender, SqlDataSourceCommandEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        protected void GVClass_DataBound(object sender, EventArgs e)
       {
          foreach (GridViewRow row in GVClass.Rows)
          {

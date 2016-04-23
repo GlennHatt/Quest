@@ -43,7 +43,7 @@
                     </div>
                     <div style="text-align: right">
                         <br />
-                        <asp:LinkButton ID="btnTaketest" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;" OnClick="btnTaketest_Click">
+                        <asp:LinkButton ID="backHome" runat="server" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" Style="background-color: #EE7600; color: white; left: -13px; bottom: 10px;" onclick="backHome_Click">
                             Back to Home
                         </asp:LinkButton>
                     </div>
