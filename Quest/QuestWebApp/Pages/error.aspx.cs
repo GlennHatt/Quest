@@ -14,10 +14,9 @@ namespace QuestWebApp.Pages
 
       }
 
-      protected void btnTaketest_Click(object sender, EventArgs e)
-      {
-         //Needs to have the correct redirect (preferably to go back to the previous page)
-         //Response.Redirect("Request.UrlReferrer.ToString()");
-      }
-   }
+        protected void backHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/adminDashboard.aspx");
+        }
+    }
 }
