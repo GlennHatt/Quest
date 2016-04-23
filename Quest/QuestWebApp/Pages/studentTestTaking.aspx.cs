@@ -23,7 +23,12 @@ namespace QuestWebApp.Pages
       protected void Page_Load(object sender, EventArgs e)
       {
 
-            int timerTime = 0;
+         int timerTime = 0;
+         OracleCommand cmdLoadTest = new OracleCommand();
+         OracleDataReader reader;
+
+         Session["TestID"] = 5;
+         Session["UserID"] = 54;
 
          if (!IsPostBack)
          {
@@ -35,18 +40,18 @@ namespace QuestWebApp.Pages
             if (Session["cardsLarge"] == null)
                Session["cardsLarge"] = false;
 
-                
-                OracleCommand cmdGetTime = new OracleCommand(@"
+
+            cmdLoadTest = new OracleCommand(@"
   SELECT test_taken_id 
     FROM test_taken
          JOIN enrollment USING (enrollment_id)
    WHERE test_id    = :p_TestID
      AND student_id = :p_StudentID", connectionString);
-            cmdGetTime.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
-            cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
+            cmdLoadTest.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
+            cmdLoadTest.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-            cmdGetTime.Connection.Open();
-            OracleDataReader reader = cmdGetTime.ExecuteReader();
+            cmdLoadTest.Connection.Open();
+            reader = cmdLoadTest.ExecuteReader();
             try
             {
                if (reader.Read())
@@ -65,64 +70,23 @@ namespace QuestWebApp.Pages
             {
                reader.Close();
             }
-            cmdGetTime.Connection.Close();
+            cmdLoadTest.Connection.Close();
 
             if (Session["testTakenID"] == null)
             {
-               cmdGetTime = new OracleCommand(@"
+               cmdLoadTest = new OracleCommand(@"
 SELECT time_limit, restore_test
   FROM test
  WHERE test_id = :p_TestID", connectionString);
-               cmdGetTime.Parameters.AddWithValue("p_TestID", Session["TestID"]);
+               cmdLoadTest.Parameters.AddWithValue("p_TestID", Session["TestID"]);
 
-               cmdGetTime.Connection.Open();
-               reader = cmdGetTime.ExecuteReader();
+               cmdLoadTest.Connection.Open();
+               reader = cmdLoadTest.ExecuteReader();
                try
                {
                   while (reader.Read())
                   {
-                     timerTime = reader.GetInt32(0);
-
-                     if(reader.GetString(1) == "N")
-                     {
-                        btnSaveTest.Enabled = false;
-                     }
-
-                     lblTimeLimit.Text = timerTime.ToString();
-                  }
-               }
-               finally
-               {
-                  reader.Close();
-               }
-               cmdGetTime.Connection.Close();
-            }
-            else
-            {
-               cmdGetTime = new OracleCommand(@"
-SELECT time_limit, time_left, restore_test
-  FROM test
-       JOIN test_taken USING (test_id)
- WHERE test_taken_id = :p_TestTakenID", connectionString);
-               cmdGetTime.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
-
-               cmdGetTime.Connection.Open();
-               reader = cmdGetTime.ExecuteReader();
-               try
-               {
-                  while (reader.Read())
-                  {
-                     //DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
-                     //int ellaspedTime = Convert.ToInt32(elapsed.Minute);
-
-                     //if (elapsed.Hour > 0)
-                       // ellaspedTime += 60;
-
-                     //timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
-                     //Session["ellaspedTime"] = ellaspedTime;
-
-
-                     lblTimeLimit.Text = timerTime.ToString();
+                     lblTimeLimit.Text = reader.GetString(0);
 
                      if (reader.GetString(1) == "N")
                      {
@@ -134,9 +98,47 @@ SELECT time_limit, time_left, restore_test
                {
                   reader.Close();
                }
-               cmdGetTime.Connection.Close();
+               cmdLoadTest.Connection.Close();
             }
-            Session["StartTime"] = DateTime.Now.ToString();
+            else
+            {
+               cmdLoadTest = new OracleCommand(@"
+SELECT time_left, restore_test
+  FROM test
+       JOIN test_taken USING (test_id)
+ WHERE test_taken_id = :p_TestTakenID", connectionString);
+               cmdLoadTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+
+               cmdLoadTest.Connection.Open();
+               reader = cmdLoadTest.ExecuteReader();
+               try
+               {
+                  while (reader.Read())
+                  {
+                     //DateTime elapsed = Convert.ToDateTime(reader.GetValue(1));
+                     //int ellaspedTime = Convert.ToInt32(elapsed.Minute);
+
+                     //if (elapsed.Hour > 0)
+                     // ellaspedTime += 60;
+
+                     //timerTime = Convert.ToInt32(reader.GetValue(0).ToString()) - ellaspedTime;
+                     //Session["ellaspedTime"] = ellaspedTime;
+
+
+                     lblTimeLimit.Text = reader.GetString(0);
+
+                     if (reader.GetString(1) == "N")
+                     {
+                        btnSaveTest.Visible = false;
+                     }
+                  }
+               }
+               finally
+               {
+                  reader.Close();
+               }
+               cmdLoadTest.Connection.Close();
+            }
          }
       }
 
@@ -254,30 +256,13 @@ END;", connectionString);
       {
          string questionID;
          string questionType;
+         string timerTime;
          OracleCommand cmdGradeQuestion = new OracleCommand();
-         DateTime startTime = Convert.ToDateTime(Session["StartTime"].ToString());
-         DateTime currentTime = DateTime.Now;
-         int ellapsedTime = 0;
-         string hour;
 
-         if (Session["ellaspedTime"] != null)
-            ellapsedTime = Convert.ToInt32(Session["ellaspedTime"]);
-
-         if (ellapsedTime < 60)
-         {
-            hour = "0";// Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour) - 1);
-         }
-         else
-         {
-            hour = "0";//Convert.ToString(Convert.ToUInt32(currentTime.Hour) - Convert.ToUInt32(startTime.Hour));
-         }
+         timerTime = Page.Request.Form["timerClock"];
+         //timerTime = ((HtmlGenericControl)timerClock).InnerText;
+         //timerTime = Page.Request.
          
-         string minute = Convert.ToString(Convert.ToUInt32(currentTime.Minute) - Convert.ToUInt32(startTime.Minute) + ellapsedTime);
-         string second = "0";// Convert.ToString(Convert.ToUInt32(currentTime.Second) - Convert.ToUInt32(startTime.Second));
-         //currentTime.Subtract(Convert.ToDateTime(Session["StartTime"].ToString()));
-         string remainingTime = hour + ":" + minute + ":" + second;
-
-
          if (Session["testTakenID"] == null)
          {
             cmdGradeQuestion = new OracleCommand(@"
@@ -289,7 +274,7 @@ BEGIN
 END;", connectionString);
             cmdGradeQuestion.Parameters.AddWithValue("p_StudentID", Session["UserID"]);
             cmdGradeQuestion.Parameters.AddWithValue("p_TestID", Session["TestID"]);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", remainingTime);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", timerTime);
             cmdGradeQuestion.Parameters.AddWithValue("v_TestTakenID", OracleType.Int32).Direction = System.Data.ParameterDirection.Output;
 
             cmdGradeQuestion.Connection.Open();
@@ -308,7 +293,7 @@ BEGIN
     p_TimeLeft    => :p_TimeLeft);
 END;", connectionString);
             cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", remainingTime);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", timerTime);
 
             cmdGradeQuestion.Connection.Open();
             cmdGradeQuestion.ExecuteNonQuery();
