@@ -702,7 +702,6 @@ END;", connectionString);
 
             cell[0].Attributes.Add("data-title", "Question");
             cell[1].Attributes.Add("data-title", "Text");
-            cell[2].Attributes.Add("data-title", "Set Order");
          }
       }
 
@@ -720,12 +719,17 @@ END;", connectionString);
       {
       }
 
+        protected void lnkEditMCDelete_Click(object sender, EventArgs e)
+        {
+            //hideInputs();
+        }
 
 
 
-      //protected void btnPointValue_Click(object sender, EventArgs e)
-      //{
-      //    cardQuestionType.Visible = true;
-      //}
-   }
+
+        //protected void btnPointValue_Click(object sender, EventArgs e)
+        //{
+        //    cardQuestionType.Visible = true;
+        //}
+    }
 }

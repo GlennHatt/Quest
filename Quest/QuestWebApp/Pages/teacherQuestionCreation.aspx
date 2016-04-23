@@ -158,7 +158,6 @@ SELECT choice_id, question_id, choice_text, set_order
             <div class="table-responsive-vertical shadow-z-1">
                 <asp:GridView ID="grdMultipleChoiceBody" CssClass="table table-hover table-mc-light-blue" CellSpacing="-1" GridLines="None" OnRowDataBound="grdMultipleChoiceBody_RowDataBound" runat="server" AutoGenerateColumns="False" DataKeyNames="CHOICE_ID" DataSourceID="sqlMultipleChoiceBody">
                     <Columns>
-                        <asp:BoundField DataField="QUESTION_ID" HeaderText="Question ID" SortExpression="QUESTION_ID" />
                         <asp:BoundField DataField="CHOICE_TEXT" HeaderText="CHOICE_TEXT" SortExpression="CHOICE_TEXT" />
                         <asp:BoundField DataField="SET_ORDER" HeaderText="SET_ORDER" SortExpression="SET_ORDER" />
                     </Columns>
@@ -253,7 +252,7 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>
-</div>
+
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
         <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" OnClick="finishTest_Click" />
@@ -337,7 +336,7 @@ END;">
                                     <div style="text-align: center">
 
                                         <asp:LinkButton ID="LinkButton1" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Edit" CommandName="Edit" />
-                                        <asp:LinkButton ID="LinkButton2" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" CommandName="Delete"/>
+                                        <asp:LinkButton ID="LinkButton2" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Delete" OnClick="lnkEditMCDelete_Click" CommandName="Delete"/>
                                     </div>
                                     <br />
                                     <div>
@@ -585,7 +584,7 @@ END;">
                                                         <ItemTemplate>
                                                             <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" Value='<%#Bind("choice_id") %>' />
                                                             <asp:LinkButton ID="lnkEditMCEdit" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="edit" Width="80px">Edit</asp:LinkButton>
-                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="delete" Width="80px">Delete</asp:LinkButton>
+                                                            <asp:LinkButton ID="lnkEditMCDelete" ForeColor="White" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent sizeButton" runat="server" CommandName="delete" Width="80px" OnClick="lnkEditMCDelete_Click">Delete</asp:LinkButton>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:HiddenField ID="hdnEditMCChoiceID" runat="server" Value='<%#Bind("choice_id") %>' />
