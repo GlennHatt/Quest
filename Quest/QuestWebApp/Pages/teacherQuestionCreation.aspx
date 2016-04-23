@@ -253,7 +253,6 @@ SELECT choice_id, question_id, choice_text, set_order
             </div>
         </div>
     </div>
-</div>
 
     <div style="position: fixed; right: 31px; margin-top: 413px; z-index: 2;">
         <asp:Button ID="finishTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Back To Dashboard" OnClick="finishTest_Click" />
