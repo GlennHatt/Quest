@@ -79,7 +79,7 @@
                         <!-- End borrowed Code, except the closeing tags... -->
 
 
-                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id" OnRowUpdated="GVClass_RowUpdated" OnPreRender="GVClass_PreRender" OnDataBound="GVClass_DataBound">
+                        <asp:GridView CssClass="table table-hover table-mc-light-blue" ID="GVClass" runat="server" AutoGenerateColumns="False" DataSourceID="sqlAdminClasses" RowStyle-Wrap="false" CellSpacing="-1" GridLines="None" OnRowDataBound="GVClass_RowDataBound" DataKeyNames="section_id" OnRowUpdated="GVClass_RowUpdated" OnPreRender="GVClass_PreRender" OnDataBound="GVClass_DataBound" OnRowCommand="GVClass_RowCommand">
                             <Columns>
                                 <asp:TemplateField HeaderText="Edit">
                                     <ItemTemplate>
