@@ -16,16 +16,11 @@ namespace QuestWebApp.Pages
    {
       protected void Page_Load(object sender, EventArgs e)
       {
-
-         int defaultStartTime = 8;
-
-         //((HtmlGenericControl)Page.Request.Form["dueDate"]).InnerText = DateTime.Now.AddDays(7).ToString("dd-MMM-yy");
-
+         
       }
 
       protected void btnAddInfo_Click(object sender, EventArgs e)
       {
-         //string dateString = indnap.Value;
          DateTime testDateTime = DateTime.Parse(Page.Request.Form["dueDate"]);
          OracleCommand cmdAddTest = new OracleCommand(@"
 BEGIN

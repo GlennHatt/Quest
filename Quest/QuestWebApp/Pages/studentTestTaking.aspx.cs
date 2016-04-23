@@ -22,8 +22,7 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-
-         int timerTime = 0;
+         
          OracleCommand cmdLoadTest = new OracleCommand();
          OracleDataReader reader;
 
