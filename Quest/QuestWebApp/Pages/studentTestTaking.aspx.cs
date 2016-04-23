@@ -257,12 +257,42 @@ END;", connectionString);
          string questionID;
          string questionType;
          string timerTime;
+         RegexStringValidator regex = new RegexStringValidator(@"[0-9]{1,2}:[0-9]{1,3}:[0-9]{1,2}");
          OracleCommand cmdGradeQuestion = new OracleCommand();
 
          timerTime = Page.Request.Form["timerClock"];
          //timerTime = ((HtmlGenericControl)timerClock).InnerText;
          //timerTime = Page.Request.
-         
+
+         try
+         {
+            regex.Validate(timerTime);
+         }
+         catch
+         {
+            regex = new RegexStringValidator(@"[0-9]{1,3}:[0-9]{1,2}");
+
+            try
+            {
+               regex.Validate(timerTime);
+               timerTime = "00:" + timerTime;
+            }
+            catch
+            {
+               regex = new RegexStringValidator(@"[0-9]{1,2}");
+
+               try
+               {
+                  regex.Validate(timerTime);
+                  timerTime = "00:00:" + timerTime;
+               }
+               catch
+               {
+                  timerTime = "00:00:00" + timerTime;
+               }
+            }
+         }
+
          if (Session["testTakenID"] == null)
          {
             cmdGradeQuestion = new OracleCommand(@"

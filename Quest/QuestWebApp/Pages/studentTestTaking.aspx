@@ -308,8 +308,11 @@ SELECT choice_id, choice_text
             <%--console.log('<%= Session["testProgress"] %>');--%>
             //console.log(localStorage.getItem("testProgress").toString());
 
+            document.getElementById("<%=btnSaveTest.ClientID%>").click();
+
             if (!isPostingBack)
             {
+
                 isPostingBack = false;
                 return "Are you sure you want to end the test?";
             }
