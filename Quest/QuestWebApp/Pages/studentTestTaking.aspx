@@ -34,7 +34,7 @@
                 <div class="control switch">
                     <label>
                         Off
-						<input type="checkbox" disabled id="alarm-btn">
+						<input type="checkbox" id="alarm-btn">
                         <span class="lever"></span>
                         On
                     </label>
@@ -73,7 +73,8 @@
 
                 </div>
 
-                <div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect"></div>
+                <!--<div id="timerClock" runat="server" class="clock inactive z-depth-1 waves-effect"></div>-->
+                <input type="text" id="timerClock" name="timerClock" value="" class="clock inactive z-depth-1 waves-effect fixTimer" />
 
                 <!-- Simple MDL Progress Bar -->
 <div id="p1" class="mdl-progress mdl-js-progress" style="top: -42px;height:21px;z-index:2;width:70%;margin-left:15%;" ></div>

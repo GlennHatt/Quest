@@ -56,5 +56,10 @@
      width:118px;
  }
 
+
+ .fixTimer {
+     text-align: center !important;border: 0px solid !important;font-style: normal !important;
+ }
+
 /*.GridViewEditRow input[type=text] {width:50px;} /* size textboxes 
 .GridViewEditRow select {width:50px;}  size drop down lists */

@@ -11,6 +11,8 @@ var timerClock = $(".container.timer").find(".clock"),
     timerInput = $('#timer-input'),
     timerSoundsButton = $('#timer-sounds');
 
+    //timerClock.
+
 //// If there is a valid set time from last session, set it again.
 //if(Number(localStorage.lastTimerTime)){
 //    timerTime = Number(localStorage.lastTimerTime) * 60;
@@ -47,7 +49,7 @@ function setTime(timeIn) {
         timerTime = (newTime);
         //time = (timeIn / 60);
         localStorage.lastTimerTime = newTime;
-        timerClock.text(returnFormattedToSeconds(timerTime));
+        timerClock.val(returnFormattedToSeconds(timerTime));
     }
 
 
@@ -102,7 +104,7 @@ function startTimer() {
     // Every 1000ms (1 second) decrease the set time until it reaches 0.
     timerInterval = setInterval(function () {
         timerTime--;
-        timerClock.text(returnFormattedToSeconds(timerTime));
+        timerClock.val(returnFormattedToSeconds(timerTime));
 
         if (timerTime <= 0) {
             finishButton.click();
@@ -110,7 +112,7 @@ function startTimer() {
                 alarmSound.play();
             }
 
-            timerClock.text(returnFormattedToSeconds(0));
+            timerClock.val(returnFormattedToSeconds(0));
 
             $('#times-up-modal').openModal();
 
