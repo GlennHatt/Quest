@@ -508,24 +508,6 @@ namespace QuestWebApp.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
         
         /// <summary>
-        /// lblDispMCQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDispMCQuestion;
-        
-        /// <summary>
-        /// txtMCQuestion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtMCQuestion;
-        
-        /// <summary>
         /// lblAddMultipleChoiceBody control.
         /// </summary>
         /// <remarks>
