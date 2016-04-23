@@ -13,12 +13,12 @@ namespace QuestWebApp.Pages {
     public partial class error {
         
         /// <summary>
-        /// btnTaketest control.
+        /// backHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnTaketest;
+        protected global::System.Web.UI.WebControls.LinkButton backHome;
     }
 }
