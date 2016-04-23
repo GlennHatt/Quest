@@ -80,24 +80,31 @@ namespace QuestWebApp.Pages
 
          //Get the row that contains this button
          GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+            try
+            {
 
-         OracleCommand cmdDeleteClass = new OracleCommand(@"
+                OracleCommand cmdDeleteClass = new OracleCommand(@"
 BEGIN
    sections.delete(
     p_SectionID => :p_SectionID);
 END;",
-          new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-         cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
+                 new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
+                cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
 
-         cmdDeleteClass.Connection.Open();
-         cmdDeleteClass.ExecuteNonQuery();
+                cmdDeleteClass.Connection.Open();
+                cmdDeleteClass.ExecuteNonQuery();
 
-         cmdDeleteClass.Connection.Close();
-         GVClass.DataBind();
+                cmdDeleteClass.Connection.Close();
+                GVClass.DataBind();
 
-            showdeleteStudent = true;
-            Session["showdeleteStudent"] = true;
-            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+                showdeleteStudent = true;
+                Session["showdeleteStudent"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
+            catch
+            {
+
+            }
         }
 
       protected void btnSortUsers_Click(object sender, EventArgs e)
