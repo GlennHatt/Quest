@@ -38,7 +38,7 @@
     </style>
 
     <asp:SqlDataSource ID="sqlStudentsClasses" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
-SELECT s.section_id, 'Teacher: ' || eu.f_name || ' ' || eu.l_name as full_name, 'Class: ' || c.title as class_title, 'Average Grade: ' || COALESCE(CAST(ROUND(SUM(qt.points_earned)/SUM(t.possible_points)*100, 2) as varchar(200)), 'No Grades Yet') as average_grade
+SELECT s.section_id, 'Teacher: ' || eu.f_name || ' ' || eu.l_name as full_name, 'Class: ' || c.title as class_title, 'Average Grade: ' || COALESCE(CAST(ROUND((SUM(qt.points_earned)/SUM(DISTINCT t.possible_points))*100, 2) as varchar(200)), 'No Grades Yet') as average_grade
                    FROM test t
                          JOIN test_taken     tt USING (test_id)
                          JOIN question_taken qt USING (test_taken_id)
