@@ -15,7 +15,7 @@
             <br />
             <br />
             <br />
-            <asp:Button runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ID="btnPDF" Text="User Manual"  ForeColor="White" onclick="btnPDF_Click"> </asp:Button>      
+            <a ID="btnPDF" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href="../Assets/User Manual/The User Manual (1).pdf" target="_blank">User Manual</a>
         </div>
     </div>
 </asp:Content>
