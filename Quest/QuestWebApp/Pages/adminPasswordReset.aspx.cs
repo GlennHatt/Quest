@@ -12,8 +12,7 @@ namespace QuestWebApp.Pages
 {
    public partial class adminPasswordReset : System.Web.UI.Page
    {
-        bool showPasswordUpdated,
-            showFailPasswordUpdated;
+        bool showPasswordUpdated;
 
         OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
 
@@ -25,11 +24,6 @@ namespace QuestWebApp.Pages
                 showPasswordUpdated = (bool)Session["showPasswordUpdated"];
             else
                 showPasswordUpdated = false;
-            if (Session["showFailPasswordUpdated"] != null)
-                showFailPasswordUpdated = (bool)Session["showFailPasswordUpdated"];
-            else
-                showFailPasswordUpdated = false;
-
             if (showPasswordUpdated == true)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
@@ -37,14 +31,6 @@ namespace QuestWebApp.Pages
                 "toastr.success('Password Has Been Updated', 'Success!')", true);
                 Session["showPasswordUpdated"] = null;
                 showPasswordUpdated = false;
-            }
-            if (showFailPasswordUpdated == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-                "toastr.error('That username already exists', 'Failed!')", true);
-                Session["showFailAddUserNameMessage"] = null;
-                showFailPasswordUpdated = false;
             }
         }
 
@@ -64,8 +50,6 @@ namespace QuestWebApp.Pages
 
       protected void updatePassword_Click(object sender, EventArgs e)
       {
-         if (txtbxTeacherConfirmPassword.Text == txtbxTeacherPassword.Text)
-            {
                 utilities util = new utilities();
                 OracleCommand cmdChangePassword = new OracleCommand(@"
 BEGIN
@@ -85,15 +69,6 @@ END;",
                 showPasswordUpdated = true;
                 Session["showPasswordUpdated"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
-          else
-            {
-                // PUT THE TOASTER IN HERE
-                cardUpdatePassword.Visible = true;
-                showFailPasswordUpdated = true;
-                Session["showFailPasswordUpdated"] = true;
-                Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
         }
    }
 }
