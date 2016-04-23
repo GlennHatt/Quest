@@ -183,8 +183,8 @@ END;",
 
                 //row.Attributes.Add("class", "header");
                 cell[0].Attributes.Add("data-title", "Delete");
-                cell[1].Attributes.Add("data-title", "Enrollment ID");
-                cell[2].Attributes.Add("data-title", "Students Enrolled");
+                //cell[1].Attributes.Add("data-title", "Enrollment ID");
+                cell[1].Attributes.Add("data-title", "Students Enrolled");
             }
             }
     }

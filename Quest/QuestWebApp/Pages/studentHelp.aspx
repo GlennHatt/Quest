@@ -15,7 +15,7 @@
             <br />
             <br />
             <br />
-            <asp:Button runat="server" ID="btnPDF" Text="User Manual" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="btnPDF_Click"> </asp:Button>    
+            <asp:Button runat="server" ID="btnPDF" Text="User Manual" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  ForeColor="White" onclick="btnPDF_Click"> </asp:Button>    
         
         </div>
     </div>
