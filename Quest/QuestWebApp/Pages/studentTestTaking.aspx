@@ -214,7 +214,7 @@ SELECT choice_id, choice_text
 
             <asp:Label ID="lblASP" runat="server" Text="Label" CssClass="hidden"></asp:Label>
             <div style="position: fixed; right: 41px; bottom: 80px; z-index: 2;">
-                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="moveValue();"/>
+                <asp:Button ID="btnSaveTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent saveTestButtonStyle" runat="server" Text="Save Test" OnClick="btnSaveTest_Click" OnClientClick="clickSave(this)" />
             </div>
             <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
                 <asp:Button ID="btnSubmitTest" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Submit Test" OnClick="btnSubmitTest_Click" OnClientClick="postingBack();"/>
@@ -308,12 +308,12 @@ SELECT choice_id, choice_text
             <%--console.log('<%= Session["testProgress"] %>');--%>
             //console.log(localStorage.getItem("testProgress").toString());
 
-            document.getElementById("<%=btnSaveTest.ClientID%>").click();
-
             if (!isPostingBack)
             {
 
                 isPostingBack = false;
+                document.getElementById("<%=btnSaveTest.ClientID%>").click();
+                console.log("save test");
                 return "Are you sure you want to end the test?";
             }
         }
@@ -359,9 +359,9 @@ SELECT choice_id, choice_text
             document.querySelector('.mdl-js-progress').MaterialProgress.setProgress(progressPercent);
         }
 
-        function moveValue()
+        function clickSave(btn)
         {
-            // wait for progress bar to load before incrementing
+            btn.click();
             
         }
 
