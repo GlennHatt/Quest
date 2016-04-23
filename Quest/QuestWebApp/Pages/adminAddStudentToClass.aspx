@@ -50,11 +50,6 @@
                      <asp:LinkButton ID="lnkdelete" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" CellSpacing="-1" GridLines="None" runat="server" ForeColor="White" CommandName="delete">Delete</asp:LinkButton>
                     </ItemTemplate>
             </asp:TemplateField>
-        <asp:TemplateField HeaderText="Enrollment ID" >
-                        <ItemTemplate>
-                            <asp:Label ID="lblEnrollmentID" runat="server" Text='<%# Eval("enrollment_id") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
         <asp:TemplateField HeaderText="Students Enrolled" >
                         <ItemTemplate>
                             <asp:Label ID="lblStudentsEnrolled" runat="server" Text='<%# Eval("currently_enrolled") %>'></asp:Label>
