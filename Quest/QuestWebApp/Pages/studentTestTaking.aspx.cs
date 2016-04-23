@@ -28,8 +28,8 @@ namespace QuestWebApp.Pages
 
             Page.ClientScript.GetPostBackEventReference(btnSaveTest, "onclick");
 
-         //Session["TestID"] = 5;
-         //Session["UserID"] = 54;
+         Session["TestID"] = 5;
+         Session["UserID"] = 54;
 
          if (!IsPostBack)
          {
@@ -410,6 +410,7 @@ END;", connectionString);
 
       protected void btnSaveTest_Click(object sender, EventArgs e)
       {
+            System.Diagnostics.Debug.WriteLine("reached saving");
          saveTest();
          Response.Redirect("~/Pages/StudentDashboard.aspx");
       }
