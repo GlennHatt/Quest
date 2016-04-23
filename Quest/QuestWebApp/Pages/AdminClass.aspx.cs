@@ -14,7 +14,8 @@ namespace QuestWebApp.Pages
    {
         bool showdeleteStudent,
             showUpdate,
-            showFailSectionDelete;
+            showFailSectionDelete,
+            showFailSectionUpdate;
 
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
       protected void Page_Load(object sender, EventArgs e)
@@ -34,6 +35,11 @@ namespace QuestWebApp.Pages
                 showFailSectionDelete = (bool)Session["showFailSectionDelete"];
             else
                 showFailSectionDelete = false;
+
+            if (Session["showFailSectionUpdate"] != null)
+                showFailSectionUpdate = (bool)Session["showFailSectionUpdate"];
+            else
+                showFailSectionUpdate = false;
 
             if (showdeleteStudent == true)
             {
@@ -60,6 +66,15 @@ namespace QuestWebApp.Pages
                 Session["showFailSectionDelete"] = null;
                 showFailSectionDelete = false;
             }
+
+            if (showFailSectionUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+               "toastr.error('Cannot update section with duplicate values', 'Fail!')", true);
+                Session["showFailSectionUpdate"] = null;
+                showFailSectionUpdate = false;
+            }
         }
 
       protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -83,8 +98,8 @@ namespace QuestWebApp.Pages
 
          //Get the row that contains this button
          GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-            //try
-            //{
+            try
+            {
 
                 OracleCommand cmdDeleteClass = new OracleCommand(@"
 BEGIN
@@ -102,13 +117,13 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
                 showdeleteStudent = true;
                 Session["showdeleteStudent"] = true;
                 Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            //}
-            //catch
-            //{
-            //    showFailSectionDelete = true;
-            //    Session["showFailSectionDelete"] = true;
-            //    Response.Redirect(Request.RawUrl);
-            //}
+            }
+            catch
+            {
+                showFailSectionDelete = true;
+                Session["showFailSectionDelete"] = true;
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
       protected void btnSortUsers_Click(object sender, EventArgs e)
