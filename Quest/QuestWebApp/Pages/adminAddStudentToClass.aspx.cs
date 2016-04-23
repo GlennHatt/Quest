@@ -18,10 +18,6 @@ namespace QuestWebApp.Pages
 
       protected void Page_Load(object sender, EventArgs e)
       {
-            //ddlStudentsSelect.DataBind();
-            
-
-            //btnStudenttoClass.Enabled = false;
             // toast notifications 
             if (Session["showAddStudent"] != null)
             {

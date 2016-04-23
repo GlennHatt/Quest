@@ -17,10 +17,10 @@ namespace QuestWebApp.Pages
 
         protected void Page_Load(object sender, EventArgs e)
       {
-            //Session["TestTakenID"] = "114";
+
             string classGrade = "";
             OracleCommand cmdClassGrade = new OracleCommand(@"
-SELECT COALESCE(CAST(ROUND(SUM(qt.points_earned)/SUM(t.possible_points)*100, 2) as varchar(200)), 'No Grades Yet') as class_grade
+SELECT COALESCE(CAST(ROUND((SUM(qt.points_earned)/SUM(DISTINCT t.possible_points))*100, 2) as varchar(200)), 'No Grades Yet') as class_grade
                    FROM test t
                          JOIN test_taken     tt USING (test_id)
                          JOIN question_taken qt USING (test_taken_id)

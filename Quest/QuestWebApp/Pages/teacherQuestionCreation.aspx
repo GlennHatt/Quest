@@ -283,9 +283,9 @@ END;">
     </asp:SqlDataSource>
 
 
-    <%--  <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
+      <!-- The following code is unaltered code from http://stackoverflow.com/questions/5288682/maintain-panel-scroll-position-on-partial-postback-asp-net -->
     <!-- This fixes the partial post pack not maintaining scroll possition error -->
-    <a<%--sp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release" />
     <script type="text/javascript">
         // It is important to place this JavaScript code after ScriptManager1
         var xPos, yPos;
@@ -315,7 +315,7 @@ END;">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:Panel ID="Panel1" runat="server" Height="300">
-                <!-- End borrowed Code, except the closeing tags... -->--%>
+                <!-- End borrowed Code, except the closeing tags... -->
     <main class="mdl-layout__content" style="width: 100%;">
         <div class="content-grid mdl-grid">
 
@@ -682,9 +682,9 @@ END;">
             <!-- old cell div -->
         </div>
     </main>
-    <%--  </asp:Panel>
+      </asp:Panel>
         </ContentTemplate>
-    </asp:UpdatePanel>--%>
+    </asp:UpdatePanel>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="teacherPageSpecificJS" runat="server">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

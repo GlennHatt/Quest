@@ -30,9 +30,9 @@ SELECT code || '-' || section_number || '/' || title as FULL_NAME, section_id
                 </asp:SqlDataSource>
             </div>
             <asp:RadioButtonList ID="rblTypeTest" CssClass="mdl-textfield_label" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" OnSelectedIndexChanged="rblTypeTest_SelectedIndexChanged">
+                <asp:ListItem Text="Draft Tests" Value="D" />
                 <asp:ListItem Text="Live Tests" Value="L" />
                 <asp:ListItem Text="Past Tests" Value="P" />
-                <asp:ListItem Text="Draft Tests" Value="D" />
             </asp:RadioButtonList>
 
         </div>

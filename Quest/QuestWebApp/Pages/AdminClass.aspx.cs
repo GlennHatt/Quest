@@ -12,70 +12,70 @@ namespace QuestWebApp.Pages
 {
    public partial class adminClass : System.Web.UI.Page
    {
-        bool showdeleteStudent,
-            showUpdate,
-            showFailSectionDelete,
-            showFailSectionUpdate;
+      bool showdeleteStudent,
+          showUpdate,
+          showFailSectionDelete,
+          showFailSectionUpdate;
 
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString);
       protected void Page_Load(object sender, EventArgs e)
       {
          GVClass.HeaderRow.TableSection = TableRowSection.TableHeader;
-            if (Session["showdeleteStudent"] != null)
-                showdeleteStudent = (bool)Session["showdeleteStudent"];
-            else
-                showdeleteStudent = false;
+         if (Session["showdeleteStudent"] != null)
+            showdeleteStudent = (bool)Session["showdeleteStudent"];
+         else
+            showdeleteStudent = false;
 
-            if (Session["showUpdate"] != null)
-                showUpdate = (bool)Session["showUpdate"];
-            else
-                showUpdate = false;
+         if (Session["showUpdate"] != null)
+            showUpdate = (bool)Session["showUpdate"];
+         else
+            showUpdate = false;
 
-            if (Session["showFailSectionDelete"] != null)
-                showFailSectionDelete = (bool)Session["showFailSectionDelete"];
-            else
-                showFailSectionDelete = false;
+         if (Session["showFailSectionDelete"] != null)
+            showFailSectionDelete = (bool)Session["showFailSectionDelete"];
+         else
+            showFailSectionDelete = false;
 
-            if (Session["showFailSectionUpdate"] != null)
-                showFailSectionUpdate = (bool)Session["showFailSectionUpdate"];
-            else
-                showFailSectionUpdate = false;
+         if (Session["showFailSectionUpdate"] != null)
+            showFailSectionUpdate = (bool)Session["showFailSectionUpdate"];
+         else
+            showFailSectionUpdate = false;
 
-            if (showdeleteStudent == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-                "toastr.success('A Class Has Been Deleted', 'Success!')", true);
-                Session["showdeleteStudent"] = null;
-                showdeleteStudent = false;
-            }
-            if (showUpdate == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-                "toastr.success('The Class Information Has Been Updated', 'Success!')", true);
-                Session["showUpdate"] = null;
-                showUpdate = false;
-            }
+         if (showdeleteStudent == true)
+         {
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('A Class Has Been Deleted', 'Success!')", true);
+            Session["showdeleteStudent"] = null;
+            showdeleteStudent = false;
+         }
+         if (showUpdate == true)
+         {
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('The Class Information Has Been Updated', 'Success!')", true);
+            Session["showUpdate"] = null;
+            showUpdate = false;
+         }
 
-            if (showFailSectionDelete == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-               "toastr.error('Cannot Delete A Section With Students', 'Fail!')", true);
-                Session["showFailSectionDelete"] = null;
-                showFailSectionDelete = false;
-            }
+         if (showFailSectionDelete == true)
+         {
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+           "toastr.error('Cannot Delete A Section With Students', 'Fail!')", true);
+            Session["showFailSectionDelete"] = null;
+            showFailSectionDelete = false;
+         }
 
-            if (showFailSectionUpdate == true)
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(),
-                "toastr_message",
-               "toastr.error('Cannot update section with duplicate values', 'Fail!')", true);
-                Session["showFailSectionUpdate"] = null;
-                showFailSectionUpdate = false;
-            }
-        }
+         if (showFailSectionUpdate == true)
+         {
+            Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+           "toastr.error('Cannot update section with duplicate values', 'Fail!')", true);
+            Session["showFailSectionUpdate"] = null;
+            showFailSectionUpdate = false;
+         }
+      }
 
       protected void GVClass_RowDataBound(object sender, GridViewRowEventArgs e)
       {
@@ -98,33 +98,33 @@ namespace QuestWebApp.Pages
 
          //Get the row that contains this button
          GridViewRow gvr = (GridViewRow)btn.NamingContainer;
-            try
-            {
+         try
+         {
 
-                OracleCommand cmdDeleteClass = new OracleCommand(@"
+            OracleCommand cmdDeleteClass = new OracleCommand(@"
 BEGIN
    sections.delete(
     p_SectionID => :p_SectionID);
 END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString));
-                cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
+            cmdDeleteClass.Parameters.AddWithValue("p_SectionID", GVClass.DataKeys[gvr.RowIndex].Value);
 
-                cmdDeleteClass.Connection.Open();
-                cmdDeleteClass.ExecuteNonQuery();
+            cmdDeleteClass.Connection.Open();
+            cmdDeleteClass.ExecuteNonQuery();
 
-                cmdDeleteClass.Connection.Close();
-                GVClass.DataBind();
+            cmdDeleteClass.Connection.Close();
+            GVClass.DataBind();
 
-                showdeleteStudent = true;
-                Session["showdeleteStudent"] = true;
-                Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            }
-            catch
-            {
-                showFailSectionDelete = true;
-                Session["showFailSectionDelete"] = true;
-                Response.Redirect(Request.RawUrl);
-            }
-        }
+            showdeleteStudent = true;
+            Session["showdeleteStudent"] = true;
+            Response.Redirect(Request.RawUrl); // to ensure message always shows up
+         }
+         catch
+         {
+            showFailSectionDelete = true;
+            Session["showFailSectionDelete"] = true;
+            Response.Redirect(Request.RawUrl);
+         }
+      }
 
       protected void btnSortUsers_Click(object sender, EventArgs e)
       {
@@ -135,7 +135,8 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
             if (ddlSortDirection.SelectedIndex == 0)
             {
                direction = SortDirection.Ascending;
-            } else
+            }
+            else
                direction = SortDirection.Descending;
 
             switch (ddlSortBy.SelectedIndex)
@@ -157,29 +158,15 @@ END;", new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB
 
       protected void GVClass_RowCommand(object sender, GridViewCommandEventArgs e)
       {
-         switch (e.CommandName.ToString())
-         {
-            case "Update":
-               try
-               {
-                  sqlAdminClasses.Update();
-               }
-               catch
-               {
-                        showFailSectionUpdate = true;
-                        Session["showFailSectionUpdate"] = true;
-                        Response.Redirect(Request.RawUrl);
-                    }
-               break;
-         }
+
       }
 
-        protected void sqlAdminClasses_Updating(object sender, SqlDataSourceCommandEventArgs e)
-        {
-            e.Cancel = true;
-        }
+      protected void sqlAdminClasses_Updating(object sender, SqlDataSourceCommandEventArgs e)
+      {
+         // e.Cancel = true;
+      }
 
-        protected void GVClass_DataBound(object sender, EventArgs e)
+      protected void GVClass_DataBound(object sender, EventArgs e)
       {
          foreach (GridViewRow row in GVClass.Rows)
          {
@@ -216,27 +203,37 @@ END;", connectionString);
       }
 
       protected void GVClass_PreRender(object sender, EventArgs e)
-        {
-            GridView grdView = (GridView)sender;
-            if (grdView.Rows.Count > 0)
-            {
-                //This replaces <td> with <th> and adds the scope attribute
-                grdView.UseAccessibleHeader = true;
+      {
+         GridView grdView = (GridView)sender;
+         if (grdView.Rows.Count > 0)
+         {
+            //This replaces <td> with <th> and adds the scope attribute
+            grdView.UseAccessibleHeader = true;
 
-                //This will add the <thead> and <tbody> elements
-                grdView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //This will add the <thead> and <tbody> elements
+            grdView.HeaderRow.TableSection = TableRowSection.TableHeader;
 
-                //This adds the <tfoot> element. 
-                //Remove if you don't have a footer row
-                grdView.FooterRow.TableSection = TableRowSection.TableFooter;
-            }
-        }
+            //This adds the <tfoot> element. 
+            //Remove if you don't have a footer row
+            grdView.FooterRow.TableSection = TableRowSection.TableFooter;
+         }
+      }
 
-        protected void GVClass_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {
+      protected void GVClass_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+      {
+         if (e.Exception == null)
+         {
             showUpdate = true;
             Session["showUpdate"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
-        }
-    }
+         }
+         else
+         {
+            showFailSectionUpdate = true;
+            Session["showFailSectionUpdate"] = true;
+            Response.Redirect(Request.RawUrl);
+         }
+
+      }
+   }
 }
