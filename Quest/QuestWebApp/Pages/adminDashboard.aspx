@@ -157,7 +157,7 @@ select *
                         <%--<asp:LinkButton ID="btnAddTeacher"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" Style="right: 13px; bottom: 13px" runat="server" OnClick="Button3_Click" ForeColor="White">
                         </asp:LinkButton>--%>
                         <br />
-                        <asp:Button ID="Button3" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="Button3_Click" ValidationGroup="grpAddUser"></asp:Button>
+                        <asp:Button ID="btnAddUser" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="add" OnClick="btnAddUser_Click" ValidationGroup="grpAddUser"></asp:Button>
                     </div>
                     <br />
                 </div>
@@ -197,7 +197,7 @@ select *
                                 <i id="myTest" class="material-icons">add</i>
                             </asp:LinkButton>--%>
                         <br />
-                            <asp:Button ID="Button1" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button1_Click" ValidationGroup="grpAddClass" />
+                            <asp:Button ID="btnAddClass" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="btnAddClass_Click" ValidationGroup="grpAddClass" />
 
                     </div>
                 </div>
@@ -267,7 +267,7 @@ SELECT L_NAME || ', ' || F_NAME as FULL_NAME, USER_ID
            <i class="material-icons">add</i>
                             </asp:LinkButton>--%>
                         <br />
-                            <asp:Button ID="btnaddSection" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="Button2_Click" ValidationGroup="grpAddSection" />
+                            <asp:Button ID="btnAddSection" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  ForeColor="White" runat="server" Text="Add" OnClick="btnAddSection_Click" ValidationGroup="grpAddSection" />
                     </div>
                 </div>
             </div>

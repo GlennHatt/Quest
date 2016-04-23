@@ -16,7 +16,8 @@ namespace QuestWebApp.Pages
 
       protected void btnTaketest_Click(object sender, EventArgs e)
       {
-         Response.Redirect("loginTest.aspx");
+         //Needs to have the correct redirect (preferably to go back to the previous page)
+         //Response.Redirect("Request.UrlReferrer.ToString()");
       }
    }
 }
