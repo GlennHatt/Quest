@@ -339,10 +339,10 @@ namespace QuestWebApp.Pages
                 }
                 catch
                 {
-
-                    showFailAddSectionMessage = true;
-                    Session["showFailAddSectionMessage"] = true;
-                    Response.Redirect(Request.RawUrl);
+                    clearClassFields();
+                    showFailAddClassMessage = true;
+                    Session["showFailAddClassMessage"] = true;
+                    Response.Redirect(Request.RawUrl); // to ensure message always shows up
                 }
             }
         }
