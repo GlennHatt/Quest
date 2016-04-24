@@ -16,7 +16,7 @@ namespace QuestWebApp.Pages
          
          displayGreeting();
             lstStudentTests.DataBind();
-            System.Diagnostics.Debug.WriteLine("count is" + lstStudentTests.Items.Count);
+            //System.Diagnostics.Debug.WriteLine("count is" + lstStudentTests.Items.Count);
             if (lstStudentTests.Items.Count > 0)
                 isTest = true;
             else
