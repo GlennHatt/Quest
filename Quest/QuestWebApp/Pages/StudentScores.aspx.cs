@@ -19,6 +19,7 @@ namespace QuestWebApp.Pages
       {
 
             string classGrade = "";
+
             OracleCommand cmdClassGrade = new OracleCommand(@"
 SELECT COALESCE(CAST(ROUND((SUM(qt.points_earned)/SUM(DISTINCT t.possible_points))*100, 2) as varchar(200)), 'No Grades Yet') as class_grade
                    FROM test t
