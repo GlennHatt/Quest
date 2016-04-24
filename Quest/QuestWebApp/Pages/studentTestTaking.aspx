@@ -296,9 +296,9 @@ SELECT choice_id, choice_text
      //window.on
 
         window.onbeforeunload = function () {
-setTimeout(function () {
+<%--setTimeout(function () {
                     document.getElementById("<%=btnSaveTest.ClientID%>").click();
-            }, 1500);
+            }, 1500);--%>
 
             
 
