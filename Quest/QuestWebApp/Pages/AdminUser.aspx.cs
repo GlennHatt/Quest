@@ -39,7 +39,7 @@ namespace QuestWebApp.Pages
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(),
             "toastr_message",
-            "toastr.success('The student&apos;s information has been updated', 'Success!')", true);
+            "toastr.success('The user&apos;s information has been updated', 'Success!')", true);
                 Session["showUpdate"] = null;
                 showUpdate = false;
 
@@ -314,8 +314,6 @@ namespace QuestWebApp.Pages
             showUpdate = true;
             Session["showUpdate"] = true;
             Response.Redirect(Request.RawUrl); // to ensure message always shows up
-            Console.WriteLine("test");
-            // Response.Redirect(Request.RawUrl);
         }
 
         protected void GVUser_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

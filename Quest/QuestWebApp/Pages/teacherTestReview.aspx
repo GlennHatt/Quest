@@ -73,6 +73,15 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                         <div class="mdl-card__supporting-text" style="text-align: center" ID="divQuestion">
                             <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
+                            <div id="helpIconPass" class="icon material-icons" style="">help</div>
+                        <div class="mdl-tooltip" for="helpIconPass">
+                            Removes question from all student tests
+                                <br>and the question will not affect 
+                                <br />the grade of the test. If question 
+                                <br /> point value is updated after being,
+                                <br />thrown out, point value will only affect
+                                <br />the current student grade.
+                        </div>
                             <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />

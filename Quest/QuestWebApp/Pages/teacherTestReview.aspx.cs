@@ -16,8 +16,10 @@ namespace QuestWebApp.Pages
    public partial class teacherTestReview : System.Web.UI.Page
    {
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        bool showUpdate,
+             showThrow;
 
-      protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
       {
          if (!IsPostBack)
          {
@@ -52,8 +54,39 @@ namespace QuestWebApp.Pages
 
             }
 
+            if (Session["showUpdate"] != null)
+                showUpdate = (bool)Session["showUpdate"];
+            else
+                showUpdate = false;
 
-      }
+            if (Session["showThrow"] != null)
+                showThrow = (bool)Session["showThrow"];
+            else
+                showThrow = false;
+
+
+            if (showUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('The question&apos;s grade has been updated', 'Success!')", true);
+                Session["showUpdate"] = null;
+                showUpdate = false;
+
+            }
+
+            if (showThrow == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('The question has been removed from all tests', 'Success!')", true);
+                Session["showThrow"] = null;
+                showThrow = false;
+
+            }
+
+
+        }
 
       /*protected void OnLayoutCreated(object sender, EventArgs e)
       {
@@ -301,6 +334,12 @@ END;", connectionString);
                 cmdUpdateThePoints.Connection.Open();
                 cmdUpdateThePoints.ExecuteNonQuery();
                 cmdUpdateThePoints.Connection.Close();
+
+                // Toast
+                showThrow = true;
+                Session["showThrow"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
                 break;
 
             case "cmdUpdate":
@@ -331,7 +370,12 @@ END;", connectionString);
                 cmdUpdatePoints.ExecuteNonQuery();
                 cmdUpdatePoints.Connection.Close();
 
-                break;
+                // toast
+                showUpdate = true;
+                Session["showUpdate"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
+                    break;
          }
 
       }
