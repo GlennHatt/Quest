@@ -17,7 +17,8 @@
                 <h1>Classes</h1>
                         <!-- Textfield with Floating DropDown for user type -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" AutoPostBack="true" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="SECTION_ID" OnSelectedIndexChanged="ddlStudentClasses_SelectedIndexChanged">
+                            <asp:DropDownList class="mdl-textfield__input" ID="ddlStudentClasses" runat="server" AutoPostBack="true" DataSourceID="classesDropDown" DataTextField="students_classes" DataValueField="SECTION_ID" OnSelectedIndexChanged="ddlStudentClasses_SelectedIndexChanged" AppendDataBoundItems="true">
+                                <asp:ListItem Value="-1" Text="- Select a class -" />
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="classesDropDown" runat="server" ConnectionString="<%$ ConnectionStrings:ProductionDB %>" ProviderName="<%$ ConnectionStrings:ProductionDB.ProviderName %>" SelectCommand="
                                  SELECT section_id, c.code || '-' || s.section_number || '/' || c.title as students_classes
