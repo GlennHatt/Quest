@@ -31,10 +31,10 @@ END;",
 
          cmdCheated.Connection.Open();
          cmdCheated.ExecuteNonQuery();
-
-         Response.Redirect("~/Pages/studentGradeOverview.aspx");
-
          cmdCheated.Connection.Close();
+
+         Session["testTakingID"] = null;
+         Response.Redirect("~/Pages/studentGradeOverview.aspx");
       }
 
       protected void btnNoCheat_Click(object sender, EventArgs e)
@@ -63,8 +63,10 @@ END;",
 
          cmdPledgeCheck.Connection.Open();
          cmdPledgeCheck.ExecuteNonQuery();
+         int approval = int.Parse(Convert.ToString(cmdPledgeCheck.Parameters["approval"].Value));
+         cmdPledgeCheck.Connection.Close();
 
-         if (int.Parse(Convert.ToString(cmdPledgeCheck.Parameters["approval"].Value)) == 1)
+         if (approval == 1)
          {
             OracleCommand cmdCheated = new OracleCommand(@"
 BEGIN
@@ -78,17 +80,11 @@ END;",
 
             cmdCheated.Connection.Open();
             cmdCheated.ExecuteNonQuery();
-
-            Response.Redirect("~/Pages/studentGradeOverview.aspx");
-
             cmdCheated.Connection.Close();
 
-            btnNoCheat.Text = "SUCCESS";
-            //Session["TestTakenID"] = 115;
+            Session["testTakingID"] = null;
             Response.Redirect("~/Pages/studentGradeOverview.aspx");
          }
-
-         cmdPledgeCheck.Connection.Close();
       }
    }
 }

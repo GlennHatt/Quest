@@ -59,11 +59,11 @@ namespace QuestWebApp.Pages
                {
                   try
                   {
-                     Session["testTakenID"] = int.Parse(reader.GetValue(0).ToString());
+                     Session["testTakingID"] = int.Parse(reader.GetValue(0).ToString());
                   }
                   catch
                   {
-                     Session["testTakenID"] = null;
+                     Session["testTakingID"] = null;
                   }
                }
             }
@@ -73,7 +73,7 @@ namespace QuestWebApp.Pages
             }
             cmdLoadTest.Connection.Close();
 
-            if (Session["testTakenID"] == null)
+            if (Session["testTakingID"] == null)
             {
                cmdLoadTest = new OracleCommand(@"
 SELECT time_limit, restore_test
@@ -108,7 +108,7 @@ SELECT time_left, restore_test
   FROM test
        JOIN test_taken USING (test_id)
  WHERE test_taken_id = :p_TestTakenID", connectionString);
-               cmdLoadTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+               cmdLoadTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
 
                cmdLoadTest.Connection.Open();
                reader = cmdLoadTest.ExecuteReader();
@@ -162,12 +162,13 @@ SELECT time_left, restore_test
 BEGIN
     TESTS_TAKEN.updateGrade(p_TestTakenID => :p_TestTakenID);
 END;", connectionString);
-         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["TestTakenID"]);
+         cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
 
          cmdGradeQuestion.Connection.Open();
          cmdGradeQuestion.ExecuteNonQuery();
          cmdGradeQuestion.Connection.Close();
 
+         Session["TestTakenID"] = Session["testTakingID"];
          Response.Redirect("~/Pages/studentPledgePage.aspx");
 
       }
@@ -294,7 +295,7 @@ END;", connectionString);
             }
          }
 
-         if (Session["testTakenID"] == null)
+         if (Session["testTakingID"] == null)
          {
             cmdGradeQuestion = new OracleCommand(@"
 BEGIN
@@ -311,7 +312,7 @@ END;", connectionString);
             cmdGradeQuestion.Connection.Open();
             cmdGradeQuestion.ExecuteNonQuery();
 
-            Session["testTakenID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
+            Session["testTakingID"] = Convert.ToInt32(cmdGradeQuestion.Parameters["v_TestTakenID"].Value);
 
             cmdGradeQuestion.Connection.Close();
          }
@@ -323,7 +324,7 @@ BEGIN
     p_TestTakenID => :p_TestTakenID,
     p_TimeLeft    => :p_TimeLeft);
 END;", connectionString);
-            cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+            cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
             cmdGradeQuestion.Parameters.AddWithValue("p_TimeLeft", timerTime);
 
             cmdGradeQuestion.Connection.Open();
@@ -346,7 +347,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_Essay       => :p_Essay);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Essay", ((TextBox)item.FindControl("txtEAnswer")).Text);
 
@@ -364,7 +365,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_ChoiceID);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_ChoiceID", ((RadioButtonList)item.FindControl("rblMCAnswer")).SelectedValue);
 
@@ -380,7 +381,7 @@ BEGIN
     p_QuestionID    => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((TextBox)item.FindControl("txtSAAnswer")).Text);
 
@@ -396,7 +397,7 @@ BEGIN
     p_QuestionID  => :p_QuestionID,
     p_StudentAnswer => :p_Answer);
 END;", connectionString);
-                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                  cmdGradeQuestion.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                   cmdGradeQuestion.Parameters.AddWithValue("p_QuestionID", questionID);
                   cmdGradeQuestion.Parameters.AddWithValue("p_Answer", ((RadioButtonList)item.FindControl("rblTFAnswer")).SelectedValue);
 
@@ -434,7 +435,7 @@ END;", connectionString);
          String progressBar = String.Empty;
          string progressElement = string.Empty;
 
-         if (Session["testTakenID"] != null)
+         if (Session["testTakingID"] != null)
          {
             foreach (ListViewItem item in lstQuestions.Items)
             {
@@ -450,7 +451,7 @@ SELECT essay
        JOIN question_taken USING (question_taken_id)
  WHERE test_taken_id = :p_TestTakenID
        AND question_id = :p_QuestionID", connectionString);
-                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                      cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
                      cmdRestoreTest.Connection.Open();
                      OracleDataReader reader = cmdRestoreTest.ExecuteReader();
@@ -478,7 +479,7 @@ SELECT student_choice
        JOIN question_taken q USING (question_taken_id)
  WHERE test_taken_id = :p_TestTakenID
        AND q.question_id = :p_QuestionID", connectionString);
-                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                      cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
                      cmdRestoreTest.Connection.Open();
                      reader = cmdRestoreTest.ExecuteReader();
@@ -507,7 +508,7 @@ SELECT answer
        JOIN question_taken USING (question_taken_id)
  WHERE test_taken_id = :p_TestTakenID
        AND question_id = :p_QuestionID", connectionString);
-                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                      cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
                      cmdRestoreTest.Connection.Open();
                      reader = cmdRestoreTest.ExecuteReader();
@@ -537,7 +538,7 @@ SELECT points_earned, answer
        JOIN question_true_false USING (question_id)
  WHERE test_taken_id = :p_TestTakenID
        AND question_id = :p_QuestionID", connectionString);
-                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakenID"]);
+                     cmdRestoreTest.Parameters.AddWithValue("p_TestTakenID", Session["testTakingID"]);
                      cmdRestoreTest.Parameters.AddWithValue("p_QuestionID", questionID);
                      cmdRestoreTest.Connection.Open();
                      reader = cmdRestoreTest.ExecuteReader();
