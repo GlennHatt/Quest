@@ -18,6 +18,7 @@ namespace QuestWebApp.Pages
         protected void Page_Load(object sender, EventArgs e)
       {
             string classGrade = "";
+            cardClassAverage.Visible = false;
 
             OracleCommand cmdClassGrade = new OracleCommand(@"
 SELECT COALESCE(CAST(ROUND(AVG(tt.points_earned / t.possible_points)*100, 2) as varchar(200)), 'No Grades Yet')as class_grade
@@ -54,6 +55,12 @@ SELECT COALESCE(CAST(ROUND(AVG(tt.points_earned / t.possible_points)*100, 2) as 
         {
             lstTestInfo.DataBind();
             lbltestAverage.DataBind();
+            cardClassAverage.Visible = true;
+
+            if(ddlStudentClasses.SelectedValue == "-1")
+            {
+                cardClassAverage.Visible = false;
+            }
         }
     }
 }

@@ -51,7 +51,7 @@
              
 
             <div class="mdl-cell mdl-cell--4-col">
-            <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card">
+            <div class="demo-card-wide mdl-card-testAverage mdl-shadow--3dp demo-card-square mdl-card" id="cardClassAverage" runat="server">
                 <div class="mdl-card__supporting-text" style="text-align: center">
                         <div style="font-size:30pt">Class Average</div>
                         <br /> <br /> <br /> <br />
