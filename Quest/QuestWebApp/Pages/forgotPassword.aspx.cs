@@ -13,7 +13,8 @@ namespace QuestWebApp.Pages
 {
    public partial class forgotPassword : System.Web.UI.Page
    {
-      bool showMessage;
+      bool showMessage, 
+            showError;
       protected void Page_Load(object sender, EventArgs e)
       {
          if (Session["showMessage"] != null)
@@ -21,14 +22,27 @@ namespace QuestWebApp.Pages
          else
             showMessage = false;
 
-         if (showMessage == true)
+            if (Session["showError"] != null)
+                showError = (bool)Session["showError"];
+            else
+                showError = false;
+
+            if (showMessage == true)
          {
             Page.ClientScript.RegisterStartupScript(this.GetType(),
             "toastr_message",
             "toastr.success('Message has been sent', 'Success!')", true);
             Session["showMessage"] = false;
          }
-      }
+
+            if (showError == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+                "toastr_message",
+                "toastr.error('Student ID and email must be for currently logged on windows user', 'Error!')", true);
+                Session["showError"] = false;
+            }
+        }
 
       protected void btnSendMessage_Click(object sender, EventArgs e)
       {
@@ -40,31 +54,42 @@ namespace QuestWebApp.Pages
 
       protected void sendEmail()
       {
-         SmtpClient smtpClient = new SmtpClient("students.pcci.edu", 25);
-
-         smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\" + txtbxStudentID.Text, "password");
-         smtpClient.UseDefaultCredentials = true;
-         smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-         smtpClient.EnableSsl = true;
-
-         MailMessage mail = new MailMessage();
-
-         //Setting From , To and CC
-         mail.From = new MailAddress(txtbxStudentEmail.Text, txtbxStudentID.Text);
-            // THIS NEEDS REPLACED WITH THE SELECTED ADMIN'S EMAIL
-         mail.To.Add(new MailAddress(ddlAdmins.SelectedValue));
-         mail.Subject = txtbxStudentLogin.Text + " Password Reset";
-         mail.Body = txtbxMessageBody.Value;
+            try
+            {
 
 
-         // Accepts all certificates
-         ServicePointManager.ServerCertificateValidationCallback =
-         delegate (object s, X509Certificate certificate,
-          X509Chain chain, SslPolicyErrors sslPolicyErrors)
-         { return true; };
+                SmtpClient smtpClient = new SmtpClient("students.pcci.edu", 25);
+
+                smtpClient.Credentials = new System.Net.NetworkCredential("studentnet\\" + txtbxStudentID.Text, "password");
+                smtpClient.UseDefaultCredentials = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.EnableSsl = true;
+
+                MailMessage mail = new MailMessage();
+
+                //Setting From , To and CC
+                mail.From = new MailAddress(txtbxStudentEmail.Text, txtbxStudentID.Text);
+                // THIS NEEDS REPLACED WITH THE SELECTED ADMIN'S EMAIL
+                mail.To.Add(new MailAddress(ddlAdmins.SelectedValue));
+                mail.Subject = txtbxStudentLogin.Text + " Password Reset";
+                mail.Body = txtbxMessageBody.Value;
 
 
-         smtpClient.Send(mail);
+                // Accepts all certificates
+                ServicePointManager.ServerCertificateValidationCallback =
+                delegate (object s, X509Certificate certificate,
+                 X509Chain chain, SslPolicyErrors sslPolicyErrors)
+                { return true; };
+
+
+                smtpClient.Send(mail);
+            }
+            catch
+            {
+                showError = true;
+                Session["showError"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+            }
       }
 
       protected void btnbackToLogin_Click(object sender, EventArgs e)
