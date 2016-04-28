@@ -67,13 +67,13 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
     
 
         <!-- TRUE/FALSE QUESTIONS -->
-        <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnItemCommand="lstQuestions_ItemCommand">
+        <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnItemCommand="lstQuestions_ItemCommand" OnDataBound="lstQuestions_DataBound">
             <ItemTemplate>
                 <div id="questionCard" class="mdl-cell mdl-cell--6-col" runat="server">
                     <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                         <div class="mdl-card__supporting-text" style="text-align: center" ID="divQuestion">
-                            <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
-                            <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
+                            <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
+                            <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
                                 <asp:HiddenField ID="hdnQuestionTakenID" Value='<%# Eval("question_taken_id") %>' runat="server" />
@@ -86,25 +86,25 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                         <!-- Essay -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divE">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblEQuestion" class="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                <asp:Label ID="txtEAnswer" class="mdl-textfield__input" Text='<%# Eval("essay_text") %>' runat="server"/>
+                                <asp:Label ID="lblEQuestion" CssClass="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
+                                <asp:Label ID="txtEAnswer" CssClass="mdl-textfield__input" Text='<%# Eval("essay_text") %>' runat="server"/>
                             </div>
                         </div>
                         <!-- Matching -->
                         <!-- Multiple Choice -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divMC">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblMCQuestion" class="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
-                                <asp:Label ID="lblMCAnswer" class="mdl-textfield__input" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
+                                <asp:Label ID="lblMCQuestion" CssClass="mdl-textfield" Text='<%# Eval("multiple_choice_question") %>' runat="server" />
+                                <asp:Label ID="lblMCAnswer" CssClass="mdl-textfield__input" Text='<%# Eval("multiple_choice_choice") %>' runat="server" />
                             </div>
                         </div>
                         <!-- Short Answer -->
                         <div runat="server" class="mdl-card__supporting-text" style="text-align: center" ID="divSA">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <asp:Label ID="lblBeforeText" class="mdl-textfield" Text='<%# Eval("short_answer_before_text") %>' runat="server" />
+                                <asp:Label ID="lblBeforeText" CssClass="mdl-textfield" Text='<%# Eval("short_answer_before_text") %>' runat="server" />
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <asp:Label ID="txtSAAnswer" runat="server" Text='<%# Eval("short_answer_answer") %>' class="mdl-textfield__input"/>
-                                    <asp:Label ID="lblAfterText" class="mdl-textfield" Text='<%# Eval("short_answer_after_text") %>' runat="server"/>
+                                    <asp:Label ID="txtSAAnswer" runat="server" Text='<%# Eval("short_answer_answer") %>' CssClass="mdl-textfield__input"/>
+                                    <asp:Label ID="lblAfterText" CssClass="mdl-textfield" Text='<%# Eval("short_answer_after_text") %>' runat="server"/>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
         </asp:ListView>
 
         <div style="position: fixed; right: 41px; bottom: 15px; z-index: 2;">
-        <asp:Button ID="btnFinishGrading" Height="53px" ForeColor="White" BackColor="Green" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Finished Grading" OnClick="btnFinishGrading_Click"/>
+        <asp:Button ID="btnFinishGrading" Height="53px" ForeColor="White" BackColor="Green" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" runat="server" Text="Finished Grading" OnClick="btnFinishGrading_Click"/>
     </div>
        
             </div>
