@@ -163,7 +163,7 @@ SELECT q.question_id, weight, type, test_order,
                             <div runat="server" class="mdl-card__supporting-text" style="text-align: center" id="divE">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:Label ID="lblEQuestion" CssClass="mdl-textfield" Text='<%# Eval("essay_question") %>' runat="server" />
-                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" CssClass="mdl-textfield__input" OnTextChanged="questionChanged"/>
+                                    <asp:TextBox ID="txtEAnswer" runat="server" TextMode="MultiLine" CssClass="mdl-textfield__input" OnTextChanged="questionChanged" BorderStyle="Inset" />
                                 </div>
                             </div>
                             <!-- Matching -->

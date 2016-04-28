@@ -20,7 +20,7 @@
             <div class="title">LOGIN</div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-                <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">User Name:</label>
+                <label class="mdl-textfield__label" style="bottom:0px;" for="sample3">User Name (case sensitive):</label>
                 <asp:TextBox ID="username" runat="server" CssClass="mdl-textfield__input"></asp:TextBox>
             </div>
 

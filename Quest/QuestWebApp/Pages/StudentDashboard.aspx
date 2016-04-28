@@ -66,9 +66,10 @@ SELECT t.test_id, eu.user_id, 'Test Name: ' || t.title AS test_title, 'Class: ' 
        JOIN end_user   eu ON    (eu.user_id = e.student_id)
        LEFT OUTER JOIN test_taken tt ON (tt.test_id = t.test_id AND e.enrollment_id = tt.enrollment_id)
  WHERE student_id = :p_UserID
-       AND sysdate &lt; due_date
-       AND sysdate &gt; due_date - effective_date
-       AND cheated IS NULL">
+       AND sysdate &lt;= due_date
+       AND sysdate &gt;= due_date - effective_date
+       AND cheated IS NULL
+           ORDER BY t.due_date asc">
                     <SelectParameters>
                         <asp:SessionParameter Name="p_UserID" SessionField="UserID"/>
                     </SelectParameters>

@@ -16,8 +16,10 @@ namespace QuestWebApp.Pages
    public partial class teacherTestReview : System.Web.UI.Page
    {
       OracleConnection connectionString = new OracleConnection(ConfigurationManager.ConnectionStrings["ProductionDB"].ConnectionString); // Connection String.
+        bool showUpdate,
+             showThrow;
 
-      protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
       {
          if (!IsPostBack)
          {
@@ -52,8 +54,39 @@ namespace QuestWebApp.Pages
 
             }
 
+            if (Session["showUpdate"] != null)
+                showUpdate = (bool)Session["showUpdate"];
+            else
+                showUpdate = false;
 
-      }
+            if (Session["showThrow"] != null)
+                showThrow = (bool)Session["showThrow"];
+            else
+                showThrow = false;
+
+
+            if (showUpdate == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('The question&apos;s grade has been updated', 'Success!')", true);
+                Session["showUpdate"] = null;
+                showUpdate = false;
+
+            }
+
+            if (showThrow == true)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(),
+            "toastr_message",
+            "toastr.success('The question has been removed from all tests', 'Success!')", true);
+                Session["showThrow"] = null;
+                showThrow = false;
+
+            }
+
+
+        }
 
       /*protected void OnLayoutCreated(object sender, EventArgs e)
       {
@@ -208,9 +241,9 @@ namespace QuestWebApp.Pages
                e.Item.FindControl("divSA").Visible = false;
 
                string answer = ((HiddenField)e.Item.FindControl("hdnTFAnswer")).Value;
-                    int stuff;
+                    float stuff;
                     try { 
-                        stuff = int.Parse(((HiddenField)e.Item.FindControl("hdnTFPointsEarned")).Value);
+                        stuff = float.Parse(((HiddenField)e.Item.FindControl("hdnTFPointsEarned")).Value);
                     }
                     catch
                     {
@@ -279,7 +312,7 @@ namespace QuestWebApp.Pages
 BEGIN
   questions_taken.dropQuestion(:p_QuestionID);
 END;", connectionString);
-               cmdThrow.Parameters.AddWithValue("p_QuestionID", int.Parse(((HiddenField)e.Item.FindControl("hdnQuestionID")).Value));
+               cmdThrow.Parameters.AddWithValue("p_QuestionID", float.Parse(((HiddenField)e.Item.FindControl("hdnQuestionID")).Value));
                cmdThrow.Connection.Open();
                cmdThrow.ExecuteNonQuery();
                cmdThrow.Connection.Close();
@@ -301,6 +334,12 @@ END;", connectionString);
                 cmdUpdateThePoints.Connection.Open();
                 cmdUpdateThePoints.ExecuteNonQuery();
                 cmdUpdateThePoints.Connection.Close();
+
+                // Toast
+                showThrow = true;
+                Session["showThrow"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
                 break;
 
             case "cmdUpdate":
@@ -308,8 +347,8 @@ END;", connectionString);
 BEGIN
   questions_taken.changePointsEarned(:p_QuestionTakenID, :p_PointsEarned);
 END;", connectionString);
-               cmdUpdate.Parameters.AddWithValue("p_QuestionTakenID", int.Parse(((HiddenField)e.Item.FindControl("hdnQuestionTakenID")).Value));
-               cmdUpdate.Parameters.AddWithValue("p_PointsEarned", int.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
+               cmdUpdate.Parameters.AddWithValue("p_QuestionTakenID", float.Parse(((HiddenField)e.Item.FindControl("hdnQuestionTakenID")).Value));
+               cmdUpdate.Parameters.AddWithValue("p_PointsEarned", float.Parse(((TextBox)e.Item.FindControl("txtPointsEarned")).Text));
                cmdUpdate.Connection.Open();
                cmdUpdate.ExecuteNonQuery();
                cmdUpdate.Connection.Close();
@@ -331,7 +370,12 @@ END;", connectionString);
                 cmdUpdatePoints.ExecuteNonQuery();
                 cmdUpdatePoints.Connection.Close();
 
-                break;
+                // toast
+                showUpdate = true;
+                Session["showUpdate"] = true;
+                Response.Redirect(Request.RawUrl); // to ensure message always shows up
+
+                    break;
          }
 
       }
@@ -340,7 +384,17 @@ END;", connectionString);
       {
          foreach(ListViewItem item in lstQuestions.Items)
          {
+            if (item.DataItemIndex > 0)
+               item.FindControl("helpIcon").Visible = false;
 
+               if (((Label)item.FindControl("lblPossiblePoints")).Text == String.Empty)
+            {
+               ((TextBox)item.FindControl("txtPointsEarned")).Enabled = false;
+               ((Button)item.FindControl("btnThrowQuestion")).BackColor = Color.Gray;
+               ((Button)item.FindControl("btnThrowQuestion")).Enabled = false;
+               ((Button)item.FindControl("btnUpdatePoints")).BackColor = Color.Gray;
+               ((Button)item.FindControl("btnUpdatePoints")).Enabled = false;
+            }
          }
       }
    }
