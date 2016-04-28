@@ -66,6 +66,19 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                 </div>
             </div>
 
+            <style>
+
+                .fixbutton {
+                    float: left;
+                }
+
+                 .fixbutton2 {
+                    top: 0px;
+                    float: left;
+                    margin-left:10px;
+                }
+            </style>
+
 
             <!-- TRUE/FALSE QUESTIONS -->
             <asp:ListView ID="lstQuestions" runat="server" DataSourceID="sqlTestQuestions" OnItemDataBound="lstQuestions_ItemDataBound" OnItemCommand="lstQuestions_ItemCommand" OnDataBound="lstQuestions_DataBound">
@@ -73,7 +86,7 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                     <div id="questionCard" class="mdl-cell mdl-cell--6-col" runat="server">
                         <div class="demo-card-wide mdl-card-addClass mdl-shadow--6dp demo-card-square mdl-card">
                             <div class="mdl-card__supporting-text" style="text-align: center" id="divQuestion">
-                                <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
+                                <asp:Button ID="btnThrowQuestion" Text="Throw Out?" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored fixbutton" ForeColor="White" BackColor="#FF6E40" CommandName="cmdThrow" CommandArgument='<%#Bind("question_id") %>' />
                                 <div id="helpIcon" runat="server">
                                 <div id="helpIconPass" class="icon material-icons" style="width: 24px;float: left;">help</div>
                                 <div class="mdl-tooltip" for="helpIconPass">
@@ -84,7 +97,7 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
                                     the grade of the test.
                                 </div>
                                     </div>
-                                <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
+                                <asp:Button ID="btnUpdatePoints" Text="Update" runat="server" CssClass="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect--colored fixbutton2" ForeColor="White" BackColor="#FF6E40" CommandName="cmdUpdate" CommandArgument='<%#Bind("question_taken_id") %>' />
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <asp:HiddenField ID="hdnQuestionID" Value='<%# Eval("question_id") %>' runat="server" />
                                     <asp:HiddenField ID="hdnQuestionTakenID" Value='<%# Eval("question_taken_id") %>' runat="server" />
