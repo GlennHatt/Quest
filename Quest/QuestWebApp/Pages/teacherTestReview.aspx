@@ -24,7 +24,7 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
      --mt.question_text AS matching_question_taken,
      
        mc.question_text   AS multiple_choice_question,
-       mct.student_choice AS multiple_choice_choice,
+       mcb.choice_text AS multiple_choice_choice,
        
        tf.question_text AS true_false_question,
        tf.answer        AS true_false_answer,
@@ -36,8 +36,9 @@ SELECT q.test_order, q.question_id as question_id, q.weight as weight, q.type as
   FROM question_taken qt
        LEFT OUTER JOIN question q                         ON    (q.question_id = qt.question_id)
        LEFT OUTER JOIN question_taken_essay           et  USING (question_taken_id)
-       LEFT OUTER JOIN question_taken_matching        mt  USING (question_taken_id)
+     --LEFT OUTER JOIN question_taken_matching        mt  USING (question_taken_id)
        LEFT OUTER JOIN question_taken_multiple_choice mct USING (question_taken_id)
+       LEFT OUTER JOIN question_multiple_choice_body  mcb ON    (student_choice = choice_id)
        LEFT OUTER JOIN question_taken_short_answer    sat USING (question_taken_id)
      --LEFT OUTER JOIN question_taken                 tft USING (question_taken_id)
        LEFT OUTER JOIN question_essay                 e   ON    (q.question_id = e.question_id  AND q.type = 'E')
